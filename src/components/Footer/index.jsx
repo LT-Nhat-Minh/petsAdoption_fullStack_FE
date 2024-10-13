@@ -9,7 +9,7 @@ import {
 import React from "react";
 import "./style.scss";
 import { FacebookEmbed } from "react-social-media-embed";
-import logo from "../../asset/Logo/hanoi-adoption-logo.png";
+import logo from "../../asset/Logo/Logo.png";
 
 function Footer(props) {
   const htmlString = `<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D556869793147502%26set%3Da.556869763147505&show_text=true&width=500" width="500" height="614" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>`;

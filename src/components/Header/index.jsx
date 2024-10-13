@@ -6,7 +6,7 @@ import {
   PhoneOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
-import logo from "../../asset/Logo/hanoi-adoption-logo.png";
+import logo from "../../asset/Logo/Logo.png";
 
 function Header(props) {
   return (
