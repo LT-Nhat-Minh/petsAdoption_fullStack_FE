@@ -11,8 +11,7 @@ import { FacebookEmbed } from "react-social-media-embed";
 import logo from "../../asset/Logo/hanoi-adoption-logo.png";
 
 function Footer(props) {
-  const htmlString = `<div class="fb-post" data-href="https://www.facebook.com/photo/?fbid=556869793147502&amp;set=a.556869763147505" data-width="500" data-show-text="true"><blockquote cite="https://www.facebook.com/photo.php?fbid=556869793147502&amp;set=a.556869763147505&amp;type=3" class="fb-xfbml-parse-ignore"><p>THÔNG TIN NHẬN QUYÊN GÓP - Nhận Nuôi Thú Cưng - Hanoi Pet Adoption
-Điều mong ước lớn nhất của nhóm hiện tại là sẽ xây...</p>Người đăng: <a href="https://www.facebook.com/hanoipetadoption">Nhận Nuôi Thú Cưng - Hanoi Pet Adoption</a> vào&nbsp;<a href="https://www.facebook.com/photo.php?fbid=556869793147502&amp;set=a.556869763147505&amp;type=3">Thứ Tư, 25 tháng 1, 2023</a></blockquote></div>`;
+  const htmlString = `<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D556869793147502%26set%3Da.556869763147505&show_text=true&width=500" width="500" height="614" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>`;
 
   return (
     <div className="footer">
