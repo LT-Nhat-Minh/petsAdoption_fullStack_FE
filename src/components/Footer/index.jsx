@@ -1,4 +1,5 @@
 import {
+  EnvironmentOutlined,
   FacebookOutlined,
   InstagramOutlined,
   MailOutlined,
@@ -46,18 +47,30 @@ function Footer(props) {
               </p>
               <h3>Thông tin liên hệ</h3>
               <hr />
-              <ul style={{ listStyleType: "none" }}>
+              <ul style={{ all: "unset", listStyleType: "none" }}>
                 <li>
-                  <a href="/contact">
-                    <PhoneOutlined />
-                    (+84)39 320 1068
-                  </a>
+                  <p>
+                    <a href="/contact">
+                      <PhoneOutlined style={{ marginRight: "10px" }} />
+                      <span style={{ color: "#018ae0" }}>(+84)39 320 1068</span>
+                    </a>
+                  </p>
                 </li>
                 <li>
-                  <a href="/email">
-                    <MailOutlined />
-                    hanoipetadoption@gmail.com
-                  </a>
+                  <p>
+                    <a href="/email">
+                      <MailOutlined style={{ marginRight: "10px" }} />
+                      <span style={{ color: "#018ae0" }}>
+                        hanoipetadoption@gmail.com
+                      </span>
+                    </a>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <EnvironmentOutlined style={{ marginRight: "10px" }} />
+                    Hà Nội - Việt Nam
+                  </p>
                 </li>
               </ul>
             </div>

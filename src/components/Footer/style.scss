@@ -9,12 +9,16 @@
     justify-content: center;
     & a{
         all: unset;
-        &:hover{
-            color: #d61c62;
+        & > span:hover{
+            color: #d61c62 !important;
             cursor: pointer;
         }
     }
-    width: 100%;
+    & hr{
+        width: 60px;
+        margin: 0;
+        border: 1px solid #aaa;
+    }
 }
 .footer_content{
     display: flex;
