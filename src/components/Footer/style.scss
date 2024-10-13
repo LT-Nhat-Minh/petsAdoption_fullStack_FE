@@ -1,0 +1,53 @@
+.footer{
+    background-image: url("../../asset/Footer/pattern1.png");
+    background-position: center bottom;
+    background-repeat: repeat-x;
+}
+
+.footer_container{
+    display: flex;
+    justify-content: center;
+    & a{
+        all: unset;
+        &:hover{
+            color: #d61c62;
+            cursor: pointer;
+        }
+    }
+    width: 100%;
+}
+.footer_content{
+    display: flex;
+    & > div{
+        padding: 0 15px;
+        &:first-child > div{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            gap: 20px;
+            & > a{
+                font-size: 28px;
+                &:hover{
+                    color:#d61c62;
+                    cursor: pointer;
+                }
+            }
+        }
+        &:last-child{
+            display: flex;
+            justify-content: center;
+            & >  div{
+                width: 350px;
+                padding: 0 15px;
+            }
+        }
+    }
+}
+
+.footer_credits{
+    display: flex;
+    justify-content: center;
+    padding: 10px 0 80px 0;
+    font-weight: 700;
+    font-size: 14px;
+}

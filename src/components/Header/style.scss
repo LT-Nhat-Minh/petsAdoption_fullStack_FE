@@ -1,0 +1,67 @@
+.header_contact{
+    width: 100%;
+    background-color: #ffcd28;
+    color: white;
+    & > .header_contact_container{
+        display: flex;
+        width: 900px;
+        justify-content: space-between;
+        align-items: center;
+        margin: auto;
+        & > div{
+            display: flex;
+            gap: 20px;
+            font-weight: 600;
+            letter-spacing: .2px;
+            font-size: 14px;
+            & > div{
+                display: flex;
+                gap: 5px;
+            }
+            & > a{
+                all: unset;
+                display: flex;
+                gap: 5px;
+                &:hover{
+                    color:#d61c62;
+                    cursor: pointer;
+                }
+            }
+            & > .searchOutlined{
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: font-size 0.3s;
+                &:hover{
+                    font-size: 24px;
+                    color: #d61c62;
+                    cursor: pointer;
+                }
+            }
+        } 
+    }
+}
+.header_nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    background-color: white;
+    gap: 30px;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+    & > div > a{
+        all: unset;
+        border: none;
+        background-color: white;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: .2px;
+    }
+    & > div > a:hover{
+        color: #d61c62;
+        cursor: pointer;
+    }
+}

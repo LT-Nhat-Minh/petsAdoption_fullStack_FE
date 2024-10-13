@@ -8,6 +8,8 @@ import Contact from "./pages/Contact";
 import Donation from "./pages/Donation";
 import HomePage from "./pages/Home";
 import Product from "./pages/Product";
+import Volunteer from "./pages/Volunteer";
+
 
 const Layout = () => {
   return(
@@ -39,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/donation",
         element: <Donation />,
+      },
+      {
+        path: "/volunteer",
+        element: <Volunteer />,
       },
 
     ]

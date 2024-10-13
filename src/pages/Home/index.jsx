@@ -1,7 +1,7 @@
 import React from "react";
 
 function HomePage(props) {
-  return <div>HomePage hello Pge</div>;
+  return <div style={{ height: "800px" }}>HomePage</div>;
 }
 
 export default HomePage;
