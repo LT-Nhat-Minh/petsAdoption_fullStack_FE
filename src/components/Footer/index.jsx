@@ -16,7 +16,6 @@ function Footer(props) {
 
   return (
     <div className="footer">
-      <hr />
       <div className="footer_container" style={{ margin: "100px 0 50px 0" }}>
         <div className="footer_content">
           <div>

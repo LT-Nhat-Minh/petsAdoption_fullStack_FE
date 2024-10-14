@@ -28,15 +28,14 @@ function NavSlider() {
         <div className="before">
           <div className="avatar">
             <img
-              src="https://www.hanoipetadoption.com/admin/user-content/03fc601a-a150-4d55-b051-15d6d3ced88e.jpg"
+              src="https://www.hanoipetadoption.com/admin/user-content/eed6fd79-339e-4976-9e0b-1b353aacb99f.jpeg"
               alt=""
             />
           </div>
           <div className="content">
-            <h4>ỦNG HỘ</h4>
+            <h4>TÌNH NGUYỆN</h4>
             <p>
-              Giúp duy trì hoạt động của HPA qua hình thức quyên góp tiền hoặc
-              nhu yếu phẩm.
+              Hành đồng để thay đổi cuộc sống của chó, mèo và thú cưng khác.
             </p>
           </div>
         </div>
@@ -48,15 +47,15 @@ function NavSlider() {
         <div className="before">
           <div className="avatar">
             <img
-              src="https://www.hanoipetadoption.com/admin/user-content/03fc601a-a150-4d55-b051-15d6d3ced88e.jpg"
+              src="https://www.hanoipetadoption.com/admin/user-content/0f8ff594-db60-4a7c-bfc6-b0579737602e.jpg"
               alt=""
             />
           </div>
           <div className="content">
-            <h4>ỦNG HỘ</h4>
+            <h4>NHẬN NUÔI</h4>
             <p>
-              Giúp duy trì hoạt động của HPA qua hình thức quyên góp tiền hoặc
-              nhu yếu phẩm.
+              Hãy nhận nuôi, cưu mang, đừng xua đuổi và yêu thương loài động vật
+              bị bỏ rơi.
             </p>
           </div>
         </div>

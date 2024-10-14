@@ -1,0 +1,27 @@
+.aboutus{
+    width: 40%;
+    margin: 50px auto;
+    text-align: justify;
+    & h1{
+        text-transform: capitalize;
+    }
+    & img{
+        width: 200px;
+        float: right;
+        margin: 20px 0 20px 20px;
+    }
+    & button{
+        font-family: "Monserrat", sans-serif !important;
+        border: none;
+        background-color: #ff154d;
+        color: white;
+        letter-spacing: 2px;
+        font-weight: 600;
+        padding: 10px 40px;
+        border-radius: 25px;
+        margin: 30px 0 0 30px;
+        &:hover{
+            background-color: #3d3d3d;
+        }
+    }
+}
