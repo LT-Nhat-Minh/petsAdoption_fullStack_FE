@@ -9,11 +9,12 @@ import Donation from "./pages/Donation";
 import HomePage from "./pages/Home";
 import Product from "./pages/Product";
 import Volunteer from "./pages/Volunteer";
-
+import "./App.scss"
 
 const Layout = () => {
   return(
-    <div className="layout-app"><Header />
+    <div className="layout-app">
+    <Header />
     <Outlet />
     <Footer /></div>
   )

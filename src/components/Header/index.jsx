@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import {
   EnvironmentOutlined,
@@ -9,9 +9,32 @@ import {
 import logo from "../../asset/Logo/Logo.png";
 
 function Header(props) {
+  const [showElement, setShowElement] = useState(true);
+  const handleScrollDown = () => {
+    clearTimeout(window.scrollTimeout);
+    if (window.scrollY > 10) {
+      window.scrollTimeout = setTimeout(() => {
+        setShowElement(false);
+      }, 100);
+    } else {
+      setShowElement(true);
+    }
+    console.log("showElement", showElement);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScrollDown);
+    return () => {
+      window.removeEventListener("scroll", handleScrollDown);
+    };
+  }, []);
+
   return (
     <div className="header_container">
-      <div className="header_contact">
+      <div
+        className="header_contact"
+        style={showElement === false ? { display: "none" } : {}}
+      >
         <div className="header_contact_container">
           <div>
             <div>
