@@ -4,6 +4,7 @@ import "./style.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import sticker from "../../asset/Icon/pets.png";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -71,6 +72,9 @@ function AdoptSlider(props) {
       <div className="container">
         <div>
           <h1>BÉ NGOAN TRONG TUẦN</h1>
+          <span>
+            <img src={sticker} alt="" />
+          </span>
         </div>
         <div className="slider_container">
           <Slider {...settings} className="slider">
