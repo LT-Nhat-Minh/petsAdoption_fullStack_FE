@@ -27,7 +27,9 @@
       font-weight: 600;
       color: white;
       transition: width 0.3s ease;
-      &:hover {
+    }
+    &:hover {
+      & > button {
         background-color: #ffd154;
         width: 200px;
       }
