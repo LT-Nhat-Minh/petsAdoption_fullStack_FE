@@ -257,7 +257,9 @@ function AdoptSlider(props) {
           </Slider>
 
           <div>
-            <button>Nhận Nuôi</button>
+            <div className="button">
+              <button>Nhận Nuôi</button>
+            </div>
           </div>
         </div>
       </div>
