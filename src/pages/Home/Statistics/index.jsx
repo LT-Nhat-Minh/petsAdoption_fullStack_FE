@@ -71,8 +71,10 @@ function Statistics() {
     <div className="statistics" ref={statisticsRef}>
       {icons.map((icon, index) => (
         <div key={index}>
-          <div className="icon">
-            <img src={icon} alt="" />
+          <div className="icon_container">
+            <div className="icon">
+              <img src={icon} alt="" />
+            </div>
           </div>
           <h1>{currentNumber[index]}</h1>
           <h4>{thumbnail[index]}</h4>

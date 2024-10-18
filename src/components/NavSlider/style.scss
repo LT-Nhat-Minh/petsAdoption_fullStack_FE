@@ -1,92 +1,93 @@
-.nav_slider{
-    width: 1200px;
-    height: 500px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 30px auto;
-    & .item{
-        width: 33%;
-        position: relative;
-        height: auto;
-        & .before{
-            position: relative;
-            width: 90%;
-            height: 350px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            text-align: center;
-            margin: 0 auto;
-            background-color: #f6f6f6;
-            border-radius: 25px;
-            transition: all 0.5s ease;
-            z-index: 1;
-            & .avatar{
-                width: 55%;
-                aspect-ratio: 1/1;
-                margin: auto;
-                & img{
-                    position: relative;
-                    width: 95%;
-                    object-fit: cover;
-                    border-radius: 50%;
-                    border: 10px solid white;
-                    transition: all 0.2s ease;
-                }
-            }
-            & .content{
-                padding: 0 20px;
-                & h4{
-                    font-weight: 600;
-                }
-            }
-            &:hover{
-                & img{
-                    width: 100%;
-                    transform: rotate(3deg);
-                }
-                box-shadow: 0px 0 10px 2px rgba(0,0,0,0.3);
-            }
+.nav_slider {
+  width: 1200px;
+  height: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px auto;
+  & .item {
+    width: 33%;
+    position: relative;
+    height: auto;
+    & .before {
+      position: relative;
+      width: 90%;
+      height: 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      margin: 0 auto;
+      background-color: #f6f6f6;
+      border-radius: 25px;
+      transition: all 0.5s ease;
+      z-index: 1;
+      & .avatar {
+        width: 55%;
+        aspect-ratio: 1/1;
+        margin: auto;
+        & img {
+          position: relative;
+          width: 95%;
+          object-fit: cover;
+          border-radius: 50%;
+          border: 10px solid white;
+          transition: all 0.2s ease;
         }
-        & .after{
-            width: 100%;
-            height: 90px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            transition: height 0.2s ease;
-            z-index: 1;
-            & > button{
-                height: fit-content;
-                border: none;
-                background-color: #FFD154;
-                border-radius: 25px;
-                padding: 10px 30px;
-                font-weight: 600;
-                color: white;
-                &:hover{
-                    background-color: #018ae0;
-                }
-            }
+      }
+      & .content {
+        padding: 0 20px;
+        & h4 {
+          font-weight: 600;
         }
-        &:hover{
-            & .after{
-                height: 120px;
-            }
+      }
+      &:hover {
+        & img {
+          width: 100%;
+          transform: rotate(3deg);
         }
-        &::after{
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 80%;
-            bottom: 0;
-            background-image: url('../../asset/Footer/pattern1.png');
-            background-color: #3d3d3d;
-            border-radius: 25px;
-            z-index: 0;
-        }
-        
+        box-shadow: 0px 0 10px 2px rgba(0, 0, 0, 0.3);
+      }
     }
+    & .after {
+      width: 100%;
+      height: 90px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      transition: height 0.2s ease;
+      z-index: 1;
+      & > button {
+        height: fit-content;
+        border: none;
+        background-color: #ffd154;
+        border-radius: 25px;
+        padding: 10px 30px;
+        font-weight: 600;
+        color: white;
+        user-select: none;
+        &:hover {
+          background-color: #018ae0;
+        }
+      }
+    }
+    &:hover {
+      & .after {
+        height: 120px;
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 80%;
+      bottom: 0;
+      background-image: url("../../asset/Footer/pattern1.png");
+      background-color: #6f4e37;
+
+      border-radius: 25px;
+      z-index: 0;
+    }
+  }
 }

@@ -1,73 +1,100 @@
-.header_container{
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
+.header_container {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  user-select: none;
 }
 
-.header_contact{
-    width: 100%;
-    background-color: #3d3d3d;
-    color: white;
-    & > .header_contact_container{
-        display: flex;
-        width: 900px;
-        justify-content: space-between;
-        align-items: center;
-        margin: auto;
-        & > div{
-            display: flex;
-            gap: 20px;
-            font-weight: 600;
-            letter-spacing: .2px;
-            font-size: 14px;
-            & > div{
-                display: flex;
-                gap: 5px;
-            }
-            & > a{
-                all: unset;
-                display: flex;
-                gap: 5px;
-                &:hover{
-                    color:#d61c62;
-                    cursor: pointer;
-                }
-            }
-            & > .searchOutlined{
-                width: 48px;
-                height: 48px;
-                font-size: 20px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                transition: font-size 0.3s;
-                &:hover{
-                    font-size: 24px;
-                    color: #d61c62;
-                    cursor: pointer;
-                }
-            }
-        } 
-    }
-}
-.header_nav{
+.header_contact {
+  width: 100%;
+  background-color: #ffd154;
+  color: white;
+  & > .header_contact_container {
     display: flex;
+    width: 900px;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    height: 100px;
-    background-color: white;
-    gap: 30px;
-    box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-    & > div > a{
+    margin: auto;
+    & > div {
+      display: flex;
+      gap: 20px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      font-size: 14px;
+      & > div {
+        display: flex;
+        gap: 5px;
+      }
+      & > a {
         all: unset;
-        border: none;
-        background-color: white;
-        font-size: 15px;
-        font-weight: 600;
-        letter-spacing: .2px;
+        display: flex;
+        gap: 5px;
+        &:hover {
+          color: #d61c62;
+          cursor: pointer;
+        }
+      }
+      & > .searchOutlined {
+        width: 48px;
+        height: 48px;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: font-size 0.3s;
+        &:hover {
+          font-size: 24px;
+          color: #d61c62;
+          cursor: pointer;
+        }
+      }
     }
-    & > div > a:hover{
-        color: #d61c62;
-        cursor: pointer;
+  }
+}
+
+@keyframes moveAndFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* Initial position */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px); /* Fully move down */
+  }
+}
+.header_nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  background-color: #f6f6f6;
+  gap: 30px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  & > div {
+    position: relative;
+  }
+  & > div > a {
+    all: unset;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    z-index: 10;
+  }
+  & > div > a:hover {
+    color: #d61c62;
+    cursor: pointer;
+    &::before {
+      content: "";
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      background-image: url(../../asset/Icon/pets.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      filter: brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(200%)
+        hue-rotate(85deg) brightness(114%) contrast(93%);
+      animation: moveAndFadeIn 0.5s ease;
     }
+  }
 }

@@ -1,78 +1,107 @@
-.sponsors{
-    width: 100%;
-    height: auto;
-    overflow: hidden;
+.sponsors {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f6f6f6;
+  & > div:nth-child(1) {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #f6f6f6;
-    & > div:nth-child(1){
+    padding: 20px;
+    & img {
+      width: 25px;
+      height: 25px;
+      transform: rotate(25deg);
+      margin: auto;
+      filter: invert(90%) sepia(6%) saturate(6758%) hue-rotate(338deg)
+        brightness(103%) contrast(100%);
+    }
+  }
+  & > div:nth-child(2) {
+    display: flex;
+    width: 800px;
+    height: auto;
+    margin-bottom: 50px;
+    & > div {
+      width: 25%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 10px;
+      background-color: #fff;
+      border-radius: 25px;
+      overflow: hidden;
+      user-select: none;
+      &:hover {
+        & > p {
+          top: 0;
+        }
+        & h3::before,
+        & h3::after {
+          width: 40px;
+        }
+      }
+      & > p {
+        position: absolute;
+        width: 100%;
+        aspect-ratio: 1/1;
+        border-radius: 25px;
+        background-color: #018ae0;
+        color: white;
         display: flex;
-        flex-direction: column;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
+        top: -60%;
+        padding: 10px;
+        transition: 0.2s;
+        z-index: 0;
+      }
+      & > img {
+        width: 100%;
+        aspect-ratio: 1/1;
+        border-radius: 25px;
+      }
+      & > h3 {
+        font-size: 21px;
+        text-align: center;
+        height: 90px;
         padding: 20px;
-        &  img{
-            width: 25px;
-            height: 25px;
-            transform: rotate(25deg);
-            margin: auto;
-            filter: invert(90%) sepia(6%) saturate(6758%) hue-rotate(338deg) brightness(103%) contrast(100%);
+        &::before {
+          content: "";
+          position: absolute;
+          width: 25px;
+          border: 1px solid #ffd154;
+          bottom: 20px;
+          right: 50%;
+          margin-right: 15px;
+          transition: 0.2s ease-in-out;
         }
-    }
-    & > div:nth-child(2){
-        display: flex;
-        width: 800px;
-        height: auto;
-        margin-bottom: 50px;
-        & > div{
-            width: 25%;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0 10px;
-            background-color: #fff;
-            border-radius: 25px;
-            & > img{
-                width: 100%;
-                aspect-ratio: 1/1;
-                border-radius: 25px;
-            }
-            & > h3{
-                font-size: 21px;
-                text-align: center;
-                height: 90px;
-                padding: 20px;
-                &::before{
-                    content: '';
-                    position: absolute;
-                    width: 25px;
-                    border: 1px solid #ffd154;
-                    bottom: 20px;
-                    right: 50%;
-                    margin-right: 15px;
-                }
-                &::after{
-                    content: '';
-                    position: absolute;
-                    width: 25px;
-                    border: 1px solid #ffd154;
-                    text-align: center;
-                    bottom: 20px;
-                    left: 50%;
-                    margin-left: 15px;
-                }
-            }
-            & > span > img{
-                width: 15px;
-                height: 15px;
-                margin-bottom: 15px;
-                border: 2px solid #ffd154;
-                background-color: #ffd154;
-                border-radius: 50%;
-            }
+        &::after {
+          content: "";
+          position: absolute;
+          width: 25px;
+          border: 1px solid #ffd154;
+          text-align: center;
+          bottom: 20px;
+          left: 50%;
+          margin-left: 15px;
+          transition: 0.2s ease-in-out;
         }
+      }
+      & > span > img {
+        width: 15px;
+        height: 15px;
+        margin-bottom: 15px;
+        border: 2px solid #ffd154;
+        background-color: #ffd154;
+        border-radius: 50%;
+      }
     }
+  }
 }

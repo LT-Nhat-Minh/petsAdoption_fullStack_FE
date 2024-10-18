@@ -2,6 +2,7 @@
   width: 40%;
   margin: 50px auto;
   text-align: justify;
+  user-select: none;
   & h1 {
     text-transform: capitalize;
   }
@@ -10,7 +11,7 @@
     float: right;
     margin: 20px 0 20px 20px;
   }
-  & .button {
+  & .button_container {
     width: 250px;
     display: flex;
     align-items: center;
@@ -25,6 +26,7 @@
       font-weight: 600;
       color: white;
       transition: width 0.3s ease;
+      user-select: none;
     }
     &:hover {
       & > button {

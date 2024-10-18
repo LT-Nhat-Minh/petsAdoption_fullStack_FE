@@ -58,7 +58,9 @@ function Carousel() {
             <div className="content">
               <h2>Title{index}</h2>
               <p>Description</p>
-              <button>button{index}</button>
+              <div className="button_container">
+                <button>button{index}</button>
+              </div>
             </div>
           </div>
         ))}

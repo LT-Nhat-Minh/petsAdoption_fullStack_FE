@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.scss";
 import img1 from "../../asset/Sponsors/me-o.png";
 import img2 from "../../asset/Sponsors/smartHeart.jpg";
@@ -17,6 +17,7 @@ function Sponsors(props) {
       </div>
       <div>
         <div>
+          <p>Me-O: Nhà cung cấp thức ăn dinh dưỡng cho mèo</p>
           <img src={img1} alt="" />
           <h3>Me-O Việt Nam</h3>
           <span>
@@ -24,6 +25,7 @@ function Sponsors(props) {
           </span>
         </div>
         <div>
+          <p>SmartHeart Việt Nam - Nhà cung cấp thức ăn dinh dưỡng cho chó</p>
           <img src={img2} alt="" />
           <h3>SmartHeart Việt Nam</h3>
           <span>
@@ -31,6 +33,10 @@ function Sponsors(props) {
           </span>
         </div>
         <div>
+          <p>
+            Shop quà lưu niệm bán đồ gây quỹ cho các nhóm từ thiện và tổ chức
+            phi chính phủ.
+          </p>
           <img src={img3} alt="" />
           <h3>Better World Hanoi</h3>
           <span>
@@ -38,6 +44,7 @@ function Sponsors(props) {
           </span>
         </div>
         <div>
+          <p>IELTS THẦY JIM</p>
           <img src={img4} alt="" />
           <h3>Ielts Thầy Jim</h3>
           <span>

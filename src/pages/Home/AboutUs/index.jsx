@@ -31,7 +31,7 @@ function AboutUs(props) {
           bé.
         </p>
       </div>
-      <div className="button">
+      <div className="button_container">
         <button>VỀ CHÚNG TÔI</button>
       </div>
     </div>

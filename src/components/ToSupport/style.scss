@@ -10,17 +10,18 @@
   align-items: center;
   justify-content: space-evenly;
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+  user-select: none;
   & > h1 {
     color: white;
   }
   & > div {
-    width: 300px;
+    width: 250px;
     display: flex;
     justify-content: center;
     & > button {
       height: fit-content;
       border: none;
-      width: 300px;
+      width: 250px;
       background-color: #d61c62;
       border-radius: 25px;
       padding: 10px 0;
