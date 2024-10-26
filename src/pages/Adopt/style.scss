@@ -206,7 +206,7 @@
     margin-top: 40px;
     margin-bottom: 50px;
 }
-.chuyenhuong > a{
+.chuyenhuong > a, .disable>a{
     text-decoration: none;
     background-color: rgb(216, 203, 203);
     padding: 10px 16px;
@@ -235,4 +235,11 @@
     width: 7%;
     margin-top: -3px;
     margin-right: 6px;
+}
+.disable{
+    cursor:not-allowed;
+    pointer-events: none;
+}
+.disable>a{
+    color: gray !important;
 }
