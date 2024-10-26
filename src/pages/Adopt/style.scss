@@ -11,6 +11,9 @@
     margin-left: 180px;
     margin-right: 110px;
 }
+.mt{
+    margin-top: 80px;
+}
 .gtc{
     grid-template-columns: 2.8fr 1.2fr;
 }
@@ -18,40 +21,40 @@
     margin-left: 110px;
     margin-right: 110px;
 }
-.nhannuoi, .cuuhoimg, .thimg{
-    height: 230px;
-    width: 100%;
-    object-fit: cover;
-    object-position: 50% 50%;
+.background{
     position: relative;
-    display: block;
+    width: 100%;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+    height: 300px;
 }
-.img::after{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.2)); 
-    height: 58.2vh;
+.adopt{
+    background-image: url('../../asset/Icon/adopt_first.jpg');
 }
-.title{
-    position: absolute;
-    z-index: 1;
-    margin-top: 80px;
+.timhieuthem{
+    background-image: url('../../asset/Icon/adopt_second.jpg');
 }
-.timhieuthem_content{
+.cuuhotext{
+    background-image: url('../../asset/Icon/adopt_second.jpg');
+}
+.title, .text, .timhieuthem_content{
     position: absolute;
     z-index: 1;
-    margin-top: 30px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
 }
+
 .content1>p, .content1>ol>li, .content1>ul>li{
     color: rgba(0, 0, 0, 0.8);
 }
 .title1{
     font-size: 50px;
     letter-spacing: 3px;
+    margin-top: 80px;
 }
 .trang_chu:hover{
     color:#007bff;
@@ -62,17 +65,18 @@
 .a_tag, .timhieu_button{
     font-size: 14px;
     background-color: #d61c62;
-    padding: 8px 32px;
+    padding: 8px 16px;
     text-decoration: none;
     border-radius: 5px;
     margin-top: 8px;
     border: none;
+    width: 15%;
 }
 .timhieu_button{
     border-radius: 25px !important;
     margin-top: 30px !important;
     font-size: 20px;
-    margin-left: 140px;
+    margin-left: 260px;
 }
 .quytrinh{
     margin-top: 50px;
@@ -97,34 +101,18 @@
 .content2 >p {
     color: gray;
 }
-.cuuho::after{
-    content: '';
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.7);
-    height: 35.7vh;
-    margin-top: 1185px;
-}
-.cuuhotext{
-    position: absolute;
-    z-index: 2;
-    margin-top: 70px;
-}
 
 .text{
     margin-right: 400px;
 }
 .all{
     border-radius: 20px;
-    float: right;
-    padding: 10px 56px;
+    padding: 10px 16px;
     border: none;
-    margin-top: -70px;
+    width: 18%;
     background-color: #d61c62;
+    margin-left: 900px;
+    margin-top: -70px;
 }
 .text>h3{
     margin-bottom: 24px;
@@ -234,13 +222,7 @@
     background-color: #ffd154 !important;
     color: #ffffff;
 }
-.timhieuimg::after{
-    content: '';
-    top: 3347px;left: 0;right: 0;bottom: 0;
-    position: absolute;
-    background-color: rgba(0, 0,0,0.5);
-    height: 35.7vh;
-}
+
 .chancho{
     width: 2%;
     margin-left: 650px;

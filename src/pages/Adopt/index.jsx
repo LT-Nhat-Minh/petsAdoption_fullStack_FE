@@ -3,13 +3,10 @@ import "./style.scss";
 import img from "../../asset/Icon/pet.png"
 function Adopt(props) {
   return <div className="adopt_content">
-      <div className="adopt"> 
-        <div className="title mlr">
-          <h1 className="title1 fw white">Nhận Nuôi</h1>
-          <a class="a_tag" href=""><span className="trang_chu white">Trang chủ  </span> <span className="text1"> {">"} Nhận Nuôi</span></a>
-        </div>
-        <div className="img">
-          <img src="https://www.hanoipetadoption.com/Content/../../Images/jumbotron/jumbotron-adopt.jpg" alt="" className="nhannuoi"/>
+      <div className="adopt background"> 
+        <div className="title">
+          <h1 className="title1 fw white mlr">Nhận Nuôi</h1>
+          <a class="a_tag mlr" href=""><span className="trang_chu white">Trang chủ  </span> <span className="text1"> {">"} Nhận Nuôi</span></a>
         </div>
       </div>
       <div className="quytrinh mlr grid gtc">
@@ -45,15 +42,12 @@ function Adopt(props) {
 
         </div>
       </div>
-      <div className="cuuhotext mlr white">
+      <div className="cuuhotext white background">
         <div className="text">
-          <h3>Tất Cả Các Ca Cứu Hộ</h3>
-          <p>Tìm hiểu về tất cả các ca cứu hộ, đang nằm viện, ở nhà fos, đã mất, đã được nhận nuôi...</p>
+          <h3 className="mlr mt">Tất Cả Các Ca Cứu Hộ</h3>
+          <p className="mlr">Tìm hiểu về tất cả các ca cứu hộ, đang nằm viện, ở nhà fos, đã mất, đã được nhận nuôi...</p>
+          <button className="all fw white">XEM TẤT CẢ</button>
         </div>
-        <button className="all fw white">XEM TẤT CẢ</button>
-      </div>
-      <div className="cuuho">
-       <img src="https://www.hanoipetadoption.com/Images/rescure-process-bg.jpg" alt="cuuhoimg" className="cuuhoimg"/>
       </div>
       <div className="timthucung">
         <p>TÌM THÚ CƯNG</p>
@@ -231,16 +225,12 @@ function Adopt(props) {
               <li className="chuyenhuong"><a href=""> {">"}  </a></li>
           </ul>
         </div>
-        <div className="timhieuthem mlr">
+        <div className="timhieuthem background">
         <div className="timhieuthem_content white fw">
-          <h3>Bạn Chưa Đủ Điều Kiện Mang Boss Về Nhà?<br></br> Tham Gia Chương Trình Nhận Nuôi Ảo Nhé.</h3>
+          <h3 className="mlr mt">Bạn Chưa Đủ Điều Kiện Mang Boss Về Nhà?<br></br> Tham Gia Chương Trình Nhận Nuôi Ảo Nhé.</h3>
           <button className="timhieu_button fw white">TÌM HIỂU NGAY</button>
         </div>
       </div>
-      <div className="timhieuimg">
-       <img src="https://www.hanoipetadoption.com/Images/rescure-process-bg.jpg" alt="thmg" className="thimg"/>
-      </div>
-
   </div>;
 }
 
