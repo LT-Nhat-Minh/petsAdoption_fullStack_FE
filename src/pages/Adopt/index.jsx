@@ -6,7 +6,7 @@ function Adopt(props) {
       <div className="adopt"> 
         <div className="title mlr">
           <h1 className="title1 fw white">Nhận Nuôi</h1>
-          <a class="a_tag" href=""><span className="trang_chu white">Trang chủ > </span> <span className="text1">Nhận Nuôi</span></a>
+          <a class="a_tag" href=""><span className="trang_chu white">Trang chủ  </span> <span className="text1"> {">"} Nhận Nuôi</span></a>
         </div>
         <div className="img">
           <img src="https://www.hanoipetadoption.com/Content/../../Images/jumbotron/jumbotron-adopt.jpg" alt="" className="nhannuoi"/>
@@ -224,10 +224,11 @@ function Adopt(props) {
         </div>
         </div>
           <ul className="nutchuyenhuong">
+              <li className="chuyenhuong"><a href=""> {"<"}  </a></li>
               <li className="chuyenhuong prev"><a href="">1</a></li>
               <li className="chuyenhuong"><a href="">2</a></li>
               <li className="chuyenhuong"><a href="">3</a></li>
-              <li className="chuyenhuong"><a href=""> > </a></li>
+              <li className="chuyenhuong"><a href=""> {">"}  </a></li>
           </ul>
         </div>
         <div className="timhieuthem mlr">
