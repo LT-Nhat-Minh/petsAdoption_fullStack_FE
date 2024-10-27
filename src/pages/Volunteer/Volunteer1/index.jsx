@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.scss";
+import "./style1.scss";
 import icon from "../../../asset/Icon/petleg.png"
 
 function VolunteerIn4(props) {

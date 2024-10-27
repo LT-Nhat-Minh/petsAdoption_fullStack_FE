@@ -1,8 +1,8 @@
-.banner {
+.banner4 {
     position: relative;
     width: 100%;
     height: 300px; /* Độ cao có thể tùy chỉnh */
-    background-image: url('../../../asset/Background/jumbotron-volunteer.jpg'); /* Đặt ảnh nền banner của bạn ở đây */
+    background-image: url('../../../asset/Icon/dona3.jpg'); 
     background-size: cover;
     background-position: center;
     color: white;
@@ -14,8 +14,8 @@
 }
 
 /* Lớp overlay để làm tối phần nền */
-.overlay {
-    background-color: rgba(0, 0, 0, 0.5); /* Màu nền trong suốt */
+.overlay4 {
+    background-color: rgba(46, 46, 46, 0.5); /* Màu nền trong suốt */
     padding: 10px;
     width: 100%;
     height: 100%;
@@ -26,30 +26,32 @@
 }
 
 /* Định dạng tiêu đề */
-.overlay h1 {
-    font-size: 3rem;
+.overlay4 h1 {
+    font-size: 2.5rem;
     font-weight: bold;
-    margin-left: -650px;
-}
-
-/* Định dạng breadcrumb */
-.overlay p {
-    margin-top: 10px;
-    font-size: 0.8rem;
-    color:#b5b9bb;
-    background-color: #d61c62;
-    padding: 5px;
-    padding-left: 30px;
-    padding-right: 30px;
-    border-radius: 4px; 
     margin-left: -800px;
+    margin-top: -40px;
 }
 
-.overlay p a {
-    color: #ffffff; 
-    text-decoration: none;
-}
-.overlay p a:hover {
-    color:blue;
-}
+.overlay4 button {
+    height: fit-content;
+    border: none;
+    width: 250px;
+    background-color: #d61c62;
+    border-radius: 25px;
+    padding: 10px 0;
+    font-weight: 600;
+    color: white;
+    transition: width 0.3s ease;
+    margin-top: 10px;
+    margin-left: -800px;
+  }
+.overlay4 button:hover {
+      background-color: #ffd154;
+      width: 200px;
+  }
+
+
+
+
 

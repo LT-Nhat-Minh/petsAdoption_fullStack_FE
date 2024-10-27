@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.scss";
+import "./style1.scss";
 import DogCard from "../../../asset/Background/adopt-calltoaction.png"
 
 function Volunteer4(props) {

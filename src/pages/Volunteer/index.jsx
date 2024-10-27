@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.scss";
+import "./style1.scss";
 import ToSupport from "../../components/ToSupport";
 import AdoptSlider from "../../components/AdoptSlider";
 import VolunteerList from "./VolunteerList"

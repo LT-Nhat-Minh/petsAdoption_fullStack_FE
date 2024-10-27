@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.scss";
+import "./style1.scss";
 
 function VolunteerList(props) {
   return (
