@@ -7,7 +7,7 @@
 .grid{
     display: grid;
 }
-.grid_tem1{
+.grid_dona{
     grid-template-columns: 2.7fr 1.3fr;
 }
 .grid_tem2{
@@ -21,7 +21,7 @@
 .mt{
     margin-top: 80px;
 }
-.mlr{
+.mlr110{
     margin-left: 110px;
     margin-right: 110px;
 }
@@ -33,7 +33,7 @@
     height: 200px !important;
     margin-top: -30px;
 }
-.banner{
+.donabanner{
     position: relative;
     width: 100%;
     align-items: center;
@@ -85,10 +85,11 @@
 .content_text>ul{
     list-style: none;
 }
-.hr1{
-    width: 15%;
+.hru{
+    width: 20%;
     margin-top: -4px;
     border-width: 2px;
+
 }
 .hr2{
     width: 25%;

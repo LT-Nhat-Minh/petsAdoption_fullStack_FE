@@ -12,16 +12,16 @@ import RecoverSlider from "../../components/RecoverSlider";
 
 function Donation(props) {
   return <div className="donation_content">
-        <div className="donation banner"> 
+        <div className="donation donabanner"> 
           <div className="title">
-            <h1 className="title1 fw white mlr">Ủng Hộ</h1>
-            <a class="a_tag mlr" href="/"><span className="trang_chu white">Trang chủ  </span> <span className="ung_ho"> {">"} Ủng Hộ</span></a>
+            <h1 className="title1 fw white mlr110">Ủng Hộ</h1>
+            <a class="a_tag mlr110" href="/"><span className="trang_chu white">Trang chủ  </span> <span className="ung_ho"> {">"} Ủng Hộ</span></a>
           </div>
         </div>
-        <div className="content grid grid_tem1 mlr">
+        <div className="content grid grid_dona mlr110">
           <div className="content_text">
               <h1>Tôi Muốn Ủng Hộ</h1>
-              <hr className="hr1" />
+              <hr className="hru" />
               <p>Mọi hoạt động cứu hộ của Hanoi Pet Adoption hoàn toàn dựa trên các khoản quyên góp từ cộng đồng. Chi phí hàng tháng của nhóm bao gồm tiền thuê nhà, tiền viện phí, thức ăn, điện, nước, thuốc men và đồ dùng, bỉm tã, lương hỗ trợ các bạn tnv dọn dẹp... Nhóm rất cần sự giúp đỡ của các bạn để có thể duy trì nhà chung cũng như đội cứu hộ. Chỉ cần cố định 50k - 100k hàng tháng là các bạn đã giúp đỡ được cho nhóm và cách bé rất nhiều!</p>
               <p>Chi phí sẽ được chia đều cho các bé khác còn nằm viện và gây dựng nhà chung. Ngoài ra Nhóm cũng tiếp nhận quyên góp bằng hiện vật như quần áo cũ (để lót chuồng), bỉm, găng tay y tế, thức ăn, cát vệ sinh v.v...</p>
               <p>*Lưu ý: nhóm không dùng zalo và KHÔNG BAO GIỜ yêu cầu Mạnh Thường Quân cung cấp thông tin thẻ hoặc mã OTP</p>
@@ -66,7 +66,7 @@ function Donation(props) {
         <div className="khac">
             <p className="fw">các phương thức hỗ trợ khác</p>
                 <span><img src={chancho} alt="" className="chancho" /></span>
-            <div className="phuongthuc grid_tem2 mlr">
+            <div className="phuongthuc grid_tem2 mlr110">
                 <span><img src={ta} className="tem2" alt="" /></span>
                 <span><img src={quanao} className="tem2" alt="" /></span>
                 <span><img src={thucan} className="tem2" alt="" /></span>
@@ -81,7 +81,7 @@ function Donation(props) {
         </div>
         <div className="manhthuongquan banner ">
             <div className="manhthuongquan_content">
-              <h2 className="white fw mlr mt5">Danh Sách Mạnh Thường Quân</h2>
+              <h2 className="white fw mlr110 mt5">Danh Sách Mạnh Thường Quân</h2>
               <button className="thongtin white fw">XEM THÔNG TIN</button>
             </div>
         </div>

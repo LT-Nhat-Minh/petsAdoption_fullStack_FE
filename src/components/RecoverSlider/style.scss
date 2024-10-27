@@ -7,16 +7,20 @@
   cursor: pointer;
   top: -55px !important;
   margin-bottom: 10px;
-      &:hover{
-          color: #d61c62;
-      }
+  &:hover{
+    color: #d61c62;
+}
+
 }
 .donanext {
-  right: 510px; 
+  right: 450px; 
 }
 
 .donaprev {
-  left: 510px; 
+  left: 450px; 
+  &:hover{
+    color: #d61c62;
+  }
 }
 .quatrinh{
   z-index: 1;
