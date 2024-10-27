@@ -8,6 +8,7 @@ import quanao from "../../asset/Icon/quanao.jpg"
 import thucan from "../../asset/Icon/thucan.jpg"
 import dauchan from "../../asset/Footer/pattern1.png"
 import AdoptSlider from "../../components/AdoptSlider";
+import RecoverSlider from "../../components/RecoverSlider";
 
 function Donation(props) {
   return <div className="donation_content">
@@ -65,7 +66,7 @@ function Donation(props) {
         <div className="khac">
             <p className="fw">các phương thức hỗ trợ khác</p>
                 <span><img src={chancho} alt="" className="chancho" /></span>
-            <div className="phuongthuc grid grid_tem2">
+            <div className="phuongthuc grid_tem2 mlr">
                 <span><img src={ta} className="tem2" alt="" /></span>
                 <span><img src={quanao} className="tem2" alt="" /></span>
                 <span><img src={thucan} className="tem2" alt="" /></span>
@@ -87,6 +88,10 @@ function Donation(props) {
         <div>
           <AdoptSlider />
         </div>
+        <div>
+          <RecoverSlider />
+        </div>
+        
   </div>;
 }
 
