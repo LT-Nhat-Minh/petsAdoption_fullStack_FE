@@ -1,0 +1,44 @@
+.card {
+    display: flex;
+    align-items: center;
+    background-color: rgb(244, 244, 244);
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .content {
+    margin-right: 20px;
+  }
+  
+  h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .join-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: #ff0000;
+    }
+  }
+  
+  .dog-image {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+  }
