@@ -58,7 +58,7 @@ function Donation(props) {
                   Phòng khám Animal Care: nhà 20 ngõ 424 Thuỵ Khuê</p>
               <button className="unghongay white fw">ỦNG HỘ NGAY</button>
           </div>
-              <img className="content_img" src={img1}></img>
+              <img className="content_img_dona" src={img1}></img>
         </div>
         <div className="hotro">
           <Sponsors />
