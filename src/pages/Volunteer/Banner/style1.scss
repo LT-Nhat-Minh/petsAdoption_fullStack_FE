@@ -1,4 +1,4 @@
-.banner2 {
+.banner_Volunteer {
     position: relative;
     width: 100%;
     height: 300px; /* Độ cao có thể tùy chỉnh */
@@ -11,10 +11,10 @@
     align-items: center;
     justify-content: center;
     height: 210px;
-}
+
 
 /* Lớp overlay để làm tối phần nền */
-.overlay2 {
+& .overlay2 {
     background-color: rgba(0, 0, 0, 0.5); /* Màu nền trong suốt */
     padding: 10px;
     width: 100%;
@@ -26,14 +26,14 @@
 }
 
 /* Định dạng tiêu đề */
-.overlay2 h1 {
+& .overlay2 h1 {
     font-size: 3rem;
     font-weight: bold;
     margin-left: -650px;
 }
 
 /* Định dạng breadcrumb */
-.overlay2 p {
+& .overlay2 p {
     margin-top: 10px;
     font-size: 0.8rem;
     color:#b5b9bb;
@@ -45,11 +45,12 @@
     margin-left: -800px;
 }
 
-.overlay2 p a {
+& .overlay2 p a {
     color: #ffffff; 
     text-decoration: none;
 }
-.overlay2 p a:hover {
+& .overlay2 p a:hover {
     color:blue;
 }
 
+}
