@@ -9,13 +9,14 @@ import thucan from "../../asset/Icon/thucan.jpg"
 import dauchan from "../../asset/Footer/pattern1.png"
 import AdoptSlider from "../../components/AdoptSlider";
 import RecoverSlider from "../../components/RecoverSlider";
+import SupportOption from "../Contact/SuportOption"
 
 function Donation(props) {
   return <div className="donation_content">
-        <div className="donation donabanner"> 
-          <div className="title">
+        <div className="dona banner"> 
+          <div className="overlay">
             <h1 className="title1 fw white mlr110">Ủng Hộ</h1>
-            <a class="a_tag mlr110" href="/"><span className="trang_chu white">Trang chủ  </span> <span className="ung_ho"> {">"} Ủng Hộ</span></a>
+            <a className="a_tag mlr110" href="/"><span className="trang_chu white">Trang chủ  </span> <span className="ungho"> {">"} Ủng Hộ</span></a>
           </div>
         </div>
         <div className="content grid grid_dona mlr110">
@@ -27,21 +28,21 @@ function Donation(props) {
               <p>*Lưu ý: nhóm không dùng zalo và KHÔNG BAO GIỜ yêu cầu Mạnh Thường Quân cung cấp thông tin thẻ hoặc mã OTP</p>
               <p>*Danh sách mạnh thường quân quyên góp cho nhóm sẽ được cập nhật tại đây:</p>
               <ul>
-                <li>2024:<a href="">Xem tại đây</a></li>
-                <li>2023:<a href="">Xem tại đây</a></li>
-                <li>2022:<a href="">Xem tại đây</a></li>
-                <li>2021<a href="">Xem tại đây</a></li>
-                <li>2020<a href="">Xem tại đây</a></li>
-                <li>2019<a href="">Xem tại đây</a></li>
-                <li>2018<a href="">Xem tại đây</a></li>
+                <li>2024: <a href="">Xem tại đây</a></li>
+                <li>2023: <a href="">Xem tại đây</a></li>
+                <li>2022: <a href="">Xem tại đây</a></li>
+                <li>2021: <a href="">Xem tại đây</a></li>
+                <li>2020: <a href="">Xem tại đây</a></li>
+                <li>2019: <a href="">Xem tại đây</a></li>
+                <li>2018: <a href="">Xem tại đây</a></li>
               </ul>
               <ul>
-              <li>Link thống kê viện phí 2024:<a href="">Xem tại đây</a></li>
-                <li>Link thống kê viện phí 2023:<a href="">Xem tại đây</a></li>
-                <li>Link thống kê viện phí 2022:<a href="">Xem tại đây</a></li>
-                <li>Link thống kê viện phí 2021<a href="">Xem tại đây</a></li>
-                <li>Link thống kê viện phí 2020<a href="">Xem tại đây</a></li>
-                <li>Link thống kê viện phí 2019<a href="">Xem tại đây</a></li>
+              <li>Link thống kê viện phí 2024: <a href="">Xem tại đây</a></li>
+                <li>Link thống kê viện phí 2023: <a href="">Xem tại đây</a></li>
+                <li>Link thống kê viện phí 2022: <a href="">Xem tại đây</a></li>
+                <li>Link thống kê viện phí 2021: <a href="">Xem tại đây</a></li>
+                <li>Link thống kê viện phí 2020: <a href="">Xem tại đây</a></li>
+                <li>Link thống kê viện phí 2019: <a href="">Xem tại đây</a></li>
               </ul>
               <p>Tài khoản nhận quyên góp của nhóm. Chi phí sẽ được chia đều cho các bé khác còn nằm viện và gây dựng nhà chung.</p>
               <p>Vietcombank<br></br>
@@ -58,30 +59,19 @@ function Donation(props) {
                   Phòng khám Animal Care: nhà 20 ngõ 424 Thuỵ Khuê</p>
               <button className="unghongay white fw">ỦNG HỘ NGAY</button>
           </div>
-              <img className="content_img_dona" src={img1}></img>
+              <img className="content_img_dona" src={img1}/>
         </div>
-        <div className="hotro">
+        <div className="mt5">
           <Sponsors />
         </div>
-        <div className="khac">
-            <p className="fw">các phương thức hỗ trợ khác</p>
-                <span><img src={chancho} alt="" className="chancho" /></span>
-            <div className="phuongthuc grid_tem2 mlr110">
-                <span><img src={ta} className="tem2" alt="" /></span>
-                <span><img src={quanao} className="tem2" alt="" /></span>
-                <span><img src={thucan} className="tem2" alt="" /></span>
-            </div>
-            <div className="phuongthuc_text grid grid_tem2 fw">
-                <p>bỉm</p>
-                <p>quần áo</p>
-                <p>thức ăn</p>
-            </div>
-            <button className="lienhespa white fw">LIÊN HỆ SPA</button>
-            <div className="dauchan"></div>
+        <div>
+          <SupportOption />
         </div>
-        <div className="manhthuongquan banner ">
-            <div className="manhthuongquan_content">
-              <h2 className="white fw mlr110 mt5">Danh Sách Mạnh Thường Quân</h2>
+        <button className="lienhespa white fw">LIÊN HỆ SPA</button>
+       
+        <div className="manhthuongquan banner">
+            <div className="overlay">
+              <h2 className="white fw mlr110">Danh Sách Mạnh Thường Quân</h2>
               <button className="thongtin white fw">XEM THÔNG TIN</button>
             </div>
         </div>
