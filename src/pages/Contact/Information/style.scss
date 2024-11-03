@@ -5,8 +5,8 @@
   padding: 20px;
   flex-wrap: wrap;
 
-  .contact-info3,
-  .feedback-form3 {
+  & .contact-info3,
+  & .feedback-form3 {
     width: 100%;
     padding: 20px;
 
@@ -15,39 +15,39 @@
     }
   }
 
-  .contact-info3 {
-    h2 {
+  & .contact-info3 {
+    & h2 {
       margin-top: 20px;
       color: #000000;
       font-size: 2.2rem;
       margin-bottom: 10px;
     }
 
-    p {
+    & p {
       font-size: 1em;
       margin: 5px 0;
-      color:#6f6f6f;
+      color: #6f6f6f;
     }
   }
 
-  .bank-info3 {
+  & .bank-info3 {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     margin-top: 20px;
 
-    div {
+    & div {
       flex: 1;
       max-width: 45%;
 
-      h3 {
+      & h3 {
         margin-top: 40px;
         margin: 10px 0;
         color: #000000;
         font-size: 1.4rem;
       }
 
-      p {
+      & p {
         margin: 0;
       }
 
@@ -59,25 +59,25 @@
     }
   }
 
-  .feedback-form3 {
-    h2 {
+  & .feedback-form3 {
+    & h2 {
       color: #000000;
       font-size: 2.2rem;
       margin-top: 20px;
       margin-bottom: 10px;
     }
 
-    form {
+    & form {
       display: flex;
       flex-direction: column;
 
-      label {
+      & label {
         margin-top: 10px;
-        color:#6f6f6f;
+        color: #6f6f6f;
       }
 
-      input,
-      textarea {
+      & input,
+      & textarea {
         padding: 10px;
         margin-top: 5px;
         border: 2px solid #d61c62;
@@ -90,23 +90,23 @@
         }
       }
 
-      textarea {
+      & textarea {
         resize: vertical;
         height: 100px;
       }
 
-      .captcha3 {
+      & .captcha3 {
         display: flex;
         align-items: center;
         margin-top: 15px;
         margin-left: 200px;
 
-        input {
+        & input {
           margin-right: 10px;
         }
       }
 
-      button {
+      & button {
         height: fit-content;
         width: 250px;
         border: none;
@@ -120,7 +120,7 @@
         margin-top: 20px;
 
         &:hover {
-          background-color:#018ae0;
+          background-color: #018ae0;
         }
       }
     }

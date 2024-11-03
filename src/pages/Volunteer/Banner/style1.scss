@@ -1,8 +1,8 @@
 .banner_Volunteer {
     position: relative;
     width: 100%;
-    height: 300px; /* Độ cao có thể tùy chỉnh */
-    background-image: url('../../../asset/Background/jumbotron-volunteer.jpg'); /* Đặt ảnh nền banner của bạn ở đây */
+    height: 210px;
+    background-image: url('../../../asset/Background/jumbotron-volunteer.jpg');
     background-size: cover;
     background-position: center;
     color: white;
@@ -10,47 +10,44 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 210px;
-
-
-/* Lớp overlay để làm tối phần nền */
-& .overlay2 {
-    background-color: rgba(0, 0, 0, 0.5); /* Màu nền trong suốt */
-    padding: 10px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Định dạng tiêu đề */
-& .overlay2 h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-left: -650px;
-}
-
-/* Định dạng breadcrumb */
-& .overlay2 p {
-    margin-top: 10px;
-    font-size: 0.8rem;
-    color:#b5b9bb;
-    background-color: #d61c62;
-    padding: 5px;
-    padding-left: 30px;
-    padding-right: 30px;
-    border-radius: 4px; 
-    margin-left: -800px;
-}
-
-& .overlay2 p a {
-    color: #ffffff; 
-    text-decoration: none;
-}
-& .overlay2 p a:hover {
-    color:blue;
-}
-
-}
+  
+    /* Lớp overlay để làm tối phần nền */
+    .overlay2 {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 10px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  
+      /* Định dạng tiêu đề */
+      h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-left: -650px;
+      }
+  
+      /* Định dạng breadcrumb */
+      p {
+        margin-top: 10px;
+        font-size: 0.8rem;
+        color: #b5b9bb;
+        background-color: #d61c62;
+        padding: 5px 30px;
+        border-radius: 4px;
+        margin-left: -800px;
+  
+        a {
+          color: #ffffff;
+          text-decoration: none;
+  
+          &:hover {
+            color: blue;
+          }
+        }
+      }
+    }
+  }
+  
