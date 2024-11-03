@@ -1,5 +1,5 @@
 .donation_content {
-    .banner {
+    & .banner {
       position: relative;
       width: 100%;
       align-items: center;
@@ -7,7 +7,7 @@
       background-position: center;
       height: 210px;
   
-      .overlay {
+      & .overlay {
         position: absolute;
         z-index: 1;
         display: flex;
@@ -17,32 +17,32 @@
         background-color: rgba(0, 0, 0, 0.6);
       }
     }
-    .white {
+    & .white {
       color: white;
     }
-    .fw {
+    & .fw {
       font-weight: bold;
     }
-    .grid {
+    & .grid {
       display: grid;
     }
-    .grid_dona {
-      grid-template-columns: 2.7fr 1.3fr;
+    & .grid_dona {
+      grid-template-columns: 2fr 1fr;
     }
-    .mt5 {
+    & .mt5 {
       margin-top: 50px;
     }
-    .mlr110 {
+    & .mlr110 {
       margin-left: 110px;
       margin-right: 110px;
     }
-    .dona {
+    & .dona {
       background-image: url('../../asset/Icon/dona1.jpg');
-      .title1 {
+      & .title1 {
         margin-top: 40px;
         letter-spacing: 3px;
       }
-        .a_tag {
+        & .a_tag {
         font-size: 15px;
         background-color: #d61c62;
         padding: 8px 16px;
@@ -56,39 +56,36 @@
           color: #007bff;
         }
   
-        .ungho {
+        & .ungho {
           color: rgb(195, 201, 206) !important;
         }
       }
     }
-    .content {
-      margin-top: 50px;
-      .content_text {
-        margin-right: 30px;
+    & .content {
+      & .content_text {
         text-align: justify;
         color: rgba(0, 0, 0, 0.8);
-  
-        > h1 {
+        & > h1 {
           color: #000000 !important;
         }
   
-        > ul {
+        & > ul {
           list-style: none;
           padding: 0;
         }
   
-        .hru {
+        & .hru {
           width: 20%;
           margin-top: -4px;
           border-width: 2px;
         }
   
-        .hr2 {
+        & .hr2 {
           width: 25%;
           border: 1.5px dotted rgba(0, 0, 0, 0.9);
         }
   
-        .unghongay {
+        & .unghongay {
           margin: 20px auto;
           border-radius: 20px;
           border: none;
@@ -105,13 +102,14 @@
         }
       }
   
-      .content_img_dona {
+      & .content_img_dona {
         width: 100%;
+        max-width: 100%;
         margin-left: 20px;
         border-radius: 5px;
       }
     }
-    .lienhespa {
+    & .lienhespa {
         margin: 20px auto;
         border-radius: 20px;
         border: none;
@@ -128,18 +126,18 @@
           transition: all 0.3s;
         }
       }
-    .manhthuongquan {
+    & .manhthuongquan {
       background-image: url('../../asset/Icon/dona3.jpg');
       margin-top: 18px;
-        .overlay {
-          h2 {
+        & .overlay {
+          & h2 {
             color: white;
             font-weight: bold;
             margin-left: 110px;
             margin-top: 50px;
           }
   
-          .thongtin {
+          & .thongtin {
             width: 15%;
             margin-left: 180px;
             background-color: #d61c62 !important;

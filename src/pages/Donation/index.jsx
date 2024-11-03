@@ -19,7 +19,7 @@ function Donation(props) {
             <a className="a_tag mlr110" href="/"><span className="trang_chu white">Trang chủ  </span> <span className="ungho"> {">"} Ủng Hộ</span></a>
           </div>
         </div>
-        <div className="content grid grid_dona mlr110">
+        <div className="content grid grid_dona">
           <div className="content_text">
               <h1>Tôi Muốn Ủng Hộ</h1>
               <hr className="hru" />
