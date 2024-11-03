@@ -43,7 +43,7 @@ function Adopt(props) {
         </div>
       </div>
       <div className="cuuhotext white background">
-        <div className="text">
+        <div className="title">
           <h3 className="mlr mt">Tất Cả Các Ca Cứu Hộ</h3>
           <p className="mlr">Tìm hiểu về tất cả các ca cứu hộ, đang nằm viện, ở nhà fos, đã mất, đã được nhận nuôi...</p>
           <button className="all fw white">XEM TẤT CẢ</button>
@@ -105,7 +105,7 @@ function Adopt(props) {
               <div>
               <button className="timkiem fw white">TÌM KIẾM</button></div>
             </form>
-            <div className="timkiem_pet grid grid_pet grid_mlr">
+            <div className="timkiem_pet grid grid_mlr">
               <div className="pet">
                 <img src="https://www.hanoipetadoption.com/admin/user-content/Animal/98316d76-0a79-40f7-a2da-534b126b22d7.jpeg" alt="" className="petimg"/>
                 <div className="pet_content">
@@ -218,7 +218,7 @@ function Adopt(props) {
         </div>
         </div>
           <ul className="nutchuyenhuong">
-              <li className="disable"><a href=""> {"<"}  </a></li>
+              <li className="chuyenhuong disable"><a href=""> {"<"}  </a></li>
               <li className="chuyenhuong prev"><a href="">1</a></li>
               <li className="chuyenhuong"><a href="">2</a></li>
               <li className="chuyenhuong"><a href="">3</a></li>
@@ -226,9 +226,9 @@ function Adopt(props) {
           </ul>
         </div>
         <div className="timhieuthem background">
-        <div className="timhieuthem_content white fw">
-          <h3 className="mlr mt">Bạn Chưa Đủ Điều Kiện Mang Boss Về Nhà?<br></br> Tham Gia Chương Trình Nhận Nuôi Ảo Nhé.</h3>
-          <button className="timhieu_button fw white">TÌM HIỂU NGAY</button>
+        <div className="title white fw ">
+          <h3 className="mlr">Bạn Chưa Đủ Điều Kiện Mang Boss Về Nhà?<br></br> Tham Gia Chương Trình Nhận Nuôi Ảo Nhé.</h3>
+          <button className="a_tag timhieu_button fw white">TÌM HIỂU NGAY</button>
         </div>
       </div>
   </div>;
