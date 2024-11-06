@@ -39,15 +39,15 @@ function Header(props) {
           <div>
             <div>
               <EnvironmentOutlined />
-              Hà Nội - Việt Nam
+              TP Hồ Chí Minh - Việt Nam
             </div>
             <a href="/email">
               <MailOutlined />
-              hanoipetadoption@gmail.com
+              oncemorelife@gmail.com
             </a>
             <a href="/contact">
               <PhoneOutlined />
-              (+84)39 320 1068
+              (+84) 09090909009
             </a>
           </div>
           <div>
