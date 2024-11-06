@@ -1,78 +1,82 @@
-.donanext,
-.donaprev {
-  z-index: 2;
-  position: absolute;
-  bottom: -30px; 
-  font-size: 40px; 
-  cursor: pointer;
-  top: -55px !important;
-  margin-bottom: 10px;
-  &:hover{
-    color: #d61c62;
-}
-
-}
-.donanext {
-  right: 450px; 
-}
-
-.donaprev {
-  left: 450px; 
-  &:hover{
-    color: #d61c62;
-  }
-}
-.quatrinh{
-  z-index: 1;
-  position: relative;
+.dona_container {
+  background-color: #f1ebeb;
+  padding: 16px;
+  & .quatrinh {
+    margin-bottom: 30px;
+    z-index: 1;
+    position: relative;
     text-align: center;
     font-size: 40px;
     margin-top: 50px !important;
     font-weight: bold !important;
-}
-.sticker {
-  width: 25px;
-  height: 25px;
-  transform: rotate(25deg);
-  margin: 0 660px 20px 660px;
-  filter: invert(90%) sepia(6%) saturate(6758%) hue-rotate(338deg)
-  brightness(103%) contrast(100%);
-  margin-bottom: 50px;
+    & .sticker {
+      width: 25px;
+      height: 25px;
+      transform: rotate(25deg);
+      filter: invert(90%) sepia(6%) saturate(6758%) hue-rotate(338deg) brightness(103%) contrast(100%);
+    }
+  }
  
-}
-.dona_container{
-  background-color: #f1ebeb;
-  padding: 16px;
-}
-.donaitem>hr{
-    width: 40%;
-    border: 2px solid;
-}
-.donaitem > p{
-  text-align: justify;
-  margin-right: 40px;
-}
-.truocvasau{
-  font-size: 25px;
-}
-.donaimg{
-  width: 94%;
-  border-radius: 5px;
-  margin-bottom: 16px;
-}
-.xemthembutton{
-  border: none;
-  background-color: #d61c62;
-  color: #ffffff;
-  padding: 8px 16px;
-  font-weight: bold;
-  width: 20%;
-  border-radius: 25px;
-  margin: 50px 395px;
-   &:hover{
-        background-color: #007bff;
-        width: 18%;
-        transition: 0.2s;
+  & .slider_dona_container {
+        margin-left: 80px;
+          & .donaitem {
+            
+      & .donaimg {
+        width: 80%;
+        border-radius: 5px;
+        margin-bottom: 16px;
+        max-width: 100%;
+      }
+      & .truocvasau {
+        font-size: 20px;
 
-   }
+      }
+      & > hr {
+        width: 40%;
+        border: 2px solid;
+      }
+
+      & > p {
+        text-align: justify;
+        width: 80%;
+        max-width: 100%;
+        
+      }      
+    }
+    & .donanext,
+    & .donaprev {
+    z-index: 1;
+    position: absolute;
+    bottom: -30px;
+    font-size: 40px;
+    cursor: pointer;
+    top: -55px !important;
+    margin-bottom: 10px;
+
+    &:hover {
+      color: #d61c62;
+    }
+  }
+  & .donanext{
+    right: 450px;
+  }
+  & .donaprev{
+    left: 450px;
+  }
+  }
+  & .xemthembutton{
+            border-radius: 20px;
+            padding: 10px 16px;
+            border: none;
+            width: 15%;
+            color: white;
+            font-weight: bold;
+            background-color: #d61c62;
+            margin: 50px 520px 20px 520px;
+            &:hover{
+                background-color:#007bff;
+            }
+  }
+  
+
 }

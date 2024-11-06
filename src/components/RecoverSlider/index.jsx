@@ -67,16 +67,13 @@ function RecoverSlider(props) {
   const handleClickNext = () => {};
 
   return (
-    <div className="dona_slider">
       <div className="dona_container">
-        <div>
-          <h4 className="quatrinh">QUÁ TRÌNH TRƯỚC VÀ SAU</h4>
-          <span>
+          <div className="quatrinh">
+            QUÁ TRÌNH TRƯỚC VÀ SAU<br></br>
             <img src={sticker} alt="" className="sticker"/>
-          </span>
-        </div>
-        <div className="slider_dona_container mlr">
-          <Slider {...settings} className="dona_slider">
+          </div>
+        <div className="slider_dona_container">
+          <Slider {...settings} >
             <div className="donaitem">
               <img className="donaimg"
                 src="https://www.hanoipetadoption.com/admin/user-content/News/c5e1ad8d-6104-4d60-acb1-a95cae816527.jpg"
@@ -162,14 +159,11 @@ function RecoverSlider(props) {
           </Slider>
           <DonaPrevArrow />
             <DonaNextArrow />
-          <div>
-            <div >
+        
               <button className="xemthembutton">XEM THÊM</button>
-            </div>
-          </div>
+  
         </div>
       </div>
-    </div>
   );
 }
 
