@@ -1,118 +1,145 @@
-
-.white{
-    color: white;
-}
-.up{
-    text-transform: uppercase;
-    border: none;
-    border-radius: 25px;
-    padding: 10px 28px;
-}
-.mlr{
-    margin-left: 200px;
-    margin-right: 140px;
-}
-.muahang{
-    display: flex;
-    margin-top: 70px;
-    margin-left: 450px;
-    margin-right: 450px;
-}
-.inbox{
-    background-color: #c61d62;
-    &:hover{
-        background-color:#007bff;
+.product_content {
+    .white {
+      color: white;
     }
-}
-.shoppe{
-    margin-left: 50px;
-    background-color:#007bff;
-    &:hover{
-    background-color: #ffd154;
+  
+    .up {
+      text-transform: uppercase;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 28px;
     }
-}
-
-.fw{
-    font-weight: bold;
-}
-.banner{
-    position: relative;
-    width: 100%;
-    align-items: center;
-    background-size: cover;
-    background-position: center;
-    height: 300px;
-}
-.product{
-    background-image: url('https://www.hanoipetadoption.com/Images/jumbotron/jumbotron-shop.jpg');
-}
-.title{
-    position: absolute;
-    z-index: 1;
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-}
-.title1{font-size: 50px;
-letter-spacing: 3px;
-margin-top: 80px;
-}
-.trang_chu:hover{
-color:#007bff;
-}
-.grid1{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    margin-top: 80px;
-    margin-bottom: 70px;
-}
-.grid_ite>img{
-    width: 80%;
-    margin-bottom: 16px;
-    margin: 10px 35px 10px 20px ;
-}
-.hr1{
-    width: 30%;
-    border: 2px solid;
-    margin-left: 20px;
-    margin-right: 10px;
-
-}
-.grid_ite>strong{
-    color: #c61d62;
-    font-size: 18px;
-    margin-right: 10px;
-    margin-left: 20px;
-    margin-bottom: 16px;
-
-}
-.grid_ite{
-    margin-right: 30px;
-    background-color: rgba(0, 0, 0, 0.05);
-}
-.grid_ite>p{
-    margin-left: 20px;
-    margin-right: 10px;
-}
-.productslider{
-    margin: -20px 550px 40px 550px;
-}
-.productslider>li{
-    background-color: rgba(0, 0, 0, 0.05);
-    color: rgba(0, 0, 0, 0.5); 
-    list-style: none;
-    display: inline-block;
-    margin-right: 30px;
-    padding: 8px 16px;
-    font-weight: bold;
-}
-.prli{
-    background-color: #007bff !important;
-    color: white !important;
-    &:hover{
-    background-color: #ffd154 !important;
-        
+  
+    .fw {
+      font-weight: bold;
     }
-}
+  
+    .banner {
+      position: relative;
+      width: 100%;
+      align-items: center;
+      background-image: url('https://www.hanoipetadoption.com/Images/jumbotron/jumbotron-shop.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 210px;
+  
+      .title {
+        position: absolute;
+        z-index: 1;
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+  
+        .title1 {
+          font-size: 48px;
+          letter-spacing: 3px;
+          margin-top: 30px;
+          margin-left: 110px;
+        }
+  
+        .a_tag {
+          font-size: 15px;
+          background-color: #d61c62;
+          padding: 8px 16px;
+          text-decoration: none;
+          border-radius: 5px;
+          margin-top: 8px;
+          border: none;
+          width: fit-content;
+          color: rgb(195, 201, 206);
+          margin-left: 110px;
+          
+          .trang_chu:hover {
+            color: #007bff;
+          }
+  
+          .ung_ho {
+            color: rgb(195, 201, 206);
+          }
+        }
+      }
+    }
+  
+    .muahang {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 50px;
+  
+      .inbox {
+        background-color: #c61d62;
+        &:hover {
+          background-color: #007bff;
+        }
+      }
+  
+      .shoppe {
+        margin-left: 50px;
+        background-color: #007bff;
+        &:hover {
+          background-color: #ffd154;
+        }
+      }
+    }
+  
+    .grid1 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin: 80px 200px 70px 140px;
+  
+      .grid_ite {
+        margin-right: 30px;
+        background-color: rgba(0, 0, 0, 0.05);
+        padding: 10px;
+  
+        > img {
+          width: 80%;
+          margin: 10px 35px;
+        }
+  
+        > p {
+          margin: 0 10px 0 20px;
+        }
+  
+        .hr1 {
+          width: 30%;
+          border: 2px solid;
+          margin: 0 10px 0 20px;
+        }
+  
+        > strong {
+          color: #c61d62;
+          font-size: 18px;
+          margin: 0 10px 16px 20px;
+        }
+      }
+    }
+  
+    .productslider {
+      margin: -20px auto 40px;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+  
+      > li {
+        background-color: rgba(0, 0, 0, 0.05);
+        color: rgba(0, 0, 0, 0.5);
+        list-style: none;
+        display: inline-block;
+        padding: 8px 16px;
+        font-weight: bold;
+        cursor: pointer;
+  
+        &.prli {
+          background-color: #007bff;
+          color: white;
+          &:hover {
+            background-color: #ffd154;
+          }
+        }
+      }
+    }
+  }
+  
