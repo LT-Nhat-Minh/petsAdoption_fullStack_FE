@@ -2,6 +2,12 @@
     & .grid{
         display: grid;
     }
+    & .white{
+        color: white;
+    }
+    & .fw{
+        font-weight: bold;
+    }
     & .grid_mlr{
         margin-left: 180px;
         margin-right: 110px;
@@ -90,6 +96,7 @@
     & .cuuhotext{
         background-image: url('../../asset/Icon/adopt_second.jpg');
         & .all{
+            font-size: 20px;
             border-radius: 20px;
             padding: 10px 16px;
             border: none;
@@ -131,6 +138,9 @@
                 margin-right: 30px;
                 font-size: 25px;
                 margin-bottom: 20px;
+                &:hover{
+                background-color: #d61c62;
+                }
             }
         }
         & .grid-item1{
