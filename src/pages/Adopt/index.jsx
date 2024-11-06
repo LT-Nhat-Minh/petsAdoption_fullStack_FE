@@ -37,7 +37,7 @@ function Adopt(props) {
           <br></br>
           <br></br>
           <p><img src={img} className="chanchoc2"></img>Tài chính tự chủ và ổn định.</p>
-          <p><img src={img} className="chanchoc2"></img>Chỗ ở cố định, ưu tiên tại Hà Nội.</p>
+          <p><img src={img} className="chanchoc2"></img>Chỗ ở cố định, ưu tiên tại TP HCM.</p>
           <p><img src={img} className="chanchoc2"></img>Cam kết tiêm phòng và triệt sản .</p>
 
         </div>

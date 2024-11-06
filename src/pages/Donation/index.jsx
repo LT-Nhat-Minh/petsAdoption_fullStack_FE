@@ -19,7 +19,7 @@ function Donation(props) {
             <a className="a_tag mlr110" href="/"><span className="trang_chu white">Trang chủ  </span> <span className="ungho"> {">"} Ủng Hộ</span></a>
           </div>
         </div>
-        <div className="content grid grid_dona">
+        <div className="content grid grid_dona mt5 mlr110">
           <div className="content_text">
               <h1>Tôi Muốn Ủng Hộ</h1>
               <hr className="hru" />
@@ -46,17 +46,18 @@ function Donation(props) {
               </ul>
               <p>Tài khoản nhận quyên góp của nhóm. Chi phí sẽ được chia đều cho các bé khác còn nằm viện và gây dựng nhà chung.</p>
               <p>Vietcombank<br></br>
-                  Pham Thanh Hang<br></br>
-                  0011004054939</p>
+                  Ngô Trường Nhân<br></br>
+                  0924787585250</p>
               <hr className="hr2"/>
-              <p>Techcombank<br></br>
-                  Phạm Thanh Hằng<br></br>
-                  19031456730888</p>
-              <p>Paypal: hanoipetadoptionorg@gmail.com<br></br>
-                  Momo 0393201068</p>
+              <p>Mbbank<br></br>
+                  Mai Võ Hoài Tiên<br></br>
+                  0353705423</p>
+              <p>Paypal: oncemorelife@gmail.com<br></br>
+                  Momo 0353705423</p>
+              <hr className="hr2"/>
               <p>Địa điểm đặt hòm quyên góp:<br></br>
-                  Better World Hanoi số 44 Quảng An Hà Nội<br></br>
-                  Phòng khám Animal Care: nhà 20 ngõ 424 Thuỵ Khuê</p>
+                  IE104.CNVN Store<br></br>
+                  Phòng khám UIT: 01 Hàn Thuyên, P. Linh Trung, TP. Thủ Đức, TP. HCM</p>
               <button className="unghongay white fw">ỦNG HỘ NGAY</button>
           </div>
               <img className="content_img_dona" src={img1}/>

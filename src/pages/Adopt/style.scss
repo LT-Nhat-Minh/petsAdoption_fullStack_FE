@@ -122,10 +122,12 @@
         }
         &  .chancho{
             width: 2%;
-            margin-left: 650px;
             transform: rotate(30deg);
             margin-top: -24px;
             opacity: 0.5;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
         & .grid-item{
             grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -202,17 +204,6 @@
                 }
             }
            
-            
-           
-            .nutchuyenhuong{
-                display:flex;
-                list-style: none;
-                margin-left: 550px;
-                margin-right: 550px;
-                margin-top: 40px;
-                margin-bottom: 50px;
-            }
-            
         }
         & .nutchuyenhuong{
             display: flex;
@@ -238,7 +229,6 @@
                     color: #ffffff;
                 }
 
-                
             }
             & .disable{
                 cursor:not-allowed;

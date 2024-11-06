@@ -58,23 +58,28 @@
     }
   }
   & .donanext{
-    right: 450px;
+    right: 550px;
   }
   & .donaprev{
-    left: 450px;
+    left: 500px;
   }
   }
   & .xemthembutton{
             border-radius: 20px;
-            padding: 10px 16px;
+            padding: 10px 48px;
             border: none;
-            width: 15%;
             color: white;
             font-weight: bold;
+            display: block;
+            margin-top: 40px;
+            margin-left: auto;
+            margin-right: auto;
             background-color: #d61c62;
-            margin: 50px 520px 20px 520px;
             &:hover{
                 background-color:#007bff;
+                padding: 10px 32px;
+                transition: all 0.3s;
+
             }
   }
   
