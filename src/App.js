@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -9,24 +9,30 @@ import Donation from "./pages/Donation";
 import HomePage from "./pages/Home";
 import Product from "./pages/Product";
 import Volunteer from "./pages/Volunteer";
-import "./App.scss"
+import "./App.scss";
 
 const Layout = () => {
-  return(
+  const [activated, setActivated] = useState("home");
+  useEffect(() => {
+    console.log(activated);
+    window.scrollTo(0, 0);
+  });
+  return (
     <div className="layout-app">
-    <Header />
-    <Outlet />
-    <Footer /></div>
-  )
-}
+      <Header activated={activated} setActivated={setActivated} />
+      <Outlet />
+      <Footer />
+    </div>
+  );
+};
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     errorElement: <NotFound />,
-    children:[
-      {index: true, element: <HomePage />},
+    children: [
+      { index: true, element: <HomePage /> },
       {
         path: "/nhan-nuoi",
         element: <Adopt />,
@@ -47,10 +53,9 @@ const router = createBrowserRouter([
         path: "/volunteer",
         element: <Volunteer />,
       },
-
-    ]
-  }
-])
+    ],
+  },
+]);
 
 function App() {
   return (

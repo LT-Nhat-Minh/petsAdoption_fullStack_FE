@@ -58,8 +58,9 @@
     transform: translateY(20px); /* Initial position */
   }
   100% {
-    opacity: 1;
-    transform: translateY(0px); /* Fully move down */
+    opacity: 0.3;
+    transform: rotate(-25deg) scale(1) translate(-30%, -50%);
+    // transform: rotate(-25deg) scale(1) translate(-50%, -50%);
   }
 }
 .header_nav {
@@ -81,20 +82,69 @@
     letter-spacing: 0.2px;
     z-index: 10;
   }
-  & > div > a:hover {
-    color: #d61c62;
-    cursor: pointer;
+  & > div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &::before {
       content: "";
-      width: 40px;
-      height: 40px;
+      display: block;
       position: absolute;
+      width: 50px;
+      height: 50px;
+      left: 50%;
+      top: 30%;
       background-image: url(../../asset/Icon/pets.png);
-      background-size: cover;
-      background-repeat: no-repeat;
-      filter: brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(200%)
-        hue-rotate(85deg) brightness(114%) contrast(93%);
-      animation: moveAndFadeIn 0.5s ease;
+      background-size: 50px;
+      filter: brightness(0) saturate(100%) invert(67%) sepia(17%) saturate(0%)
+        hue-rotate(140deg) brightness(99%) contrast(89%);
+      opacity: 0;
+    }
+    & > a {
+      display: flex;
+      align-items: center;
+      height: 70px;
+      position: relative;
+      background-color: transparent;
+    }
+    &:hover {
+      color: #d61c62;
+      cursor: pointer;
+      &:before {
+        animation: moveAndFadeIn 0.5s ease forwards;
+      }
     }
   }
+  & .activated {
+    color: #d61c62;
+    &:before {
+      content: "";
+      content: "";
+      display: block;
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      left: 50%;
+      top: 30%;
+      background-image: url(../../asset/Icon/pets.png);
+      background-size: 50px;
+      filter: brightness(0) saturate(100%) invert(67%) sepia(17%) saturate(0%)
+        hue-rotate(140deg) brightness(99%) contrast(89%);
+      opacity: 0.3;
+      transform: rotate(-25deg) scale(1) translate(-30%, -50%);
+    }
+  }
+
+  // &::before {
+  //   content: "";
+  //   width: 40px;
+  //   height: 40px;
+  //   position: absolute;
+
+  //   background-size: cover;
+  //   background-repeat: no-repeat;
+  //
+  //   animation: moveAndFadeIn 0.5s ease;
+  // }
 }

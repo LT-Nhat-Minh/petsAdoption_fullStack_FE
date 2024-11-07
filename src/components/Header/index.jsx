@@ -7,9 +7,19 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import logo from "../../asset/Logo/Logo.png";
+import { useNavigate } from "react-router-dom";
 
 function Header(props) {
   const [showElement, setShowElement] = useState(true);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScrollDown);
+    return () => {
+      window.removeEventListener("scroll", handleScrollDown);
+    };
+  }, []);
+
   const handleScrollDown = () => {
     clearTimeout(window.scrollTimeout);
     if (window.scrollY > 10) {
@@ -21,13 +31,6 @@ function Header(props) {
     }
     console.log("showElement", showElement);
   };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScrollDown);
-    return () => {
-      window.removeEventListener("scroll", handleScrollDown);
-    };
-  }, []);
 
   return (
     <div className="header_container">
@@ -57,32 +60,74 @@ function Header(props) {
         </div>
       </div>
       <div className="header_nav">
-        <div className="Logo">
-          <a href="/">
+        <div
+          className="Logo"
+          onClick={() => {
+            props.setActivated("home");
+            navigate("/");
+          }}
+        >
+          <p>
             <img
               src={logo}
-              alt=""
+              alt="Logo"
               style={{ height: "60px", margin: "0 10px" }}
             />
-          </a>
+          </p>
         </div>
-        <div>
-          <a href="/">TRANG CHỦ</a>
+        <div
+          className={props.activated === "home" ? "activated" : ""}
+          onClick={() => {
+            props.setActivated("home");
+            navigate("/");
+          }}
+        >
+          <p>TRANG CHỦ</p>
         </div>
-        <div>
-          <a href="/nhan-nuoi">NHẬN NUÔI</a>
+        <div
+          className={props.activated === "adopt" ? "activated" : ""}
+          onClick={() => {
+            props.setActivated("adopt");
+            navigate("/nhan-nuoi");
+          }}
+        >
+          <p>NHẬN NUÔI</p>
         </div>
-        <div>
-          <a href="/donation">ỦNG HỘ</a>
+        <div
+          className={props.activated === "donate" ? "activated" : ""}
+          onClick={() => {
+            props.setActivated("donate");
+            navigate("/donation");
+          }}
+        >
+          <p>ỦNG HỘ</p>
         </div>
-        <div>
-          <a href="/volunteer">TÌNH NGUYỆN VIÊN</a>
+        <div
+          className={props.activated === "volunteer" ? "activated" : ""}
+          onClick={() => {
+            props.setActivated("volunteer");
+            navigate("/volunteer");
+          }}
+        >
+          <p>TÌNH NGUYỆN VIÊN</p>
         </div>
-        <div>
-          <a href="/product">SẢN PHẨM</a>
+        <div
+          className={props.activated === "product" ? "activated" : ""}
+          onClick={() => {
+            props.setActivated("product");
+            navigate("/product");
+          }}
+        >
+          <p>SẢN PHẨM</p>
         </div>
-        <div>
-          <a href="/contact">LIÊN HỆ</a>
+        <div
+          className={props.activated === "contact" ? "activated" : ""}
+          onClick={() => {
+            props.setActivated("contact");
+            navigate("/contact");
+          }}
+        >
+          <p>LIÊN HỆ</p>
         </div>
       </div>
     </div>
