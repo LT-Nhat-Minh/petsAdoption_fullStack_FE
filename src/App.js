@@ -10,6 +10,7 @@ import HomePage from "./pages/Home";
 import Product from "./pages/Product";
 import Volunteer from "./pages/Volunteer";
 import "./App.scss";
+import 'normalize.css';
 
 const Layout = () => {
   const [activated, setActivated] = useState("home");

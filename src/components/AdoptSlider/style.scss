@@ -21,7 +21,6 @@
   & .container {
     width: 1200px;
     height: 800px;
-    padding: 45px 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,7 +33,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+      margin-bottom: 20px;
       & h1 {
         font-weight: 600;
         text-align: center;
