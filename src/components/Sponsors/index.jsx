@@ -10,9 +10,9 @@ function Sponsors(props) {
   return (
     <div className="sponsors">
       <div>
-        <h1>NHÀ TÀI TRỢ CỐ ĐỊNH</h1>
+        <h2>NHÀ TÀI TRỢ CỐ ĐỊNH</h2>
         <span>
-          <img src={sticker} alt="" />
+          <img src={sticker} alt="" className="BanChan" />
         </span>
       </div>
       <div>

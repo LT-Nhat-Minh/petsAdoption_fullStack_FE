@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.scss";
-import BanChan from "../../../asset/Icon/petleg.png"
-import icon1 from "../../../asset/Icon/TaIcon.png";
-import icon2 from "../../../asset/Icon/QuanAoIcon.png";
-import icon3 from "../../../asset/Icon/ThucAnIcon.png";
+import BanChan from "../../asset/Icon/pets.png";
+import icon1 from "../../asset/Icon/TaIcon.png";
+import icon2 from "../../asset/Icon/QuanAoIcon.png";
+import icon3 from "../../asset/Icon/ThucAnIcon.png";
 
 function SupportOptions() {
   const options = [
@@ -26,7 +26,7 @@ function SupportOptions() {
           </div>
         ))}
       </div>
-      <div className="DauChan1"></div>
+      <button className="lienhespa white fw">LIÊN HỆ SPA</button>
     </div>
   );
 }

@@ -108,42 +108,20 @@
         border-radius: 5px;
       }
     }
-    & .lienhespa {
-        margin: 20px auto;
-        border-radius: 20px;
-        border: none;
-        background-color: #007bff;
-        padding: 8px 40px;
-        margin-top: 16px;
-        font-size: 20px;
-        display: flex;
-        align-items: center;
-        margin-top: -50px;
-        &:hover {
-          background-color: #ffd154;
-          padding: 8px 24px;
-          transition: all 0.3s;
-        }
-      }
     & .manhthuongquan {
       background-image: url('../../asset/Icon/dona3.jpg');
-      margin-top: 18px;
         & .overlay {
           & h2 {
             color: white;
             font-weight: bold;
-            margin-left: 110px;
-            margin-top: 50px;
           }
   
           & .thongtin {
             width: 15%;
-            margin-left: 180px;
             background-color: #d61c62 !important;
-            border-radius: 20px;
+            border-radius: 25px;
             border: none;
-            padding: 8px 30px;
-  
+            padding: 10px 0;
             &:hover {
               background-color: #007bff !important;
             }

@@ -10,8 +10,8 @@ function Listsponsor(props) {
   };
 
   return (
-    <div class="banner4">
-      <div class="overlay4">
+    <div class="list-sponsor">
+      <div class="content">
         <h1>Danh sách mạnh thường quân</h1>
         <button
           onClick={() => {
@@ -20,12 +20,17 @@ function Listsponsor(props) {
         >
           XEM THÔNG TIN
         </button>
-        <Modal title="Basic Modal" open={isModalOpen} onCancel={handleCancel}>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-        </Modal>
       </div>
+      <Modal
+        title="Basic Modal"
+        open={isModalOpen}
+        onCancel={handleCancel}
+        centered
+      >
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Modal>
     </div>
   );
 }
