@@ -183,7 +183,7 @@ function FindPetTable(props) {
         <Pagination
           current={current}
           onChange={(Page) => setCurrent(Page)}
-          total={paginatedList.length}
+          total={props.list.length}
           pageSize={pageSize}
         />
       </div>
