@@ -99,7 +99,7 @@ function Adopt(props) {
         </div>
       </div>
       <Rescue />
-      <FindPetTable />
+      <FindPetTable list={props.list} />
       <AdoptionOnline />
     </div>
   );

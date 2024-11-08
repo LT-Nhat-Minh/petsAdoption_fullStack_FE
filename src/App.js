@@ -125,7 +125,7 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage list={list} /> },
       {
         path: "/nhan-nuoi",
-        element: <Adopt />,
+        element: <Adopt list={list} />,
       },
       {
         path: "/contact",
