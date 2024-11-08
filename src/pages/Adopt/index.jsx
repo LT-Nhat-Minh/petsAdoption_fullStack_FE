@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.scss";
-import img from "../../asset/Icon/pet.png";
 import Rescue from "./components/Rescue";
 import AdoptionOnline from "./components/AdoptionOnline";
 import FindPetTable from "./components/FindPetTable";
+import Requirement from "./components/Requirement";
 function Adopt(props) {
   return (
     <div className="adopt_content">
@@ -80,23 +80,7 @@ function Adopt(props) {
             Tìm hiểu thêm về chương trình Nhận nuôi Ảo ở banner cuối trang này.
           </p>
         </div>
-        <div className="content2 fw">
-          <strong>Điều Kiện Nhận Nuôi</strong>
-          <br></br>
-          <br></br>
-          <p>
-            <img src={img} className="chanchoc2"></img>Tài chính tự chủ và ổn
-            định.
-          </p>
-          <p>
-            <img src={img} className="chanchoc2"></img>Chỗ ở cố định, ưu tiên
-            tại TP HCM.
-          </p>
-          <p>
-            <img src={img} className="chanchoc2"></img>Cam kết tiêm phòng và
-            triệt sản .
-          </p>
-        </div>
+        <Requirement />
       </div>
       <Rescue />
       <FindPetTable list={props.list} />

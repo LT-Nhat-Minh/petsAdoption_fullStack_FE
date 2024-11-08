@@ -63,6 +63,7 @@
       }
     }
   }
+
   & .quytrinh {
     margin-top: 50px;
     margin-bottom: 50px;
@@ -75,22 +76,29 @@
         text-align: justify;
       }
     }
-    & .content2 {
-      background-color: rgb(231, 222, 222);
-      border-radius: 10px;
-      margin-bottom: 500px;
-      padding: 16px;
-      & > strong {
-        font-size: 20px;
-        letter-spacing: 1px;
-      }
-      & > p {
-        color: gray;
-      }
-      & .chanchoc2 {
-        width: 7%;
-        margin-top: -3px;
-        margin-right: 6px;
+    & .requirement {
+      & .content2 {
+        background-color: rgb(231, 222, 222);
+        border-radius: 10px;
+        margin-bottom: 500px;
+        padding: 16px;
+        & > strong {
+          font-size: 20px;
+          letter-spacing: 1px;
+        }
+        & div {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          & span {
+            color: gray;
+          }
+          & .chanchoc2 {
+            width: 1rem;
+            filter: brightness(0) saturate(100%) invert(31%) sepia(92%)
+              saturate(3130%) hue-rotate(200deg) brightness(103%) contrast(105%);
+          }
+        }
       }
     }
   }
