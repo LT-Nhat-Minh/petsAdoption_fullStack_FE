@@ -1,20 +1,20 @@
 import React from "react";
-import "./style.scss";
+import AdoptSlider from "../../components/AdoptSlider";
 import Carousel from "../../components/Carousel";
 import NavSlider from "../../components/NavSlider";
-import AboutUs from "./AboutUs";
-import AdoptSlider from "../../components/AdoptSlider";
-import Statistics from "./Statistics";
 import Sponsors from "../../components/Sponsors";
 import ToSupport from "../../components/ToSupport";
+import AboutUs from "./AboutUs";
+import Statistics from "./Statistics";
+import "./style.scss";
 
-function HomePage() {
+function HomePage(props) {
   return (
     <div className="homepage">
       <Carousel />
       <AboutUs />
       <NavSlider />
-      <AdoptSlider />
+      <AdoptSlider list={props.list} />
       <Statistics />
       <Sponsors />
       <ToSupport />

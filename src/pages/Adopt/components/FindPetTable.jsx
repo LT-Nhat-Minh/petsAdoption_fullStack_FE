@@ -1,17 +1,6 @@
 import React, { useEffect, useState } from "react";
 import sticker from "../../../asset/Icon/pets.png";
 import { Card, Col, Form, Input, Pagination, Row, Select } from "antd";
-import { Vaccines } from "@mui/icons-material";
-import thumbnail1 from "../../../asset/ListThumbnail/1.jpeg";
-import thumbnail2 from "../../../asset/ListThumbnail/2.jpeg";
-import thumbnail3 from "../../../asset/ListThumbnail/3.jpeg";
-import thumbnail4 from "../../../asset/ListThumbnail/4.jpeg";
-import thumbnail5 from "../../../asset/ListThumbnail/5.jpeg";
-import thumbnail6 from "../../../asset/ListThumbnail/6.jpeg";
-import thumbnail7 from "../../../asset/ListThumbnail/7.jpeg";
-import thumbnail8 from "../../../asset/ListThumbnail/8.jpeg";
-import Column from "antd/es/table/Column";
-
 function FindPetTable(props) {
   const [current, setCurrent] = useState(1);
   const [paginatedList, setPaginatedList] = useState([]);
@@ -20,82 +9,9 @@ function FindPetTable(props) {
   useEffect(() => {
     const startIndex = (current - 1) * pageSize;
     const endIndex = startIndex + pageSize;
-    setPaginatedList(list.slice(startIndex, endIndex));
+    setPaginatedList(props.list.slice(startIndex, endIndex));
   }, [current]);
-  const list = [
-    {
-      id: 1,
-      name: "Pepsi",
-      gender: "Đực",
-      age: "Trưởng thành",
-      vaccined: true,
-      url: thumbnail1, //Ảnh thumbnail
-      current: 1, //Trang hiển thị
-    },
-    {
-      id: 2,
-      name: "Milo",
-      gender: "Đực",
-      age: "Trưởng thành",
-      vaccined: true,
-      url: thumbnail2,
-      current: 1,
-    },
-    {
-      id: 3,
-      name: "Mita",
-      gender: "Đực",
-      age: "Trưởng thành",
-      vaccined: false,
-      url: thumbnail3,
-      current: 1,
-    },
-    {
-      id: 4,
-      name: "Quýt",
-      gender: "Đực",
-      age: "Trẻ",
-      vaccined: false,
-      url: thumbnail4,
-      current: 1,
-    },
-    {
-      id: 5,
-      name: "Bông",
-      gender: "Cái",
-      age: "Trưởng thành",
-      vaccined: false,
-      url: thumbnail5,
-      current: 2,
-    },
-    {
-      id: 6,
-      name: "Dưa",
-      gender: "Đực",
-      age: "Trẻ",
-      vaccined: false,
-      url: thumbnail6,
-      current: 2,
-    },
-    {
-      id: 7,
-      name: "Lucky",
-      gender: "Đực",
-      age: "Trẻ",
-      vaccined: false,
-      url: thumbnail7,
-      current: 2,
-    },
-    {
-      id: 8,
-      name: "Mochi",
-      gender: "Cái",
-      age: "Trưởng thành",
-      vaccined: false,
-      url: thumbnail8,
-      current: 2,
-    },
-  ];
+
   return (
     <div className="find-pet-table">
       <div className="header">
@@ -121,7 +37,7 @@ function FindPetTable(props) {
                     <Select
                       defaultValue="all"
                       style={{
-                        width: "100%",
+                        width: "280px",
                         border: "2px solid #d61c62",
                         borderRadius: "8px",
                       }}
@@ -137,12 +53,17 @@ function FindPetTable(props) {
               </Col>
               <Col span={8}>
                 <Form.Item>
-                  <div style={{ display: "flex", flexDirection: "column" }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                    }}
+                  >
                     <span>Độ tuổi</span>
                     <Select
                       defaultValue="all"
                       style={{
-                        width: "100%",
+                        width: "280px",
                         border: "2px solid #d61c62",
                         borderRadius: "8px",
                       }}
@@ -163,7 +84,7 @@ function FindPetTable(props) {
                     <Select
                       defaultValue="all"
                       style={{
-                        width: "100%",
+                        width: "280px",
                         border: "2px solid #d61c62",
                         borderRadius: "8px",
                       }}
@@ -184,7 +105,7 @@ function FindPetTable(props) {
                     <Select
                       defaultValue="all"
                       style={{
-                        width: "100%",
+                        width: "280px",
                         border: "2px solid #d61c62",
                         borderRadius: "8px",
                       }}
@@ -205,7 +126,7 @@ function FindPetTable(props) {
                     <Input
                       placeholder="Nhập tên..."
                       style={{
-                        width: "100%",
+                        width: "280px",
                         border: "2px solid #d61c62",
                         borderRadius: "8px",
                       }}
@@ -226,44 +147,45 @@ function FindPetTable(props) {
             </Row>
           </Form>
         </div>
-        <div className="table">
-          <Row gutter={[24, 24]} style={{ width: "80%" }}>
-            {paginatedList.map((item) => {
-              return (
-                <Col span={6}>
-                  <Card cover={<img src={item.url} alt="image" />} hoverable>
-                    <div className="card-container">
-                      <div className="title">
-                        <h3>{item.name}</h3>
-                      </div>
-                      <hr />
-                      <div className="information">
-                        <p>
-                          <strong>Giới tính:</strong> {item.gender}
-                          <hr />
-                        </p>
-                        <p>
-                          <strong>Tuổi:</strong> {item.age}
-                          <hr />
-                        </p>
-                        <p>
-                          <strong>Tiêm phòng:</strong> {item.vaccined}
-                          <hr />
-                        </p>
-                      </div>
+      </div>
+      <div className="table" style={{ width: "1200px", maxWidth: "80%" }}>
+        <Row gutter={[24, 24]} style={{ width: "100%" }}>
+          {paginatedList.map((item) => {
+            return (
+              <Col span={6}>
+                <Card cover={<img src={item.url} alt="image" />} hoverable>
+                  <div className="card-container">
+                    <div className="title">
+                      <h3>{item.name}</h3>
                     </div>
-                  </Card>
-                </Col>
-              );
-            })}
-          </Row>
-          <Pagination
-            current={current}
-            onChange={(Page) => setCurrent(Page)}
-            total={list.length}
-            pageSize={pageSize}
-          />
-        </div>
+                    <hr />
+                    <div className="information">
+                      <p>
+                        <strong>Giới tính:</strong> {item.gender}
+                        <hr />
+                      </p>
+                      <p>
+                        <strong>Tuổi:</strong> {item.age}
+                        <hr />
+                      </p>
+                      <p>
+                        <strong>Tiêm phòng:</strong> {item.vaccined}
+                        <hr />
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+              </Col>
+            );
+          })}
+        </Row>
+        <br />
+        <Pagination
+          current={current}
+          onChange={(Page) => setCurrent(Page)}
+          total={paginatedList.length}
+          pageSize={pageSize}
+        />
       </div>
     </div>
   );

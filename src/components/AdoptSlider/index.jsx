@@ -1,10 +1,11 @@
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
-import React from "react";
+import React, { useEffect } from "react";
 import "./style.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import sticker from "../../asset/Icon/pets.png";
+import { Card } from "antd";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -66,6 +67,10 @@ function AdoptSlider(props) {
 
   const handleClickNext = () => {};
 
+  useEffect(() => {
+    console.log(props);
+  });
+
   return (
     <div className="adopt_slider">
       <div className="after_container"></div>
@@ -78,182 +83,32 @@ function AdoptSlider(props) {
         </div>
         <div className="slider_container">
           <Slider {...settings} className="slider">
-            <div className="item">
-              <img
-                src="https://www.hanoipetadoption.com/admin/user-content/Animal/692dd26f-8d3e-4d12-a492-3a7f78d56154.jpg"
-                alt=""
-              />
-              <h2>Núi</h2>
-              <hr />
-              <ul>
-                <li>
-                  <strong>Giới tính: </strong>Đực
-                </li>
-                <hr />
-                <li>
-                  <strong>Tuổi: </strong>Trẻ
-                </li>
-                <hr />
-                <li>
-                  <strong>Tiêm phòng: </strong>Có
-                </li>
-                <hr />
-              </ul>
-            </div>
-            <div className="item">
-              <img
-                src="https://www.hanoipetadoption.com/admin/user-content/Animal/692dd26f-8d3e-4d12-a492-3a7f78d56154.jpg"
-                alt=""
-              />
-              <h2>Núi</h2>
-              <hr />
-              <ul>
-                <li>
-                  <strong>Giới tính: </strong>Đực
-                </li>
-                <hr />
-                <li>
-                  <strong>Tuổi: </strong>Trẻ
-                </li>
-                <hr />
-                <li>
-                  <strong>Tiêm phòng: </strong>Có
-                </li>
-                <hr />
-              </ul>
-            </div>
-            <div className="item">
-              <img
-                src="https://www.hanoipetadoption.com/admin/user-content/Animal/692dd26f-8d3e-4d12-a492-3a7f78d56154.jpg"
-                alt=""
-              />
-              <h2>Núi</h2>
-              <hr />
-              <ul>
-                <li>
-                  <strong>Giới tính: </strong>Đực
-                </li>
-                <hr />
-                <li>
-                  <strong>Tuổi: </strong>Trẻ
-                </li>
-                <hr />
-                <li>
-                  <strong>Tiêm phòng: </strong>Có
-                </li>
-                <hr />
-              </ul>
-            </div>
-            <div className="item">
-              <img
-                src="https://www.hanoipetadoption.com/admin/user-content/Animal/692dd26f-8d3e-4d12-a492-3a7f78d56154.jpg"
-                alt=""
-              />
-              <h2>Núi</h2>
-              <hr />
-              <ul>
-                <li>
-                  <strong>Giới tính: </strong>Đực
-                </li>
-                <hr />
-                <li>
-                  <strong>Tuổi: </strong>Trẻ
-                </li>
-                <hr />
-                <li>
-                  <strong>Tiêm phòng: </strong>Có
-                </li>
-                <hr />
-              </ul>
-            </div>
-            <div className="item">
-              <img
-                src="https://www.hanoipetadoption.com/admin/user-content/Animal/692dd26f-8d3e-4d12-a492-3a7f78d56154.jpg"
-                alt=""
-              />
-              <h2>Núi</h2>
-              <hr />
-              <ul>
-                <li>
-                  <strong>Giới tính: </strong>Đực
-                </li>
-                <hr />
-                <li>
-                  <strong>Tuổi: </strong>Trẻ
-                </li>
-                <hr />
-                <li>
-                  <strong>Tiêm phòng: </strong>Có
-                </li>
-                <hr />
-              </ul>
-            </div>
-            <div className="item">
-              <img
-                src="https://www.hanoipetadoption.com/admin/user-content/Animal/692dd26f-8d3e-4d12-a492-3a7f78d56154.jpg"
-                alt=""
-              />
-              <h2>Núi</h2>
-              <hr />
-              <ul>
-                <li>
-                  <strong>Giới tính: </strong>Đực
-                </li>
-                <hr />
-                <li>
-                  <strong>Tuổi: </strong>Trẻ
-                </li>
-                <hr />
-                <li>
-                  <strong>Tiêm phòng: </strong>Có
-                </li>
-                <hr />
-              </ul>
-            </div>
-            <div className="item">
-              <img
-                src="https://www.hanoipetadoption.com/admin/user-content/Animal/692dd26f-8d3e-4d12-a492-3a7f78d56154.jpg"
-                alt=""
-              />
-              <h2>Núi</h2>
-              <hr />
-              <ul>
-                <li>
-                  <strong>Giới tính: </strong>Đực
-                </li>
-                <hr />
-                <li>
-                  <strong>Tuổi: </strong>Trẻ
-                </li>
-                <hr />
-                <li>
-                  <strong>Tiêm phòng: </strong>Có
-                </li>
-                <hr />
-              </ul>
-            </div>
-            <div className="item">
-              <img
-                src="https://www.hanoipetadoption.com/admin/user-content/Animal/692dd26f-8d3e-4d12-a492-3a7f78d56154.jpg"
-                alt=""
-              />
-              <h2>Núi</h2>
-              <hr />
-              <ul>
-                <li>
-                  <strong>Giới tính: </strong>Đực
-                </li>
-                <hr />
-                <li>
-                  <strong>Tuổi: </strong>Trẻ
-                </li>
-                <hr />
-                <li>
-                  <strong>Tiêm phòng: </strong>Có
-                </li>
-                <hr />
-              </ul>
-            </div>
+            {props.list.map((item, index) => {
+              return (
+                <Card cover={<img src={item.url} alt="image" />} hoverable>
+                  <div className="card-container">
+                    <div className="title">
+                      <h3>{item.name}</h3>
+                    </div>
+                    <hr />
+                    <div className="information">
+                      <p>
+                        <strong>Giới tính:</strong> {item.gender}
+                        <hr />
+                      </p>
+                      <p>
+                        <strong>Tuổi:</strong> {item.age}
+                        <hr />
+                      </p>
+                      <p>
+                        <strong>Tiêm phòng:</strong> {item.vaccined}
+                        <hr />
+                      </p>
+                    </div>
+                  </div>
+                </Card>
+              );
+            })}
           </Slider>
 
           <div>

@@ -4,10 +4,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   user-select: none;
+  padding-bottom: 50px;
   & .after_container {
     position: absolute;
     width: 100%;
-    height: 800px;
+    height: 850px;
+
     &::after {
       content: "";
       width: 100%;
@@ -55,28 +57,25 @@
       background-color: white;
       box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
       & .slider {
-        & .item {
-          width: 25%;
-          padding: 0 20px;
-          & img {
-            width: 100%;
-            aspect-ratio: 1/1;
+        margin: 0;
+        .slick-slide {
+          margin: 0 10px; /* 10px space on both sides of each slide */
+        }
+        .slick-track {
+          display: flex;
+        }
+        & .card-container {
+          & .title {
+            align-items: start;
+            & h3 {
+              margin: 0;
+            }
           }
-          & > h2 {
-            margin: 10px 0;
-            font-weight: 600;
-          }
-          & > hr {
-            border: 1px solid rgb(0, 0, 0);
-            width: 70px;
-            margin: 0 0 30px;
-          }
-          & > ul {
-            all: unset;
-            list-style-type: none;
-            line-height: 0px;
-            & > hr {
-              border: 1px dashed #000;
+          & .information {
+            & hr {
+              font-size: 0px;
+              border: 1px dashed;
+              color: #dcdcdc;
             }
           }
         }
