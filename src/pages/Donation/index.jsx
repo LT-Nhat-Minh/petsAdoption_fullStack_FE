@@ -126,7 +126,7 @@ function Donation(props) {
       <Sponsors />
       <SupportOption />
       <Listsponsor />
-      <AdoptSlider />
+      <AdoptSlider list={props.list} />
       <RecoverSlider />
     </div>
   );

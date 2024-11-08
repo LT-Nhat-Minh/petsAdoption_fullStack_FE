@@ -137,11 +137,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/donation",
-        element: <Donation />,
+        element: <Donation list={list}/>,
       },
       {
         path: "/volunteer",
-        element: <Volunteer />,
+        element: <Volunteer list={list}/>,
       },
     ],
   },
