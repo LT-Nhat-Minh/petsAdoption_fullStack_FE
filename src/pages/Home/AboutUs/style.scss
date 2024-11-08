@@ -29,7 +29,8 @@
     }
     &:hover {
       & > button {
-        background-color: #ffd154;
+        cursor: pointer;
+        background-color: #007bff;
         width: 200px;
       }
     }

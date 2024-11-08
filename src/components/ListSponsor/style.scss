@@ -1,44 +1,43 @@
 .list-sponsor {
-    position: relative;
-    width: 100%;
-    height: 200px;
-    background-image: url('../../asset/Icon/dona3.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    color: white;
-    text-align: center;
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
-    user-select: none;
-    & .content{
-      height: 100%;
-      width: fit-content;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-left: 20%;
-      /* Định dạng tiêu đề */
-      & h1 {
-        font-weight: bold;
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background-image: url("../../asset/Icon/dona3.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  text-align: center;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+  user-select: none;
+  & .content {
+    height: 100%;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20%;
+    /* Định dạng tiêu đề */
+    & h1 {
+      font-weight: bold;
+    }
+    /* Định dạng cho nút */
+    & button {
+      height: fit-content;
+      border: none;
+      width: 250px;
+      background-color: #d61c62;
+      border-radius: 25px;
+      padding: 10px 0;
+      font-weight: 600;
+      color: white;
+      transition: width 0.3s ease;
+      &:hover {
+        cursor: pointer;
+        background-color: #007bff;
+        width: 200px;
       }
-      /* Định dạng cho nút */
-      & button {
-        height: fit-content;
-        border: none;
-        width: 250px;
-        background-color: #d61c62;
-        border-radius: 25px;
-        padding: 10px 0;
-        font-weight: 600;
-        color: white;
-        transition: width 0.3s ease;
-        &:hover {
-          cursor: pointer;
-          background-color: #ffd154;
-          width: 200px;
-        }
-      }
-    }   
+    }
   }
-  
+}

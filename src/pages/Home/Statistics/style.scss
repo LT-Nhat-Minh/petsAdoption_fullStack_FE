@@ -22,13 +22,7 @@
     color: white;
     letter-spacing: 1px;
     text-shadow: 0 0 10px #000;
-    &:hover .icon {
-      width: 120px;
-      border: 25px solid #ffd154;
-      & img {
-        width: 100%;
-      }
-    }
+
     & .icon {
       width: 100px;
       aspect-ratio: 1/1;
@@ -41,12 +35,17 @@
       background-color: #ffd154;
       border-radius: 50%;
       box-shadow: 0 0 5px #000;
+
       & img {
         object-fit: cover;
-        width: 90%;
+        width: 70%;
         filter: invert(20%) sepia(0%) saturate(4%) hue-rotate(51deg)
           brightness(105%) contrast(92%);
+        transition: 0.3s ease;
       }
+    }
+    &:hover img {
+      width: 100%;
     }
     & > .icon_container {
       width: 110px;

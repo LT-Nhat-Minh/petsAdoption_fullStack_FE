@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Outlet,
+  RouterProvider,
+  useLocation,
+} from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import NotFound from "./components/NotFound";
@@ -10,17 +15,18 @@ import HomePage from "./pages/Home";
 import Product from "./pages/Product";
 import Volunteer from "./pages/Volunteer";
 import "./App.scss";
-import 'normalize.css';
+import "normalize.css";
 
 const Layout = () => {
-  const [activated, setActivated] = useState("home");
+  const [activated, setActivated] = useState("");
+  const location = useLocation();
   useEffect(() => {
-    console.log(activated);
+    setActivated(location.pathname);
     window.scrollTo(0, 0);
   });
   return (
     <div className="layout-app">
-      <Header activated={activated} setActivated={setActivated} />
+      <Header activated={activated} />
       <Outlet />
       <Footer />
     </div>

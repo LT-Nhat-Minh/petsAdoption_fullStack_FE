@@ -69,8 +69,9 @@
           }
           &:hover {
             & > button {
-              background-color: #ffd154;
-              width: 100px;
+              cursor: pointer;
+              background-color: #007bff;
+              width: 150px;
             }
           }
         }

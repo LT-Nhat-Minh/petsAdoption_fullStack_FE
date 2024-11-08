@@ -60,13 +60,7 @@ function Header(props) {
         </div>
       </div>
       <div className="header_nav">
-        <div
-          className="Logo"
-          onClick={() => {
-            props.setActivated("home");
-            navigate("/");
-          }}
-        >
+        <div className="Logo" onClick={() => navigate("/")}>
           <p>
             <img
               src={logo}
@@ -76,54 +70,48 @@ function Header(props) {
           </p>
         </div>
         <div
-          className={props.activated === "home" ? "activated" : ""}
+          className={props.activated === "/" ? "activated" : ""}
           onClick={() => {
-            props.setActivated("home");
             navigate("/");
           }}
         >
           <p>TRANG CHỦ</p>
         </div>
         <div
-          className={props.activated === "adopt" ? "activated" : ""}
+          className={props.activated === "/nhan-nuoi" ? "activated" : ""}
           onClick={() => {
-            props.setActivated("adopt");
             navigate("/nhan-nuoi");
           }}
         >
           <p>NHẬN NUÔI</p>
         </div>
         <div
-          className={props.activated === "donate" ? "activated" : ""}
+          className={props.activated === "/donation" ? "activated" : ""}
           onClick={() => {
-            props.setActivated("donate");
             navigate("/donation");
           }}
         >
           <p>ỦNG HỘ</p>
         </div>
         <div
-          className={props.activated === "volunteer" ? "activated" : ""}
+          className={props.activated === "/volunteer" ? "activated" : ""}
           onClick={() => {
-            props.setActivated("volunteer");
             navigate("/volunteer");
           }}
         >
           <p>TÌNH NGUYỆN VIÊN</p>
         </div>
         <div
-          className={props.activated === "product" ? "activated" : ""}
+          className={props.activated === "/product" ? "activated" : ""}
           onClick={() => {
-            props.setActivated("product");
             navigate("/product");
           }}
         >
           <p>SẢN PHẨM</p>
         </div>
         <div
-          className={props.activated === "contact" ? "activated" : ""}
+          className={props.activated === "/contact" ? "activated" : ""}
           onClick={() => {
-            props.setActivated("contact");
             navigate("/contact");
           }}
         >
