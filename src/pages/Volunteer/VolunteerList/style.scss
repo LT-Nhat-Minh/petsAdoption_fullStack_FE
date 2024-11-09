@@ -1,0 +1,100 @@
+.volunteer-list{
+    background-color: rgb(244, 244, 244);
+    padding: 10px;
+    & .header{
+        display: flex;
+        flex-direction: column;
+        & h1 {
+            font-weight: 600;
+            text-align: center;
+          }
+          & img {
+            width: 25px;
+            height: 25px;
+            transform: rotate(25deg);
+            margin: auto;
+            filter: brightness(0) saturate(100%) invert(62%) sepia(100%) saturate(6303%) hue-rotate(200deg) brightness(103%) contrast(105%);
+          }
+    }
+    & .volunteer {
+        text-align: left;
+        color: #333;
+        & .content {
+          display: flex;
+          align-items: flex-start;
+          gap: 50px;
+          margin: 50px auto;
+          width: 1100px;
+          text-align: justify;
+      
+          & .profile-image {
+            margin-top: 100px;
+            flex-shrink: 0;
+            width: 330px;
+            aspect-ratio: 1/1;
+            border-radius: 500px;
+            overflow: hidden;
+      
+            & img {
+              width: 100%;
+              height: auto;
+            }
+          }
+      
+          & .description {
+            flex-grow: 1;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #6f6f6f;
+      
+            & h2 {
+              font-size: 1.8rem;
+              margin-bottom: 30px;
+            }
+      
+            & .info-box {
+              background-color: #dddddd;
+              padding: 30px;
+              border-radius: 15px;
+              margin-top: 20px;
+      
+              & ul {
+                list-style-type: none;
+                padding: 0;
+                
+                & li {
+                  display: flex;
+                  align-items: center;
+                  margin-bottom: 10px;
+                  font-size: 17px;
+                  position: relative;
+                  padding-left: 30px;
+                  color: #707070;
+                  font-weight: bold;
+      
+                  &::before {
+                    content: '';
+                    position: absolute;
+                    top: 2px;
+                    left: -10px;
+                    width: 19px;
+                    height: 20px;
+                    background-image: url('../../../asset/Icon/pets.png');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    filter: brightness(0) saturate(100%) invert(62%) sepia(100%) saturate(6303%) hue-rotate(200deg) brightness(103%) contrast(105%);
+                  }
+                }
+              }
+            }
+          }
+        }
+      
+        & hr {
+          width: 1100px;
+          margin: 0 auto;
+          border: 0.1px solid #5c5c5c;
+        }
+      }
+      
+}

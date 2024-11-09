@@ -1,0 +1,49 @@
+.JoinUs {
+    background-color: white;
+    margin: 0 auto;
+    width: 1100px;
+    height: 250px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 30px;
+    & .WantToJoin {
+      flex-grow: 1;
+      font-size: 17px;
+      line-height: 1.6;
+      color: #6f6f6f;
+      margin: 0 90px 0 40px;
+      & h3 {
+        color: #333;
+        font-size: 32px;
+        font-weight: bold;
+        margin: 0 0 10px 200px;
+      }
+      & .button {
+        margin-top: 15px;
+        & button {
+          height: fit-content;
+          width: 250px;
+          border: none;
+          background-color: #ffd154;
+          border-radius: 25px;
+          padding: 8px 20px;
+          font-weight: 600;
+          color: white;
+          transition: background-color 0.3s ease;
+          margin-left: 200px;
+          &:hover {
+            cursor: pointer;
+            background-color: #018ae0;
+          }
+        }
+      }
+    }
+    & .DogCall {
+        width: 410px;
+        height: auto;
+        overflow: hidden;
+        margin-left: 20px;
+    }
+}

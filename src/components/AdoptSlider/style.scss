@@ -45,8 +45,7 @@
         height: 25px;
         transform: rotate(25deg);
         margin: auto;
-        filter: invert(90%) sepia(6%) saturate(6758%) hue-rotate(338deg)
-          brightness(103%) contrast(100%);
+        filter: brightness(0) saturate(100%) invert(62%) sepia(100%) saturate(6303%) hue-rotate(200deg) brightness(103%) contrast(105%);
       }
     }
     & .slider_container {
@@ -91,12 +90,12 @@
           align-items: center;
           justify-content: center;
           color: white;
-          background-color: #3d3d3d;
+          background-color: #d61c62;
           border-radius: 50%;
           &:hover {
             font-size: 28px;
             cursor: pointer;
-            background-color: #ffd154;
+            background-color: #007bff;
           }
         }
         & .prev {
