@@ -17,6 +17,8 @@
     margin: auto;
     & > div {
       display: flex;
+      align-items: center;
+      justify-content: center;
       gap: 20px;
       font-weight: 600;
       letter-spacing: 0.2px;
@@ -47,6 +49,30 @@
           color: #d61c62;
           cursor: pointer;
         }
+      }
+      & button{
+        width: 110px;
+        padding: 10px 0;
+        color: white;
+        border-radius: 10px;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        cursor: pointer;
+        transition: all 0.5s ease;
+        &:hover{
+          box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        & > img{
+          width: 1rem;
+        }
+      }
+      & .tiengviet{
+        background-color: #3a83d1;
+      }
+      & .english{
+        background-color: #663d4d;
       }
     }
   }

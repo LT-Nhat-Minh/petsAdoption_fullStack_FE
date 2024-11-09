@@ -7,10 +7,13 @@ import {
   SearchOutlined,
 } from "@ant-design/icons";
 import logo from "../../asset/Logo/Logo.png";
+import tiengviet from "../../asset/Icon/tiengviet.png";
+import english from "../../asset/Icon/english.png";
 import { useNavigate } from "react-router-dom";
 
 function Header(props) {
   const [showElement, setShowElement] = useState(true);
+  const [isEnglish, setIsEnglish] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -55,7 +58,17 @@ function Header(props) {
           </div>
           <div>
             <SearchOutlined twoToneColor="#eb2f96" className="searchOutlined" />
-            <button>Ngôn ngữ</button>
+            <button
+              onClick={() => {
+                setIsEnglish(!isEnglish);
+              }}
+              className={isEnglish ? "english" : "tiengviet"}
+            >
+              <img src={isEnglish ? english : tiengviet} alt="language" />
+              <span style={{ width: "63px" }}>
+                {isEnglish ? "English" : "Tiếng Việt"}
+              </span>
+            </button>
           </div>
         </div>
       </div>

@@ -36,26 +36,32 @@
       }
       & .content {
         position: absolute;
-        left: 0;
+        left: 10%;
         top: 30%;
-        width: 500px;
+        width: 450px;
         max-width: 80%;
         z-index: 10;
         color: white;
         display: flex;
         flex-direction: column;
         align-items: center;
-        & h2 {
-          font-size: 48px;
+        justify-content: center;
+        text-align: center;
+        user-select: text;
+        & h1{
+          letter-spacing: 0.5px;
+          margin: 10px 0;
         }
-        & p {
-          font-size: 28px;
+        & p{
+          margin: 10px 0;
+          width: 90%;
         }
         & .button_container {
           width: 190px;
           display: flex;
           align-items: center;
           justify-content: center;
+          margin: 10px 0;
           & > button {
             height: fit-content;
             width: 190px;
@@ -80,24 +86,24 @@
     & .active {
       opacity: 1;
       & .content {
-        & h2,
+        & h1,
         & p,
         & button {
           transform: translateY(30px);
           filter: blur(20px);
           opacity: 0;
-          animation: showContent 0.5s 0.2s ease-in-out 1 forwards;
+          animation: showContent 0.3s 0.2s ease-in-out 1 forwards;
         }
         & h2 {
-          animation-duration: 0.5s;
+          animation-duration: 0.3s;
         }
         & p {
-          animation-delay: 0.5s;
-          animation-duration: 0.5s;
+          animation-delay: 0.3s;
+          animation-duration: 0.3s;
         }
         & button {
-          animation-delay: 1s;
-          animation-duration: 0.5s;
+          animation-delay: 0.6s;
+          animation-duration: 0.3s;
         }
       }
     }
