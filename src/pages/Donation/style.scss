@@ -37,10 +37,11 @@
       margin-right: 110px;
     }
     & .dona {
-      background-image: url('../../asset/Icon/dona1.jpg');
+      background-image: url('../../asset/Background/donation.jpg');
       & .title1 {
-        margin-top: 40px;
+        font-size: 50px;
         letter-spacing: 3px;
+        margin-top: 50px;
       }
         & .a_tag {
         font-size: 15px;
@@ -75,14 +76,17 @@
         }
   
         & .hru {
-          width: 20%;
-          margin-top: -4px;
-          border-width: 2px;
+          width: 100px;
+          border: 1px solid #5c5c5c;
+          margin-left: 0px;
+          margin-top: -15px;
+          margin-bottom: 35px;
         }
   
         & .hr2 {
           width: 25%;
           border: 1.5px dotted rgba(0, 0, 0, 0.9);
+          margin-left: 0px;
         }
   
         & .unghongay {
@@ -90,13 +94,12 @@
           border-radius: 20px;
           border: none;
           background-color: #007bff;
-          padding: 8px 40px;
+          padding: 10px 40px;
           margin-top: 16px;
           font-size: 20px;
   
           &:hover {
             background-color: #ffd154;
-            padding: 8px 24px;
             transition: all 0.3s;
           }
         }

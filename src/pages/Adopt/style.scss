@@ -40,7 +40,7 @@
     }
   }
   & .adopt {
-    background-image: url("../../asset/Icon/adopt_first.jpg");
+    background-image: url("../../asset/Background/pexels-impact-dog-crates-1789722873-28860760\ \(1\).jpg");
     & .title1 {
       font-size: 50px;
       letter-spacing: 3px;
@@ -69,27 +69,38 @@
     margin-bottom: 50px;
     & .content1 {
       margin-right: 70px;
+      & > h2{
+        font-size: 2em;
+      }
+      & > hr{
+        width: 100px;
+        border: 1px solid #5c5c5c;
+        margin-left: 0px;
+        margin-top: -15px;
+        margin-bottom: 35px;
+      }
       & > p,
       > ol > li,
       > ul > li {
-        color: rgba(0, 0, 0, 0.8);
+        color: #6f6f6f  ;
         text-align: justify;
       }
     }
     & .requirement {
       & .content2 {
-        background-color: rgb(231, 222, 222);
+        background-color: rgb(234, 234, 234);
         border-radius: 10px;
         margin-bottom: 500px;
         padding: 16px;
         & > strong {
-          font-size: 20px;
+          font-size: 25px;
           letter-spacing: 1px;
         }
         & div {
           display: flex;
           align-items: center;
           gap: 10px;
+          margin-top: 20px;
           & span {
             color: gray;
           }

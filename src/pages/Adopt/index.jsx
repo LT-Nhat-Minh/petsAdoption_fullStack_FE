@@ -19,6 +19,7 @@ function Adopt(props) {
       <div className="quytrinh mlr grid gtc">
         <div className="content1">
           <h2>Quy Trình Nhận Nuôi</h2>
+          <hr></hr>
           <p>
             Trước khi quyết định nhận nuôi bé chó hay mèo nào, bạn hãy tự hỏi
             bản thân rằng mình đã sẵn sàng để chịu trách nhiệm cả đời cho bé
@@ -73,11 +74,11 @@ function Adopt(props) {
             </li>
           </ul>
           <p>
-            Nếu bạn chỉ có thể chăm sóc tạm thời (foster), tham khảo thông tin
+          🐕‍🦺 Nếu bạn chỉ có thể chăm sóc tạm thời (foster), tham khảo thông tin
             tại mục Tình nguyện.
           </p>
           <p>
-            Tìm hiểu thêm về chương trình Nhận nuôi Ảo ở banner cuối trang này.
+          🐈 Tìm hiểu thêm về chương trình Nhận nuôi Ảo ở banner cuối trang này.
           </p>
         </div>
         <Requirement />

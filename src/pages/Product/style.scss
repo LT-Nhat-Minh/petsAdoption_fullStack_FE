@@ -33,10 +33,10 @@
         background-color: rgba(0, 0, 0, 0.6);
   
         .title1 {
-          font-size: 48px;
-          letter-spacing: 3px;
-          margin-top: 30px;
           margin-left: 110px;
+          font-size: 50px;
+          letter-spacing: 3px;
+          margin-top: 50px;
         }
   
         .a_tag {
@@ -47,7 +47,7 @@
           border-radius: 5px;
           margin-top: 8px;
           border: none;
-          width: fit-content;
+          width: 15%;
           margin-left: 110px;
           
           .trang_chu:hover {
@@ -68,9 +68,9 @@
       margin-top: 50px;
   
       .inbox {
-        background-color: #c61d62;
+        background-color: #007bff;
         &:hover {
-          background-color: #007bff;
+          background-color: #ffd154;
         }
       }
   
@@ -85,36 +85,49 @@
   
     .grid1 {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: repeat(4, 1fr); /* Định nghĩa lưới 4 cột */
       gap: 16px;
       margin: 50px 80px;
-  
+    
       .grid_ite {
         background-color: rgba(0, 0, 0, 0.05);
-        padding: 10px;
-  
+        padding-top: 30px;
+        padding-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Căn giữa nội dung theo chiều ngang */
+    
         > img {
-          width: 80%;
-          margin: 10px 35px;
+          width: 250px; /* Đặt chiều rộng cố định */
+          height: 250px; /* Đặt chiều cao cố định để tạo hình vuông */
+          object-fit: cover; /* Đảm bảo ảnh không bị méo, lấp đầy khung hình */
+          margin: 0 0 10px 0; /* Khoảng cách phía dưới ảnh */
         }
-  
+    
         > p {
-          margin: 0 10px 0 20px;
+          margin: 10px 0 0 0;
+          padding: 0 10px;
+          text-align: center; /* Căn giữa văn bản */
+          font-size: 16px;
         }
-  
+    
         .hr1 {
-          width: 30%;
-          border: 2px solid;
-          margin: 0 10px 0 20px;
+          margin: 10px auto; /* Căn giữa đường kẻ */
+          width: 200px;
+          border: 1px solid #5c5c5c;
         }
-  
+    
         > strong {
           color: #c61d62;
           font-size: 18px;
-          margin: 0 10px 16px 20px;
+          margin-top: 8px;
+          text-align: center; /* Căn giữa giá */
+          display: block;
         }
       }
     }
+    
+    
   
     .productslider {
       margin: -20px auto 40px;

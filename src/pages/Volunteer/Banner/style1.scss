@@ -2,11 +2,10 @@
     position: relative;
     width: 100%;
     height: 210px;
-    background-image: url('../../../asset/Background/jumbotron-volunteer.jpg');
+    background-image: url('../../../asset/Background/banner_Volunteer.jpg');
     background-size: cover;
     background-position: center;
     color: white;
-    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,7 +13,6 @@
     /* Lớp overlay để làm tối phần nền */
     .overlay2 {
       background-color: rgba(0, 0, 0, 0.5);
-      padding: 10px;
       width: 100%;
       height: 100%;
       display: flex;
@@ -26,7 +24,7 @@
       h1 {
         font-size: 3rem;
         font-weight: bold;
-        margin-left: -650px;
+        margin-left: -930px;
       }
   
       /* Định dạng breadcrumb */
@@ -35,9 +33,11 @@
         font-size: 0.8rem;
         color: #b5b9bb;
         background-color: #d61c62;
-        padding: 5px 30px;
+        padding: 8px 15px;
         border-radius: 4px;
-        margin-left: -800px;
+        margin-left: -1050px;
+        font-size: 15px;  
+        width: 15%;
   
         a {
           color: #ffffff;
