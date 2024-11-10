@@ -27,11 +27,25 @@ import thumbnail8 from "./asset/ListThumbnail/8.jpeg";
 
 const list = [
   {
-    id: 1,
     name: "Pepsi",
+    breed: "Mèo Ta",
+    color: "Trắng Vàng",
+    age: "Nhí",
+    weight: "1",
     gender: "Đực",
-    age: "Trưởng thành",
-    vaccined: true,
+    id: "P4597",
+    ///
+    a: "u",
+    b: "u",
+    c: "t",
+    ///
+    d: "t",
+    e: "u",
+    f: "t",
+    ///
+    g: "u",
+    h: "t",
+    des: "Một bạn nhặt được ngoài đường rồi bỏ lại ở phòng khám",
     url: thumbnail1, //Ảnh thumbnail
     current: 1, //Trang hiển thị
   },
@@ -69,7 +83,7 @@ const list = [
     age: "Trưởng thành",
     vaccined: false,
     url: thumbnail5,
-    current: 2,
+    current: 1,
   },
   {
     id: 6,
@@ -78,7 +92,7 @@ const list = [
     age: "Trẻ",
     vaccined: false,
     url: thumbnail6,
-    current: 2,
+    current: 1,
   },
   {
     id: 7,
@@ -87,7 +101,7 @@ const list = [
     age: "Trẻ",
     vaccined: false,
     url: thumbnail7,
-    current: 2,
+    current: 1,
   },
   {
     id: 8,
@@ -96,7 +110,7 @@ const list = [
     age: "Trưởng thành",
     vaccined: false,
     url: thumbnail8,
-    current: 2,
+    current: 1,
   },
 ];
 

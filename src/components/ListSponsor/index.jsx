@@ -26,6 +26,7 @@ function Listsponsor(props) {
         open={isModalOpen}
         onCancel={handleCancel}
         centered
+        width={1200}
       >
         <p>Some contents...</p>
         <p>Some contents...</p>
