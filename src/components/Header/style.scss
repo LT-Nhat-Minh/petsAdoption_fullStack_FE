@@ -50,7 +50,7 @@
           cursor: pointer;
         }
       }
-      & button{
+      & button {
         width: 110px;
         padding: 10px 0;
         color: white;
@@ -61,17 +61,17 @@
         justify-content: space-evenly;
         cursor: pointer;
         transition: all 0.5s ease;
-        &:hover{
+        &:hover {
           box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1);
         }
-        & > img{
+        & > img {
           width: 1rem;
         }
       }
-      & .tiengviet{
+      & .tiengviet {
         background-color: #3a83d1;
       }
-      & .english{
+      & .english {
         background-color: #663d4d;
       }
     }
@@ -108,19 +108,8 @@
   background-color: #f6f6f6;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   & > div {
-    position: relative;
     height: 100px;
     padding: 0 20px;
-  }
-  & > div > a {
-    all: unset;
-    border: none;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 0.2px;
-    z-index: 10;
-  }
-  & > div {
     position: relative;
     display: flex;
     align-items: center;
@@ -139,12 +128,12 @@
       background-size: 50px;
       filter: brightness(0) saturate(100%) invert(67%) sepia(17%) saturate(0%)
         hue-rotate(140deg) brightness(99%) contrast(89%);
-      opacity: 0;
       animation: moveAndFadeOut 0.5s ease forwards;
     }
-    & > a {
+    & > p {
       display: flex;
       align-items: center;
+      font-weight: 500;
       height: 70px;
       position: relative;
       background-color: transparent;
@@ -181,6 +170,7 @@
     background: #f6f6f6;
     z-index: unset;
   }
+
   // &::before {
   //   content: "";
   //   width: 40px;
@@ -192,4 +182,7 @@
   //
   //   animation: moveAndFadeIn 0.5s ease;
   // }
+}
+.initial > div::before {
+  animation: moveAndFadeOut 0s ease forwards;
 }

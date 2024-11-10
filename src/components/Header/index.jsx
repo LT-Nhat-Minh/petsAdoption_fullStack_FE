@@ -13,11 +13,15 @@ import { useNavigate } from "react-router-dom";
 
 function Header(props) {
   const [showElement, setShowElement] = useState(true);
+  const [isFirstRender, setIsFirstRender] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
+    clearTimeout(window.firstRenderTimeout);
     window.addEventListener("scroll", handleScrollDown);
-    console.log("props", props);
+    window.firstRenderTimeout = setTimeout(() => {
+      setIsFirstRender(false);
+    }, 500);
     return () => {
       window.removeEventListener("scroll", handleScrollDown);
     };
@@ -32,7 +36,6 @@ function Header(props) {
     } else {
       setShowElement(true);
     }
-    console.log("showElement", showElement);
   };
 
   return (
@@ -81,7 +84,7 @@ function Header(props) {
             </div>
           </div>
         </div>
-        <div className="header_nav">
+        <div className={`header_nav ${isFirstRender ? "initial" : ""}`}>
           <div className="Logo" onClick={() => navigate("/")}>
             <p>
               <img
