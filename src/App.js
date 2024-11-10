@@ -100,54 +100,62 @@ const list = [
   },
 ];
 
-const Layout = () => {
-  const [activated, setActivated] = useState("");
-  const location = useLocation();
-  useEffect(() => {
-    setActivated(location.pathname);
-    window.scrollTo(0, 0);
-  });
-  return (
-    <div className="layout-app">
-      <Header activated={activated} />
-      <Outlet />
-      <Footer />
-    </div>
-  );
-};
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    errorElement: <NotFound />,
-    children: [
-      { index: true, element: <HomePage list={list} /> },
-      {
-        path: "/nhan-nuoi",
-        element: <Adopt list={list} />,
-      },
-      {
-        path: "/contact",
-        element: <Contact />,
-      },
-      {
-        path: "/product",
-        element: <Product />,
-      },
-      {
-        path: "/donation",
-        element: <Donation list={list}/>,
-      },
-      {
-        path: "/volunteer",
-        element: <Volunteer list={list}/>,
-      },
-    ],
-  },
-]);
-
 function App() {
+  const [isEnglish, setIsEnglish] = useState(false);
+
+  const Layout = () => {
+    const [activated, setActivated] = useState("");
+    const location = useLocation();
+    useEffect(() => {
+      setActivated(location.pathname);
+      window.scrollTo(0, 0);
+    });
+    return (
+      <div className="layout-app">
+        <Header
+          activated={activated}
+          isEnglish={isEnglish}
+          setIsEnglish={setIsEnglish}
+        />
+        <Outlet />
+        <Footer isEnglish={isEnglish} />
+      </div>
+    );
+  };
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      errorElement: <NotFound />,
+      children: [
+        {
+          index: true,
+          element: <HomePage list={list} isEnglish={isEnglish} />,
+        },
+        {
+          path: "/nhan-nuoi",
+          element: <Adopt list={list} isEnglish={isEnglish} />,
+        },
+        {
+          path: "/contact",
+          element: <Contact isEnglish={isEnglish} />,
+        },
+        {
+          path: "/product",
+          element: <Product isEnglish={isEnglish} />,
+        },
+        {
+          path: "/donation",
+          element: <Donation list={list} isEnglish={isEnglish} />,
+        },
+        {
+          path: "/volunteer",
+          element: <Volunteer list={list} isEnglish={isEnglish} />,
+        },
+      ],
+    },
+  ]);
   return (
     <div>
       <RouterProvider router={router} />

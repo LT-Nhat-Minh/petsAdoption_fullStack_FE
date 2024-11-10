@@ -76,7 +76,11 @@ function AdoptSlider(props) {
       <div className="after_container"></div>
       <div className="container">
         <div>
-          <h1>BÉ NGOAN TRONG TUẦN</h1>
+          <h1>
+            {props.isEnglish
+              ? "WELL-BEHAVED PETS THIS WEEK"
+              : "BÉ NGOAN TRONG TUẦN"}
+          </h1>
           <span>
             <img src={sticker} alt="" />
           </span>
@@ -93,15 +97,22 @@ function AdoptSlider(props) {
                     <hr />
                     <div className="information">
                       <p>
-                        <strong>Giới tính:</strong> {item.gender}
+                        <strong>
+                          {props.isEnglish ? "Gender:" : "Giới tính:"}
+                        </strong>{" "}
+                        {item.gender}
                         <hr />
                       </p>
                       <p>
-                        <strong>Tuổi:</strong> {item.age}
+                        <strong>{props.isEnglish ? "Age:" : "Tuổi:"}</strong>{" "}
+                        {item.age}
                         <hr />
                       </p>
                       <p>
-                        <strong>Tiêm phòng:</strong> {item.vaccined}
+                        <strong>
+                          {props.isEnglish ? "Vaccinated:" : "Tiêm phòng:"}
+                        </strong>{" "}
+                        {item.vaccined}
                         <hr />
                       </p>
                     </div>
@@ -113,7 +124,7 @@ function AdoptSlider(props) {
 
           <div>
             <div className="button">
-              <button>Nhận Nuôi</button>
+              <button>{props.isEnglish ? "Adopt" : "Nhận Nuôi"}</button>
             </div>
           </div>
         </div>

@@ -38,13 +38,16 @@ function Footer(props) {
           </div>
           <div>
             <div>
-              <h3>Về chúng tôi</h3>
+              <h3>{props.isEnglish ? "About Us" : "Về chúng tôi"}</h3>
               <hr />
               <p>
-                Nhóm trẻ tình nguyện viên Việt Nam và quốc tế, hoạt động vì tình
-                yêu chó mèo.
+                {props.isEnglish
+                  ? "A group of young Vietnamese and international volunteers, working for the love of dogs and cats."
+                  : "Nhóm trẻ tình nguyện viên Việt Nam và quốc tế, hoạt động vì tình yêu chó mèo."}
               </p>
-              <h3>Thông tin liên hệ</h3>
+              <h3>
+                {props.isEnglish ? "Contact Information" : "Thông tin liên hệ"}
+              </h3>
               <hr />
               <ul style={{ all: "unset", listStyleType: "none" }}>
                 <li>
@@ -81,7 +84,9 @@ function Footer(props) {
       </div>
       <hr />
       <div className="footer_credits">
-        Copyright 2019 / Designed by BMBSoft VietNam
+        {props.isEnglish
+          ? "Copyright 2019 / Designed by BMBSoft VietNam"
+          : "Copyright 2019 / Designed by BMBSoft VietNam"}
       </div>
     </div>
   );
