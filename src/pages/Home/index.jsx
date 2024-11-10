@@ -13,13 +13,13 @@ import JoinUs from "../Volunteer/JoinUs";
 function HomePage(props) {
   return (
     <div className="homepage">
-      <Carousel />
-      <AboutUs />
-      <NavSlider />
-      <AdoptSlider list={props.list} />
-      <Statistics />
-      <Sponsors />
-      <ToSupport />
+      <Carousel isEnglish={props.isEnglish} />
+      <AboutUs isEnglish={props.isEnglish} />
+      <NavSlider isEnglish={props.isEnglish} />
+      <AdoptSlider list={props.list} isEnglish={props.isEnglish} />
+      <Statistics isEnglish={props.isEnglish} />
+      <Sponsors isEnglish={props.isEnglish} />
+      <ToSupport isEnglish={props.isEnglish} />
     </div>
   );
 }

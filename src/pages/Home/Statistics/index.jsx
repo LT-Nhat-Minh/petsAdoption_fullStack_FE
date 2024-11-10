@@ -6,14 +6,20 @@ import icon3 from "../../../asset/Icon/interaction.png";
 import icon4 from "../../../asset/Icon/dog-resting-on-a-pet-hotel-bed.png";
 import { Value } from "sass";
 
-function Statistics() {
+function Statistics(props) {
   const icons = [icon1, icon2, icon3, icon4];
   const numbers = [2536, 1069, 339, 150];
-  const thumbnail = [
+  const thumbnailViet = [
     "Ca Cứu Hộ",
     "Đã Có Chủ",
     "Chờ Tìm Chủ",
     "Chưa Sẵn Sàng Tìm Chủ",
+  ];
+  const thumbnailEng = [
+    "Rescued",
+    "Has Owner",
+    "Waiting for Owner",
+    "Not Ready for Adoption",
   ];
 
   const [currentNumber, setCurrentNumber] = useState(icons.map(() => 0));
@@ -77,7 +83,7 @@ function Statistics() {
             </div>
           </div>
           <h1>{currentNumber[index]}</h1>
-          <h4>{thumbnail[index]}</h4>
+          <h4>{(props.isEnglish ? thumbnailEng : thumbnailViet)[index]}</h4>
         </div>
       ))}
     </div>

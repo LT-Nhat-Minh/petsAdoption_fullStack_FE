@@ -9,8 +9,8 @@ import img7 from "../../asset/Carousel/7.jpg";
 import "./style.scss";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 
-function Carousel() {
-  const list = [
+function Carousel(props) {
+  const listViet = [
     {
       title: "Những chú chó cần được nhận nuôi!",
       des: "Mong các bạn hãy cho các bé một cơ hội! Trở thành thành viên trong gia đình của mình!",
@@ -54,13 +54,59 @@ function Carousel() {
       img: img7,
     },
   ];
+  const listEng = [
+    {
+      title: "Dogs in Need of Adoption!",
+      des: "Please give these pups a chance! Let them become a part of your family!",
+      btn: "Read More",
+      img: img1,
+    },
+    {
+      title: "CATS WAITING TO BE ADOPTED...",
+      des: "Please give these kitties a chance! Let them become a part of your family!",
+      btn: "Read More",
+      img: img2,
+    },
+    {
+      title: "NOTICE: PAYPAL ACCOUNT CHANGE",
+      des: "Due to certain reasons, we will no longer use the old PayPal account hanoipetadoption@gmail.com and will switch to hanoipetadoptionorg@gmail.com",
+      btn: "Read More",
+      img: img3,
+    },
+    {
+      title: "Ways to Support the Group",
+      des: "Discover ways to support Hanoi Pet Adoption’s activities!",
+      btn: "Read More",
+      img: img4,
+    },
+    {
+      title: "Adopt, Don’t Abandon!",
+      des: "Animals have senses and emotions; they feel pain, fear, love, and also want to be loved.",
+      btn: "Read More",
+      img: img5,
+    },
+    {
+      title: "Join the ‘YÊU CÚN CỎ’ Group!",
+      des: "Hey everyone! Join the 'YÊU CÚN CỎ' group with us!",
+      btn: "Read More",
+      img: img6,
+    },
+    {
+      title: "Visit the Cat Town!",
+      des: "Our group shares experiences in pet care and rescue.",
+      btn: "Read More",
+      img: img7,
+    },
+  ];
+
   const itemsRef = useRef([]);
 
   const handleClickPrev = () => {
     const currentIndex = itemsRef.current.findIndex((item) =>
       item.classList.contains("active")
     );
-    const prevIndex = currentIndex === 0 ? list.length - 1 : currentIndex - 1;
+    const prevIndex =
+      currentIndex === 0 ? listViet.length - 1 : currentIndex - 1;
     updateActiveItem(prevIndex);
   };
 
@@ -68,7 +114,8 @@ function Carousel() {
     const currentIndex = itemsRef.current.findIndex((item) =>
       item.classList.contains("active")
     );
-    const nextIndex = currentIndex === list.length - 1 ? 0 : currentIndex + 1;
+    const nextIndex =
+      currentIndex === listViet.length - 1 ? 0 : currentIndex + 1;
     updateActiveItem(nextIndex);
   };
 
@@ -80,18 +127,26 @@ function Carousel() {
           : item.classList.remove("active")
       );
     });
+    itemsRef.current.forEach((item, index) => {
+      if (
+        index === newIndex
+          ? item.classList.add("active")
+          : item.classList.remove("active")
+      );
+    });
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (itemsRef.current.length > 0) {
       itemsRef.current[0].classList.add("active");
     }
-  }, []);
+    console.log("english", props.isEnglish);
+  }, [props.isEnglish]);
 
   return (
     <div className="carousel">
       <div className="list">
-        {list.map((item, index) => (
+        {(props.isEnglish ? listEng : listViet).map((item, index) => (
           <div
             className="item"
             key={index}
@@ -110,6 +165,7 @@ function Carousel() {
           </div>
         ))}
       </div>
+
       <div className="arrows">
         <div className="prev" onClick={handleClickPrev}>
           <LeftOutlined />
