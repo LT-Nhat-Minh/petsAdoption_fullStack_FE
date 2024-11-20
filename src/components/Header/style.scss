@@ -104,11 +104,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100px;
+  height: 80px;
   background-color: #f6f6f6;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   & > div {
-    height: 100px;
+    height: 100%;
     padding: 0 20px;
     position: relative;
     display: flex;
