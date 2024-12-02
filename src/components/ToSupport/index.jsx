@@ -8,7 +8,9 @@ function ToSupport(props) {
         {props.isEnglish ? "Are You Ready to Help?" : "Bạn Đã Sẵn Sàng Giúp Đỡ"}
       </h1>
       <div>
-        <button>{props.isEnglish ? "Donate Now" : "Ủng Hộ Ngay"}</button>
+        <button style={{ textTransform: "uppercase" }}>
+          {props.isEnglish ? "Donate Now" : "Ủng Hộ Ngay"}
+        </button>
       </div>
     </div>
   );

@@ -90,7 +90,7 @@ function Header(props) {
               <img
                 src={logo}
                 alt="Logo"
-                style={{ height: "60px", margin: "0 10px" }}
+                style={{ height: "50px", margin: "0 10px" }}
               />
             </p>
           </div>

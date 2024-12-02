@@ -124,7 +124,9 @@ function AdoptSlider(props) {
 
           <div>
             <div className="button">
-              <button>{props.isEnglish ? "Adopt" : "Nhận Nuôi"}</button>
+              <button style={{ textTransform: "uppercase" }}>
+                {props.isEnglish ? "Adopt" : "Nhận Nuôi"}
+              </button>
             </div>
           </div>
         </div>
