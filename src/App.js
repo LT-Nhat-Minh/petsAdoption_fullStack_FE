@@ -28,6 +28,8 @@ import thumbnail9 from "./asset/ListThumbnail/9.jpg";
 import thumbnail10 from "./asset/ListThumbnail/10.jpeg";
 import thumbnail11 from "./asset/ListThumbnail/11.jpeg";
 import thumbnail12 from "./asset/ListThumbnail/12.jpg";
+import News from "./pages/News";
+import Bai1 from "./pages/News/Bai1";
 
 const list = [
   {
@@ -115,8 +117,6 @@ const list = [
     vaccined: false,
     url: thumbnail8,
     current: 1,
-<<<<<<< HEAD
-=======
   },
   {
     id: 9,
@@ -171,7 +171,6 @@ const list = [
     vaccined: false,
     url: thumbnail6,
     current: 2,
->>>>>>> 825af957cae7f118cfded55061170e7bd0f91237
   },
   {
     id: 15,
@@ -417,6 +416,14 @@ function App() {
         {
           path: "/product",
           element: <Product isEnglish={isEnglish} />,
+        },
+        {
+          path: "news",
+          element: <News list={list} isEnglish={isEnglish} />,
+        },
+        {
+          path: "bai1", // No leading slash
+          element: <Bai1 isEnglish={isEnglish} />,
         },
         {
           path: "/donation",

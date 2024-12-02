@@ -35,11 +35,7 @@
 
 
     div {
-<<<<<<< HEAD
-      flex: 1 1 calc(40%); /* Each item now takes approximately half the row */
-=======
       flex: 1 1 calc(40% - 15px);
->>>>>>> 825af957cae7f118cfded55061170e7bd0f91237
       padding: 10px;
       border-radius: 5px;
       h3 {

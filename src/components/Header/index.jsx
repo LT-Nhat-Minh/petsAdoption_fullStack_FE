@@ -119,6 +119,12 @@ function Header(props) {
             <p>{props.isEnglish ? "VOLUNTEER" : "TÌNH NGUYỆN VIÊN"}</p>
           </div>
           <div
+            className={props.activated === "/news" ? "activated" : ""}
+            onClick={() => navigate("/news")}
+          >
+            <p>{props.isEnglish ? "NEWS" : "TIN TỨC"}</p>
+          </div>
+          <div
             className={props.activated === "/product" ? "activated" : ""}
             onClick={() => navigate("/product")}
           >
