@@ -30,6 +30,9 @@ import thumbnail11 from "./asset/ListThumbnail/11.jpeg";
 import thumbnail12 from "./asset/ListThumbnail/12.jpg";
 import News from "./pages/News";
 import Bai1 from "./pages/News/Bai1";
+import NewsDetail from "./pages/News/NewsDetail";
+import PetInfo from "./pages/Adopt/PetInfo";
+import AllPet from "./pages/AllPet";
 
 const list = [
   {
@@ -408,6 +411,16 @@ function App() {
         {
           path: "/nhan-nuoi",
           element: <Adopt list={list} isEnglish={isEnglish} />,
+          children: [
+            {
+              path: "tat-ca-cac-be/:id",
+              element: <PetInfo list={list} isEnglish={isEnglish} />,
+            }
+          ]
+        },
+        {
+          path: "/nhan-nuoi/tat-ca-cac-be",
+          element: <AllPet list={list} isEnglish={isEnglish} />,
         },
         {
           path: "/contact",
@@ -418,8 +431,14 @@ function App() {
           element: <Product isEnglish={isEnglish} />,
         },
         {
-          path: "news",
+          path: "news", // Route cha
           element: <News list={list} isEnglish={isEnglish} />,
+          children: [
+            {
+              path: ":id", // Route con
+              element: <NewsDetail isEnglish={isEnglish} />,
+            },
+          ],
         },
         {
           path: "bai1", // No leading slash

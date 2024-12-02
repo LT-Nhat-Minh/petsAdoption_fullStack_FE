@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Rescue(props) {
+  const navigate = useNavigate();
   return (
     <div className="adopt-rescue">
       <div className="container">
@@ -12,7 +14,9 @@ function Rescue(props) {
           </p>
         </div>
         <div className="btn-container">
-          <button>XEM TẤT CẢ</button>
+          <button onClick={() => navigate("/nhan-nuoi/tat-ca-cac-be")}>
+            XEM TẤT CẢ
+          </button>
         </div>
       </div>
     </div>

@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from "react";
 import sticker from "../../../asset/Icon/pets.png";
 import { Card, Col, Form, Input, Pagination, Row, Select } from "antd";
+import { useNavigate } from "react-router-dom";
 function FindPetTable(props) {
   const [current, setCurrent] = useState(1);
   const [paginatedList, setPaginatedList] = useState([]);
   const [category, setCategory] = useState("all");
-  const pageSize = 4;
+  const navigate = useNavigate();
+  const pageSize = parseInt(props.pageSize);
   useEffect(() => {
     const startIndex = (current - 1) * pageSize;
     const endIndex = startIndex + pageSize;
     setPaginatedList(props.list.slice(startIndex, endIndex));
   }, [current]);
+
+  const handleNavigate = (id) => {
+    navigate(`/nhan-nuoi/tat-ca-cac-be/${id}`);
+  };
 
   return (
     <div className="find-pet-table">
@@ -153,7 +159,13 @@ function FindPetTable(props) {
           {paginatedList.map((item) => {
             return (
               <Col span={6}>
-                <Card cover={<img src={item.url} alt="image" />} hoverable>
+                <Card
+                  cover={<img src={item.url} alt="image" />}
+                  hoverable
+                  onClick={() => {
+                    handleNavigate(item.id);
+                  }}
+                >
                   <div className="card-container">
                     <div className="title">
                       <h3>{item.name}</h3>

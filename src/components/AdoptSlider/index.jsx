@@ -6,9 +6,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import sticker from "../../asset/Icon/pets.png";
 import { Card } from "antd";
+import { useNavigate } from "react-router-dom";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
+
   return (
     <div className="next" onClick={onClick}>
       <KeyboardArrowRight fontSize="large" />
@@ -26,6 +28,7 @@ function SamplePrevArrow(props) {
 }
 
 function AdoptSlider(props) {
+  const navigate = useNavigate();
   var settings = {
     dots: true,
     infinite: false,
@@ -63,6 +66,10 @@ function AdoptSlider(props) {
     ],
   };
 
+  const handleNavigate = (id) => {
+    navigate(`/nhan-nuoi/${id}`);
+  };
+
   const handleClickPrev = () => {};
 
   const handleClickNext = () => {};
@@ -89,7 +96,13 @@ function AdoptSlider(props) {
           <Slider {...settings} className="slider">
             {props.list.map((item, index) => {
               return (
-                <Card cover={<img src={item.url} alt="image" />} hoverable>
+                <Card
+                  cover={<img src={item.url} alt="image" />}
+                  hoverable
+                  onClick={() => {
+                    handleNavigate(item.id);
+                  }}
+                >
                   <div className="card-container">
                     <div className="title">
                       <h3>{item.name}</h3>

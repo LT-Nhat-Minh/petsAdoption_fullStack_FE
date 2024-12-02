@@ -1,21 +1,26 @@
 import React from "react";
-import "./style.scss";
-import Rescue from "./components/Rescue";
+import { Outlet, useLocation } from "react-router-dom";
 import AdoptionOnline from "./components/AdoptionOnline";
 import FindPetTable from "./components/FindPetTable";
 import Requirement from "./components/Requirement";
+import Rescue from "./components/Rescue";
+import "./style.scss";
 function Adopt(props) {
+  const location = useLocation();
   return (
     <div className="adopt_content">
-      <div className="adopt background">
-        <div className="title">
-          <h1 className="title1 fw white mlr">Nhận Nuôi</h1>
-          <a class="a_tag mlr" href="/">
-            <span className="trang_chu white">Trang chủ </span>{" "}
-            <span className="text1"> {">"} Nhận Nuôi</span>
-          </a>
+      {location.pathname === "/nhan-nuoi" ? ( // Use location.pathname
+        <div className="adopt background">
+          <div className="title">
+            <h1 className="title1 fw white mlr">Nhận Nuôi</h1>
+            <a className="a_tag mlr" href="/">
+              <span className="trang_chu white">Trang chủ </span>{" "}
+              <span className="text1"> {">"} Nhận Nuôi</span>
+            </a>
+          </div>
         </div>
-      </div>
+      ) : null}
+      <Outlet />
       <div className="quytrinh mlr grid gtc">
         <div className="content1">
           <h2>Quy Trình Nhận Nuôi</h2>
@@ -74,17 +79,18 @@ function Adopt(props) {
             </li>
           </ul>
           <p>
-          🐕‍🦺 Nếu bạn chỉ có thể chăm sóc tạm thời (foster), tham khảo thông tin
-            tại mục Tình nguyện.
+            🐕‍🦺 Nếu bạn chỉ có thể chăm sóc tạm thời (foster), tham khảo thông
+            tin tại mục Tình nguyện.
           </p>
           <p>
-          🐈 Tìm hiểu thêm về chương trình Nhận nuôi Ảo ở banner cuối trang này.
+            🐈 Tìm hiểu thêm về chương trình Nhận nuôi Ảo ở banner cuối trang
+            này.
           </p>
         </div>
         <Requirement />
       </div>
       <Rescue />
-      <FindPetTable list={props.list} />
+      <FindPetTable list={props.list} pageSize={4} />
       <AdoptionOnline />
     </div>
   );

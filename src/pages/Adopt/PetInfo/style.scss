@@ -1,0 +1,118 @@
+.pet_info{
+    & .banner{
+        width: 100%;
+        height: 200px;
+        background-image: url(../../../asset/Background/jumbotron.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        & .container{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-left: 20%;
+            color: white;
+            & .title{
+                margin: 0;
+                font-size: 40px;
+            }
+            & .breadcrumbs{
+                margin: 0;
+                cursor: default;
+                background-color: #d61c62;
+                width: fit-content;
+                padding: 10px 30px;
+                border-radius: 5px;
+                font-size: 14px;
+                & .root:hover{
+                    cursor: pointer;
+                    color: #007bff;
+                }
+                & .current{
+                    color: #b5b9bb;
+                    cursor: text;
+                }
+            }
+        }
+        
+    }
+    & .content{
+        margin: 50px auto;
+        width: 1200px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        & .info{
+            display: flex;
+            gap: 20px;
+            & .photo{
+                width: 40%;
+                & >img {
+                    width: 100%;
+                }
+            }
+            & .descriptions{
+                width: 66%;
+                padding: 0 20px;
+                & .button{
+                    display: flex;
+                    gap: 20px;
+                    width: fit-content;
+                    margin: auto;
+                    margin-top: 50px;
+                    & button{
+                        width: fit-content;
+                        padding: 10px 20px;
+                        border: none;
+                        border-radius: 24px;
+                        background-color: #d61c62;
+                        color: white;
+                        font-weight: 700;
+                        font-family: "Montserrat", sans-serif;
+                        &:hover{
+                            cursor: pointer;
+                            background-color: #ffd154 !important;
+                        }
+                        &:last-child{
+                            background-color: #007bff;
+                        }
+                    }
+                }
+                
+            }
+            & hr {
+                font-size: 0px;
+                border: 1px dashed;
+                color: #dcdcdc;
+            }
+            & p{
+                margin: 10px 0;
+            }
+        }
+        & .more_info{
+            & > hr{
+                width: 50px;
+                margin: 20px 0;
+
+            }
+            & > div{
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(33%, 1fr));
+                gap: 20px 0;
+                & > div{
+                    flex-grow: 1;
+                }
+            }
+        }
+        & .des{
+            & > hr{
+                width: 50px;
+                margin: 20px 0;
+            }
+        }
+    }
+    
+}
