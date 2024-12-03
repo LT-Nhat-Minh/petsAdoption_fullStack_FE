@@ -1,4 +1,44 @@
 .adopt_content {
+  & .banner{
+    width: 100%;
+    height: 200px;
+    background-image: url("../../asset/Background/pexels-impact-dog-crates-1789722873-28860760\ \(1\).jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    & .container{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-left: 20%;
+        color: white;
+        & .title{
+            margin: 0;
+            font-size: 40px;
+        }
+        & .breadcrumbs{
+            margin: 0;
+            cursor: default;
+            background-color: #d61c62;
+            width: fit-content;
+            padding: 10px 30px;
+            border-radius: 5px;
+            font-size: 14px;
+            & .root:hover{
+                cursor: pointer;
+                color: #007bff;
+            }
+            & .current{
+                color: #b5b9bb;
+                cursor: text;
+            }
+        }
+    }
+    
+}
   & .grid {
     display: grid;
   }
@@ -39,31 +79,6 @@
       background-color: rgba(0, 0, 0, 0.6);
     }
   }
-  & .adopt {
-    background-image: url("../../asset/Background/pexels-impact-dog-crates-1789722873-28860760\ \(1\).jpg");
-    & .title1 {
-      font-size: 50px;
-      letter-spacing: 3px;
-      margin-top: 50px;
-    }
-    & .a_tag {
-      font-size: 14px;
-      background-color: #d61c62;
-      padding: 8px 16px;
-      text-decoration: none;
-      border-radius: 5px;
-      margin-top: 8px;
-      border: none;
-      width: 15%;
-      & .trang_chu:hover {
-        color: #007bff;
-      }
-      & .text1 {
-        color: rgb(195, 201, 206);
-      }
-    }
-  }
-
   & .quytrinh {
     margin-top: 50px;
     margin-bottom: 50px;

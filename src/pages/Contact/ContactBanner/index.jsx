@@ -1,21 +1,21 @@
 import React from "react";
-import "./style1.scss";
+import "./style.scss";
 import { useNavigate } from "react-router-dom";
 
-function VolunteerBanner(props) {
+function ContactBanner(props) {
   const navigate = useNavigate();
   return (
-    <div className="volunteer-banner">
+    <div class="contact-banner">
       <div className="banner">
         <div className="container">
-          <h1 className="title">Tình Nguyện Viên</h1>
+          <h1 className="title">Liên Hệ</h1>
           <p className="breadcrumbs">
             <span className="root" onClick={() => navigate("/")}>
               {" "}
               Trang Chủ{" "}
             </span>
             {">"}
-            <span className="current"> Tình Nguyện Viên </span>
+            <span className="current"> Liên Hệ </span>
           </p>
         </div>
       </div>
@@ -23,4 +23,4 @@ function VolunteerBanner(props) {
   );
 }
 
-export default VolunteerBanner;
+export default ContactBanner;

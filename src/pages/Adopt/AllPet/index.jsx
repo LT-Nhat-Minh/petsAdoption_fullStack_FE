@@ -1,8 +1,8 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./style.scss";
-import AdoptionOnline from "../Adopt/components/AdoptionOnline";
-import FindPetTable from "../Adopt/components/FindPetTable";
+import FindPetTable from "../components/FindPetTable";
+import AdoptionOnline from "../components/AdoptionOnline";
 
 function AllPet(props) {
   const location = useLocation();

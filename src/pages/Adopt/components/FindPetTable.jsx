@@ -197,6 +197,7 @@ function FindPetTable(props) {
           onChange={(Page) => setCurrent(Page)}
           total={props.list.length}
           pageSize={pageSize}
+          responsive={true}
         />
       </div>
     </div>

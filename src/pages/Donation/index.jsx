@@ -11,17 +11,24 @@ import AdoptSlider from "../../components/AdoptSlider";
 import RecoverSlider from "../../components/RecoverSlider";
 import SupportOption from "../../components/SuportOption";
 import Listsponsor from "../../components/ListSponsor";
+import { useNavigate } from "react-router-dom";
+import ToSupport from "../../components/ToSupport";
 
 function Donation(props) {
+  const navigate = useNavigate();
   return (
     <div className="donation_content">
-      <div className="dona banner">
-        <div className="overlay">
-          <h1 className="title1 fw white mlr110">Ủng Hộ</h1>
-          <a className="a_tag mlr110" href="/">
-            <span className="trang_chu white">Trang chủ </span>{" "}
-            <span className="ungho"> {">"} Ủng Hộ</span>
-          </a>
+      <div className="banner">
+        <div className="container">
+          <h1 className="title">Ủng Hộ</h1>
+          <p className="breadcrumbs">
+            <span className="root" onClick={() => navigate("/")}>
+              {" "}
+              Trang Chủ{" "}
+            </span>
+            {">"}
+            <span className="current"> Ủng Hộ </span>
+          </p>
         </div>
       </div>
       <div className="content grid grid_dona mt5 mlr110">
@@ -124,8 +131,9 @@ function Donation(props) {
         <img className="content_img_dona" src={img1} />
       </div>
       <Sponsors />
-      <SupportOption />
       <Listsponsor />
+      <SupportOption />
+      <ToSupport />
       <AdoptSlider list={props.list} />
       <RecoverSlider />
     </div>

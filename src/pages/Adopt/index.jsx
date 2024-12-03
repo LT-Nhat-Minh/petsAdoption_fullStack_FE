@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import AdoptionOnline from "./components/AdoptionOnline";
 import FindPetTable from "./components/FindPetTable";
 import Requirement from "./components/Requirement";
@@ -7,16 +7,21 @@ import Rescue from "./components/Rescue";
 import "./style.scss";
 function Adopt(props) {
   const location = useLocation();
+  const navigate = useNavigate();
   return (
     <div className="adopt_content">
       {location.pathname === "/nhan-nuoi" ? ( // Use location.pathname
-        <div className="adopt background">
-          <div className="title">
-            <h1 className="title1 fw white mlr">Nhận Nuôi</h1>
-            <a className="a_tag mlr" href="/">
-              <span className="trang_chu white">Trang chủ </span>{" "}
-              <span className="text1"> {">"} Nhận Nuôi</span>
-            </a>
+        <div className="banner">
+          <div className="container">
+            <h1 className="title">Nhận Nuôi</h1>
+            <p className="breadcrumbs">
+              <span className="root" onClick={() => navigate("/")}>
+                {" "}
+                Trang Chủ{" "}
+              </span>
+              {">"}
+              <span className="current"> Nhận Nuôi </span>
+            </p>
           </div>
         </div>
       ) : null}

@@ -1,22 +1,43 @@
 .donation_content {
-    & .banner {
-      position: relative;
-      width: 100%;
-      align-items: center;
-      background-size: cover;
-      background-position: center;
-      height: 210px;
-  
-      & .overlay {
-        position: absolute;
-        z-index: 1;
+  & .banner{
+    width: 100%;
+    height: 200px;
+    background-image: url("../../asset/Background/donation.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    & .container{
         display: flex;
         flex-direction: column;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
-      }
+        gap: 20px;
+        margin-left: 20%;
+        color: white;
+        & .title{
+            margin: 0;
+            font-size: 40px;
+        }
+        & .breadcrumbs{
+            margin: 0;
+            cursor: default;
+            background-color: #d61c62;
+            width: fit-content;
+            padding: 10px 30px;
+            border-radius: 5px;
+            font-size: 14px;
+            & .root:hover{
+                cursor: pointer;
+                color: #007bff;
+            }
+            & .current{
+                color: #b5b9bb;
+                cursor: text;
+            }
+        }
     }
+}
     & .white {
       color: white;
     }
@@ -35,32 +56,6 @@
     & .mlr110 {
       margin-left: 110px;
       margin-right: 110px;
-    }
-    & .dona {
-      background-image: url('../../asset/Background/donation.jpg');
-      & .title1 {
-        font-size: 50px;
-        letter-spacing: 3px;
-        margin-top: 50px;
-      }
-        & .a_tag {
-        font-size: 15px;
-        background-color: #d61c62;
-        padding: 8px 16px;
-        text-decoration: none;
-        border-radius: 5px;
-        margin-top: 8px;
-        border: none;
-        width: 15%;
-  
-        &.trang_chu:hover {
-          color: #007bff;
-        }
-  
-        & .ungho {
-          color: rgb(195, 201, 206) !important;
-        }
-      }
     }
     & .content {
       & .content_text {

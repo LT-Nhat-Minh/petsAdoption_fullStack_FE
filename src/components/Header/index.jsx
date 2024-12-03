@@ -101,37 +101,47 @@ function Header(props) {
             <p>{props.isEnglish ? "HOME" : "TRANG CHỦ"}</p>
           </div>
           <div
-            className={props.activated === "/nhan-nuoi" ? "activated" : ""}
+            className={
+              props.activated.startsWith("/nhan-nuoi") ? "activated" : ""
+            }
             onClick={() => navigate("/nhan-nuoi")}
           >
             <p>{props.isEnglish ? "ADOPT" : "NHẬN NUÔI"}</p>
           </div>
           <div
-            className={props.activated === "/donation" ? "activated" : ""}
+            className={
+              props.activated.startsWith("/donation") ? "activated" : ""
+            }
             onClick={() => navigate("/donation")}
           >
             <p>{props.isEnglish ? "DONATE" : "ỦNG HỘ"}</p>
           </div>
           <div
-            className={props.activated === "/volunteer" ? "activated" : ""}
+            className={
+              props.activated.startsWith("/volunteer") ? "activated" : ""
+            }
             onClick={() => navigate("/volunteer")}
           >
             <p>{props.isEnglish ? "VOLUNTEER" : "TÌNH NGUYỆN VIÊN"}</p>
           </div>
           <div
-            className={props.activated === "/news" ? "activated" : ""}
+            className={props.activated.startsWith("/news") ? "activated" : ""}
             onClick={() => navigate("/news")}
           >
             <p>{props.isEnglish ? "NEWS" : "TIN TỨC"}</p>
           </div>
           <div
-            className={props.activated === "/product" ? "activated" : ""}
+            className={
+              props.activated.startsWith("/product") ? "activated" : ""
+            }
             onClick={() => navigate("/product")}
           >
             <p>{props.isEnglish ? "PRODUCT" : "SẢN PHẨM"}</p>
           </div>
           <div
-            className={props.activated === "/contact" ? "activated" : ""}
+            className={
+              props.activated.startsWith("/contact") ? "activated" : ""
+            }
             onClick={() => navigate("/contact")}
           >
             <p>{props.isEnglish ? "CONTACT" : "LIÊN HỆ"}</p>

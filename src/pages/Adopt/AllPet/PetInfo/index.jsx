@@ -1,8 +1,8 @@
 import { CheckOutlined, QuestionOutlined } from "@ant-design/icons";
 import React, { useMemo } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import ToSupport from "../../../components/ToSupport";
 import "./style.scss";
+import ToSupport from "../../../../components/ToSupport";
 
 function PetInfo(props) {
   const { id } = useParams();

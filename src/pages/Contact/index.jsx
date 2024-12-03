@@ -1,14 +1,14 @@
 import React from "react";
-import "./style.scss";
-import Banner1 from "./Banner1";
-import Information from "./Information";
 import Listsponsor from "../../components/ListSponsor";
 import SupportOptions from "../../components/SuportOption";
+import ContactBanner from "./ContactBanner";
+import Information from "./Information";
+import "./style.scss";
 
 function Contact(props) {
   return (
     <div>
-      <Banner1 />
+      <ContactBanner />
       <Information />
       <SupportOptions />
       <Listsponsor />
