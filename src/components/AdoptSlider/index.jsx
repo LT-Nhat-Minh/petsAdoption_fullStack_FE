@@ -67,7 +67,7 @@ function AdoptSlider(props) {
   };
 
   const handleNavigate = (id) => {
-    navigate(`/nhan-nuoi/${id}`);
+    navigate(`/nhan-nuoi/tat-ca-cac-be/${id}`);
   };
 
   const handleClickPrev = () => {};

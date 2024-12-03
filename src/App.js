@@ -71,7 +71,7 @@ const list = [
     g: "u",
     h: "t",
     des: "Một bạn nhặt được ngoài đường rồi bỏ lại ở phòng khám",
-    url: thumbnail2, //Ảnh thumbnail
+    url: thumbnail1, //Ảnh thumbnail
     current: 1, //Trang hiển thị
   },
   {
