@@ -6,6 +6,7 @@ function FindPetTable(props) {
   const [current, setCurrent] = useState(1);
   const [paginatedList, setPaginatedList] = useState([]);
   const [filteredList, setFilteredList] = useState(props.list);
+  const [name, setName] = useState("");
   const navigate = useNavigate();
   const [form] = Form.useForm();
   const pageSize = parseInt(props.pageSize);
@@ -27,30 +28,29 @@ function FindPetTable(props) {
 
     if (value.type !== "all") {
       updateList = updateList.filter((item) => item.type === value.type);
-      setFilteredList(updateList);
-    } else {
-      setFilteredList(updateList);
     }
 
     if (value.gender !== "all") {
       updateList = updateList.filter((item) => item.gender === value.gender);
-      setFilteredList(updateList);
     }
 
     if (value.age !== "all") {
       updateList = updateList.filter((item) => item.age === value.age);
-      setFilteredList(updateList);
     }
 
     if (value.a !== "all") {
       updateList = updateList.filter((item) => item.a === value.a);
-      setFilteredList(updateList);
     }
 
     if (value.g !== "all") {
       updateList = updateList.filter((item) => item.g === value.g);
-      setFilteredList(updateList);
     }
+
+    const nameFilter = value.name.trim().toLowerCase();
+    updateList = updateList.filter((item) =>
+      nameFilter === "" ? item : item.name.toLowerCase().includes(nameFilter)
+    );
+    setFilteredList(updateList);
   };
 
   return (
@@ -212,7 +212,7 @@ function FindPetTable(props) {
               <Col span={8}>
                 <div style={{ display: "flex", flexDirection: "column" }}>
                   <span>Tên</span>
-                  <Form.Item name="name">
+                  <Form.Item name="name" initialValue={""}>
                     <Input
                       placeholder="Nhập tên..."
                       style={{
