@@ -7,8 +7,6 @@ import ToSupport from "../../components/ToSupport";
 import AboutUs from "./AboutUs";
 import Statistics from "./Statistics";
 import "./style.scss";
-import SupportOptions from "../../components/SuportOption";
-import JoinUs from "../Volunteer/JoinUs";
 
 function HomePage(props) {
   return (

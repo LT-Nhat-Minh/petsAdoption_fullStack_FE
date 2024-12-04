@@ -5,17 +5,18 @@ import { useNavigate } from "react-router-dom";
 function ContactBanner(props) {
   const navigate = useNavigate();
   return (
-    <div class="contact-banner">
+    <div className="contact-banner">
       <div className="banner">
         <div className="container">
-          <h1 className="title">Liên Hệ</h1>
+          <h1 className="title">{props.isEnglish ? "Contact" : "Liên Hệ"}</h1>
           <p className="breadcrumbs">
             <span className="root" onClick={() => navigate("/")}>
-              {" "}
-              Trang Chủ{" "}
+              {props.isEnglish ? "Home" : "Trang Chủ"}
             </span>
             {">"}
-            <span className="current"> Liên Hệ </span>
+            <span className="current">
+              {props.isEnglish ? "Contact" : "Liên Hệ"}
+            </span>
           </p>
         </div>
       </div>

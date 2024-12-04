@@ -53,16 +53,35 @@ function FindPetTable(props) {
     setFilteredList(updateList);
   };
 
+  const getVaccinationStatus = (isEnglish, status) => {
+    if (isEnglish) {
+      return status === "u" ? "No" : status === "t" ? "Yes" : "Unclear";
+    } else {
+      return status === "u" ? "Không" : status === "t" ? "Có" : "Chưa rõ";
+    }
+  };
+
+  const getAgeStatus = (isEnglish, age) => {
+    if (isEnglish) {
+      return age === "Nhí" ? "Baby" : age === "Nhỡ" ? "Juvenile" : "Adult";
+    } else {
+      return age === "Nhí" ? "Nhí" : age === "Nhỡ" ? "Nhỡ" : "Trưởng Thành";
+    }
+  };
+
+  const getGenderStatus = (isEnglish, gender) => {
+    if (isEnglish) {
+      return gender === "Đực" ? "Male" : "Female";
+    } else {
+      return gender === "Đực" ? "Đực" : "Cái";
+    }
+  };
+
   return (
     <div className="find-pet-table">
       <div className="header">
         <div className="title">
-          <button
-            onClick={() => {
-              console.log("abc", paginatedList);
-            }}
-          ></button>
-          <h1>Tìm thú cưng</h1>
+          <h1>{props.isEnglish ? "Find Pets" : "Tìm thú cưng"}</h1>
           <span>
             <img src={sticker} alt="" />
           </span>
@@ -82,7 +101,7 @@ function FindPetTable(props) {
                     form.getFieldValue("type") === "all" ? "btn-activated" : ""
                   }
                 >
-                  Tất cả
+                  {props.isEnglish ? "All" : "Tất cả"}
                 </button>
                 <button
                   type="button"
@@ -94,7 +113,7 @@ function FindPetTable(props) {
                     form.getFieldValue("type") === "dog" ? "btn-activated" : ""
                   }
                 >
-                  Chó
+                  {props.isEnglish ? "Dog" : "Chó"}
                 </button>
                 <button
                   type="button"
@@ -106,7 +125,7 @@ function FindPetTable(props) {
                     form.getFieldValue("type") === "cat" ? "btn-activated" : ""
                   }
                 >
-                  Mèo
+                  {props.isEnglish ? "Cat" : "Mèo"}
                 </button>
                 <button
                   type="button"
@@ -120,14 +139,14 @@ function FindPetTable(props) {
                       : ""
                   }
                 >
-                  Khác
+                  {props.isEnglish ? "Other" : "Khác"}
                 </button>
               </div>
             </Form.Item>
             <Row gutter={24}>
               <Col span={8}>
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <span>Giới tính</span>
+                  <span>{props.isEnglish ? "Gender" : "Giới tính"}</span>
                   <Form.Item name="gender" initialValue="all">
                     <Select
                       style={{
@@ -137,9 +156,15 @@ function FindPetTable(props) {
                       }}
                       defaultValue="all"
                     >
-                      <Select.Option value="all">Tất cả</Select.Option>
-                      <Select.Option value="Đực">Đực</Select.Option>
-                      <Select.Option value="Cái">Cái</Select.Option>
+                      <Select.Option value="all">
+                        {props.isEnglish ? "All" : "Tất cả"}
+                      </Select.Option>
+                      <Select.Option value="Đực">
+                        {props.isEnglish ? "Male" : "Đực"}
+                      </Select.Option>
+                      <Select.Option value="Cái">
+                        {props.isEnglish ? "Female" : "Cái"}
+                      </Select.Option>
                     </Select>
                   </Form.Item>
                 </div>
@@ -147,7 +172,7 @@ function FindPetTable(props) {
 
               <Col span={8}>
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <span>Độ tuổi</span>
+                  <span>{props.isEnglish ? "Age" : "Độ tuổi"}</span>
                   <Form.Item name="age" initialValue="all">
                     <Select
                       style={{
@@ -157,11 +182,17 @@ function FindPetTable(props) {
                       }}
                       defaultValue="all"
                     >
-                      <Select.Option value="all">Tất cả</Select.Option>
-                      <Select.Option value="Nhí">Nhí</Select.Option>
-                      <Select.Option value="Nhỡ">Nhỡ</Select.Option>
-                      <Select.Option value="Thanh Niên">
-                        Thanh Niên
+                      <Select.Option value="all">
+                        {props.isEnglish ? "All" : "Tất cả"}
+                      </Select.Option>
+                      <Select.Option value="Nhí">
+                        {props.isEnglish ? "Baby" : "Nhí"}
+                      </Select.Option>
+                      <Select.Option value="Nhỡ">
+                        {props.isEnglish ? "Juvenile" : "Nhỡ"}
+                      </Select.Option>
+                      <Select.Option value="Trưởng Thành">
+                        {props.isEnglish ? "Adult" : "Trưởng Thành"}
                       </Select.Option>
                     </Select>
                   </Form.Item>
@@ -170,7 +201,7 @@ function FindPetTable(props) {
 
               <Col span={8}>
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <span>Triệt sản</span>
+                  <span>{props.isEnglish ? "Neutered" : "Triệt sản"}</span>
                   <Form.Item name="a" initialValue="all">
                     <Select
                       style={{
@@ -180,10 +211,18 @@ function FindPetTable(props) {
                       }}
                       defaultValue="all"
                     >
-                      <Select.Option value="all">Tất cả</Select.Option>
-                      <Select.Option value="t">Có</Select.Option>
-                      <Select.Option value="f">Không</Select.Option>
-                      <Select.Option value="u">Chưa rõ</Select.Option>
+                      <Select.Option value="all">
+                        {props.isEnglish ? "All" : "Tất cả"}
+                      </Select.Option>
+                      <Select.Option value="t">
+                        {props.isEnglish ? "Yes" : "Có"}
+                      </Select.Option>
+                      <Select.Option value="f">
+                        {props.isEnglish ? "No" : "Không"}
+                      </Select.Option>
+                      <Select.Option value="u">
+                        {props.isEnglish ? "Unclear" : "Chưa rõ"}
+                      </Select.Option>
                     </Select>
                   </Form.Item>
                 </div>
@@ -191,7 +230,7 @@ function FindPetTable(props) {
 
               <Col span={8}>
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <span>Tiêm phòng</span>
+                  <span>{props.isEnglish ? "Vaccinated" : "Tiêm phòng"}</span>
                   <Form.Item name="g" initialValue="all">
                     <Select
                       style={{
@@ -201,20 +240,30 @@ function FindPetTable(props) {
                       }}
                       defaultValue="all"
                     >
-                      <Select.Option value="all">Tất cả</Select.Option>
-                      <Select.Option value="t">Có</Select.Option>
-                      <Select.Option value="f">Chưa</Select.Option>
-                      <Select.Option value="u">Chưa rõ</Select.Option>
+                      <Select.Option value="all">
+                        {props.isEnglish ? "All" : "Tất cả"}
+                      </Select.Option>
+                      <Select.Option value="t">
+                        {props.isEnglish ? "Yes" : "Có"}
+                      </Select.Option>
+                      <Select.Option value="f">
+                        {props.isEnglish ? "No" : "Chưa"}
+                      </Select.Option>
+                      <Select.Option value="u">
+                        {props.isEnglish ? "Unclear" : "Chưa rõ"}
+                      </Select.Option>
                     </Select>
                   </Form.Item>
                 </div>
               </Col>
               <Col span={8}>
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <span>Tên</span>
+                  <span>{props.isEnglish ? "Name" : "Tên"}</span>
                   <Form.Item name="name" initialValue={""}>
                     <Input
-                      placeholder="Nhập tên..."
+                      placeholder={
+                        props.isEnglish ? "Enter name..." : "Nhập tên..."
+                      }
                       style={{
                         width: "280px",
                         border: "2px solid #d61c62",
@@ -235,7 +284,7 @@ function FindPetTable(props) {
                 }}
               >
                 <button className="btn-search" type="submit">
-                  TÌM KIẾM
+                  {props.isEnglish ? "SEARCH" : "TÌM KIẾM"}
                 </button>
               </Col>
             </Row>
@@ -261,20 +310,22 @@ function FindPetTable(props) {
                     <hr />
                     <div className="information">
                       <p>
-                        <strong>Giới tính:</strong> {item.gender}
+                        <strong>
+                          {props.isEnglish ? "Gender:" : "Giới tính:"}
+                        </strong>{" "}
+                        {getGenderStatus(props.isEnglish, item.gender)}
                         <hr />
                       </p>
                       <p>
-                        <strong>Tuổi:</strong> {item.age}
+                        <strong>{props.isEnglish ? "Age:" : "Tuổi:"}</strong>{" "}
+                        {getAgeStatus(props.isEnglish, item.age)}
                         <hr />
                       </p>
                       <p>
-                        <strong>Tiêm phòng:</strong>{" "}
-                        {item.g === "u"
-                          ? "Chưa rõ"
-                          : item.g === "t"
-                          ? "Có"
-                          : "Không"}
+                        <strong>
+                          {props.isEnglish ? "Vaccinated:" : "Tiêm phòng:"}
+                        </strong>{" "}
+                        {getVaccinationStatus(props.isEnglish, item.g)}
                         <hr />
                       </p>
                     </div>

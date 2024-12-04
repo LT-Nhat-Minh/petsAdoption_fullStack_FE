@@ -20,21 +20,24 @@ function News(props) {
   function truncateText(text, maxLength) {
     return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
   }
+
   return (
     <div className="news">
       <div className="banner">
         <div className="container">
-          <h1 className="title">Tin Tức</h1>
+          <h1 className="title">{props.isEnglish ? "News" : "Tin Tức"}</h1>
           <p className="breadcrumbs">
             <span className="root" onClick={() => navigate("/")}>
-              {" "}
-              Trang Chủ{" "}
+              {props.isEnglish ? "Home" : "Trang Chủ"}
+            </span>{" "}
+            {">"}{" "}
+            <span className="current">
+              {props.isEnglish ? "News" : "Tin Tức"}
             </span>
-            {">"}
-            <span className="current"> Tin Tức </span>
           </p>
         </div>
       </div>
+
       <div className="container">
         <div className="content">
           <Row gutter={24}>
@@ -48,19 +51,33 @@ function News(props) {
                     </div>
                     <div className="info">
                       <div className="date">
-                        <div className="month">T {month}</div>
+                        <div className="month">
+                          {props.isEnglish ? `M ${month}` : `T ${month}`}
+                        </div>
                         <div className="day">{day}</div>
                       </div>
-                      <p className="title">{truncateText(item.title, 40)}</p>
-                      <p className="des">{truncateText(item.des, 150)}</p>
+                      <p className="title">
+                        {props.isEnglish
+                          ? truncateText(item.title_english, 40)
+                          : truncateText(item.title, 40)}
+                      </p>
+                      <p className="des">
+                        {props.isEnglish
+                          ? truncateText(item.des_english, 150)
+                          : truncateText(item.des, 150)}
+                      </p>
                       <div className="author">
-                        <span>Đăng bởi </span>
+                        <span>
+                          {props.isEnglish ? "Posted by" : "Đăng bởi"}
+                        </span>
                         <span>
                           <UserOutlined /> {item.author}
                         </span>
                       </div>
                       <div className="button">
-                        <button>CHI TIẾT</button>
+                        <button>
+                          {props.isEnglish ? "READ MORE" : "CHI TIẾT"}
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -79,14 +96,17 @@ function News(props) {
             }}
           />
         </div>
-        <SideBar />
+
+        <SideBar isEnglish={props.isEnglish} />
       </div>
+
       <button
         onClick={() => {
           console.log(props);
         }}
       ></button>
-      <ToSupport />
+
+      <ToSupport isEnglish={props.isEnglish} />
     </div>
   );
 }

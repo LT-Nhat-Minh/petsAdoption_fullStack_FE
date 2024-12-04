@@ -10,27 +10,31 @@ function Listsponsor(props) {
   };
 
   return (
-    <div class="list-sponsor">
-      <div class="content">
-        <h1>Danh sách mạnh thường quân</h1>
+    <div className="list-sponsor">
+      <div className="content">
+        <h1>
+          {props.isEnglish ? "List of Donors" : "Danh sách mạnh thường quân"}
+        </h1>
         <button
           onClick={() => {
             setIsModalOpen(true);
           }}
         >
-          XEM THÔNG TIN
+          {props.isEnglish ? "View Information" : "XEM THÔNG TIN"}
         </button>
       </div>
       <Modal
-        title="Basic Modal"
+        title={
+          props.isEnglish ? "Donor Information" : "Thông Tin Mạnh Thường Quân"
+        }
         open={isModalOpen}
         onCancel={handleCancel}
         centered
         width={1200}
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <p>{props.isEnglish ? "Some contents..." : "Một số nội dung..."}</p>
+        <p>{props.isEnglish ? "Some contents..." : "Một số nội dung..."}</p>
+        <p>{props.isEnglish ? "Some contents..." : "Một số nội dung..."}</p>
       </Modal>
     </div>
   );

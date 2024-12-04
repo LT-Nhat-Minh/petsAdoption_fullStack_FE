@@ -63,7 +63,7 @@ function Footer(props) {
                     <a href="/email">
                       <MailOutlined style={{ marginRight: "10px" }} />
                       <span style={{ color: "#018ae0" }}>
-                        hanoipetadoption@gmail.com
+                        oncemorelife@gmail.com
                       </span>
                     </a>
                   </p>
@@ -71,7 +71,9 @@ function Footer(props) {
                 <li>
                   <p>
                     <EnvironmentOutlined style={{ marginRight: "10px" }} />
-                    Hà Nội - Việt Nam
+                    {props.isEnglish
+                      ? "Ho Chi Minh City - Vietnam"
+                      : "TP Hồ Chí Minh - Việt Nam"}
                   </p>
                 </li>
               </ul>

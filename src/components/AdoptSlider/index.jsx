@@ -80,9 +80,29 @@ function AdoptSlider(props) {
 
   const handleClickNext = () => {};
 
-  useEffect(() => {
-    console.log(props);
-  });
+  const getVaccinationStatus = (isEnglish, status) => {
+    if (isEnglish) {
+      return status === "u" ? "No" : status === "t" ? "Yes" : "Unclear";
+    } else {
+      return status === "u" ? "Không" : status === "t" ? "Có" : "Chưa rõ";
+    }
+  };
+
+  const getAgeStatus = (isEnglish, age) => {
+    if (isEnglish) {
+      return age === "Nhí" ? "Baby" : age === "Nhỡ" ? "Juvenile" : "Adult";
+    } else {
+      return age === "Nhí" ? "Nhí" : age === "Nhỡ" ? "Nhỡ" : "Trưởng Thành";
+    }
+  };
+
+  const getGenderStatus = (isEnglish, gender) => {
+    if (isEnglish) {
+      return gender === "Đực" ? "Male" : "Female";
+    } else {
+      return gender === "Đực" ? "Đực" : "Cái";
+    }
+  };
 
   return (
     <div className="adopt_slider">
@@ -119,19 +139,19 @@ function AdoptSlider(props) {
                         <strong>
                           {props.isEnglish ? "Gender:" : "Giới tính:"}
                         </strong>{" "}
-                        {item.gender}
+                        {getGenderStatus(props.isEnglish, item.gender)}
                         <hr />
                       </p>
                       <p>
                         <strong>{props.isEnglish ? "Age:" : "Tuổi:"}</strong>{" "}
-                        {item.age}
+                        {getAgeStatus(props.isEnglish, item.age)}
                         <hr />
                       </p>
                       <p>
                         <strong>
                           {props.isEnglish ? "Vaccinated:" : "Tiêm phòng:"}
                         </strong>{" "}
-                        {item.vaccined}
+                        {getVaccinationStatus(props.isEnglish, item.g)}
                         <hr />
                       </p>
                     </div>
@@ -143,7 +163,10 @@ function AdoptSlider(props) {
 
           <div>
             <div className="button">
-              <button style={{ textTransform: "uppercase" }}>
+              <button
+                style={{ textTransform: "uppercase" }}
+                onClick={() => navigate("/nhan-nuoi/tat-ca-cac-be")}
+              >
                 {props.isEnglish ? "Adopt" : "Nhận Nuôi"}
               </button>
             </div>

@@ -12,7 +12,7 @@ function VolunteerBanner1(props) {
   return (
     <div className="container3">
       <div className="contact-info3">
-        <h2>Thông Tin Liên Hệ</h2>
+        <h2>{props.isEnglish ? "Contact Information" : "Thông Tin Liên Hệ"}</h2>
         <p>
           <FaEnvelope /> hanoipetadoption@gmail.com
         </p>
@@ -20,13 +20,14 @@ function VolunteerBanner1(props) {
           <FaPhone /> (+84)39 320 1068
         </p>
         <p>
-          <FaMapMarkerAlt /> Hà Nội - Việt Nam
+          <FaMapMarkerAlt /> Hanoi - Vietnam
         </p>
 
-        <h2>Tài Khoản Quyên Góp</h2>
+        <h2>{props.isEnglish ? "Donation Account" : "Tài Khoản Quyên Góp"}</h2>
         <p>
-          Chi phí sẽ được chia đều cho các bé khác còn nằm viện và gây dựng nhà
-          chung.
+          {props.isEnglish
+            ? "The cost will be shared equally for other puppies still in the hospital and for building the common house."
+            : "Chi phí sẽ được chia đều cho các bé khác còn nằm viện và gây dựng nhà chung."}
         </p>
 
         <div className="bank-info3">
@@ -34,25 +35,29 @@ function VolunteerBanner1(props) {
             <h3>
               <FaUniversity /> Vietcombank
             </h3>
-            <p>Phạm Thanh Hằng</p>
+            <p>{props.isEnglish ? "Pham Thanh Hang" : "Phạm Thanh Hằng"}</p>
             <p>0011004054939</p>
-            <p>Sở giao dịch Vietcombank</p>
+            <p>
+              {props.isEnglish
+                ? "Vietcombank Transaction Office"
+                : "Sở giao dịch Vietcombank"}
+            </p>
           </div>
           <div>
             <h3>
               <FaUniversity /> BIDV
             </h3>
-            <p>Phạm Thanh Hằng</p>
+            <p>{props.isEnglish ? "Pham Thanh Hang" : "Phạm Thanh Hằng"}</p>
             <p>12610000951797</p>
-            <p>Chi Nhánh Ba Đình</p>
+            <p>{props.isEnglish ? "Ba Dinh Branch" : "Chi Nhánh Ba Đình"}</p>
           </div>
           <div>
             <h3>
               <FaUniversity /> Techcombank
             </h3>
-            <p>Phạm Thanh Hằng</p>
+            <p>{props.isEnglish ? "Pham Thanh Hang" : "Phạm Thanh Hằng"}</p>
             <p>19031456730888</p>
-            <p>Chi Nhánh Hà Nội</p>
+            <p>{props.isEnglish ? "Hanoi Branch" : "Chi Nhánh Hà Nội"}</p>
           </div>
           <div>
             <h3>
@@ -64,26 +69,38 @@ function VolunteerBanner1(props) {
       </div>
 
       <div className="feedback-form3">
-        <h1>Gửi Góp Ý</h1>
+        <h1>{props.isEnglish ? "Send Feedback" : "Gửi Góp Ý"}</h1>
         <form action="#" method="post">
-          <label htmlFor="name">Họ và tên *</label>
+          <label htmlFor="name">
+            {props.isEnglish ? "Full Name *" : "Họ và tên *"}
+          </label>
           <input type="text" id="name" name="name" required />
 
-          <label htmlFor="email">Email *</label>
+          <label htmlFor="email">
+            {props.isEnglish ? "Email *" : "Email *"}
+          </label>
           <input type="email" id="email" name="email" required />
 
-          <label htmlFor="subject">Tiêu đề *</label>
+          <label htmlFor="subject">
+            {props.isEnglish ? "Subject *" : "Tiêu đề *"}
+          </label>
           <input type="text" id="subject" name="subject" required />
 
-          <label htmlFor="message">Nội dung *</label>
+          <label htmlFor="message">
+            {props.isEnglish ? "Message *" : "Nội dung *"}
+          </label>
           <textarea id="message" name="message" required></textarea>
 
           <div className="captcha3">
             <input type="checkbox" id="captcha" name="captcha" />
-            <label htmlFor="captcha">I'm not a robot</label>
+            <label htmlFor="captcha">
+              {props.isEnglish ? "I'm not a robot" : "I'm not a robot"}
+            </label>
           </div>
 
-          <button type="submit">GỬI TIN NHẮN</button>
+          <button type="submit">
+            {props.isEnglish ? "SEND MESSAGE" : "GỬI TIN NHẮN"}
+          </button>
         </form>
       </div>
     </div>
