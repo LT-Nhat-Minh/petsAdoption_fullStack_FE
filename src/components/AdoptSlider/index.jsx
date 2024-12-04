@@ -1,5 +1,5 @@
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -28,7 +28,13 @@ function SamplePrevArrow(props) {
 }
 
 function AdoptSlider(props) {
+  const [paginatedList, setPaginatedList] = useState([]);
   const navigate = useNavigate();
+  useEffect(() => {
+    let newList = props.list.slice(0, 8);
+    setPaginatedList(newList);
+  }, []);
+
   var settings = {
     dots: true,
     infinite: false,
@@ -94,7 +100,7 @@ function AdoptSlider(props) {
         </div>
         <div className="slider_container">
           <Slider {...settings} className="slider">
-            {props.list.map((item, index) => {
+            {paginatedList.map((item, index) => {
               return (
                 <Card
                   cover={<img src={item.url} alt="image" />}

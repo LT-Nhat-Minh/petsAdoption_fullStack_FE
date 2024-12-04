@@ -37,7 +37,6 @@
             }
         }
     }
-    
 }
   & .grid {
     display: grid;
@@ -392,10 +391,14 @@
         color: white;
         font-weight: 600;
         font-size: 1.25rem;
+        transition: background-color 0.3s ease;
         &:hover {
           cursor: pointer;
           background-color: #007bff;
         }
+      }
+      & .btn-activated{
+        background-color: #007bff
       }
     }
   }

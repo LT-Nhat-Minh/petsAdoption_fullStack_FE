@@ -61,20 +61,21 @@ const list = [
     id: "P4597",
     ///
     a: "u",
-    b: "u",
-    c: "t",
+    b: "t",
+    c: "f",
     ///
     d: "t",
     e: "u",
-    f: "t",
+    f: "u",
     ///
-    g: "u",
-    h: "t",
+    g: "t",
+    h: "f",
     des: "Một bạn nhặt được ngoài đường rồi bỏ lại ở phòng khám",
     url: thumbnail1, //Ảnh thumbnail
     current: 1, //Trang hiển thị
-  },
-  {
+    type: "cat"
+},
+{
     name: "Milo",
     breed: "Mèo Tây",
     color: "Đen Trắng",
@@ -85,10 +86,10 @@ const list = [
     ///
     a: "u",
     b: "u",
-    c: "t",
+    c: "u",
     ///
     d: "t",
-    e: "u",
+    e: "f",
     f: "t",
     ///
     g: "u",
@@ -96,8 +97,9 @@ const list = [
     des: "Bé đi lang thang chân phải đau, mắt trái đục giác mạc. Milo, đực, 5-6 tháng, đã tiêm một mũi. Một mắt bị nhòe. Hơi nhát, ăn tham.",
     url: thumbnail2, //Ảnh thumbnail
     current: 1, //Trang hiển thị
-  },
-  {
+    type: "cat"
+},
+{
     name: "Michan",
     breed: "Poodle",
     color: "Trắng",
@@ -106,21 +108,22 @@ const list = [
     gender: "Đực",
     id: "M4593",
     ///
-    a: "u",
+    a: "f",
     b: "u",
     c: "u",
     ///
-    d: "t",
+    d: "u",
     e: "t",
-    f: "u",
+    f: "t",
     ///
     g: "t",
     h: "u",
     des: "Bé cún lang thang ở nghĩa trang.",
     url: thumbnail3, //Ảnh thumbnail
     current: 1, //Trang hiển thị
-  },
-  {
+    type: "dog"
+},
+{
     name: "Quýt",
     breed: "Mèo ta",
     color: "Vàng",
@@ -131,19 +134,20 @@ const list = [
     ///
     a: "u",
     b: "u",
-    c: "u",
+    c: "t",
     ///
-    d: "t",
-    e: "u",
-    f: "t",
+    d: "u",
+    e: "t",
+    f: "u",
     ///
-    g: "u",
-    h: "t",
+    g: "t",
+    h: "f",
     des: "Bé mèo lang thang ở sảnh chung cư, chơi với trẻ con nhưng ko ai nuôi.",
     url: thumbnail4, //Ảnh thumbnail
     current: 1, //Trang hiển thị
-  },
-  {
+    type: "cat"
+},
+{
     name: "Bông",
     breed: "Mèo Lai",
     color: "Trắng",
@@ -153,20 +157,21 @@ const list = [
     id: "B4585",
     ///
     a: "u",
-    b: "u",
+    b: "f",
     c: "u",
     ///
-    d: "t",
+    d: "u",
     e: "u",
     f: "t",
     ///
-    g: "u",
+    g: "t",
     h: "t",
     des: "Bé đi lang thang, gầy đói, đau mắt ở khu vực Bác Khoa không ai nhận.",
     url: thumbnail5, //Ảnh thumbnail
     current: 1, //Trang hiển thị
-  },
-  {
+    type: "cat"
+},
+{
     name: "Dưa",
     breed: "Mèo Tây",
     color: "Xám",
@@ -179,7 +184,7 @@ const list = [
     b: "u",
     c: "u",
     ///
-    d: "t",
+    d: "f",
     e: "u",
     f: "u",
     ///
@@ -188,8 +193,9 @@ const list = [
     des: "Bé đi lang thang, ăn ót, phân hơi nát. Còn nhát.",
     url: thumbnail6, //Ảnh thumbnail
     current: 1, //Trang hiển thị
-  },
-  {
+    type: "cat"
+},
+{
     name: "Lucky",
     breed: "Chó Ta",
     color: "Đen Trắng",
@@ -199,19 +205,22 @@ const list = [
     id: "L4581",
     ///
     a: "u",
-    b: "u",
+    b: "f",
     c: "u",
     ///
     d: "t",
     e: "t",
-    f: "u",
+    f: "t",
     ///
-    g: "t",
-    h: "u",
+    g: "u",
+    h: "f",
     des: "Bị thương cong gập 1 chân sau, ve rận bị bỏ ở xã Bàu Lâm, Huyện Xuyên Mộc, Vũng Tàu.",
     url: thumbnail7, //Ảnh thumbnail
     current: 1, //Trang hiển thị
-  },
+    type: "dog"
+},
+
+  //
   {
     name: "Mochi",
     breed: "Mèo Tây",
@@ -220,20 +229,18 @@ const list = [
     weight: "2.5",
     gender: "Đực",
     id: "M4532",
-    ///
     a: "u",
-    b: "u",
-    c: "t",
-    ///
+    b: "t",
+    c: "f",
     d: "t",
     e: "u",
-    f: "t",
-    ///
-    g: "u",
-    h: "t",
+    f: "f",
+    g: "t",
+    h: "u",
     des: "Bị nấm và viêm phổi. Hiện đã khỏi.",
     url: thumbnail8, //Ảnh thumbnail
     current: 1, //Trang hiển thị
+    type: "cat"
   },
   {
     name: "Ki",
@@ -243,20 +250,18 @@ const list = [
     weight: "20",
     gender: "Cái",
     id: "K4624",
-    ///
-    a: "u",
-    b: "t",
-    c: "u",
-    ///
-    d: "t",
-    e: "t",
-    f: "u",
-    ///
-    g: "t",
-    h: "u",
+    a: "t",
+    b: "u",
+    c: "t",
+    d: "f",
+    e: "u",
+    f: "t",
+    g: "u",
+    h: "f",
     des: "Ki khoảng 3 tuổi, là con gái, khoảng 20kg, đã tiêm phòng dại. To xác nhưng hay e thẹn. Ban đầu nhát nhưng cho ăn sẽ nhanh quen, thích được xoa đầu gãi bụng. Đam mê ăn uống.",
     url: thumbnail9, //Ảnh thumbnail
     current: 1, //Trang hiển thị
+    type: "dog"
   },
   {
     name: "Ruby",
@@ -266,20 +271,18 @@ const list = [
     weight: "3",
     gender: "Cái",
     id: "R4558",
-    ///
-    a: "u",
+    a: "f",
     b: "u",
     c: "t",
-    ///
     d: "t",
-    e: "t",
+    e: "f",
     f: "u",
-    ///
     g: "t",
     h: "u",
     des: "Thiếu canxi, biến dạng xương 1 chân bị bỏ ở Ngọc Hà. Nhóm đã chữa khỏi cho bé.",
     url: thumbnail10, //Ảnh thumbnail
     current: 1, //Trang hiển thị
+    type: "dog"
   },
   {
     name: "Mây",
@@ -289,20 +292,18 @@ const list = [
     weight: "10",
     gender: "Cái",
     id: "M4611",
-    ///
     a: "u",
-    b: "u",
-    c: "u",
-    ///
+    b: "t",
+    c: "f",
     d: "u",
-    e: "u",
-    f: "u",
-    ///
-    g: "u",
+    e: "t",
+    f: "f",
+    g: "t",
     h: "u",
     des: "Chủ bỏ vì nấm.",
     url: thumbnail11, //Ảnh thumbnail
     current: 1, //Trang hiển thị
+    type: "dog"
   },
   {
     name: "Lily",
@@ -312,20 +313,18 @@ const list = [
     weight: "15",
     gender: "Cái",
     id: "L4623",
-    ///
     a: "f",
     b: "u",
     c: "t",
-    ///
-    d: "t",
+    d: "u",
     e: "t",
-    f: "u",
-    ///
-    g: "t",
-    h: "u",
+    f: "t",
+    g: "u",
+    h: "f",
     des: "Thân thiện, quấn người, ham ăn ham vui. Thích được bế và ôm.",
     url: thumbnail12, //Ảnh thumbnail
     current: 1, //Trang hiển thị
+    type: "dog"
   },
   {
     name: "Lily",
@@ -335,20 +334,18 @@ const list = [
     weight: "15",
     gender: "Cái",
     id: "L4623",
-    ///
-    a: "f",
+    a: "t",
     b: "u",
-    c: "t",
-    ///
+    c: "f",
     d: "t",
-    e: "t",
-    f: "u",
-    ///
-    g: "t",
-    h: "u",
+    e: "u",
+    f: "f",
+    g: "u",
+    h: "t",
     des: "Thân thiện, quấn người, ham ăn ham vui. Thích được bế và ôm.",
     url: thumbnail12, //Ảnh thumbnail
     current: 2, //Trang hiển thị
+    type: "dog"
   },
   {
     name: "Mây",
@@ -358,20 +355,18 @@ const list = [
     weight: "10",
     gender: "Cái",
     id: "M4611",
-    ///
     a: "u",
     b: "u",
-    c: "u",
-    ///
-    d: "u",
-    e: "u",
-    f: "u",
-    ///
+    c: "t",
+    d: "f",
+    e: "f",
+    f: "t",
     g: "u",
-    h: "u",
+    h: "t",
     des: "Chủ bỏ vì nấm.",
     url: thumbnail11, //Ảnh thumbnail
     current: 2, //Trang hiển thị
+    type: "dog"
   },
   {
     name: "Ruby",
@@ -381,20 +376,18 @@ const list = [
     weight: "3",
     gender: "Cái",
     id: "R4558",
-    ///
-    a: "u",
-    b: "u",
-    c: "t",
-    ///
+    a: "f",
+    b: "t",
+    c: "u",
     d: "t",
-    e: "t",
-    f: "u",
-    ///
-    g: "t",
-    h: "u",
+    e: "u",
+    f: "f",
+    g: "u",
+    h: "t",
     des: "Thiếu canxi, biến dạng xương 1 chân bị bỏ ở Ngọc Hà. Nhóm đã chữa khỏi cho bé.",
     url: thumbnail10, //Ảnh thumbnail
     current: 2, //Trang hiển thị
+    type: "dog"
   },
   {
     name: "Ki",
@@ -404,21 +397,21 @@ const list = [
     weight: "20",
     gender: "Cái",
     id: "K4624",
-    ///
     a: "u",
     b: "t",
-    c: "u",
-    ///
-    d: "t",
-    e: "t",
-    f: "u",
-    ///
+    c: "f",
+    d: "f",
+    e: "u",
+    f: "t",
     g: "t",
     h: "u",
     des: "Ki khoảng 3 tuổi, là con gái, khoảng 20kg, đã tiêm phòng dại. To xác nhưng hay e thẹn. Ban đầu nhát nhưng cho ăn sẽ nhanh quen, thích được xoa đầu gãi bụng. Đam mê ăn uống.",
     url: thumbnail9, //Ảnh thumbnail
     current: 2, //Trang hiển thị
+    type: "dog"
   },
+  
+  //
   {
     name: "Mochi",
     breed: "Mèo Tây",
@@ -427,20 +420,18 @@ const list = [
     weight: "2.5",
     gender: "Đực",
     id: "M4532",
-    ///
-    a: "u",
-    b: "u",
-    c: "t",
-    ///
-    d: "t",
-    e: "u",
-    f: "t",
-    ///
-    g: "u",
-    h: "t",
+    a: "t",
+    b: "f",
+    c: "u",
+    d: "u",
+    e: "t",
+    f: "f",
+    g: "t",
+    h: "u",
     des: "Bị nấm và viêm phổi. Hiện đã khỏi.",
     url: thumbnail8, //Ảnh thumbnail
     current: 2, //Trang hiển thị
+    type: "cat"
   },
   {
     name: "Lucky",
@@ -450,20 +441,18 @@ const list = [
     weight: "3",
     gender: "Đực",
     id: "L4581",
-    ///
-    a: "u",
-    b: "u",
+    a: "f",
+    b: "t",
     c: "u",
-    ///
     d: "t",
-    e: "t",
+    e: "f",
     f: "u",
-    ///
     g: "t",
-    h: "u",
+    h: "t",
     des: "Bị thương cong gập 1 chân sau, ve rận bị bỏ ở xã Bàu Lâm, Huyện Xuyên Mộc, Vũng Tàu.",
     url: thumbnail7, //Ảnh thumbnail
     current: 2, //Trang hiển thị
+    type: "dog"
   },
   {
     name: "Dưa",
@@ -473,20 +462,18 @@ const list = [
     weight: "3",
     gender: "Đực",
     id: "D4582",
-    ///
     a: "u",
-    b: "u",
-    c: "u",
-    ///
-    d: "t",
+    b: "t",
+    c: "f",
+    d: "f",
     e: "u",
-    f: "u",
-    ///
+    f: "t",
     g: "u",
-    h: "t",
+    h: "f",
     des: "Bé đi lang thang, ăn ót, phân hơi nát. Còn nhát.",
     url: thumbnail6, //Ảnh thumbnail
     current: 2, //Trang hiển thị
+    type: "cat"
   },
   {
     name: "Bông",
@@ -496,20 +483,18 @@ const list = [
     weight: "2",
     gender: "Cái",
     id: "B4585",
-    ///
     a: "u",
-    b: "u",
-    c: "u",
-    ///
-    d: "t",
-    e: "u",
-    f: "t",
-    ///
+    b: "f",
+    c: "t",
+    d: "u",
+    e: "t",
+    f: "f",
     g: "u",
     h: "t",
     des: "Bé đi lang thang, gầy đói, đau mắt ở khu vực Bác Khoa không ai nhận.",
     url: thumbnail5, //Ảnh thumbnail
     current: 2, //Trang hiển thị
+    type: "cat"
   },
   {
     name: "Quýt",
@@ -519,20 +504,18 @@ const list = [
     weight: "0.8",
     gender: "Đực",
     id: "Q4592",
-    ///
-    a: "u",
+    a: "t",
     b: "u",
-    c: "u",
-    ///
-    d: "t",
-    e: "u",
+    c: "f",
+    d: "u",
+    e: "f",
     f: "t",
-    ///
     g: "u",
     h: "t",
     des: "Bé mèo lang thang ở sảnh chung cư, chơi với trẻ con nhưng ko ai nuôi.",
     url: thumbnail4, //Ảnh thumbnail
     current: 2, //Trang hiển thị
+    type: "cat"
   },
   {
     name: "Michan",
@@ -542,20 +525,18 @@ const list = [
     weight: "5",
     gender: "Đực",
     id: "M4593",
-    ///
     a: "u",
     b: "u",
-    c: "u",
-    ///
+    c: "t",
     d: "t",
-    e: "t",
-    f: "u",
-    ///
+    e: "u",
+    f: "t",
     g: "t",
-    h: "u",
+    h: "f",
     des: "Bé cún lang thang ở nghĩa trang.",
     url: thumbnail3, //Ảnh thumbnail
     current: 2, //Trang hiển thị
+    type: "dog"
   },
   {
     name: "Milo",
@@ -565,20 +546,18 @@ const list = [
     weight: "3",
     gender: "Đực",
     id: "M4560",
-    ///
-    a: "u",
+    a: "f",
     b: "u",
     c: "t",
-    ///
-    d: "t",
-    e: "u",
-    f: "t",
-    ///
-    g: "u",
-    h: "t",
+    d: "u",
+    e: "t",
+    f: "f",
+    g: "t",
+    h: "u",
     des: "Bé đi lang thang chân phải đau, mắt trái đục giác mạc. Milo, đực, 5-6 tháng, đã tiêm một mũi. Một mắt bị nhòe. Hơi nhát, ăn tham.",
     url: thumbnail2, //Ảnh thumbnail
     current: 2, //Trang hiển thị
+    type: "cat"
   },
   {
     name: "Pepsi",
@@ -588,21 +567,20 @@ const list = [
     weight: "1",
     gender: "Đực",
     id: "P4597",
-    ///
-    a: "u",
-    b: "u",
-    c: "t",
-    ///
-    d: "t",
+    a: "t",
+    b: "f",
+    c: "u",
+    d: "u",
     e: "u",
     f: "t",
-    ///
-    g: "u",
+    g: "f",
     h: "t",
     des: "Một bạn nhặt được ngoài đường rồi bỏ lại ở phòng khám",
     url: thumbnail1, //Ảnh thumbnail
     current: 2, //Trang hiển thị
+    type: "cat"
   },
+  //
   {
     name: "Bông",
     breed: "Mèo Lai",
@@ -611,22 +589,20 @@ const list = [
     weight: "2",
     gender: "Cái",
     id: "B4585",
-    ///
     a: "u",
-    b: "u",
-    c: "u",
-    ///
-    d: "t",
-    e: "u",
-    f: "t",
-    ///
-    g: "u",
+    b: "f",
+    c: "t",
+    d: "u",
+    e: "t",
+    f: "u",
+    g: "f",
     h: "t",
     des: "Bé đi lang thang, gầy đói, đau mắt ở khu vực Bác Khoa không ai nhận.",
     url: thumbnail5, //Ảnh thumbnail
     current: 3, //Trang hiển thị
-  },
-  {
+    type: "cat"
+},
+{
     name: "Dưa",
     breed: "Mèo Tây",
     color: "Xám",
@@ -634,22 +610,20 @@ const list = [
     weight: "3",
     gender: "Đực",
     id: "D4582",
-    ///
-    a: "u",
+    a: "f",
     b: "u",
     c: "u",
-    ///
     d: "t",
     e: "u",
-    f: "u",
-    ///
+    f: "t",
     g: "u",
-    h: "t",
+    h: "f",
     des: "Bé đi lang thang, ăn ót, phân hơi nát. Còn nhát.",
     url: thumbnail6, //Ảnh thumbnail
     current: 3, //Trang hiển thị
-  },
-  {
+    type: "cat"
+},
+{
     name: "Mochi",
     breed: "Mèo Tây",
     color: "Xám",
@@ -657,22 +631,20 @@ const list = [
     weight: "2.5",
     gender: "Đực",
     id: "M4532",
-    ///
-    a: "u",
+    a: "t",
     b: "u",
-    c: "t",
-    ///
-    d: "t",
-    e: "u",
-    f: "t",
-    ///
-    g: "u",
-    h: "t",
+    c: "f",
+    d: "u",
+    e: "t",
+    f: "u",
+    g: "t",
+    h: "f",
     des: "Bị nấm và viêm phổi. Hiện đã khỏi.",
     url: thumbnail8, //Ảnh thumbnail
     current: 3, //Trang hiển thị
-  },
-  {
+    type: "cat"
+},
+{
     name: "Lucky",
     breed: "Chó Ta",
     color: "Đen Trắng",
@@ -680,22 +652,20 @@ const list = [
     weight: "3",
     gender: "Đực",
     id: "L4581",
-    ///
     a: "u",
     b: "u",
-    c: "u",
-    ///
-    d: "t",
+    c: "t",
+    d: "f",
     e: "t",
     f: "u",
-    ///
-    g: "t",
-    h: "u",
+    g: "u",
+    h: "t",
     des: "Bị thương cong gập 1 chân sau, ve rận bị bỏ ở xã Bàu Lâm, Huyện Xuyên Mộc, Vũng Tàu.",
     url: thumbnail7, //Ảnh thumbnail
     current: 3, //Trang hiển thị
-  },
-  {
+    type: "dog"
+},
+{
     name: "Pepsi",
     breed: "Mèo Ta",
     color: "Trắng Vàng",
@@ -703,22 +673,20 @@ const list = [
     weight: "1",
     gender: "Đực",
     id: "P4597",
-    ///
     a: "u",
-    b: "u",
-    c: "t",
-    ///
-    d: "t",
-    e: "u",
-    f: "t",
-    ///
-    g: "u",
-    h: "t",
+    b: "t",
+    c: "f",
+    d: "u",
+    e: "t",
+    f: "f",
+    g: "t",
+    h: "u",
     des: "Một bạn nhặt được ngoài đường rồi bỏ lại ở phòng khám",
     url: thumbnail1, //Ảnh thumbnail
     current: 3, //Trang hiển thị
-  },
-  {
+    type: "cat"
+},
+{
     name: "Milo",
     breed: "Mèo Tây",
     color: "Đen Trắng",
@@ -726,22 +694,20 @@ const list = [
     weight: "3",
     gender: "Đực",
     id: "M4560",
-    ///
-    a: "u",
+    a: "f",
     b: "u",
-    c: "t",
-    ///
+    c: "u",
     d: "t",
-    e: "u",
+    e: "f",
     f: "t",
-    ///
     g: "u",
     h: "t",
     des: "Bé đi lang thang chân phải đau, mắt trái đục giác mạc. Milo, đực, 5-6 tháng, đã tiêm một mũi. Một mắt bị nhòe. Hơi nhát, ăn tham.",
     url: thumbnail2, //Ảnh thumbnail
     current: 3, //Trang hiển thị
-  },
-  {
+    type: "cat"
+},
+{
     name: "Michan",
     breed: "Poodle",
     color: "Trắng",
@@ -749,21 +715,21 @@ const list = [
     weight: "5",
     gender: "Đực",
     id: "M4593",
-    ///
     a: "u",
-    b: "u",
+    b: "f",
     c: "u",
-    ///
     d: "t",
-    e: "t",
-    f: "u",
-    ///
-    g: "t",
-    h: "u",
+    e: "u",
+    f: "t",
+    g: "f",
+    h: "t",
     des: "Bé cún lang thang ở nghĩa trang.",
     url: thumbnail3, //Ảnh thumbnail
     current: 3, //Trang hiển thị
-  },
+    type: "dog"
+},
+
+  //
   {
     name: "Quýt",
     breed: "Mèo ta",
@@ -772,22 +738,20 @@ const list = [
     weight: "0.8",
     gender: "Đực",
     id: "Q4592",
-    ///
     a: "u",
-    b: "u",
-    c: "u",
-    ///
-    d: "t",
-    e: "u",
-    f: "t",
-    ///
+    b: "t",
+    c: "f",
+    d: "u",
+    e: "t",
+    f: "f",
     g: "u",
     h: "t",
     des: "Bé mèo lang thang ở sảnh chung cư, chơi với trẻ con nhưng ko ai nuôi.",
     url: thumbnail4, //Ảnh thumbnail
     current: 3, //Trang hiển thị
-  },
-  {
+    type: "cat"
+},
+{
     name: "Ki",
     breed: "Chó Ta",
     color: "Trắng Nâu",
@@ -795,22 +759,20 @@ const list = [
     weight: "20",
     gender: "Cái",
     id: "K4624",
-    ///
     a: "u",
-    b: "t",
-    c: "u",
-    ///
+    b: "f",
+    c: "t",
     d: "t",
-    e: "t",
-    f: "u",
-    ///
-    g: "t",
-    h: "u",
+    e: "u",
+    f: "f",
+    g: "u",
+    h: "t",
     des: "Ki khoảng 3 tuổi, là con gái, khoảng 20kg, đã tiêm phòng dại. To xác nhưng hay e thẹn. Ban đầu nhát nhưng cho ăn sẽ nhanh quen, thích được xoa đầu gãi bụng. Đam mê ăn uống.",
     url: thumbnail9, //Ảnh thumbnail
     current: 3, //Trang hiển thị
-  },
-  {
+    type: "dog"
+},
+{
     name: "Ruby",
     breed: "Chó Tây",
     color: "Đen",
@@ -818,22 +780,20 @@ const list = [
     weight: "3",
     gender: "Cái",
     id: "R4558",
-    ///
-    a: "u",
+    a: "f",
     b: "u",
     c: "t",
-    ///
-    d: "t",
+    d: "u",
     e: "t",
     f: "u",
-    ///
-    g: "t",
-    h: "u",
+    g: "f",
+    h: "t",
     des: "Thiếu canxi, biến dạng xương 1 chân bị bỏ ở Ngọc Hà. Nhóm đã chữa khỏi cho bé.",
     url: thumbnail10, //Ảnh thumbnail
     current: 3, //Trang hiển thị
-  },
-  {
+    type: "dog"
+},
+{
     name: "Mây",
     breed: "Chó Lai",
     color: "Trắng",
@@ -841,22 +801,20 @@ const list = [
     weight: "10",
     gender: "Cái",
     id: "M4611",
-    ///
     a: "u",
-    b: "u",
-    c: "u",
-    ///
+    b: "t",
+    c: "f",
     d: "u",
-    e: "u",
+    e: "t",
     f: "u",
-    ///
-    g: "u",
+    g: "t",
     h: "u",
     des: "Chủ bỏ vì nấm.",
     url: thumbnail11, //Ảnh thumbnail
     current: 3, //Trang hiển thị
-  },
-  {
+    type: "dog"
+},
+{
     name: "Lily",
     breed: "Chó ta",
     color: "Nâu",
@@ -864,21 +822,20 @@ const list = [
     weight: "15",
     gender: "Cái",
     id: "L4623",
-    ///
-    a: "f",
-    b: "u",
-    c: "t",
-    ///
-    d: "t",
+    a: "t",
+    b: "f",
+    c: "u",
+    d: "u",
     e: "t",
-    f: "u",
-    ///
+    f: "f",
     g: "t",
     h: "u",
     des: "Thân thiện, quấn người, ham ăn ham vui. Thích được bế và ôm.",
     url: thumbnail12, //Ảnh thumbnail
     current: 3, //Trang hiển thị
-  },
+    type: "dog"
+},
+
 ];
 
 const news = [
