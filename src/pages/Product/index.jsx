@@ -57,7 +57,7 @@ function Product(props) {
         </div>
         <div className="grid_ite">
           <img src={ite4} alt="" />
-          <p>móc khoá chó mèo gây quỹ hpa</p>
+          <p>Móc khoá chó mèo gây quỹ hpa</p>
           <hr className="hr1" />
           <strong>40,000 VNĐ</strong>
         </div>
