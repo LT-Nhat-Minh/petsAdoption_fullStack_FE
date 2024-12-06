@@ -87,8 +87,8 @@ function Footer(props) {
       <hr />
       <div className="footer_credits">
         {props.isEnglish
-          ? "Copyright 2019 / Designed by BMBSoft VietNam"
-          : "Copyright 2019 / Designed by BMBSoft VietNam"}
+          ? "Designed by Tiên-Nhân-Minh"
+          : "Designed by Tiên-Nhân-Minh"}
       </div>
     </div>
   );
