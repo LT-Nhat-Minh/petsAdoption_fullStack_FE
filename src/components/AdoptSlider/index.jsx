@@ -30,8 +30,20 @@ function SamplePrevArrow(props) {
 function AdoptSlider(props) {
   const [paginatedList, setPaginatedList] = useState([]);
   const navigate = useNavigate();
+
+  function shuffleArray(array, size) {
+    let shuffled = array.slice();
+    for (let i = 0; i < shuffled.length; i++) {
+      const randomIndex = Math.floor(Math.random() * (shuffled.length - 1));
+      [shuffled[i], shuffled[randomIndex]] = [
+        shuffled[randomIndex],
+        shuffled[i],
+      ];
+    }
+    return shuffled.slice(0, size);
+  }
   useEffect(() => {
-    let newList = props.list.slice(0, 8);
+    let newList = shuffleArray(props.list.slice(), 8);
     setPaginatedList(newList);
   }, []);
 
