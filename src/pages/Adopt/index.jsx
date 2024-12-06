@@ -37,16 +37,16 @@ function Adopt(props) {
           <hr />
           <p>
             {props.isEnglish
-              ? `Before deciding to adopt a dog or cat, ask yourself if you are ready to take lifelong responsibility for them, including financial, housing, and emotional aspects. Adoption requires significant commitment from you as well as agreement from your family and those involved. Please carefully consider before contacting HPA for adoption.
+              ? `Before deciding to adopt a dog or cat, ask yourself if you are ready to take lifelong responsibility for them, including financial, housing, and emotional aspects. Adoption requires significant commitment from you as well as agreement from your family and those involved. Please carefully consider before contacting OML for adoption.
     Are you ready? Follow these steps:`
-              : `Trước khi quyết định nhận nuôi bé chó hay mèo nào, bạn hãy tự hỏi bản thân rằng mình đã sẵn sàng để chịu trách nhiệm cả đời cho bé chưa, cả về tài chính, nơi ở cũng như tinh thần. Việc nhận nuôi cần được sự đồng thuận lớn từ bản thân bạn cũng như gia đình và những người liên quan. Xin cân nhắc kỹ trước khi liên hệ với HPA về việc nhận nuôi.
+              : `Trước khi quyết định nhận nuôi bé chó hay mèo nào, bạn hãy tự hỏi bản thân rằng mình đã sẵn sàng để chịu trách nhiệm cả đời cho bé chưa, cả về tài chính, nơi ở cũng như tinh thần. Việc nhận nuôi cần được sự đồng thuận lớn từ bản thân bạn cũng như gia đình và những người liên quan. Xin cân nhắc kỹ trước khi liên hệ với OML về việc nhận nuôi.
     Bạn đã sẵn sàng? Hãy thực hiện các bước sau đây nhé:`}
           </p>
           <ol>
             <li>
               {props.isEnglish
-                ? "Research the pet you want to adopt on the HPA website."
-                : "Tìm hiểu về thú cưng bạn muốn nhận nuôi trên trang web của HPA."}
+                ? "Research the pet you want to adopt on the OML website."
+                : "Tìm hiểu về thú cưng bạn muốn nhận nuôi trên trang web của OML."}
             </li>
             <li>
               {props.isEnglish

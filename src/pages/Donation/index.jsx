@@ -39,8 +39,8 @@ function Donation(props) {
           <hr className="hru" />
           <p>
             {props.isEnglish
-              ? "All rescue operations of Hanoi Pet Adoption are entirely based on donations from the community. The group's monthly expenses include rent, medical bills, food, utilities, medicines, diapers, and support for volunteers... The group urgently needs your help to maintain the shelter and the rescue team. A fixed donation of 50k - 100k per month will help a lot!"
-              : "Mọi hoạt động cứu hộ của Hanoi Pet Adoption hoàn toàn dựa trên các khoản quyên góp từ cộng đồng. Chi phí hàng tháng của nhóm bao gồm tiền thuê nhà, tiền viện phí, thức ăn, điện, nước, thuốc men và đồ dùng, bỉm tã, lương hỗ trợ các bạn tnv dọn dẹp... Nhóm rất cần sự giúp đỡ của các bạn để có thể duy trì nhà chung cũng như đội cứu hộ. Chỉ cần cố định 50k - 100k hàng tháng là các bạn đã giúp đỡ được cho nhóm và cách bé rất nhiều!"}
+              ? "All rescue operations of One More Life are entirely based on donations from the community. The group's monthly expenses include rent, medical bills, food, utilities, medicines, diapers, and support for volunteers... The group urgently needs your help to maintain the shelter and the rescue team. A fixed donation of 50k - 100k per month will help a lot!"
+              : "Mọi hoạt động cứu hộ của One More Life hoàn toàn dựa trên các khoản quyên góp từ cộng đồng. Chi phí hàng tháng của nhóm bao gồm tiền thuê nhà, tiền viện phí, thức ăn, điện, nước, thuốc men và đồ dùng, bỉm tã, lương hỗ trợ các bạn tnv dọn dẹp... Nhóm rất cần sự giúp đỡ của các bạn để có thể duy trì nhà chung cũng như đội cứu hộ. Chỉ cần cố định 50k - 100k hàng tháng là các bạn đã giúp đỡ được cho nhóm và cách bé rất nhiều!"}
           </p>
           <p>
             {props.isEnglish
