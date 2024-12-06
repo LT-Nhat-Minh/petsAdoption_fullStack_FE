@@ -1,6 +1,10 @@
 import React from "react";
 import "../Product/style.scss";
 import ToSupport from "../../components/ToSupport";
+import ite1 from "../../asset/Icon/ite1.jpg";
+import ite2 from "../../asset/Icon/ite2.jpg";
+import ite3 from "../../asset/Icon/ite3.jpg";
+import ite4 from "../../asset/Icon/ite4.jpg";
 
 function Product() {
   return (
@@ -19,14 +23,30 @@ function Product() {
         <button className="fw white shoppe up">mua hàng shoppe</button>
       </div>
       <div className="grid1">
-        {[...Array(4)].map((_, index) => (
-          <div className="grid_ite" key={index}>
-            <img src="https://www.hanoipetadoption.com/admin/user-content/Shop/e5acaa6d-13e9-4770-a1c3-c6071a0c77a6.jpg" alt="" />
-            <p>Túi Tote Do Hpa Thiết Kế Bán Gây Quỹ</p>
-            <hr className="hr1" />
-            <strong>120,000 VNĐ</strong>
-          </div>
-        ))}
+        <div className="grid_ite">
+          <img src={ite1} alt="" />
+          <p>Túi Tote Do Hpa Thiết Kế Bán Gây Quỹ</p>
+          <hr className="hr1" />
+          <strong>120,000 VNĐ</strong>
+        </div>
+        <div className="grid_ite">
+          <img src={ite2} alt="" />
+          <p>Túi Tote Do Hpa Thiết Kế Bán Gây Quỹ</p>
+          <hr className="hr1" />
+          <strong>150,000 VNĐ</strong>
+        </div>
+        <div className="grid_ite">
+          <img src={ite3} alt="" />
+          <p>Túi Tote Do Hpa Thiết Kế Bán Gây Quỹ</p>
+          <hr className="hr1" />
+          <strong>100,000 VNĐ</strong>
+        </div>
+        <div className="grid_ite">
+          <img src={ite4} alt="" />
+          <p>móc khoá chó mèo gây quỹ hpa</p>
+          <hr className="hr1" />
+          <strong>40,000 VNĐ</strong>
+        </div>
       </div>
       <ul className="productslider fw">
         <li>{"<"}</li>

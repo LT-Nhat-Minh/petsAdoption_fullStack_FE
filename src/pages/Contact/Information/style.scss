@@ -34,10 +34,12 @@
     width: 500px;
 
 
+
     div {
       flex: 1 1 calc(40% - 15px);
       padding: 10px;
       border-radius: 5px;
+
       h3 {
         display: flex;
         align-items: center;
@@ -56,65 +58,73 @@
         font-size: 0.9em;
       }
     }
-}
-
+  }
 
   .feedback-form3 {
     width: 50%;
     
-    h1 {
+    h2 {
       color: #000;
+      font-size: 1.8rem;
       margin-bottom: 10px;
     }
-
+  
     form {
       display: flex;
       flex-direction: column;
       gap: 15px;
-
+  
       label {
         color: #6f6f6f;
         font-size: 1em;
       }
-
+  
       input, textarea {
+        width: 100%;
         padding: 10px;
         border: 1px solid #d61c62;
         border-radius: 5px;
-
+  
         &:focus {
           border-color: #007bff;
           outline: none;
         }
       }
-
+  
       textarea {
         resize: vertical;
         height: 120px;
       }
-
+  
       .captcha3 {
         display: flex;
         align-items: center;
         gap: 10px;
-
+        margin-left: -120px;
+        
         input {
           margin: 0;
         }
+
+        label{
+          margin-left: -340px;
+        }
       }
 
+      
+  
       button {
-        align-self: flex-end;
-        padding: 10px;
+        align-self: center; /* Đặt nút giữa form */
+        padding: 10px 20px;
         background-color: #007bff;
         color: white;
-        font-weight: 500;
+        font-weight: bold;
         border: none;
-        border-radius: 25px;
+        border-radius: 5px;
         cursor: pointer;
-        width: 200px;
+  
         &:hover {
-          background-color: #0056b3;
+          background-color: #ffd154;
         }
       }
     }
