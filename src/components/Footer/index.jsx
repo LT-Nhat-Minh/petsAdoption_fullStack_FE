@@ -54,7 +54,7 @@ function Footer(props) {
                   <p>
                     <a href="/contact">
                       <PhoneOutlined style={{ marginRight: "10px" }} />
-                      <span style={{ color: "#018ae0" }}>(+84)39 320 1068</span>
+                      <span style={{ color: "#018ae0" }}>(+84) 09090909009</span>
                     </a>
                   </p>
                 </li>

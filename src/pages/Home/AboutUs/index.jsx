@@ -7,8 +7,8 @@ function AboutUs(props) {
       <div>
         <h1>
           {props.isEnglish
-            ? "Pet Adoption - Hanoi Pet Adoption"
-            : "Nhận nuôi thú cưng - Hanoi Pet Adoption"}
+            ? "Pet Adoption - Once More Life"
+            : "Nhận nuôi thú cưng - Once More Life"}
         </h1>
         <span>
           <img
