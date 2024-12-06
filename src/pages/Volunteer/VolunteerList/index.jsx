@@ -41,8 +41,8 @@ function VolunteerList(props) {
                 </li>
                 <li>
                   {isEnglish
-                    ? "If needed, the foster volunteer will monitor the animal's treatment, ensure proper diet, and assist in training. All medical costs will be covered by Hanoi Pet Adoption. Foster volunteers may contribute to the costs but it's not mandatory."
-                    : "Trong trường hợp cần thiết, foster đảm nhận việc theo dõi quá trình chữa trị cho bé, đảm bảo chế độ ăn theo yêu cầu và giúp huấn luyện bé. Mọi chi phí y tế sẽ do Hanoi Pet Adoption chi trả. Foster có thể đóng góp vào chi phí này nhưng không bắt buộc."}
+                    ? "If needed, the foster volunteer will monitor the animal's treatment, ensure proper diet, and assist in training. All medical costs will be covered by Once More Life. Foster volunteers may contribute to the costs but it's not mandatory."
+                    : "Trong trường hợp cần thiết, foster đảm nhận việc theo dõi quá trình chữa trị cho bé, đảm bảo chế độ ăn theo yêu cầu và giúp huấn luyện bé. Mọi chi phí y tế sẽ do Once More Life chi trả. Foster có thể đóng góp vào chi phí này nhưng không bắt buộc."}
                 </li>
                 <li>
                   {isEnglish
@@ -150,8 +150,8 @@ function VolunteerList(props) {
             <h2>{isEnglish ? "Transportation Volunteer" : "TNV Vận Chuyển"}</h2>
             <p>
               {isEnglish
-                ? "In addition to rescue situations, Hanoi Pet Adoption needs volunteers to transport animals to the shelter, veterinary clinics, foster homes, or owners. Volunteers may also be responsible for collecting donated items and delivering them to the shelter."
-                : "Ngoài các tình huống cứu hộ, Hanoi Pet Adoption còn cần các bạn giúp vận chuyển chó/mèo từ nhà chung tới bệnh viện, nhà foster hoặc chủ nuôi v.v... Hoặc nhận đồ quyên góp cho Nhóm và chuyển về nhà chung."}
+                ? "In addition to rescue situations, Once More Life needs volunteers to transport animals to the shelter, veterinary clinics, foster homes, or owners. Volunteers may also be responsible for collecting donated items and delivering them to the shelter."
+                : "Ngoài các tình huống cứu hộ, Once More Life còn cần các bạn giúp vận chuyển chó/mèo từ nhà chung tới bệnh viện, nhà foster hoặc chủ nuôi v.v... Hoặc nhận đồ quyên góp cho Nhóm và chuyển về nhà chung."}
             </p>
             <div className="info-box">
               <ul>
