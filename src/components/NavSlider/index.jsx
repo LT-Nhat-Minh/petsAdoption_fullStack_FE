@@ -1,7 +1,9 @@
 import React from "react";
 import "./style.scss";
+import { useNavigate } from "react-router-dom";
 
 function NavSlider(props) {
+  const navigate = useNavigate();
   return (
     <div className="nav_slider">
       <div className="item">
@@ -22,7 +24,9 @@ function NavSlider(props) {
           </div>
         </div>
         <div className="after">
-          <button>{props.isEnglish ? "LEARN MORE" : "TÌM HIỂU THÊM"}</button>
+          <button onClick={() => navigate("/donation")}>
+            {props.isEnglish ? "LEARN MORE" : "TÌM HIỂU THÊM"}
+          </button>
         </div>
       </div>
       <div className="item">
@@ -43,7 +47,9 @@ function NavSlider(props) {
           </div>
         </div>
         <div className="after">
-          <button>{props.isEnglish ? "LEARN MORE" : "TÌM HIỂU THÊM"}</button>
+          <button onClick={() => navigate("/volunteer")}>
+            {props.isEnglish ? "LEARN MORE" : "TÌM HIỂU THÊM"}
+          </button>
         </div>
       </div>
       <div className="item">
@@ -64,7 +70,9 @@ function NavSlider(props) {
           </div>
         </div>
         <div className="after">
-          <button>{props.isEnglish ? "LEARN MORE" : "TÌM HIỂU THÊM"}</button>
+          <button onClick={() => navigate("/nhan-nuoi")}>
+            {props.isEnglish ? "LEARN MORE" : "TÌM HIỂU THÊM"}
+          </button>
         </div>
       </div>
     </div>

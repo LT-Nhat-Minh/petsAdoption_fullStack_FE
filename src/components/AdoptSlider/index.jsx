@@ -1,5 +1,5 @@
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -28,7 +28,13 @@ function SamplePrevArrow(props) {
 }
 
 function AdoptSlider(props) {
+  const [paginatedList, setPaginatedList] = useState([]);
   const navigate = useNavigate();
+  useEffect(() => {
+    let newList = props.list.slice(0, 8);
+    setPaginatedList(newList);
+  }, []);
+
   var settings = {
     dots: true,
     infinite: false,
@@ -67,16 +73,36 @@ function AdoptSlider(props) {
   };
 
   const handleNavigate = (id) => {
-    navigate(`/nhan-nuoi/${id}`);
+    navigate(`/nhan-nuoi/tat-ca-cac-be/${id}`);
   };
 
   const handleClickPrev = () => {};
 
   const handleClickNext = () => {};
 
-  useEffect(() => {
-    console.log(props);
-  });
+  const getVaccinationStatus = (isEnglish, status) => {
+    if (isEnglish) {
+      return status === "u" ? "No" : status === "t" ? "Yes" : "Unclear";
+    } else {
+      return status === "u" ? "Không" : status === "t" ? "Có" : "Chưa rõ";
+    }
+  };
+
+  const getAgeStatus = (isEnglish, age) => {
+    if (isEnglish) {
+      return age === "Nhí" ? "Baby" : age === "Nhỡ" ? "Juvenile" : "Adult";
+    } else {
+      return age === "Nhí" ? "Nhí" : age === "Nhỡ" ? "Nhỡ" : "Trưởng Thành";
+    }
+  };
+
+  const getGenderStatus = (isEnglish, gender) => {
+    if (isEnglish) {
+      return gender === "Đực" ? "Male" : "Female";
+    } else {
+      return gender === "Đực" ? "Đực" : "Cái";
+    }
+  };
 
   return (
     <div className="adopt_slider">
@@ -94,7 +120,7 @@ function AdoptSlider(props) {
         </div>
         <div className="slider_container">
           <Slider {...settings} className="slider">
-            {props.list.map((item, index) => {
+            {paginatedList.map((item, index) => {
               return (
                 <Card
                   cover={<img src={item.url} alt="image" />}
@@ -113,19 +139,19 @@ function AdoptSlider(props) {
                         <strong>
                           {props.isEnglish ? "Gender:" : "Giới tính:"}
                         </strong>{" "}
-                        {item.gender}
+                        {getGenderStatus(props.isEnglish, item.gender)}
                         <hr />
                       </p>
                       <p>
                         <strong>{props.isEnglish ? "Age:" : "Tuổi:"}</strong>{" "}
-                        {item.age}
+                        {getAgeStatus(props.isEnglish, item.age)}
                         <hr />
                       </p>
                       <p>
                         <strong>
                           {props.isEnglish ? "Vaccinated:" : "Tiêm phòng:"}
                         </strong>{" "}
-                        {item.vaccined}
+                        {getVaccinationStatus(props.isEnglish, item.g)}
                         <hr />
                       </p>
                     </div>
@@ -137,7 +163,10 @@ function AdoptSlider(props) {
 
           <div>
             <div className="button">
-              <button style={{ textTransform: "uppercase" }}>
+              <button
+                style={{ textTransform: "uppercase" }}
+                onClick={() => navigate("/nhan-nuoi/tat-ca-cac-be")}
+              >
                 {props.isEnglish ? "Adopt" : "Nhận Nuôi"}
               </button>
             </div>

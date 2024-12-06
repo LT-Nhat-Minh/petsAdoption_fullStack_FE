@@ -1,0 +1,35 @@
+.sidebar{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    width: 25%;
+    height: fit-content;
+    background-color: #f6f6f6;
+    background-image: url(../../../../asset/Footer/pattern3.png);
+    background-position: bottom;
+    background-repeat: repeat-x;
+    border-radius: 24px;
+    & h2{
+        text-align: center;
+    }
+    & hr{
+        width: 100px;
+        border: 1px solid #c6c6c6;
+    }
+    & div{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        & p{
+            background-color: white;
+            padding: 20px;
+            margin: 0 20px;
+            border-radius: 5px;
+            transition: all 0.2s ease-out;
+            &:hover{
+                background-color: #d61c62;
+                cursor: pointer;
+                color: white;
+            }
+        }
+    }
+}
