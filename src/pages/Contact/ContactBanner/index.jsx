@@ -12,8 +12,8 @@ function ContactBanner(props) {
           <p className="breadcrumbs">
             <span className="root" onClick={() => navigate("/")}>
               {props.isEnglish ? "Home" : "Trang Chủ"}
-            </span>
-            {">"}
+            </span>{" "}
+            {">"}{" "}
             <span className="current">
               {props.isEnglish ? "Contact" : "Liên Hệ"}
             </span>

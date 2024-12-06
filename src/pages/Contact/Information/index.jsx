@@ -14,14 +14,20 @@ function VolunteerBanner1(props) {
       <div className="contact-info3">
         <h2>{props.isEnglish ? "Contact Information" : "Thông Tin Liên Hệ"}</h2>
         <p>
-          <FaEnvelope /> oncemorelife@gmail.com
+          <FaEnvelope />{" "}
+          {props.isEnglish
+            ? "oncemorelife@gmail.com"
+            : "oncemorelife@gmail.com"}
         </p>
         <p>
-          <FaPhone /> (+84) 09090909009
+          <FaPhone />{" "}
+          {props.isEnglish ? "(+84) 09090909009" : "(+84) 09090909009"}
         </p>
         <p>
-          <FaMapMarkerAlt /> TP Hồ Chí Minh - Việt Nam
-
+          <FaMapMarkerAlt />{" "}
+          {props.isEnglish
+            ? "Ho Chi Minh City, Vietnam"
+            : "TP Hồ Chí Minh - Việt Nam"}
         </p>
 
         <h2>{props.isEnglish ? "Donation Account" : "Tài Khoản Quyên Góp"}</h2>
@@ -36,27 +42,37 @@ function VolunteerBanner1(props) {
             <h3>
               <FaUniversity /> Vietcombank
             </h3>
-            <p>Ngô Trường Nhân</p>
+            <p>{props.isEnglish ? "Ngo Truong Nhan" : "Ngô Trường Nhân"}</p>
             <p>0924787585250</p>
-            <p>Sở giao dịch Vietcombank</p>
-
+            <p>
+              {props.isEnglish
+                ? "Vietcombank Transaction Office"
+                : "Sở giao dịch Vietcombank"}
+            </p>
           </div>
           <div>
             <h3>
               <FaUniversity /> Mbbank
             </h3>
-            <p>Mai Võ Hoài Tiên</p>
+            <p>{props.isEnglish ? "Mai Vo Hoai Tien" : "Mai Võ Hoài Tiên"}</p>
             <p>0353705423</p>
-            <p>Chi Nhánh TP Hồ Chí Minh</p>
-
+            <p>
+              {props.isEnglish
+                ? "Ho Chi Minh City Branch"
+                : "Chi Nhánh TP Hồ Chí Minh"}
+            </p>
           </div>
           <div>
             <h3>
               <FaUniversity /> Momo
             </h3>
-            <p>Mai Võ Hoài Tiên</p>
+            <p>{props.isEnglish ? "Mai Vo Hoai Tien" : "Mai Võ Hoài Tiên"}</p>
             <p>0353705423</p>
-            <p>Chi Nhánh TP Hồ Chí Minh</p> 
+            <p>
+              {props.isEnglish
+                ? "Ho Chi Minh City Branch"
+                : "Chi Nhánh TP Hồ Chí Minh"}
+            </p>
           </div>
           <div>
             <h3>

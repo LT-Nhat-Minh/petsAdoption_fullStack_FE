@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.scss";
+import thumbnail from "../../../asset/AboutUs/6b3f64c8-37c1-427e-b76f-9bba6444c92e.jpg";
 
 function AboutUs(props) {
   return (
@@ -11,10 +12,7 @@ function AboutUs(props) {
             : "Nhận nuôi thú cưng - Once More Life"}
         </h1>
         <span>
-          <img
-            src="https://www.hanoipetadoption.com/admin/user-content/072e6acf-1c7f-4fc8-b7ab-5ea496ede8f4.jpg"
-            alt=""
-          />
+          <img src={thumbnail} alt="" />
         </span>
         <p>
           {props.isEnglish
@@ -23,8 +21,8 @@ function AboutUs(props) {
         </p>
         <p>
           {props.isEnglish
-            ? "As one of the few pet rescue stations in Hanoi, operating since 2015, our group has helped rescue over 4,000 dogs and cats that were abandoned, lost, or abused, and found new homes for hundreds of them."
-            : "Là một trong những trạm cứu hộ thú cưng ít ỏi tại Hà Nội, hoạt động từ năm 2015 đến nay, Nhóm đã góp phần cứu giúp trên 4,000 ca chó mèo bị bỏ rơi, hoang lạc, bị bạo hành, đồng thời tìm mái ấm mới cho hàng trăm bé."}
+            ? "As one of the few pet rescue stations in Hồ Chí Minh, operating since 2015, our group has helped rescue over 4,000 dogs and cats that were abandoned, lost, or abused, and found new homes for hundreds of them."
+            : "Là một trong những trạm cứu hộ thú cưng ít ỏi tại Hồ Chí Minh, hoạt động từ năm 2015 đến nay, Nhóm đã góp phần cứu giúp trên 4,000 ca chó mèo bị bỏ rơi, hoang lạc, bị bạo hành, đồng thời tìm mái ấm mới cho hàng trăm bé."}
         </p>
       </div>
       <div className="button_container">

@@ -68,7 +68,7 @@ function News(props) {
                       </p>
                       <div className="author">
                         <span>
-                          {props.isEnglish ? "Posted by" : "Đăng bởi"}
+                          {props.isEnglish ? "Posted by " : "Đăng bởi "}
                         </span>
                         <span>
                           <UserOutlined /> {item.author}

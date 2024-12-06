@@ -58,6 +58,7 @@
                 margin-bottom: 24px;
                 & .thumbnail{
                     overflow: hidden;
+                    height: 290px;
                     & > img{
                         width: 100%;
                         aspect-ratio: 1/0.7;
@@ -68,9 +69,11 @@
                 & .info{
                     background-color: #f4f4f4;
                     padding: 40px 20px;
+                    width: 380px;
+                    height: 300px;
                     & .date{
                         position: absolute;
-                        top: 286px;
+                        top: 290px;
                         transform: translateY(-50%);
                         color: white;
                         background-color: #d61c62;

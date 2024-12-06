@@ -89,7 +89,7 @@ function Donation(props) {
           <p>
             {props.isEnglish ? "Vietcombank" : "Vietcombank"}
             <br />
-            {props.isEnglish ? "Ngô Trường Nhân" : "Ngô Trường Nhân"}
+            {props.isEnglish ? "Ngo Truong Nhan" : "Ngô Trường Nhân"}
             <br />
             {props.isEnglish ? "0924787585250" : "0924787585250"}
           </p>
@@ -97,7 +97,7 @@ function Donation(props) {
           <p>
             {props.isEnglish ? "Mbbank" : "Mbbank"}
             <br />
-            {props.isEnglish ? "Mai Võ Hoài Tiên" : "Mai Võ Hoài Tiên"}
+            {props.isEnglish ? "Mai Vo Hoai Tien" : "Mai Võ Hoài Tiên"}
             <br />
             {props.isEnglish ? "0353705423" : "0353705423"}
           </p>

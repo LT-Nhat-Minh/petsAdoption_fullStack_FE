@@ -840,19 +840,19 @@ const list = [
 
 const news = [
   {
-    title: "bán lịch gây quỹ hanoi petadoption 2025...",
-    title_english: "Selling 2025 Hanoi Pet Adoption Charity Calendars...",
-    author: "Hanoi Pet Adoption (English only)",
+    title: "bán lịch gây quỹ Once More Life 2025...",
+    title_english: "Selling 2025 Once More Life Charity Calendars...",
+    author: "Once More Life",
     date: "23/11/2024",
-    des: "Mỗi chú chó, mèo mà Hanoi Pet Adoption cứu hộ đều mang trong mình một câu chuyện đầy xúc động, một khát khao được yêu thương và có một mái ấm...",
-    des_english: "Each dog or cat rescued by Hanoi Pet Adoption carries a touching story, a longing for love and a home. By purchasing a calendar, you're not just receiving adorable photos, but also offering hope for these small lives...",
+    des: "Mỗi chú chó, mèo mà Once More Life cứu hộ đều mang trong mình một câu chuyện đầy xúc động, một khát khao được yêu thương và có một mái ấm...",
+    des_english: "Each dog or cat rescued by Once More Life carries a touching story, a longing for love and a home. By purchasing a calendar, you're not just receiving adorable photos, but also offering hope for these small lives...",
     url: newThumbnail1,
     category: ""
   },
   {
     title: "Chú chó Corgi sinh ra với 1 mắt và 2 mũi sống sót kỳ diệu",
     title_english: "A Corgi Born with One Eye and Two Noses Has an Amazing Survival Story",
-    author: "Hanoi Pet Adoption (English only)",
+    author: "Once More Life",
     date: "23/09/2020",
     des: "Dị tật bẩm sinh di truyền đã khiến chú chó Corgi này sinh ra với ngoại hình khác biệt. Ngoài những đặc điểm trên mặt như chỉ có 1 mắt hay 2 mũi thì chú chó còn có 2 đốt sống hợp nhất...",
     des_english: "A congenital genetic defect caused this Corgi to be born with a unique appearance. Along with features such as only one eye or two noses, the dog also has two fused vertebrae...",
@@ -862,7 +862,7 @@ const news = [
   {
     title: "Chú chó Shiba Inu nổi tiếng khắp thế giới vì trình 'phá game'",
     title_english: "The Shiba Inu Famous Worldwide for Its 'Game Breaking' Skills",
-    author: "Hanoi Pet Adoption (English only)",
+    author: "Once More Life",
     date: "23/09/2020",
     des: "Chụp ảnh nhóm cùng bạn bè là một cách lưu lại kỷ niệm và những khoảnh khắc đáng nhớ. Tuy nhiên, trong hội bạn thân nào cũng có ai đó chuyên gia 'phá game'...",
     des_english: "Group photos with friends are a way to capture memories and special moments. However, every group has that one person who specializes in 'breaking the game'...",
@@ -872,7 +872,7 @@ const news = [
   {
     title: "'Chú mèo buồn bã nhất thế giới' ngày ấy - bây giờ",
     title_english: "'The Saddest Cat in the World' Then and Now",
-    author: "Hanoi Pet Adoption (English only)",
+    author: "Once More Life",
     date: "23/09/2020",
     des: "Đây là chú mèo có tên Mister Bruce Willis – một 'chiến binh' thực thụ. Mister Willis từng được gọi là 'con mèo buồn nhất thế giới' khi phải đi lang thang khắp các nẻo đường...",
     des_english: "This is Mister Bruce Willis, a true 'warrior'. Mister Willis was once known as 'the saddest cat in the world' as it wandered through streets alone...",
@@ -881,7 +881,7 @@ const news = [
   {
     title: "Cứu hộ bé cún ghẻ bị bỏ rơi ở Phú Thọ",
     title_english: "Rescuing a Flea-Infected Puppy Abandoned in Phu Tho",
-    author: "HanoiPetAdoption",
+    author: "Once More Life",
     date: "20/02/2020",
     des: "Ngày ý tưởng ko cứu được nó. Nửa đêm nhờ tnv chạy ô tô lên Phú Thọ bắt chó vì sợ nó lang thang ngoài đường chết lạnh...",
     des_english: "At first, we thought we couldn't save it. In the middle of the night, we asked a volunteer to drive to Phu Tho to rescue the dog, fearing it would die alone in the cold streets...",
@@ -953,7 +953,7 @@ const news = [
   {
     title: "Mun liệt 4 chân bị bỏ rơi ở bãi xe",
     title_english: "Mun, Paralyzed in All Four Legs, Abandoned in a Parking Lot",
-    author: "HanoiPetAdoption",
+    author: "Once More Life",
     date: "19/02/2020",
     des: "Chó mẹ nuôi ở bãi giữ xe đẻ được 5 bé cún con, rồi một ngày chó mẹ bị xe ô tô cán chết...",
     des_english: "A mother dog gave birth to five puppies in a parking lot, but one day, the mother was hit by a car...",
