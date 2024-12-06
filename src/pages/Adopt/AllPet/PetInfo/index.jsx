@@ -114,7 +114,7 @@ function PetInfo(props) {
               {props.isEnglish ? "Sterilized" : "Triệt sản"}
             </div>
             <div>
-              {item.d === "t" ? (
+              {item.b === "t" ? (
                 <CheckOutlined
                   style={{
                     backgroundColor: "#28a745",
@@ -140,7 +140,7 @@ function PetInfo(props) {
                 : "Thân thiện với người"}
             </div>
             <div>
-              {item.g === "t" ? (
+              {item.c === "t" ? (
                 <CheckOutlined
                   style={{
                     backgroundColor: "#28a745",
@@ -164,7 +164,7 @@ function PetInfo(props) {
               {props.isEnglish ? "Special diet" : "Chế độ ăn riêng"}
             </div>
             <div>
-              {item.b === "t" ? (
+              {item.d === "t" ? (
                 <CheckOutlined
                   style={{
                     backgroundColor: "#28a745",
@@ -212,7 +212,7 @@ function PetInfo(props) {
               {props.isEnglish ? "Friendly with dogs" : "Thân thiện với chó"}
             </div>
             <div>
-              {item.h === "t" ? (
+              {item.f === "t" ? (
                 <CheckOutlined
                   style={{
                     backgroundColor: "#28a745",
@@ -236,7 +236,7 @@ function PetInfo(props) {
               {props.isEnglish ? "Housebroken" : "Đi vệ sinh đúng chỗ"}
             </div>
             <div>
-              {item.c === "t" ? (
+              {item.g === "t" ? (
                 <CheckOutlined
                   style={{
                     backgroundColor: "#28a745",
@@ -260,7 +260,7 @@ function PetInfo(props) {
               {props.isEnglish ? "Vaccinated" : "Tiêm phòng bệnh"}
             </div>
             <div>
-              {item.f === "t" ? (
+              {item.h === "t" ? (
                 <CheckOutlined
                   style={{
                     backgroundColor: "#28a745",

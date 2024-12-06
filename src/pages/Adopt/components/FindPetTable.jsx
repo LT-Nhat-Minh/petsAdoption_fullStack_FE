@@ -42,14 +42,15 @@ function FindPetTable(props) {
       updateList = updateList.filter((item) => item.a === value.a);
     }
 
-    if (value.g !== "all") {
-      updateList = updateList.filter((item) => item.g === value.g);
+    if (value.d !== "all") {
+      updateList = updateList.filter((item) => item.d === value.d);
     }
 
     const nameFilter = value.name.trim().toLowerCase();
     updateList = updateList.filter((item) =>
       nameFilter === "" ? item : item.name.toLowerCase().includes(nameFilter)
     );
+
     setFilteredList(updateList);
   };
 
@@ -230,8 +231,10 @@ function FindPetTable(props) {
 
               <Col span={8}>
                 <div style={{ display: "flex", flexDirection: "column" }}>
-                  <span>{props.isEnglish ? "Vaccinated" : "Tiêm phòng"}</span>
-                  <Form.Item name="g" initialValue="all">
+                  <span>
+                    {props.isEnglish ? "Vaccinated" : "Tiêm phòng dại"}
+                  </span>
+                  <Form.Item name="d" initialValue="all">
                     <Select
                       style={{
                         width: "280px",
@@ -325,7 +328,7 @@ function FindPetTable(props) {
                         <strong>
                           {props.isEnglish ? "Vaccinated:" : "Tiêm phòng:"}
                         </strong>{" "}
-                        {getVaccinationStatus(props.isEnglish, item.g)}
+                        {getVaccinationStatus(props.isEnglish, item.d)}
                         <hr />
                       </p>
                     </div>
