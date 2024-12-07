@@ -1,10 +1,12 @@
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "../../components/RecoverSlider/style.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import sticker from "../../asset/Icon/pets.png";
+import { Card } from "antd";
+import { useNavigate } from "react-router-dom";
 
 function DonaNextArrow(props) {
   const { className, style, onClick } = props;
@@ -22,6 +24,10 @@ function DonaPrevArrow(props) {
       <KeyboardArrowLeft fontSize="large" />
     </div>
   );
+}
+
+function truncateText(item, size) {
+  return item.length > size ? item.slice(0, size) + "..." : item;
 }
 
 function RecoverSlider(props) {
@@ -62,6 +68,14 @@ function RecoverSlider(props) {
     ],
   };
 
+  const [filteredList, setFilteredList] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const filtered = props.news.filter((item) => item.category === "4");
+    setFilteredList(filtered);
+  }, []);
+
   const handleClickPrev = () => {};
 
   const handleClickNext = () => {};
@@ -74,138 +88,30 @@ function RecoverSlider(props) {
       </div>
       <div className="slider_dona_container">
         <Slider {...settings}>
-          <div className="donaitem">
-            <img
-              className="donaimg"
-              src="https://www.hanoipetadoption.com/admin/user-content/News/c5e1ad8d-6104-4d60-acb1-a95cae816527.jpg"
-              alt=""
-            />
-            <h2 className="truocvasau">Trước và sau của bé Sữa</h2>
-            <hr />
-            <p>
-              Trước và sau của bé Sữa thay đổi được tăng từ 3 kg đến 5 kgs xinh
-              đẹp và đáng yêu hơn, tinh thần hay vui đùa nô nghịch cùng bạn bè.
-            </p>
-          </div>
-          <div className="donaitem">
-            <img
-              className="donaimg"
-              src="https://www.hanoipetadoption.com/admin/user-content/News/c5e1ad8d-6104-4d60-acb1-a95cae816527.jpg"
-              alt=""
-            />
-            <h2 className="truocvasau">Trước và sau của bé Sữa</h2>
-            <hr />
-            <p>
-              Trước và sau của bé Sữa thay đổi được tăng từ 3 kg đến 5 kgs xinh
-              đẹp và đáng yêu hơn, tinh thần hay vui đùa nô nghịch cùng bạn bè.
-            </p>
-          </div>{" "}
-          <div className="donaitem">
-            <img
-              className="donaimg"
-              src="https://www.hanoipetadoption.com/admin/user-content/News/c5e1ad8d-6104-4d60-acb1-a95cae816527.jpg"
-              alt=""
-            />
-            <h2 className="truocvasau">Trước và sau của bé Sữa</h2>
-            <hr />
-            <p>
-              Trước và sau của bé Sữa thay đổi được tăng từ 3 kg đến 5 kgs xinh
-              đẹp và đáng yêu hơn, tinh thần hay vui đùa nô nghịch cùng bạn bè.
-            </p>
-          </div>{" "}
-          <div className="donaitem">
-            <img
-              className="donaimg"
-              src="https://www.hanoipetadoption.com/admin/user-content/News/c5e1ad8d-6104-4d60-acb1-a95cae816527.jpg"
-              alt=""
-            />
-            <h2 className="truocvasau">Trước và sau của bé Sữa</h2>
-            <hr />
-            <p>
-              Trước và sau của bé Sữa thay đổi được tăng từ 3 kg đến 5 kgs xinh
-              đẹp và đáng yêu hơn, tinh thần hay vui đùa nô nghịch cùng bạn bè.
-            </p>
-          </div>{" "}
-          <div className="donaitem">
-            <img
-              className="donaimg"
-              src="https://www.hanoipetadoption.com/admin/user-content/News/c5e1ad8d-6104-4d60-acb1-a95cae816527.jpg"
-              alt=""
-            />
-            <h2 className="truocvasau">Trước và sau của bé Sữa</h2>
-            <hr />
-            <p>
-              Trước và sau của bé Sữa thay đổi được tăng từ 3 kg đến 5 kgs xinh
-              đẹp và đáng yêu hơn, tinh thần hay vui đùa nô nghịch cùng bạn bè.
-            </p>
-          </div>{" "}
-          <div className="donaitem">
-            <img
-              className="donaimg"
-              src="https://www.hanoipetadoption.com/admin/user-content/News/c5e1ad8d-6104-4d60-acb1-a95cae816527.jpg"
-              alt=""
-            />
-            <h2 className="truocvasau">Trước và sau của bé Sữa</h2>
-            <hr />
-            <p>
-              Trước và sau của bé Sữa thay đổi được tăng từ 3 kg đến 5 kgs xinh
-              đẹp và đáng yêu hơn, tinh thần hay vui đùa nô nghịch cùng bạn bè.
-            </p>
-          </div>{" "}
-          <div className="donaitem">
-            <img
-              className="donaimg"
-              src="https://www.hanoipetadoption.com/admin/user-content/News/c5e1ad8d-6104-4d60-acb1-a95cae816527.jpg"
-              alt=""
-            />
-            <h2 className="truocvasau">Trước và sau của bé Sữa</h2>
-            <hr />
-            <p>
-              Trước và sau của bé Sữa thay đổi được tăng từ 3 kg đến 5 kgs xinh
-              đẹp và đáng yêu hơn, tinh thần hay vui đùa nô nghịch cùng bạn bè.
-            </p>
-          </div>{" "}
-          <div className="donaitem">
-            <img
-              className="donaimg"
-              src="https://www.hanoipetadoption.com/admin/user-content/News/c5e1ad8d-6104-4d60-acb1-a95cae816527.jpg"
-              alt=""
-            />
-            <h2 className="truocvasau">Trước và sau của bé Sữa</h2>
-            <hr />
-            <p>
-              Trước và sau của bé Sữa thay đổi được tăng từ 3 kg đến 5 kgs xinh
-              đẹp và đáng yêu hơn, tinh thần hay vui đùa nô nghịch cùng bạn bè.
-            </p>
-          </div>{" "}
-          <div className="donaitem">
-            <img
-              className="donaimg"
-              src="https://www.hanoipetadoption.com/admin/user-content/News/c5e1ad8d-6104-4d60-acb1-a95cae816527.jpg"
-              alt=""
-            />
-            <h2 className="truocvasau">Trước và sau của bé Sữa</h2>
-            <hr />
-            <p>
-              Trước và sau của bé Sữa thay đổi được tăng từ 3 kg đến 5 kgs xinh
-              đẹp và đáng yêu hơn, tinh thần hay vui đùa nô nghịch cùng bạn bè.
-            </p>
-          </div>{" "}
-          <div className="donaitem">
-            <img
-              className="donaimg"
-              src="https://www.hanoipetadoption.com/admin/user-content/News/c5e1ad8d-6104-4d60-acb1-a95cae816527.jpg"
-              alt=""
-            />
-            <h2 className="truocvasau">Trước và sau của bé Sữa</h2>
-            <hr />
-            <p>
-              Trước và sau của bé Sữa thay đổi được tăng từ 3 kg đến 5 kgs xinh
-              đẹp và đáng yêu hơn, tinh thần hay vui đùa nô nghịch cùng bạn bè.
-            </p>
-          </div>
+          {filteredList &&
+            filteredList.map((item, index) => (
+              <div
+                className="donaitem"
+                key={index}
+                onClick={() => {
+                  navigate(`/news/${item.title}`);
+                }}
+              >
+                <img className="donaimg" src={item.url} alt="" />
+                <h2 className="truocvasau">{truncateText(item.title, 40)}</h2>
+                <hr />
+                <p>{truncateText(item.des, 200)}</p>
+              </div>
+            ))}
         </Slider>
-        <button className="xemthembutton">XEM THÊM</button>
+        <button
+          className="xemthembutton"
+          onClick={() => {
+            navigate("/news");
+          }}
+        >
+          XEM THÊM
+        </button>
       </div>
     </div>
   );

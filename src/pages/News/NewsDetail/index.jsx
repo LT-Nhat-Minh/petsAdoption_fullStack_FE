@@ -9,7 +9,9 @@ import anh3 from "../../../asset/News_Thumbnail/Bai1/3.jpg";
 import anh4 from "../../../asset/News_Thumbnail/Bai1/4.jpg";
 import anh5 from "../../../asset/News_Thumbnail/Bai1/5.jpg";
 import anh6 from "../../../asset/News_Thumbnail/Bai1/6.jpg";
-import anh7 from "../../../asset/News_Thumbnail/cun_ghe_bi_bo_roi.jpg";
+import anh7 from "../../../asset/News_Thumbnail/Category/Quá trình cứu hộ/cun_ghe_bi_bo_roi.jpg";
+import BeforeAndAfter from "../../../components/AnotherNews";
+import AnotherNews from "../../../components/AnotherNews";
 
 function NewsDetail(props) {
   const navigate = useNavigate();
@@ -109,13 +111,14 @@ function NewsDetail(props) {
           </div>
           <div
             className="fb-comments"
-            data-href="https://developers.facebook.com/docs/plugins/comments#configurator"
+            data-href="https://www.hanoipetadoption.com/vi/tin-tuc/chu-cho-corgi-sinh-ra-voi-1-mat-va-2-mui-song-sot-ky-dieu-82"
             data-width="863"
             data-numposts="1"
           ></div>
         </div>
         <SideBar isEnglish={props.isEnglish} />
       </div>
+      <AnotherNews news={props.news} />
     </div>
   );
 }

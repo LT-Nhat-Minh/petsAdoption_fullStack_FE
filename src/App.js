@@ -36,7 +36,6 @@ import newThumbnail1 from "./asset/News_Thumbnail/6401c039-e6be-49a2-a146-c8ce5a
 import newThumbnail2 from "./asset/News_Thumbnail/10e00460-d5cc-4cf4-9133-d429b85642cb.jpg"
 import newThumbnail3 from "./asset/News_Thumbnail/inu_pha_game.jpg"
 import newThumbnail4 from "./asset/News_Thumbnail/chu_meo_buon_ba.jpg"
-import newThumbnail5 from "./asset/News_Thumbnail/cun_ghe_bi_bo_roi.jpg"
 import newThumbnail6 from "./asset/News_Thumbnail/meo_trang_bi_bo_roi.png"
 import newThumbnail7 from "./asset/News_Thumbnail/cho-con-lang-thang.jpg"
 import newThumbnail8 from "./asset/News_Thumbnail/meo-con-tim-me.jpg"
@@ -48,6 +47,12 @@ import newThumbnail13 from "./asset/News_Thumbnail/mun-liet-4-chan.jpg";
 import newThumbnail14 from "./asset/News_Thumbnail/phuc-hoi-cua-gau.jpg";
 import newThumbnail15 from "./asset/News_Thumbnail/phuc-hoi-cua-cam.jpg";
 import newThumbnail16 from "./asset/News_Thumbnail/cun-con-bi-bao-hanh.jpg";
+import thumbnail4_1 from "./asset/News_Thumbnail/Category/Quá trình cứu hộ/cun_ghe_bi_bo_roi.jpg";
+import thumbnail4_2 from "./asset/News_Thumbnail/Category/Quá trình cứu hộ/Be_sua.png";
+import thumbnail4_3 from "./asset/News_Thumbnail/Category/Quá trình cứu hộ/be_slime.png";
+import thumbnail4_4 from "./asset/News_Thumbnail/Category/Quá trình cứu hộ/Meo_Muop.png";
+import thumbnail4_5 from "./asset/News_Thumbnail/Category/Quá trình cứu hộ/meo_trang.png";
+import thumbnail4_6 from "./asset/News_Thumbnail/Category/Quá trình cứu hộ/meo_con.png";
 
 const list = [
   {
@@ -316,15 +321,6 @@ const news = [
     url: newThumbnail4,
   },
   {
-    title: "Cứu hộ bé cún ghẻ bị bỏ rơi ở Phú Thọ",
-    title_english: "Rescuing a Flea-Infected Puppy Abandoned in Phu Tho",
-    author: "Once More Life",
-    date: "20/02/2020",
-    des: "Ngày ý tưởng ko cứu được nó. Nửa đêm nhờ tnv chạy ô tô lên Phú Thọ bắt chó vì sợ nó lang thang ngoài đường chết lạnh...",
-    des_english: "At first, we thought we couldn't save it. In the middle of the night, we asked a volunteer to drive to Phu Tho to rescue the dog, fearing it would die alone in the cold streets...",
-    url: newThumbnail5,
-  },
-  {
     title: "Mèo trắng bị bỏ rơi",
     title_english: "The Abandoned White Cat",
     author: "nch180297@gmail.com",
@@ -395,7 +391,67 @@ const news = [
     des: "Chó mẹ nuôi ở bãi giữ xe đẻ được 5 bé cún con, rồi một ngày chó mẹ bị xe ô tô cán chết...",
     des_english: "A mother dog gave birth to five puppies in a parking lot, but one day, the mother was hit by a car...",
     url: newThumbnail13,
-  }
+  },
+  {
+    title: "Cứu hộ bé cún ghẻ bị bỏ rơi ở Phú Thọ",
+    title_english: "Rescuing a Flea-Infected Puppy Abandoned in Phu Tho",
+    author: "Once More Life",
+    date: "20/02/2020",
+    des: "Ngày ý tưởng ko cứu được nó. Nửa đêm nhờ tnv chạy ô tô lên Phú Thọ bắt chó vì sợ nó lang thang ngoài đường chết lạnh...",
+    des_english: "At first, we thought we couldn't save it. In the middle of the night, we asked a volunteer to drive to Phu Tho to rescue the dog, fearing it would die alone in the cold streets...",
+    url: thumbnail4_1,
+    category: "4",
+  },
+  {
+    title: "Trước và sau của bé Sữa",
+    title_english: "",
+    author: "NCH",
+    date: "04/12/2019",
+    des: "Trước và sau của bé Sữa thay đổi được tăng từ 3 kg đến 5 kgs xinh đẹp và đáng yêu hơn, tinh thần hay vui đùa nô nghịch cùng bạn bè.",
+    des_english: "",
+    url: thumbnail4_2,
+    category: "4",
+  },
+  {
+    title: "Trước và sau bé Smile được nhận nuôi",
+    title_english: "",
+    author: "NCH",
+    date: "04/12/2019",
+    des: "Sự khác biệt biệt khi em được yêu thương và chăm sóc 😘 từ 12kg lên 19kg. Đây là bé cún ghẻ được nhóm cứu ở Hà Giang, bé tên là Smile",
+    des_english: "",
+    url: thumbnail4_3,
+    category: "4",
+  },
+  {
+    title: "Chú mèo mướp bị cô độc trong đói rét",
+    title_english: "",
+    author: "nch180297@gmail.com",
+    date: "03/12/2019",
+    des: "Trái tim bạn có xao động khi nhìn thấy vẻ mặt bi thương của chú mèo mướp Lionel bên trái không? Ngay cả khi đã được an toàn trong tay của những người yêu động vật, chú ta vẫn chưa hết lo sợ, hoảng hốt. Nhưng giờ thì sao nào, chàng đã được nuôi nấng ở trong một gia đình mới tràn đầy hạnh phúc, nơi mà cu cậu có thể thoải mái tận hưởng những giây phút an bình, không lo bị đánh đập, đói rét. Rồi thì bộ dạng ốm yếu ngày nào đã bị che lấp bởi mỡ và bộ lông dài dày mượt, thấy là muốn nựng liền!",
+    des_english: "",
+    url: thumbnail4_4,
+    category: "4",
+  },
+  {
+    title: "Mèo trắng bị bỏ rơi",
+    title_english: "",
+    author: "nch180297@gmail.com",
+    date: "03/12/2019",
+    des: "Người ta thường bỏ những chú tiểu hổ con vào thùng cạc-tông và lén để ở những nhà kho, bãi đất trống. Thường thì mấy bé sẽ bị chết do thiếu sữa mẹ, thức ăn, do lạnh, cóng, hiếm lắm mới có người nhìn thấy chúng và nhận nuôi. Thế nên việc chú thợ săn chuột tên Utopia trong ảnh trên là một trường hợp đặc biệt giữa rất nhiều đồng loại xấu số. Ngày nào chú ta còn teo tóp, bé choắt, lông lá bết dính lại vì dầm mưa, mặt mũi thì tèm lem, may sao lại lọt vào tay một người chủ tốt bụng. Người ấy xem chú là một thành viên trong gia đình, tắm táp sạch sẽ, cho ăn uống đầy đủ. Giờ thì nhìn xem, béo tròn mũm mĩm đúng chuẩn hot boy luôn nhé!",
+    des_english: "",
+    url: thumbnail4_5,
+    category: "4",
+  },
+  {
+    title: "Mèo con trước và sau nhận nuôi",
+    title_english: "",
+    author: "nch180297@gmail.com",
+    date: "03/12/2019",
+    des: "Scout là một cô nàng tam thể xinh đẹp. Với bộ lông dài mượt và đôi mắt long lanh, tính tình hiền ngoan dễ bảo, không ai tin trước đây bạn ấy là một chú mèo hoang vô cùng tội nghiệp. Chủ của Scout kể lại, vào một buổi sáng, họ bắt gặp cô nàng đang lang thang ở hiên nhà. Lúc đó ẻm nhỏ thó, gầy guộc và trông rất mệt mỏi, rờ vô là đụng trúng xương xẩu, cứ tưởng là mèo con không hà dù đã gần hai năm tuổi rồi. Thế là họ quyết định sẽ cưu mang em ấy, và sau gần một năm, bạn thấy đấy, ẻm đã lột xác hoàn toàn! Chủ của Scout thương bé đến nỗi họ chỉ mong nàng mão có thể xóa sạch ký ức đau thương lúc trước khi về đội của họ, để sống an yên suốt quãng đời còn lại trong sự bảo bọc của mọi người.",
+    des_english: "",
+    url: thumbnail4_6,
+    category: "4",
+  },
 ];
 
 
@@ -434,7 +490,7 @@ function App() {
         },
         {
           path: "/nhan-nuoi",
-          element: <Adopt list={list} isEnglish={isEnglish} />,
+          element: <Adopt news={news} list={list} isEnglish={isEnglish} />,
           children: [
             {
               path: "tat-ca-cac-be/:id",
@@ -464,7 +520,7 @@ function App() {
         },
         {
           path: "/donation",
-          element: <Donation list={list} isEnglish={isEnglish} />,
+          element: <Donation news={news} list={list} isEnglish={isEnglish} />,
         },
         {
           path: "/volunteer",

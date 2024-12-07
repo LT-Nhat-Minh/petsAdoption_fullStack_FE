@@ -131,7 +131,7 @@ function Donation(props) {
       <SupportOption isEnglish={props.isEnglish} />
       <ToSupport isEnglish={props.isEnglish} />
       <AdoptSlider isEnglish={props.isEnglish} list={props.list} />
-      <RecoverSlider isEnglish={props.isEnglish} />
+      <RecoverSlider news={props.news} isEnglish={props.isEnglish} />
     </div>
   );
 }

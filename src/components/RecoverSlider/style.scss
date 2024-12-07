@@ -20,27 +20,43 @@
 
   & .slider_dona_container {
     margin: 0 80px;
+    width: 1200px;
+    margin: 0 auto;
     & .donaitem {
       box-sizing: border-box;
       padding: 0 10px;
+      overflow: hidden;
       & .donaimg {
         border-radius: 5px;
         margin-bottom: 16px;
         max-width: 100%;
+        aspect-ratio: 1 / 1;  /* Ensures a square aspect ratio */
+        object-fit: cover; 
+        transition: all 0.2s ease;
+        &:hover{
+          cursor: pointer;
+          transform: scale(1.05);
+        }
       }
       & .truocvasau {
         font-size: 20px;
+        height: 40px;
+        &:hover{
+          cursor: pointer;
+          color: #d61c62;
+        }
       }
       & > hr {
         width: 40%;
-        text-align: left;
+        margin-left: 0;
         border: 2px solid;
       }
 
       & > p {
         text-align: justify;
-        width: 80%;
+        width: 100%;
         max-width: 100%;
+        color: #6f6f6f;
       }
     }
     & .donanext,
@@ -59,6 +75,7 @@
     & .donanext {
       left: 75%;
     }
+    
   }
   & .xemthembutton {
     border-radius: 20px;
@@ -72,6 +89,7 @@
     margin-right: auto;
     background-color: #d61c62;
     &:hover {
+      cursor: pointer;
       background-color: #007bff;
       padding: 10px 32px;
       transition: all 0.3s;

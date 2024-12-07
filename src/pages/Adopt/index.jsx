@@ -116,7 +116,7 @@ function Adopt(props) {
         list={props.list}
         pageSize={4}
       />
-      <AdoptionOnline isEnglish={props.isEnglish} />
+      <AdoptionOnline news={props.news} isEnglish={props.isEnglish} />
     </div>
   );
 }
