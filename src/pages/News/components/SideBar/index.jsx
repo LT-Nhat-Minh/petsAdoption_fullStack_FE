@@ -33,8 +33,6 @@ function SideBar(props) {
             width="90%"
             height="270"
             style={{ border: "none", overflow: "hidden", margin: "0 auto" }}
-            frameborder="0"
-            allowfullscreen="true"
             allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
             allowFullScreen
           ></iframe>

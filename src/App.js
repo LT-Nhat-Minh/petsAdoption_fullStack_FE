@@ -29,7 +29,6 @@ import thumbnail10 from "./asset/ListThumbnail/10.jpeg";
 import thumbnail11 from "./asset/ListThumbnail/11.jpeg";
 import thumbnail12 from "./asset/ListThumbnail/12.jpg";
 import News from "./pages/News";
-import Bai1 from "./pages/News/Bai1";
 import NewsDetail from "./pages/News/NewsDetail";
 import PetInfo from "./pages/Adopt/AllPet/PetInfo";
 import AllPet from "./pages/Adopt/AllPet";
@@ -458,16 +457,10 @@ function App() {
         {
           path: "news", // Route cha
           element: <News news={news} list={list} isEnglish={isEnglish} />,
-          children: [
-            {
-              path: ":id", // Route con
-              element: <NewsDetail isEnglish={isEnglish} />,
-            },
-          ],
         },
         {
-          path: "bai1", // No leading slash
-          element: <Bai1 isEnglish={isEnglish} />,
+          path: "news/:title", // Route con
+          element: <NewsDetail news={news} isEnglish={isEnglish} />,
         },
         {
           path: "/donation",

@@ -11,11 +11,16 @@ function News(props) {
   const [current, setCurrent] = useState(1);
   const [paginatedList, setPaginatedList] = useState([]);
   const pageSize = 4;
+
   useEffect(() => {
     let startIndex = (current - 1) * pageSize;
     let endIndex = startIndex + pageSize;
     setPaginatedList(props.news.slice(startIndex, endIndex));
   }, [current]);
+
+  const handleNavigate = (title) => {
+    navigate(`/news/${title}`);
+  };
 
   function truncateText(text, maxLength) {
     return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
@@ -45,7 +50,12 @@ function News(props) {
               const [day, month, year] = item.date.split("/");
               return (
                 <Col span={12} key={index}>
-                  <div className="card">
+                  <div
+                    className="card"
+                    onClick={() => {
+                      handleNavigate(item.title);
+                    }}
+                  >
                     <div className="thumbnail">
                       <img src={item.url} alt="" />
                     </div>
