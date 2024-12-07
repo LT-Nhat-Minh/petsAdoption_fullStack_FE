@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "./style.scss";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
+import sticker from "../../asset/Icon/pets.png";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -44,7 +45,7 @@ function AnotherNews(props) {
 
   function shuffleArray(array, size) {
     for (let i = array.length - 1; i >= 0; i--) {
-      const randomIndex = Math.floor(Math.random * (i - 1));
+      const randomIndex = Math.floor(Math.random() * (array.length - 1));
       [array[i], array[randomIndex]] = [array[randomIndex], array[i]];
     }
     return array.slice(0, size);
@@ -55,6 +56,12 @@ function AnotherNews(props) {
   }
   return (
     <div className="another_news">
+      <div className="title">
+        <h1>{props.isEnglish ? "Related News" : "Tin Liên Quan"}</h1>
+        <span>
+          <img src={sticker} alt="" />
+        </span>
+      </div>
       <div className="container">
         <Slider {...settings}>
           {randomList.map((item, index) => {

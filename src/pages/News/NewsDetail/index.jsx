@@ -12,6 +12,7 @@ import anh6 from "../../../asset/News_Thumbnail/Bai1/6.jpg";
 import anh7 from "../../../asset/News_Thumbnail/Category/Quá trình cứu hộ/cun_ghe_bi_bo_roi.jpg";
 import BeforeAndAfter from "../../../components/AnotherNews";
 import AnotherNews from "../../../components/AnotherNews";
+import ToSupport from "../../../components/ToSupport";
 
 function NewsDetail(props) {
   const navigate = useNavigate();
@@ -119,6 +120,7 @@ function NewsDetail(props) {
         <SideBar isEnglish={props.isEnglish} />
       </div>
       <AnotherNews news={props.news} />
+      <ToSupport />
     </div>
   );
 }

@@ -1,4 +1,24 @@
 .another_news {
+    background-color: #f6f6f6;
+    padding-bottom: 50px;
+    & > .title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        & h1 {
+          font-weight: 600;
+          text-align: center;
+        }
+        & img {
+          width: 25px;
+          height: 25px;
+          transform: rotate(25deg);
+          margin: auto;
+          filter: brightness(0) saturate(100%) invert(62%) sepia(100%) saturate(6303%) hue-rotate(200deg) brightness(103%) contrast(105%);
+        }
+      }
     & > .container {
       gap: 50px;
       width: 1200px;
@@ -25,7 +45,7 @@
         }
   
         & .info {
-          background-color: #f4f4f4;
+          background-color: #f0f0f0;
           padding: 40px 20px;
           height: 300px;
           position: relative;  /* Ensure .date is positioned relative to .info */
