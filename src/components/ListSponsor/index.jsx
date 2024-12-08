@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./style.scss";
-import { Modal } from "antd";
+import { Modal, Table } from "antd";
 
 function Listsponsor(props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -8,6 +8,79 @@ function Listsponsor(props) {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
+
+  // Cột và dữ liệu cho bảng
+  const columns = [
+    {
+      title: props.isEnglish ? "Date" : "Ngày",
+      dataIndex: "date",
+      key: "date",
+    },
+    {
+      title: props.isEnglish ? "Description" : "Nội dung",
+      dataIndex: "description",
+      key: "description",
+    },
+    {
+      title: props.isEnglish ? "Currency" : "Đồng",
+      dataIndex: "currency",
+      key: "currency",
+    },
+    {
+      title: props.isEnglish ? "Received Amount" : "Số tiền đã nhận",
+      dataIndex: "receivedAmount",
+      key: "receivedAmount",
+    },
+    {
+      title: props.isEnglish ? "Transaction Fee" : "Số tiền phí đã bị trừ",
+      dataIndex: "transactionFee",
+      key: "transactionFee",
+    },
+  ];
+
+  const data = [
+    {
+      key: "1",
+      date: "02/01/2021",
+      description: "VAN VU",
+      currency: "USD",
+      receivedAmount: "9,26",
+      transactionFee: "-0,74",
+    },
+    {
+      key: "2",
+      date: "30/12/2020",
+      description: "Giang Nguyen",
+      currency: "USD",
+      receivedAmount: "5,86",
+      transactionFee: "0,00",
+    },
+    {
+      key: "3",
+      date: "29/12/2020",
+      description: "YAT LUN LAW",
+      currency: "USD",
+      receivedAmount: "118,06",
+      transactionFee: "-5,75",
+    },
+    {
+      key: "4",
+      date: "29/12/2020",
+      description: "Michelle Castillo",
+      currency: "USD",
+      receivedAmount: "50,00",
+      transactionFee: "0,00",
+    },
+    {
+      key: "5",
+      date: "28/12/2020",
+      description: "Ban Tsan",
+      currency: "USD",
+      receivedAmount: "9,26",
+      transactionFee: "-0,74",
+    },
+    // Thêm các dòng dữ liệu khác tại đây
+  ];
 
   return (
     <div className="list-sponsor">
@@ -32,9 +105,12 @@ function Listsponsor(props) {
         centered
         width={1200}
       >
-        <p>{props.isEnglish ? "Some contents..." : "Một số nội dung..."}</p>
-        <p>{props.isEnglish ? "Some contents..." : "Một số nội dung..."}</p>
-        <p>{props.isEnglish ? "Some contents..." : "Một số nội dung..."}</p>
+        <Table
+          columns={columns}
+          dataSource={data}
+          pagination={false}
+          bordered
+        />
       </Modal>
     </div>
   );
