@@ -25,7 +25,7 @@ function Footer(props) {
               alt=""
               style={{ height: "60px", margin: "0 10px" }}
             />
-            <div>
+            <div className="LogoMXH">
               <a href="https://www.facebook.com/hanoipetadoption/">
                 <FacebookOutlined />
               </a>
@@ -89,8 +89,8 @@ function Footer(props) {
       <hr />
       <div className="footer_credits">
         {props.isEnglish
-          ? "Designed by Tiên-Nhân-Minh"
-          : "Designed by Tiên-Nhân-Minh"}
+          ? "Designed by Tiên - Nhân - Minh"
+          : "Designed by Tiên - Nhân - Minh"}
       </div>
     </div>
   );
