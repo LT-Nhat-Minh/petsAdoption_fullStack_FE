@@ -1,26 +1,81 @@
 import React from "react";
 import "./style.scss";
+import { useNavigate, useOutletContext } from "react-router-dom";
 
 function SideBar(props) {
+  const navigate = useNavigate();
   return (
     <div className="sidebar">
       <div>
         <h2>{props.isEnglish ? "Categories" : "Chuyên Mục"}</h2>
         <hr />
         <div>
-          <p>{props.isEnglish ? "Loving Corner" : "Góc Yêu Thương"}</p>
-          <p>
+          <p
+            onClick={() => {
+              navigate("/news");
+              props.setCategory("all");
+            }}
+          >
+            {props.isEnglish ? "All" : "Tất Cả"}
+          </p>
+          <p
+            onClick={() => {
+              navigate("/news");
+              props.setCategory("1");
+            }}
+          >
+            {props.isEnglish ? "Loving Corner" : "Góc Yêu Thương"}
+          </p>
+          <p
+            onClick={() => {
+              navigate("/news");
+              props.setCategory("2");
+            }}
+          >
             {props.isEnglish ? "Volunteer Activities" : "Hoạt động tình nguyện"}
           </p>
-          <p>
+          <p
+            onClick={() => {
+              navigate("/news");
+              props.setCategory("3");
+            }}
+          >
             {props.isEnglish
               ? "Knowledge on Raising Pets"
               : "Kiến thức nuôi boss"}
           </p>
-          <p>{props.isEnglish ? "Rescue Process" : "Quá trình cứu hộ"}</p>
-          <p>{props.isEnglish ? "News and Events" : "Tin tức và sự kiện"}</p>
-          <p>{props.isEnglish ? "Videos" : "Video"}</p>
-          <p>{props.isEnglish ? "Cute Moments" : "Dễ thương"}</p>
+          <p
+            onClick={() => {
+              navigate("/news");
+              props.setCategory("4");
+            }}
+          >
+            {props.isEnglish ? "Rescue Process" : "Quá trình cứu hộ"}
+          </p>
+          <p
+            onClick={() => {
+              navigate("/news");
+              props.setCategory("5");
+            }}
+          >
+            {props.isEnglish ? "News and Events" : "Tin tức và sự kiện"}
+          </p>
+          <p
+            onClick={() => {
+              navigate("/news");
+              props.setCategory("6");
+            }}
+          >
+            {props.isEnglish ? "Videos" : "Video"}
+          </p>
+          <p
+            onClick={() => {
+              navigate("/news");
+              props.setCategory("7");
+            }}
+          >
+            {props.isEnglish ? "Cute Moments" : "Dễ thương"}
+          </p>
         </div>
       </div>
       <div>

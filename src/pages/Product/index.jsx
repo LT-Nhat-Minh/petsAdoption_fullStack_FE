@@ -1,6 +1,6 @@
 import React from "react";
 import "../Product/style.scss";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import ToSupport from "../../components/ToSupport";
 import ite1 from "../../asset/Icon/ite1.jpg";
 import ite2 from "../../asset/Icon/ite2.jpg";
@@ -36,32 +36,46 @@ function Product(props) {
       </div>
 
       <div className="grid1">
-
         <div className="grid_ite">
           <img src={ite1} alt="" />
-          <p>Túi Tote Do Hpa Thiết Kế Bán Gây Quỹ</p>
+          <p>
+            {props.isEnglish
+              ? "Tote Bag Designed by Hpa for Charity Sale"
+              : "Túi Tote Do Hpa Thiết Kế Bán Gây Quỹ"}
+          </p>
           <hr className="hr1" />
           <strong>120,000 VNĐ</strong>
         </div>
         <div className="grid_ite">
           <img src={ite2} alt="" />
-          <p>Túi Tote Do Hpa Thiết Kế Bán Gây Quỹ</p>
+          <p>
+            {props.isEnglish
+              ? "Tote Bag Designed by Hpa for Charity Sale"
+              : "Túi Tote Do Hpa Thiết Kế Bán Gây Quỹ"}
+          </p>
           <hr className="hr1" />
           <strong>150,000 VNĐ</strong>
         </div>
         <div className="grid_ite">
           <img src={ite3} alt="" />
-          <p>Túi Tote Do Hpa Thiết Kế Bán Gây Quỹ</p>
+          <p>
+            {props.isEnglish
+              ? "Tote Bag Designed by Hpa for Charity Sale"
+              : "Túi Tote Do Hpa Thiết Kế Bán Gây Quỹ"}
+          </p>
           <hr className="hr1" />
           <strong>100,000 VNĐ</strong>
         </div>
         <div className="grid_ite">
           <img src={ite4} alt="" />
-          <p>Móc khoá chó mèo gây quỹ hpa</p>
+          <p>
+            {props.isEnglish
+              ? "Dog & Cat Keychain for Hpa Charity"
+              : "Móc khoá chó mèo gây quỹ hpa"}
+          </p>
           <hr className="hr1" />
           <strong>40,000 VNĐ</strong>
         </div>
-
       </div>
 
       <ul className="productslider fw">

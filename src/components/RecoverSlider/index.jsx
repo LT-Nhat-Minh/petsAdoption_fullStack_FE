@@ -72,7 +72,7 @@ function RecoverSlider(props) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const filtered = props.news.filter((item) => item.category === "4");
+    const filtered = props.news.filter((item) => item.category.includes("4"));
     setFilteredList(filtered);
   }, []);
 
@@ -83,7 +83,10 @@ function RecoverSlider(props) {
   return (
     <div className="dona_container">
       <div className="quatrinh">
-        QUÁ TRÌNH TRƯỚC VÀ SAU<br></br>
+        {props.isEnglish
+          ? "BEFORE AND AFTER PROCESS"
+          : "QUÁ TRÌNH TRƯỚC VÀ SAU"}
+        <br />
         <img src={sticker} alt="" className="sticker" />
       </div>
       <div className="slider_dona_container">
@@ -98,9 +101,17 @@ function RecoverSlider(props) {
                 }}
               >
                 <img className="donaimg" src={item.url} alt="" />
-                <h2 className="truocvasau">{truncateText(item.title, 40)}</h2>
+                <h2 className="truocvasau">
+                  {props.isEnglish
+                    ? truncateText(item.title_english, 60)
+                    : truncateText(item.title, 40)}
+                </h2>
                 <hr />
-                <p>{truncateText(item.des, 200)}</p>
+                <p>
+                  {props.isEnglish
+                    ? truncateText(item.des_english, 200)
+                    : truncateText(item.des, 200)}
+                </p>
               </div>
             ))}
         </Slider>
@@ -110,7 +121,7 @@ function RecoverSlider(props) {
             navigate("/news");
           }}
         >
-          XEM THÊM
+          {props.isEnglish ? "SEE MORE" : "XEM THÊM"}
         </button>
       </div>
     </div>
