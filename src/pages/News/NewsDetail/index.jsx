@@ -56,7 +56,7 @@ function NewsDetail(props) {
             <p>
               <img src={petLeg} alt="" />
               {props.isEnglish ? "20/02/2020 by" : "20/02/2020 bởi"}
-              <span style={{ color: "#018AE0" }}> HanoiPetAdoption</span>
+              <span style={{ color: "#018AE0" }}> OnceMoreLife</span>
             </p>
           </div>
           <hr />
