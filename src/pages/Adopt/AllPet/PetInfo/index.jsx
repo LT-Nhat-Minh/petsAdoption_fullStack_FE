@@ -293,7 +293,7 @@ function PetInfo(props) {
           <p>{item.des}</p>
         </div>
       </div>
-      <ToSupport />
+      <ToSupport isEnglish={props.isEnglish} />
     </div>
   );
 }
