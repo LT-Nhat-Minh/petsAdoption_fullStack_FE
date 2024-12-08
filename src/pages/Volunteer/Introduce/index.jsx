@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.scss";
+import BGVLT from "../../../asset/Background/BGVLT.jpg"
 
 function VolunteerIntroduce(props) {
   return (
@@ -19,7 +20,7 @@ function VolunteerIntroduce(props) {
       </div>
       <div className="image-content">
         <img
-          src="https://www.hanoipetadoption.com/admin/user-content/5d4d003a-2692-4ba4-aa87-34721ef49644.jpg"
+          src= {BGVLT}
           alt={props.isEnglish ? "Volunteer" : "Tình Nguyện Viên"}
         />
       </div>
