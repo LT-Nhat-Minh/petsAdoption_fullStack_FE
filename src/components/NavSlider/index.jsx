@@ -1,6 +1,9 @@
 import React from "react";
 import "./style.scss";
 import { useNavigate } from "react-router-dom";
+import MeoVaCoc from "../../asset/Background/MeoVaCoc.jpg"
+import NhieuMeo from "../../asset/Background/AnhNhieuMeo.jpeg"
+import CapDoiVaPet from "../../asset/Background/CapDoiVaPet.jpg"
 
 function NavSlider(props) {
   const navigate = useNavigate();
@@ -10,7 +13,7 @@ function NavSlider(props) {
         <div className="before">
           <div className="avatar">
             <img
-              src="https://www.hanoipetadoption.com/admin/user-content/03fc601a-a150-4d55-b051-15d6d3ced88e.jpg"
+              src={MeoVaCoc}
               alt=""
             />
           </div>
@@ -33,7 +36,7 @@ function NavSlider(props) {
         <div className="before">
           <div className="avatar">
             <img
-              src="https://www.hanoipetadoption.com/admin/user-content/eed6fd79-339e-4976-9e0b-1b353aacb99f.jpeg"
+              src={NhieuMeo}
               alt=""
             />
           </div>
@@ -56,7 +59,7 @@ function NavSlider(props) {
         <div className="before">
           <div className="avatar">
             <img
-              src="https://www.hanoipetadoption.com/admin/user-content/0f8ff594-db60-4a7c-bfc6-b0579737602e.jpg"
+              src={CapDoiVaPet}
               alt=""
             />
           </div>
