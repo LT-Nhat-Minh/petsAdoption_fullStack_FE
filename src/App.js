@@ -92,8 +92,8 @@ const list = [
     url: thumbnail1, //Ảnh thumbnail
     current: 1, //Trang hiển thị
     type: "cat"
-},
-{
+  },
+  {
     name: "Milo",
     breed: "Mèo Tây",
     color: "Đen Trắng",
@@ -116,8 +116,8 @@ const list = [
     url: thumbnail2, //Ảnh thumbnail
     current: 1, //Trang hiển thị
     type: "cat"
-},
-{
+  },
+  {
     name: "Bông",
     breed: "Mèo Lai",
     color: "Trắng",
@@ -140,7 +140,7 @@ const list = [
     url: thumbnail5, //Ảnh thumbnail
     current: 1, //Trang hiển thị
     type: "cat"
-},
+  },
   {
     name: "Mây",
     breed: "Chó Lai",
@@ -183,7 +183,7 @@ const list = [
     current: 2, //Trang hiển thị
     type: "dog"
   },
-  
+
   //
 
   {
@@ -228,7 +228,7 @@ const list = [
     current: 2, //Trang hiển thị
     type: "dog"
   },
-{
+  {
     name: "Dưa",
     breed: "Mèo Tây",
     color: "Xám",
@@ -248,8 +248,8 @@ const list = [
     url: thumbnail6, //Ảnh thumbnail
     current: 3, //Trang hiển thị
     type: "cat"
-},
-{
+  },
+  {
     name: "Mochi",
     breed: "Mèo Tây",
     color: "Xám",
@@ -269,8 +269,8 @@ const list = [
     url: thumbnail8, //Ảnh thumbnail
     current: 3, //Trang hiển thị
     type: "cat"
-},
-{
+  },
+  {
     name: "Lily",
     breed: "Chó ta",
     color: "Nâu",
@@ -290,7 +290,7 @@ const list = [
     url: thumbnail12, //Ảnh thumbnail
     current: 3, //Trang hiển thị
     type: "dog"
-},
+  },
 
 ];
 
@@ -413,7 +413,7 @@ const news = [
     des: "Ngày ý tưởng ko cứu được nó. Nửa đêm nhờ tnv chạy ô tô lên Phú Thọ bắt chó vì sợ nó lang thang ngoài đường chết lạnh...",
     des_english: "At first, we thought we couldn't save it. In the middle of the night, we asked a volunteer to drive to Phu Tho to rescue the dog, fearing it would die alone in the cold streets...",
     url: thumbnail2_1,
-    category: ["2","4"],
+    category: ["2", "4"],
   },
   {
     title: "Mèo trắng bị bỏ rơi",
@@ -667,14 +667,14 @@ function App() {
           element: <Adopt news={news} list={list} isEnglish={isEnglish} />,
           children: [
             {
+              path: "tat-ca-cac-be",
+              element: <AllPet list={list} isEnglish={isEnglish} />,
+            },
+            {
               path: "tat-ca-cac-be/:id",
               element: <PetInfo list={list} isEnglish={isEnglish} />,
             }
           ]
-        },
-        {
-          path: "/nhan-nuoi/tat-ca-cac-be",
-          element: <AllPet list={list} isEnglish={isEnglish} />,
         },
         {
           path: "/contact",
@@ -687,12 +687,12 @@ function App() {
         {
           path: "/news", // Route cha
           element: <News category={category}
-          setCategory={setCategory} news={news} list={list} isEnglish={isEnglish} />,
+            setCategory={setCategory} news={news} list={list} isEnglish={isEnglish} />,
           children: [
             {
               path: ":title",
               element: <NewsDetail category={category}
-              setCategory={setCategory} news={news} isEnglish={isEnglish} />,
+                setCategory={setCategory} news={news} isEnglish={isEnglish} />,
             },
           ]
         },

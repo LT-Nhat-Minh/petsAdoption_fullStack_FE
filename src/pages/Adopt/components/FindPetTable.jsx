@@ -2,19 +2,30 @@ import React, { useEffect, useState } from "react";
 import sticker from "../../../asset/Icon/pets.png";
 import { Card, Col, Form, Input, Pagination, Row, Select } from "antd";
 import { useNavigate } from "react-router-dom";
+import { callFetchPets } from "../../../services/api";
 function FindPetTable(props) {
   const [current, setCurrent] = useState(1);
+  const [listPet, setListPet] = useState();
   const [paginatedList, setPaginatedList] = useState([]);
-  const [filteredList, setFilteredList] = useState(props.list);
+  const [filteredList, setFilteredList] = useState([]);
   const [name, setName] = useState("");
   const navigate = useNavigate();
   const [form] = Form.useForm();
   const pageSize = parseInt(props.pageSize);
 
   useEffect(() => {
-    const startIndex = (current - 1) * pageSize;
-    const endIndex = startIndex + pageSize;
-    setPaginatedList(filteredList.slice(startIndex, endIndex));
+    const fetchAndInitFilteredList = async () => {
+      const res = await callFetchPets();
+      if (res && res.data) {
+        const rawList = res.data.data;
+        setFilteredList(rawList); //init filteredList
+
+        const startIndex = (current - 1) * pageSize;
+        const endIndex = startIndex + pageSize;
+        setPaginatedList(filteredList.slice(startIndex, endIndex));
+      }
+    };
+    fetchAndInitFilteredList();
   }, [current, filteredList]);
 
   const handleNavigate = (id) => {
@@ -300,10 +311,19 @@ function FindPetTable(props) {
             return (
               <Col span={6}>
                 <Card
-                  cover={<img src={item.url} alt="image" />}
+                  cover={
+                    <img
+                      src={
+                        `${process.env.REACT_APP_BACKEND_PUBLIC_URL}` +
+                        "/images/" +
+                        item.image
+                      }
+                      alt="image"
+                    />
+                  }
                   hoverable
                   onClick={() => {
-                    handleNavigate(item.id);
+                    handleNavigate(item._id);
                   }}
                 >
                   <div className="card-container">

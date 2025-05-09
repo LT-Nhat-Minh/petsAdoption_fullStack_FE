@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import sticker from "../../asset/Icon/pets.png";
 import { Card } from "antd";
 import { useNavigate } from "react-router-dom";
+import { callFetchPets } from "../../services/api";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -29,6 +30,7 @@ function SamplePrevArrow(props) {
 
 function AdoptSlider(props) {
   const [paginatedList, setPaginatedList] = useState([]);
+  const [listPet, setListPet] = useState([]);
   const navigate = useNavigate();
 
   function shuffleArray(array, size) {
@@ -43,8 +45,16 @@ function AdoptSlider(props) {
     return shuffled.slice(0, size);
   }
   useEffect(() => {
-    let newList = shuffleArray(props.list.slice(), 8);
-    setPaginatedList(newList);
+    const fetchAndShuffle = async () => {
+      const res = await callFetchPets();
+      if (res && res.data) {
+        const rawList = res.data.data;
+        setListPet(rawList);
+        setPaginatedList(shuffleArray(rawList.slice(), 8));
+      }
+    };
+
+    fetchAndShuffle();
   }, []);
 
   var settings = {
@@ -94,9 +104,9 @@ function AdoptSlider(props) {
 
   const getVaccinationStatus = (isEnglish, status) => {
     if (isEnglish) {
-      return status === "u" ? "No" : status === "t" ? "Yes" : "Unclear";
+      return status === true ? "Yes" : status === false ? "No" : "Unclear";
     } else {
-      return status === "u" ? "Không" : status === "t" ? "Có" : "Chưa rõ";
+      return status === true ? "Có" : status === false ? "Không" : "Chưa rõ";
     }
   };
 
@@ -135,10 +145,19 @@ function AdoptSlider(props) {
             {paginatedList.map((item, index) => {
               return (
                 <Card
-                  cover={<img src={item.url} alt="image" />}
+                  cover={
+                    <img
+                      src={
+                        `${process.env.REACT_APP_BACKEND_PUBLIC_URL}` +
+                        "/images/" +
+                        item.image
+                      }
+                      alt="image"
+                    />
+                  }
                   hoverable
                   onClick={() => {
-                    handleNavigate(item.id);
+                    handleNavigate(item._id);
                   }}
                 >
                   <div className="card-container">
@@ -163,7 +182,7 @@ function AdoptSlider(props) {
                         <strong>
                           {props.isEnglish ? "Vaccinated:" : "Tiêm phòng:"}
                         </strong>{" "}
-                        {getVaccinationStatus(props.isEnglish, item.g)}
+                        {getVaccinationStatus(props.isEnglish, item.vaccinated)}
                         <hr />
                       </p>
                     </div>

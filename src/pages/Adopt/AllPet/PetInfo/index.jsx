@@ -1,16 +1,30 @@
 import { CheckOutlined, QuestionOutlined } from "@ant-design/icons";
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./style.scss";
 import ToSupport from "../../../../components/ToSupport";
+import { callFetchPets } from "../../../../services/api";
 
 function PetInfo(props) {
   const { id } = useParams();
+  const [petData, setPetData] = useState({});
   const navigate = useNavigate();
 
   const item = useMemo(() => {
-    return props.list.find((pet) => pet.id === id);
+    return props.list.find((pet) => pet.id === "M4560");
   }, [id, props.list]);
+
+  useEffect(() => {
+    const fetchPetByID = async () => {
+      const res = await callFetchPets(id);
+      if (res && res.data) {
+        const rawList = res.data.data;
+        setPetData(rawList);
+      }
+    };
+    fetchPetByID();
+    console.log(petData);
+  }, [petData]);
 
   return (
     <div className="pet_info">
@@ -35,43 +49,51 @@ function PetInfo(props) {
               {props.isEnglish ? "All Pets" : "Tất Cả Các Bé"}
             </span>
             {">"}
-            <span className="current">{item.id}</span>
+            <span className="current">{petData._id}</span>
           </p>
         </div>
       </div>
       <div className="content">
         <div className="info">
           <div className="photo">
-            <img src={item.url} alt="" />
+            <img
+              src={
+                `${process.env.REACT_APP_BACKEND_PUBLIC_URL}` +
+                "/images/" +
+                petData.image
+              }
+              alt=""
+            />
           </div>
           <div className="descriptions">
-            <h1>{item.name}</h1>
+            <h1>{petData.name}</h1>
             <p>
               <strong>{props.isEnglish ? "Breed:" : "Giống:"}</strong>{" "}
-              {item.breed}
+              {petData.breed}
             </p>
             <hr />
             <p>
               <strong>{props.isEnglish ? "Color:" : "Màu sắc:"}</strong>{" "}
-              {item.color}
+              {petData.color}
             </p>
             <hr />
             <p>
-              <strong>{props.isEnglish ? "Age:" : "Tuổi:"}</strong> {item.age}
+              <strong>{props.isEnglish ? "Age:" : "Tuổi:"}</strong>{" "}
+              {petData.age}
             </p>
             <hr />
             <p>
               <strong>{props.isEnglish ? "Weight:" : "Cân nặng:"}</strong>{" "}
-              {item.weight}
+              {petData.weight}
             </p>
             <hr />
             <p>
               <strong>{props.isEnglish ? "Gender:" : "Giới tính:"}</strong>{" "}
-              {item.gender}
+              {petData.gender}
             </p>
             <hr />
             <p>
-              <strong>{props.isEnglish ? "ID:" : "Mã:"}</strong> {item.id}
+              <strong>{props.isEnglish ? "ID:" : "Mã:"}</strong> {petData._id}
             </p>
             <div className="button">
               <button>
@@ -90,7 +112,7 @@ function PetInfo(props) {
           <hr />
           <div>
             <div>
-              {item.a === "t" ? (
+              {petData.neutered === petData ? (
                 <CheckOutlined
                   style={{
                     backgroundColor: "#28a745",
@@ -114,7 +136,7 @@ function PetInfo(props) {
               {props.isEnglish ? "Sterilized" : "Triệt sản"}
             </div>
             <div>
-              {item.b === "t" ? (
+              {petData.friendly_with_human === true ? (
                 <CheckOutlined
                   style={{
                     backgroundColor: "#28a745",
@@ -140,7 +162,7 @@ function PetInfo(props) {
                 : "Thân thiện với người"}
             </div>
             <div>
-              {item.c === "t" ? (
+              {petData.special_diet === true ? (
                 <CheckOutlined
                   style={{
                     backgroundColor: "#28a745",
@@ -164,7 +186,7 @@ function PetInfo(props) {
               {props.isEnglish ? "Special diet" : "Chế độ ăn riêng"}
             </div>
             <div>
-              {item.d === "t" ? (
+              {petData.rabies_vaccine === true ? (
                 <CheckOutlined
                   style={{
                     backgroundColor: "#28a745",
@@ -188,7 +210,7 @@ function PetInfo(props) {
               {props.isEnglish ? "Rabies vaccinated" : "Tiêm dại"}
             </div>
             <div>
-              {item.e === "t" ? (
+              {petData.friendly_with_dog === true ? (
                 <CheckOutlined
                   style={{
                     backgroundColor: "#28a745",
@@ -212,7 +234,7 @@ function PetInfo(props) {
               {props.isEnglish ? "Friendly with dogs" : "Thân thiện với chó"}
             </div>
             <div>
-              {item.f === "t" ? (
+              {petData.toilet_trained === petData ? (
                 <CheckOutlined
                   style={{
                     backgroundColor: "#28a745",
@@ -236,7 +258,7 @@ function PetInfo(props) {
               {props.isEnglish ? "Housebroken" : "Đi vệ sinh đúng chỗ"}
             </div>
             <div>
-              {item.g === "t" ? (
+              {petData.vaccinated === petData ? (
                 <CheckOutlined
                   style={{
                     backgroundColor: "#28a745",
@@ -260,7 +282,7 @@ function PetInfo(props) {
               {props.isEnglish ? "Vaccinated" : "Tiêm phòng bệnh"}
             </div>
             <div>
-              {item.h === "t" ? (
+              {petData.friendly_with_cat === petData ? (
                 <CheckOutlined
                   style={{
                     backgroundColor: "#28a745",
@@ -290,7 +312,7 @@ function PetInfo(props) {
             {props.isEnglish ? "Learn About Pets" : "Tìm Hiểu Về Thú Cưng"}
           </h1>
           <hr />
-          <p>{item.des}</p>
+          <p>{petData.des}</p>
         </div>
       </div>
       <ToSupport isEnglish={props.isEnglish} />
