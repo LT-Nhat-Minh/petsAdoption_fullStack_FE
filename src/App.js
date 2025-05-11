@@ -463,6 +463,15 @@ function App() {
 
   useEffect(() => {
     getAccount();
+    // REACT_APP_BACKEND_URL = https://petsadoption-fullstack-be.onrender.com/v1/api
+    // REACT_APP_BACKEND_PUBLIC_URL = https://petsadoption-fullstack-be.onrender.com
+    console.log(
+      "REACT_APP_BACKEND_URL = ",
+      process.env.REACT_APP_BACKEND_URL,
+      "\n",
+      "REACT_APP_BACKEND_PUBLIC_URL = ",
+      process.env.REACT_APP_BACKEND_PUBLIC_URL
+    );
   }, []);
 
   const Layout = () => {
