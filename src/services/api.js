@@ -56,3 +56,34 @@ export const callFetchAccount = async () => {
   const res = await axios.get(`/auth/account`);
   return res;
 };
+export const callFetchUsers = async (id, start, limit) => {
+  const res = await axios.get(`/users`, { params: { id, start, limit } });
+  return res;
+};
+
+export const callDeleteUser = async (id) => {
+  try {
+    const res = await axios.delete(`/users`, { params: { id } });
+    return res.data;
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    throw error;
+  }
+};
+
+export const callUpdateUser = async (userId, userData) => {
+  try {
+    const res = await axios.put(`/users`, {
+      id: userId,
+      name: userData.name,
+      email: userData.email,
+      phoneNumber: userData.phoneNumber,
+      password: userData.password,
+      role: userData.role,
+    });
+    return res.data;
+  } catch (error) {
+    console.error("Error updating user:", error);
+    throw error;
+  }
+};
