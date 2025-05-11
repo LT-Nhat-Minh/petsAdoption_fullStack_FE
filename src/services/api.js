@@ -1,15 +1,9 @@
-import axios from '../utils/axios-customize';
+import axios from "../utils/axios-customize";
 
-export const callFetchPets = async (id) => {
-    const res =  await axios.get(`/pets`, { params: {id} });
-    // console.log(res);
-    return res;
-}
-export const callFetchAllPets = async () => {
-    const res =  await axios.get(`/pets`);
-    // console.log(res);
-    return res;
-}
+export const callFetchPets = async (id, start, limit) => {
+  const res = await axios.get(`/pets`, { params: { id, start, limit } });
+  return res;
+};
 
 export const callCreatePet = async (formData) => {
     try {
@@ -42,4 +36,18 @@ export const callUpdatePet = async (formData) => {
     console.error('Error updating pet:', error);
     throw error;
   }
+};
+
+export const callRegister = async (name, email, password, phoneNumber) => {
+  const res = await axios.post(`/auth/register`, {
+    name,
+    email,
+    password,
+    phoneNumber,
+  });
+  return res;
+};
+
+export const callLogin = (email, password) => {
+  return axios.post("/auth/login", { email, password, delay: 1000 });
 };

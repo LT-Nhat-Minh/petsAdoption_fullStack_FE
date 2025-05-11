@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import sticker from "../../asset/Icon/pets.png";
 import { Card } from "antd";
 import { useNavigate } from "react-router-dom";
+import { useLanguageContext } from "../../context/language.provider";
 
 function DonaNextArrow(props) {
   const { className, style, onClick } = props;
@@ -31,6 +32,7 @@ function truncateText(item, size) {
 }
 
 function RecoverSlider(props) {
+  const { isEnglish, setIsEnglish } = useLanguageContext();
   var settings = {
     dots: true,
     infinite: false,
@@ -83,9 +85,7 @@ function RecoverSlider(props) {
   return (
     <div className="dona_container">
       <div className="quatrinh">
-        {props.isEnglish
-          ? "BEFORE AND AFTER PROCESS"
-          : "QUÁ TRÌNH TRƯỚC VÀ SAU"}
+        {isEnglish ? "BEFORE AND AFTER PROCESS" : "QUÁ TRÌNH TRƯỚC VÀ SAU"}
         <br />
         <img src={sticker} alt="" className="sticker" />
       </div>
@@ -102,13 +102,13 @@ function RecoverSlider(props) {
               >
                 <img className="donaimg" src={item.url} alt="" />
                 <h2 className="truocvasau">
-                  {props.isEnglish
+                  {isEnglish
                     ? truncateText(item.title_english, 60)
                     : truncateText(item.title, 40)}
                 </h2>
                 <hr />
                 <p>
-                  {props.isEnglish
+                  {isEnglish
                     ? truncateText(item.des_english, 200)
                     : truncateText(item.des, 200)}
                 </p>
@@ -121,7 +121,7 @@ function RecoverSlider(props) {
             navigate("/news");
           }}
         >
-          {props.isEnglish ? "SEE MORE" : "XEM THÊM"}
+          {isEnglish ? "SEE MORE" : "XEM THÊM"}
         </button>
       </div>
     </div>

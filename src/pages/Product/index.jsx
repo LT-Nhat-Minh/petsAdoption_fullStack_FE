@@ -6,21 +6,23 @@ import ite1 from "../../asset/Icon/ite1.jpg";
 import ite2 from "../../asset/Icon/ite2.jpg";
 import ite3 from "../../asset/Icon/ite3.jpg";
 import ite4 from "../../asset/Icon/ite4.jpg";
+import { useLanguageContext } from "../../context/language.provider";
 
 function Product(props) {
   const navigate = useNavigate();
+  const { isEnglish, setIsEnglish } = useLanguageContext();
   return (
     <div className="product_content">
       <div className="banner">
         <div className="container">
-          <h1 className="title">{props.isEnglish ? "Products" : "Sản Phẩm"}</h1>
+          <h1 className="title">{isEnglish ? "Products" : "Sản Phẩm"}</h1>
           <p className="breadcrumbs">
             <span className="root" onClick={() => navigate("/")}>
-              {props.isEnglish ? "Home" : "Trang Chủ"}
+              {isEnglish ? "Home" : "Trang Chủ"}
             </span>{" "}
             {">"}{" "}
             <span className="current">
-              {props.isEnglish ? "Product" : "Sản Phẩm"}
+              {isEnglish ? "Product" : "Sản Phẩm"}
             </span>
           </p>
         </div>
@@ -28,10 +30,10 @@ function Product(props) {
 
       <div className="muahang">
         <button className="fw white inbox up">
-          {props.isEnglish ? "Inbox to Buy" : "inbox mua hàng"}
+          {isEnglish ? "Inbox to Buy" : "inbox mua hàng"}
         </button>
         <button className="fw white shoppe up">
-          {props.isEnglish ? "Buy on Shopee" : "mua hàng shoppe"}
+          {isEnglish ? "Buy on Shopee" : "mua hàng shoppe"}
         </button>
       </div>
 
@@ -39,7 +41,7 @@ function Product(props) {
         <div className="grid_ite">
           <img src={ite1} alt="" />
           <p>
-            {props.isEnglish
+            {isEnglish
               ? "Tote Bag Designed by Hpa for Charity Sale"
               : "Túi Tote Do Hpa Thiết Kế Bán Gây Quỹ"}
           </p>
@@ -49,7 +51,7 @@ function Product(props) {
         <div className="grid_ite">
           <img src={ite2} alt="" />
           <p>
-            {props.isEnglish
+            {isEnglish
               ? "Tote Bag Designed by Hpa for Charity Sale"
               : "Túi Tote Do Hpa Thiết Kế Bán Gây Quỹ"}
           </p>
@@ -59,7 +61,7 @@ function Product(props) {
         <div className="grid_ite">
           <img src={ite3} alt="" />
           <p>
-            {props.isEnglish
+            {isEnglish
               ? "Tote Bag Designed by Hpa for Charity Sale"
               : "Túi Tote Do Hpa Thiết Kế Bán Gây Quỹ"}
           </p>
@@ -69,7 +71,7 @@ function Product(props) {
         <div className="grid_ite">
           <img src={ite4} alt="" />
           <p>
-            {props.isEnglish
+            {isEnglish
               ? "Dog & Cat Keychain for Hpa Charity"
               : "Móc khoá chó mèo gây quỹ hpa"}
           </p>
@@ -84,7 +86,7 @@ function Product(props) {
         <li>{">"}</li>
       </ul>
 
-      <ToSupport isEnglish={props.isEnglish} />
+      <ToSupport />
     </div>
   );
 }

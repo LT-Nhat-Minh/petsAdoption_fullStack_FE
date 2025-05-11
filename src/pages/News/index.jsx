@@ -5,9 +5,11 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import ToSupport from "../../components/ToSupport";
 import SideBar from "./components/SideBar";
 import "./style.scss";
+import { useLanguageContext } from "../../context/language.provider";
 
 function News(props) {
   let navigate = useNavigate();
+  const { isEnglish, setIsEnglish } = useLanguageContext();
   const location = useLocation();
   const [current, setCurrent] = useState(1);
   const [paginatedList, setPaginatedList] = useState([]);
@@ -38,14 +40,14 @@ function News(props) {
         <>
           <div className="banner">
             <div className="container">
-              <h1 className="title">{props.isEnglish ? "News" : "Tin Tức"}</h1>
+              <h1 className="title">{isEnglish ? "News" : "Tin Tức"}</h1>
               <p className="breadcrumbs">
                 <span className="root" onClick={() => navigate("/")}>
-                  {props.isEnglish ? "Home" : "Trang Chủ"}
+                  {isEnglish ? "Home" : "Trang Chủ"}
                 </span>{" "}
                 {">"}{" "}
                 <span className="current">
-                  {props.isEnglish ? "News" : "Tin Tức"}
+                  {isEnglish ? "News" : "Tin Tức"}
                 </span>
               </p>
             </div>
@@ -69,23 +71,23 @@ function News(props) {
                         <div className="info">
                           <div className="date">
                             <div className="month">
-                              {props.isEnglish ? `M ${month}` : `T ${month}`}
+                              {isEnglish ? `M ${month}` : `T ${month}`}
                             </div>
                             <div className="day">{day}</div>
                           </div>
                           <p className="title">
-                            {props.isEnglish
+                            {isEnglish
                               ? truncateText(item.title_english, 40)
                               : truncateText(item.title, 40)}
                           </p>
                           <p className="des">
-                            {props.isEnglish
+                            {isEnglish
                               ? truncateText(item.des_english, 150)
                               : truncateText(item.des, 150)}
                           </p>
                           <div className="author">
                             <span>
-                              {props.isEnglish ? "Posted by " : "Đăng bởi "}
+                              {isEnglish ? "Posted by " : "Đăng bởi "}
                             </span>
                             <span>
                               <UserOutlined /> {item.author}
@@ -93,7 +95,7 @@ function News(props) {
                           </div>
                           <div className="button">
                             <button>
-                              {props.isEnglish ? "READ MORE" : "CHI TIẾT"}
+                              {isEnglish ? "READ MORE" : "CHI TIẾT"}
                             </button>
                           </div>
                         </div>
@@ -115,10 +117,9 @@ function News(props) {
             <SideBar
               category={props.category}
               setCategory={props.setCategory}
-              isEnglish={props.isEnglish}
             />
           </div>
-          <ToSupport isEnglish={props.isEnglish} />
+          <ToSupport />
         </>
       ) : null}
       <Outlet />

@@ -7,9 +7,10 @@ import volunteer2 from "../../../asset/Volunteer_List/7686847e-4f9a-45e2-ba09-26
 import volunteer3 from "../../../asset/Volunteer_List/262d40ba-c398-4f3f-85b3-cd9d18d0d373.jpeg";
 import volunteer4 from "../../../asset/Volunteer_List/dd863f3e-1762-45a9-9730-922987085e97.jpeg";
 import JoinUs from "./JoinUs";
+import { useLanguageContext } from "../../../context/language.provider";
 
 function VolunteerList(props) {
-  const isEnglish = props.isEnglish;
+  const { isEnglish, setIsEnglish } = useLanguageContext();
 
   return (
     <div className="volunteer-list">

@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { callFetchPets } from "../../../services/api";
 function FindPetTable(props) {
   const [current, setCurrent] = useState(1);
-  const [listPet, setListPet] = useState();
+  const [total, setTotal] = useState(0);
   const [paginatedList, setPaginatedList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
   const [name, setName] = useState("");
@@ -14,19 +14,18 @@ function FindPetTable(props) {
   const pageSize = parseInt(props.pageSize);
 
   useEffect(() => {
-    const fetchAndInitFilteredList = async () => {
-      const res = await callFetchPets();
+    const fetchAndInitPaginatedList = async () => {
+      const startIndex = (current - 1) * pageSize;
+      const endIndex = startIndex + pageSize;
+      const res = await callFetchPets(null, startIndex, endIndex);
       if (res && res.data) {
-        const rawList = res.data.data;
-        setFilteredList(rawList); //init filteredList
-
-        const startIndex = (current - 1) * pageSize;
-        const endIndex = startIndex + pageSize;
-        setPaginatedList(filteredList.slice(startIndex, endIndex));
+        setTotal(res.data.total);
+        const paginatedList = res.data.data;
+        setPaginatedList(paginatedList);
       }
     };
-    fetchAndInitFilteredList();
-  }, [current, filteredList]);
+    fetchAndInitPaginatedList();
+  }, [current]);
 
   const handleNavigate = (id) => {
     navigate(`/nhan-nuoi/tat-ca-cac-be/${id}`);
@@ -362,7 +361,7 @@ function FindPetTable(props) {
         <Pagination
           current={current}
           onChange={(Page) => setCurrent(Page)}
-          total={filteredList.length}
+          total={total}
           pageSize={pageSize}
           responsive={true}
         />

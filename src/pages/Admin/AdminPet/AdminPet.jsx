@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { callFetchAllPets, callCreatePet, callDeletePet, callUpdatePet } from '../../../services/api';
-import { Table, Button, Modal, Form, Input, Select, Upload, message, Switch, Space, InputNumber } from 'antd';
-import { UploadOutlined, EditOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined, PlusOutlined, UploadOutlined } from '@ant-design/icons';
+import { Button, Form, Input, InputNumber, message, Modal, Select, Space, Switch, Table, Upload } from 'antd';
+import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { callCreatePet, callDeletePet, callFetchPets, callUpdatePet } from '../../../services/api';
 const { Option } = Select;
 const { TextArea } = Input;
 
@@ -21,9 +21,9 @@ function AdminPet() {
   const fetchAllPets = async () => {
     setLoading(true);
     try {
-      const res = await callFetchAllPets();
+      const res = await callFetchPets();
       if (res && res.data) {
-        const rawList = res.data.data || [];
+        const rawList = res.data || [];
         setPetsData(Array.isArray(rawList) ? rawList : []);
       }
     } catch (error) {

@@ -1,20 +1,43 @@
-import React, { useEffect, useState } from "react";
-import "./style.scss";
 import {
   EnvironmentOutlined,
   MailOutlined,
   PhoneOutlined,
   SearchOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
-import logo from "../../asset/Logo/Logo.png";
-import tiengviet from "../../asset/Icon/tiengviet.png";
+import { Dropdown } from "antd";
+import { useContext, useEffect, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import english from "../../asset/Icon/english.png";
-import { useNavigate } from "react-router-dom";
+import tiengviet from "../../asset/Icon/tiengviet.png";
+import logo from "../../asset/Logo/Logo.png";
+import "./style.scss";
+import { useLanguageContext } from "../../context/language.provider";
+
+const menuProps = {
+  items: [
+    {
+      label: "Profile",
+      key: "0",
+    },
+    {
+      label: "Logout",
+      key: "1",
+    },
+  ],
+  onClick: (e) => {
+    if (e.key === "1") {
+      localStorage.removeItem("access_token");
+      window.location.reload();
+    }
+  },
+};
 
 function Header(props) {
   const [showElement, setShowElement] = useState(true);
   const [isFirstRender, setIsFirstRender] = useState(true);
   const navigate = useNavigate();
+  const { isEnglish, setIsEnglish } = useLanguageContext();
 
   useEffect(() => {
     clearTimeout(window.firstRenderTimeout);
@@ -47,9 +70,9 @@ function Header(props) {
         >
           <div className="header_contact_container">
             <div>
-              <div>
+              <div className="address">
                 <EnvironmentOutlined />
-                {props.isEnglish
+                {isEnglish
                   ? "Ho Chi Minh City - Vietnam"
                   : "TP Hồ Chí Minh - Việt Nam"}
               </div>
@@ -69,18 +92,27 @@ function Header(props) {
               />
               <button
                 onClick={() => {
-                  props.setIsEnglish(!props.isEnglish);
+                  setIsEnglish(!isEnglish);
                 }}
-                className={props.isEnglish ? "english" : "tiengviet"}
+                className={isEnglish ? "english" : "tiengviet"}
               >
-                <img
-                  src={props.isEnglish ? english : tiengviet}
-                  alt="language"
-                />
+                <img src={isEnglish ? english : tiengviet} alt="language" />
                 <span style={{ width: "63px" }}>
-                  {props.isEnglish ? "English" : "Tiếng Việt"}
+                  {isEnglish ? "English" : "Tiếng Việt"}
                 </span>
               </button>
+              <div className="account_dropdown_container">
+                <Dropdown.Button
+                  menu={menuProps}
+                  placement="bottom"
+                  icon={<UserOutlined />}
+                  onClick={() => {
+                    navigate("/login");
+                  }}
+                >
+                  Đăng nhập
+                </Dropdown.Button>
+              </div>
             </div>
           </div>
         </div>
@@ -98,7 +130,7 @@ function Header(props) {
             className={props.activated === "/" ? "activated" : ""}
             onClick={() => navigate("/")}
           >
-            <p>{props.isEnglish ? "HOME" : "TRANG CHỦ"}</p>
+            <p>{isEnglish ? "HOME" : "TRANG CHỦ"}</p>
           </div>
           <div
             className={
@@ -106,7 +138,7 @@ function Header(props) {
             }
             onClick={() => navigate("/nhan-nuoi")}
           >
-            <p>{props.isEnglish ? "ADOPT" : "NHẬN NUÔI"}</p>
+            <p>{isEnglish ? "ADOPT" : "NHẬN NUÔI"}</p>
           </div>
           <div
             className={
@@ -114,7 +146,7 @@ function Header(props) {
             }
             onClick={() => navigate("/donation")}
           >
-            <p>{props.isEnglish ? "DONATE" : "ỦNG HỘ"}</p>
+            <p>{isEnglish ? "DONATE" : "ỦNG HỘ"}</p>
           </div>
           <div
             className={
@@ -122,13 +154,13 @@ function Header(props) {
             }
             onClick={() => navigate("/volunteer")}
           >
-            <p>{props.isEnglish ? "VOLUNTEER" : "TÌNH NGUYỆN VIÊN"}</p>
+            <p>{isEnglish ? "VOLUNTEER" : "TÌNH NGUYỆN VIÊN"}</p>
           </div>
           <div
             className={props.activated.startsWith("/news") ? "activated" : ""}
             onClick={() => navigate("/news")}
           >
-            <p>{props.isEnglish ? "NEWS" : "TIN TỨC"}</p>
+            <p>{isEnglish ? "NEWS" : "TIN TỨC"}</p>
           </div>
           <div
             className={
@@ -136,7 +168,7 @@ function Header(props) {
             }
             onClick={() => navigate("/product")}
           >
-            <p>{props.isEnglish ? "PRODUCT" : "SẢN PHẨM"}</p>
+            <p>{isEnglish ? "PRODUCT" : "SẢN PHẨM"}</p>
           </div>
           <div
             className={
@@ -144,7 +176,7 @@ function Header(props) {
             }
             onClick={() => navigate("/contact")}
           >
-            <p>{props.isEnglish ? "CONTACT" : "LIÊN HỆ"}</p>
+            <p>{isEnglish ? "CONTACT" : "LIÊN HỆ"}</p>
           </div>
         </div>
       </div>

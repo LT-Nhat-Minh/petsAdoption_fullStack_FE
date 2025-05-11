@@ -1,13 +1,15 @@
 import React from "react";
 import "./style.scss";
 import { useNavigate, useOutletContext } from "react-router-dom";
+import { useLanguageContext } from "../../../../context/language.provider";
 
 function SideBar(props) {
   const navigate = useNavigate();
+  const { isEnglish, setIsEnglish } = useLanguageContext();
   return (
     <div className="sidebar">
       <div>
-        <h2>{props.isEnglish ? "Categories" : "Chuyên Mục"}</h2>
+        <h2>{isEnglish ? "Categories" : "Chuyên Mục"}</h2>
         <hr />
         <div>
           <p
@@ -16,7 +18,7 @@ function SideBar(props) {
               props.setCategory("all");
             }}
           >
-            {props.isEnglish ? "All" : "Tất Cả"}
+            {isEnglish ? "All" : "Tất Cả"}
           </p>
           <p
             onClick={() => {
@@ -24,7 +26,7 @@ function SideBar(props) {
               props.setCategory("1");
             }}
           >
-            {props.isEnglish ? "Loving Corner" : "Góc Yêu Thương"}
+            {isEnglish ? "Loving Corner" : "Góc Yêu Thương"}
           </p>
           <p
             onClick={() => {
@@ -32,7 +34,7 @@ function SideBar(props) {
               props.setCategory("2");
             }}
           >
-            {props.isEnglish ? "Volunteer Activities" : "Hoạt động tình nguyện"}
+            {isEnglish ? "Volunteer Activities" : "Hoạt động tình nguyện"}
           </p>
           <p
             onClick={() => {
@@ -40,9 +42,7 @@ function SideBar(props) {
               props.setCategory("3");
             }}
           >
-            {props.isEnglish
-              ? "Knowledge on Raising Pets"
-              : "Kiến thức nuôi boss"}
+            {isEnglish ? "Knowledge on Raising Pets" : "Kiến thức nuôi boss"}
           </p>
           <p
             onClick={() => {
@@ -50,7 +50,7 @@ function SideBar(props) {
               props.setCategory("4");
             }}
           >
-            {props.isEnglish ? "Rescue Process" : "Quá trình cứu hộ"}
+            {isEnglish ? "Rescue Process" : "Quá trình cứu hộ"}
           </p>
           <p
             onClick={() => {
@@ -58,7 +58,7 @@ function SideBar(props) {
               props.setCategory("5");
             }}
           >
-            {props.isEnglish ? "News and Events" : "Tin tức và sự kiện"}
+            {isEnglish ? "News and Events" : "Tin tức và sự kiện"}
           </p>
           <p
             onClick={() => {
@@ -66,7 +66,7 @@ function SideBar(props) {
               props.setCategory("6");
             }}
           >
-            {props.isEnglish ? "Videos" : "Video"}
+            {isEnglish ? "Videos" : "Video"}
           </p>
           <p
             onClick={() => {
@@ -74,12 +74,12 @@ function SideBar(props) {
               props.setCategory("7");
             }}
           >
-            {props.isEnglish ? "Cute Moments" : "Dễ thương"}
+            {isEnglish ? "Cute Moments" : "Dễ thương"}
           </p>
         </div>
       </div>
       <div>
-        <h2>{props.isEnglish ? "Our Videos" : "Video về chúng tôi"}</h2>
+        <h2>{isEnglish ? "Our Videos" : "Video về chúng tôi"}</h2>
         <hr />
         <div className="video-container">
           <iframe

@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import "./style.scss";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import sticker from "../../asset/Icon/pets.png";
+import { useLanguageContext } from "../../context/language.provider";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -25,6 +26,7 @@ function SamplePrevArrow(props) {
 }
 
 function AnotherNews(props) {
+  const { isEnglish, setIsEnglish } = useLanguageContext();
   const settings = {
     dots: true,
     infinite: true,
@@ -57,7 +59,7 @@ function AnotherNews(props) {
   return (
     <div className="another_news">
       <div className="title">
-        <h1>{props.isEnglish ? "Related News" : "Tin Liên Quan"}</h1>
+        <h1>{isEnglish ? "Related News" : "Tin Liên Quan"}</h1>
         <span>
           <img src={sticker} alt="" />
         </span>
@@ -79,30 +81,28 @@ function AnotherNews(props) {
                 <div className="info">
                   <div className="date">
                     <div className="month">
-                      {props.isEnglish ? `M ${month}` : `T ${month}`}
+                      {isEnglish ? `M ${month}` : `T ${month}`}
                     </div>
                     <div className="day">{day}</div>
                   </div>
                   <p className="title">
-                    {props.isEnglish
+                    {isEnglish
                       ? truncateText(item.title_english, 40)
                       : truncateText(item.title, 40)}
                   </p>
                   <p className="des">
-                    {props.isEnglish
+                    {isEnglish
                       ? truncateText(item.des_english, 150)
                       : truncateText(item.des, 150)}
                   </p>
                   <div className="author">
-                    <span>{props.isEnglish ? "Posted by " : "Đăng bởi "}</span>
+                    <span>{isEnglish ? "Posted by " : "Đăng bởi "}</span>
                     <span>
                       <UserOutlined /> {item.author}
                     </span>
                   </div>
                   <div className="button">
-                    <button>
-                      {props.isEnglish ? "READ MORE" : "CHI TIẾT"}
-                    </button>
+                    <button>{isEnglish ? "READ MORE" : "CHI TIẾT"}</button>
                   </div>
                 </div>
               </div>

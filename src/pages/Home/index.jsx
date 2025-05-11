@@ -11,13 +11,13 @@ import "./style.scss";
 function HomePage(props) {
   return (
     <div className="homepage">
-      <Carousel isEnglish={props.isEnglish} />
-      <AboutUs isEnglish={props.isEnglish} />
-      <NavSlider isEnglish={props.isEnglish} />
-      <AdoptSlider list={props.list} isEnglish={props.isEnglish} />
-      <Statistics isEnglish={props.isEnglish} />
-      <Sponsors isEnglish={props.isEnglish} />
-      <ToSupport isEnglish={props.isEnglish} />
+      <Carousel />
+      <AboutUs />
+      <NavSlider />
+      <AdoptSlider />
+      <Statistics />
+      <Sponsors />
+      <ToSupport />
     </div>
   );
 }

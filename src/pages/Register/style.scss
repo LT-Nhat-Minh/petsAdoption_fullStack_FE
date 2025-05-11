@@ -1,0 +1,19 @@
+.register-page{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    & > .formContainer{
+        position: absolute;
+        width: 600px;
+        height: 700px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+        padding: 70px;
+        & > h1{
+            text-align: center;
+        }
+    }
+}
