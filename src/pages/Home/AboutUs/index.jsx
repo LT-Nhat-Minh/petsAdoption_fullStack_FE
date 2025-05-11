@@ -1,10 +1,9 @@
-import React from "react";
-import "./style.scss";
+import { useSelector } from "react-redux";
 import thumbnail from "../../../asset/AboutUs/6b3f64c8-37c1-427e-b76f-9bba6444c92e.jpg";
-import { useLanguageContext } from "../../../context/language.provider";
+import "./style.scss";
 
 function AboutUs(props) {
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
   return (
     <div className="aboutus">
       <div>

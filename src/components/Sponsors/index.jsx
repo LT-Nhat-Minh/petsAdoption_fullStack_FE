@@ -1,14 +1,13 @@
-import React, { useState } from "react";
-import "./style.scss";
+import sticker from "../../asset/Icon/pets.png";
+import img3 from "../../asset/Sponsors/betterWorld.jpg";
 import img1 from "../../asset/Sponsors/me-o.png";
 import img2 from "../../asset/Sponsors/smartHeart.jpg";
-import img3 from "../../asset/Sponsors/betterWorld.jpg";
 import img4 from "../../asset/Sponsors/Thầy jim.jpg";
-import sticker from "../../asset/Icon/pets.png";
-import { useLanguageContext } from "../../context/language.provider";
+import "./style.scss";
+import { useSelector } from "react-redux";
 
 function Sponsors(props) {
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
   return (
     <div className="sponsors">
       <div>

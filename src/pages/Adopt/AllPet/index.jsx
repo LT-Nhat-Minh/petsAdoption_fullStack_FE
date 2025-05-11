@@ -3,11 +3,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import "./style.scss";
 import FindPetTable from "../components/FindPetTable";
 import AdoptionOnline from "../components/AdoptionOnline";
-import { useLanguageContext } from "../../../context/language.provider";
+import { useSelector } from "react-redux";
 
 function AllPet(props) {
   const navigate = useNavigate();
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
   return (
     <div className="all_pet">
       <div className="banner">

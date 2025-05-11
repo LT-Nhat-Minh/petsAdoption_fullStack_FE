@@ -1,11 +1,11 @@
 import React from "react";
 import "./style.scss";
 import { useNavigate } from "react-router-dom";
-import { useLanguageContext } from "../../../context/language.provider";
+import { useSelector } from "react-redux";
 
 function ContactBanner(props) {
   const navigate = useNavigate();
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
   return (
     <div className="contact-banner">
       <div className="banner">

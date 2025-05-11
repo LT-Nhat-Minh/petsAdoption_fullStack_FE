@@ -6,14 +6,14 @@ import {
   PhoneOutlined,
   YoutubeOutlined,
 } from "@ant-design/icons";
+import { useSelector } from "react-redux";
 import BGFooter from "../../asset/Background/BG.jpg";
 import logo from "../../asset/Logo/Logo.png";
-import { useLanguageContext } from "../../context/language.provider";
 import "./style.scss";
 
 function Footer(props) {
   const htmlString = `<iframe src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fphoto%2F%3Ffbid%3D556869793147502%26set%3Da.556869763147505&show_text=true&width=500" width="500" height="614" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>`;
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
   return (
     <div className="footer">
       <div className="footer_container" style={{ margin: "100px 0 50px 0" }}>

@@ -25,7 +25,7 @@ function Login() {
 
       dispatch(doLoginAction(res.data.user));
       message.success("Đăng nhập thành công!");
-      // navigate("/");
+      navigate("/");
     } else {
       console.log(">>>>res lỗi", res);
       notification.error({

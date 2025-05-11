@@ -1,10 +1,9 @@
-import React from "react";
-import "./style.scss";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useLanguageContext } from "../../context/language.provider";
+import "./style.scss";
 
 function ToSupport(props) {
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
   const navigate = useNavigate();
   return (
     <div className="toSupport">

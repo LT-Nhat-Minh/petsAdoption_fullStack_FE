@@ -1,10 +1,10 @@
 import React from "react";
 import "./style.scss";
 import BGVLT from "../../../asset/Background/BGVLT.jpg";
-import { useLanguageContext } from "../../../context/language.provider";
+import { useSelector } from "react-redux";
 
 function VolunteerIntroduce(props) {
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
   return (
     <div className="volunteer-introduction">
       <div className="text-content">

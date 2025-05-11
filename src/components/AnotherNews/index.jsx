@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import "./style.scss";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import sticker from "../../asset/Icon/pets.png";
-import { useLanguageContext } from "../../context/language.provider";
+import { useSelector } from "react-redux";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -26,7 +26,7 @@ function SamplePrevArrow(props) {
 }
 
 function AnotherNews(props) {
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
   const settings = {
     dots: true,
     infinite: true,

@@ -1,14 +1,13 @@
-import React, { useEffect, useState, useRef } from "react";
-import "./style.scss";
+import { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
+import icon4 from "../../../asset/Icon/dog-resting-on-a-pet-hotel-bed.png";
+import icon3 from "../../../asset/Icon/interaction.png";
 import icon1 from "../../../asset/Icon/pet hospital.png";
 import icon2 from "../../../asset/Icon/pet-house.png";
-import icon3 from "../../../asset/Icon/interaction.png";
-import icon4 from "../../../asset/Icon/dog-resting-on-a-pet-hotel-bed.png";
-import { Value } from "sass";
-import { useLanguageContext } from "../../../context/language.provider";
+import "./style.scss";
 
 function Statistics(props) {
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
   const icons = [icon1, icon2, icon3, icon4];
   const numbers = [2536, 1069, 339, 150];
   const thumbnailViet = [

@@ -2,14 +2,14 @@ import { UserOutlined } from "@ant-design/icons";
 import { Col, Pagination, Row } from "antd";
 import React, { useEffect, useState } from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import ToSupport from "../../components/ToSupport";
 import SideBar from "./components/SideBar";
 import "./style.scss";
-import { useLanguageContext } from "../../context/language.provider";
 
 function News(props) {
   let navigate = useNavigate();
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
   const location = useLocation();
   const [current, setCurrent] = useState(1);
   const [paginatedList, setPaginatedList] = useState([]);

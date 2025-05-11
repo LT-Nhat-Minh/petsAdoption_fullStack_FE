@@ -1,14 +1,13 @@
-import React from "react";
-import "./style.scss";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import MeoVaCoc from "../../asset/Background/MeoVaCoc.jpg";
 import NhieuMeo from "../../asset/Background/AnhNhieuMeo.jpeg";
 import CapDoiVaPet from "../../asset/Background/CapDoiVaPet.jpg";
-import { useLanguageContext } from "../../context/language.provider";
+import MeoVaCoc from "../../asset/Background/MeoVaCoc.jpg";
+import "./style.scss";
 
 function NavSlider(props) {
   const navigate = useNavigate();
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
   return (
     <div className="nav_slider">
       <div className="item">

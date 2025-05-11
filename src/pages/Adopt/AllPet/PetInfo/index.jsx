@@ -1,16 +1,16 @@
 import { CheckOutlined, QuestionOutlined } from "@ant-design/icons";
 import React, { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./style.scss";
 import ToSupport from "../../../../components/ToSupport";
 import { callFetchPets } from "../../../../services/api";
-import { useLanguageContext } from "../../../../context/language.provider";
 
 function PetInfo(props) {
   const { id } = useParams();
   const [petData, setPetData] = useState({});
   const navigate = useNavigate();
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
 
   const fetchPetByID = async () => {
     if (id) {

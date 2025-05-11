@@ -12,32 +12,23 @@ import english from "../../asset/Icon/english.png";
 import tiengviet from "../../asset/Icon/tiengviet.png";
 import logo from "../../asset/Logo/Logo.png";
 import "./style.scss";
-import { useLanguageContext } from "../../context/language.provider";
-
-const menuProps = {
-  items: [
-    {
-      label: "Profile",
-      key: "0",
-    },
-    {
-      label: "Logout",
-      key: "1",
-    },
-  ],
-  onClick: (e) => {
-    if (e.key === "1") {
-      localStorage.removeItem("access_token");
-      window.location.reload();
-    }
-  },
-};
+import { useDispatch, useSelector } from "react-redux";
+import { doLogoutAction } from "../../redux/account/accountSlice";
+import { doChangeLanguageAction } from "../../redux/language/languageSlice";
 
 function Header(props) {
   const [showElement, setShowElement] = useState(true);
   const [isFirstRender, setIsFirstRender] = useState(true);
   const navigate = useNavigate();
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+
+  const disPatch = useDispatch();
+  const isAuthenticated = useSelector((state) => state.account.isAuthenticated);
+  const isEnglish = useSelector((state) => state.language.isEnglish);
+  const user = useSelector((state) => state.account.user);
+
+  const handleLogout = () => {
+    disPatch(doLogoutAction());
+  };
 
   useEffect(() => {
     clearTimeout(window.firstRenderTimeout);
@@ -59,6 +50,61 @@ function Header(props) {
     } else {
       setShowElement(true);
     }
+  };
+
+  const items = [
+    ...(isAuthenticated
+      ? [
+          ...(user.role === "admin"
+            ? [
+                {
+                  label: "Admin",
+                  key: "0",
+                  onClick: () => {
+                    navigate("/admin");
+                  },
+                },
+              ]
+            : []),
+          {
+            label: "Profile",
+            key: "1",
+            onClick: () => {
+              navigate("/profile");
+            },
+          },
+          {
+            label: "Logout",
+            key: "2",
+            onClick: () => {
+              handleLogout();
+              navigate("/");
+            },
+          },
+        ]
+      : []),
+    // {
+    //   label: "2nd menu item",
+    //   key: "2",
+    //   icon: <UserOutlined />,
+    // },
+    // {
+    //   label: "3rd menu item",
+    //   key: "3",
+    //   icon: <UserOutlined />,
+    //   danger: true,
+    // },
+    // {
+    //   label: "4rd menu item",
+    //   key: "4",
+    //   icon: <UserOutlined />,
+    //   danger: true,
+    //   disabled: true,
+    // },
+  ];
+
+  const menuProps = {
+    items,
   };
 
   return (
@@ -92,7 +138,7 @@ function Header(props) {
               />
               <button
                 onClick={() => {
-                  setIsEnglish(!isEnglish);
+                  disPatch(doChangeLanguageAction());
                 }}
                 className={isEnglish ? "english" : "tiengviet"}
               >
@@ -110,7 +156,11 @@ function Header(props) {
                     navigate("/login");
                   }}
                 >
-                  Đăng nhập
+                  {isAuthenticated
+                    ? user.name
+                      ? user.name
+                      : user.email
+                    : "Đăng nhập"}
                 </Dropdown.Button>
               </div>
             </div>

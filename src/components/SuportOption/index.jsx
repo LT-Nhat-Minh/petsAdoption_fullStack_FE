@@ -4,10 +4,10 @@ import BanChan from "../../asset/Icon/pets.png";
 import icon1 from "../../asset/Icon/TaIcon.png";
 import icon2 from "../../asset/Icon/QuanAoIcon.png";
 import icon3 from "../../asset/Icon/ThucAnIcon.png";
-import { useLanguageContext } from "../../context/language.provider";
+import { useSelector } from "react-redux";
 
 function SupportOptions(props) {
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
   const options = [
     { id: 1, name: "Bỉm", name_en: "Diapers", icon: icon1 },
     { id: 2, name: "Quần Áo", name_en: "Clothes", icon: icon2 },

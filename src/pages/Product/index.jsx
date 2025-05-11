@@ -6,11 +6,11 @@ import ite1 from "../../asset/Icon/ite1.jpg";
 import ite2 from "../../asset/Icon/ite2.jpg";
 import ite3 from "../../asset/Icon/ite3.jpg";
 import ite4 from "../../asset/Icon/ite4.jpg";
-import { useLanguageContext } from "../../context/language.provider";
+import { useSelector } from "react-redux";
 
 function Product(props) {
   const navigate = useNavigate();
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
   return (
     <div className="product_content">
       <div className="banner">

@@ -13,11 +13,11 @@ import SupportOption from "../../components/SuportOption";
 import Listsponsor from "../../components/ListSponsor";
 import { useNavigate } from "react-router-dom";
 import ToSupport from "../../components/ToSupport";
-import { useLanguageContext } from "../../context/language.provider";
+import { useSelector } from "react-redux";
 
 function Donation(props) {
   const navigate = useNavigate();
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
   return (
     <div className="donation_content">
       <div className="banner">

@@ -1,14 +1,14 @@
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
-import React, { useEffect, useState } from "react";
-import "./style.scss";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import sticker from "../../asset/Icon/pets.png";
 import { Card } from "antd";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import sticker from "../../asset/Icon/pets.png";
 import { callFetchPets } from "../../services/api";
-import { useLanguageContext } from "../../context/language.provider";
+import "./style.scss";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -33,7 +33,7 @@ function AdoptSlider(props) {
   const [paginatedList, setPaginatedList] = useState([]);
   const [listPet, setListPet] = useState([]);
   const navigate = useNavigate();
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
 
   function shuffleArray(array, size) {
     let shuffled = array.slice();

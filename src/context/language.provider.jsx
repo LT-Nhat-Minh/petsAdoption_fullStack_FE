@@ -2,10 +2,6 @@ const { useState, createContext, useContext } = require("react");
 
 const LanguageContext = createContext(null);
 
-const useLanguageContext = () => {
-  return useContext(LanguageContext);
-};
-
 const LanguageProvider = (props) => {
   const { children } = props;
   const [isEnglish, setIsEnglish] = useState(false);
@@ -16,5 +12,4 @@ const LanguageProvider = (props) => {
   );
 };
 
-export { useLanguageContext };
 export default LanguageProvider;

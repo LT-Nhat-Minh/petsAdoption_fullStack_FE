@@ -7,10 +7,10 @@ import {
   FaPaypal,
 } from "react-icons/fa";
 import "./style.scss";
-import { useLanguageContext } from "../../../context/language.provider";
+import { useSelector } from "react-redux";
 
 function VolunteerBanner1(props) {
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
   return (
     <div className="container3">
       <div className="contact-info3">

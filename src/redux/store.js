@@ -1,10 +1,10 @@
-import { configureStore } from '@reduxjs/toolkit';
-// import counterReducer from '../redux/counter/counterSlice';
-import accountReducer from '../redux/account/accountSlice';
+import { configureStore } from "@reduxjs/toolkit";
+import accountReducer from "../redux/account/accountSlice";
+import languageReducer from "./language/languageSlice";
 
 export const store = configureStore({
   reducer: {
-    // counter: counterReducer,
     account: accountReducer,
+    language: languageReducer,
   },
 });

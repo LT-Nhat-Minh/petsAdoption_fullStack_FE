@@ -1,11 +1,10 @@
-import React from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import "./style.scss";
-import { useNavigate, useOutletContext } from "react-router-dom";
-import { useLanguageContext } from "../../../../context/language.provider";
 
 function SideBar(props) {
   const navigate = useNavigate();
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
   return (
     <div className="sidebar">
       <div>

@@ -1,15 +1,16 @@
 import React from "react";
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import AdoptionOnline from "./components/AdoptionOnline";
 import FindPetTable from "./components/FindPetTable";
 import Requirement from "./components/Requirement";
 import Rescue from "./components/Rescue";
 import "./style.scss";
-import { useLanguageContext } from "../../context/language.provider";
+
 function Adopt(props) {
   const location = useLocation();
   const navigate = useNavigate();
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
   return (
     <div className="adopt_content">
       {location.pathname === "/nhan-nuoi" ? ( // Use location.pathname

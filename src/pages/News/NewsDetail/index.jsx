@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./style.scss";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import SideBar from "../components/SideBar";
 import petLeg from "../../../asset/Icon/pets.png";
 import anh1 from "../../../asset/News_Thumbnail/Bai1/1.jpg";
@@ -13,11 +14,10 @@ import anh7 from "../../../asset/News_Thumbnail/Category/Quá trình cứu hộ/
 import BeforeAndAfter from "../../../components/AnotherNews";
 import AnotherNews from "../../../components/AnotherNews";
 import ToSupport from "../../../components/ToSupport";
-import { useLanguageContext } from "../../../context/language.provider";
 
 function NewsDetail(props) {
   const navigate = useNavigate();
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
 
   useEffect(() => {
     if (window.FB) {

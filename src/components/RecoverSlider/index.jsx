@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import sticker from "../../asset/Icon/pets.png";
 import { Card } from "antd";
 import { useNavigate } from "react-router-dom";
-import { useLanguageContext } from "../../context/language.provider";
+import { useSelector } from "react-redux";
 
 function DonaNextArrow(props) {
   const { className, style, onClick } = props;
@@ -32,7 +32,7 @@ function truncateText(item, size) {
 }
 
 function RecoverSlider(props) {
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
   var settings = {
     dots: true,
     infinite: false,

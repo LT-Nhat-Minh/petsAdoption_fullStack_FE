@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./style.scss";
 import { Modal, Table } from "antd";
-import { useLanguageContext } from "../../context/language.provider";
+import { useSelector } from "react-redux";
 
 function Listsponsor(props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
 
   const handleCancel = () => {
     setIsModalOpen(false);

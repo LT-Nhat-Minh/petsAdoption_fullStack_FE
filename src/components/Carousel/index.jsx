@@ -1,4 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import { useEffect, useRef } from "react";
+import { useSelector } from "react-redux";
 import img1 from "../../asset/Carousel/1.jpeg";
 import img2 from "../../asset/Carousel/2.jpeg";
 import img3 from "../../asset/Carousel/3.jpeg";
@@ -7,8 +9,6 @@ import img5 from "../../asset/Carousel/5.jpg";
 import img6 from "../../asset/Carousel/6.jpg";
 import img7 from "../../asset/Carousel/7.jpg";
 import "./style.scss";
-import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import { useLanguageContext } from "../../context/language.provider";
 
 function Carousel(props) {
   const listViet = [
@@ -99,8 +99,7 @@ function Carousel(props) {
       img: img7,
     },
   ];
-
-  const { isEnglish, setIsEnglish } = useLanguageContext();
+  const isEnglish = useSelector((state) => state.language.isEnglish);
   const itemsRef = useRef([]);
 
   const handleClickPrev = () => {

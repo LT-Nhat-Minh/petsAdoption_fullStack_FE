@@ -57,6 +57,8 @@ import Product from "./pages/Product";
 import Register from "./pages/Register";
 import Volunteer from "./pages/Volunteer";
 import Admin from "./pages/Admin";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 const news = [
   {
@@ -529,20 +531,19 @@ function App() {
       ],
     },
     {
-          path: "/login",
-          element: <Login />,
-        },
-        {
-          path: "/register",
-          element: <Register />,
-        },
-    
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/register",
+      element: <Register />,
+    },
   ]);
   return (
     <div>
-      <LanguageProvider value={{ isEnglish, setIsEnglish }}>
+      <Provider store={store}>
         <RouterProvider router={router} />
-      </LanguageProvider>
+      </Provider>
     </div>
   );
 }
