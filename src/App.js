@@ -448,8 +448,11 @@ function App() {
   const [category, setCategory] = useState("all");
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.account.isLoading);
+  const access_token = localStorage.getItem("access_token");
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
   const getAccount = async () => {
+    await delay(1000);
     if (
       window.location.pathname === "/login" ||
       window.location.pathname === "/register"
@@ -588,10 +591,19 @@ function App() {
       {isLoading === false ||
       window.location.pathname === "/login" ||
       window.location.pathname === "/register" ||
-      window.location.pathname === "/" ? (
+      (window.location.pathname === "/" && !access_token) ? (
         <RouterProvider router={router} />
       ) : (
-        <HashLoader />
+        <HashLoader
+          style={{
+            position: "fixed",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          }}
+          size={100}
+          color="#d61C62"
+        />
       )}
     </div>
   );

@@ -80,6 +80,15 @@ instance.interceptors.response.use(
     if (error.response && error.response && error.response.data) {
       return error.response.data;
     }
+    //if network error, return error object
+    if (!error.response) {
+      return {
+        message: "Network Error",
+        status: 500,
+        data: null,
+      };
+    }
+
     return Promise.reject(error);
   }
 );
