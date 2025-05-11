@@ -42,6 +42,7 @@ function AdminPet() {
 
   const handleEdit = async (user) => {
     setcurrentUser(user);
+    console.log('user', user);
     form.setFieldsValue({
       ...user
     });
@@ -77,6 +78,7 @@ function AdminPet() {
       phoneNumber: values.phoneNumber || '',
       role: values.role || 'user',
     };
+    console.log('formData', userData)
     if (currentUser && currentUser._id) {
       const res = await callUpdateUser(currentUser._id, userData);
       if (res && res.data) {
@@ -87,7 +89,7 @@ function AdminPet() {
         userData.name,
         userData.email,
         userData.password,
-        userData.phoneNumber
+        userData.phoneNumber,
       );
       if (res && res.data) {
         message.success('Thêm người dùng thành công');
@@ -242,15 +244,16 @@ function AdminPet() {
       <Input />
     </Form.Item>
 
-    {!currentUser && (
+   
       <Form.Item
         name="password"
         label="Mật khẩu"
         rules={[{ required: true, message: 'Vui lòng nhập mật khẩu' }]}
+        style={{ display: currentUser ? "block" : "block" }}
       >
-        <Input.Password />
+        <Input />
       </Form.Item>
-    )}
+  
 
     <Form.Item
       name="phoneNumber"
@@ -271,7 +274,6 @@ function AdminPet() {
         <Option value="admin">Quản trị viên</Option>
       </Select>
     </Form.Item>
-
     {/* Nếu muốn thêm trường địa chỉ (khi bỏ comment trong schema) */}
     {/* <Form.Item
       name="address"

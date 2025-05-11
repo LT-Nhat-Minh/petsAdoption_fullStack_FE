@@ -74,6 +74,8 @@ export const callUpdateUser = async (userId, userData) => {
       name: userData.name,
       email: userData.email,
       phoneNumber: userData.phoneNumber,
+      password: userData.password,
+      role: userData.role,
     });
     return res.data;
   } catch (error) {
