@@ -12,7 +12,6 @@ function AdminPet() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [currentPet, setCurrentPet] = useState(null);
   const [form] = Form.useForm();
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetchAllPets();
@@ -129,13 +128,13 @@ function AdminPet() {
         console.log('>>>formData', formData);
         await callUpdatePet(formData);
         message.success('Cập nhật thú cưng thành công');
-        setCurrentPet(null);
       } else {
         await callCreatePet(formData);
         message.success('Thêm thú cưng thành công');
       }
 
       setIsModalVisible(false);
+      setCurrentPet(null);
       fetchAllPets();
     } catch (error) {
       console.error('Lỗi khi lưu thú cưng:', error);
