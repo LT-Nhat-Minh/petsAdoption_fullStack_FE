@@ -43,6 +43,7 @@ function AdminPet() {
     setLoading(true);
     try {
       const res = await callFetchPets();
+      console.log("res", res);
       if (res && res.data) {
         const rawList = res.data || [];
         setPetsData(Array.isArray(rawList) ? rawList : []);

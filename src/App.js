@@ -1,5 +1,6 @@
 import "normalize.css";
 import { useEffect, useState } from "react";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import {
   createBrowserRouter,
   Outlet,
@@ -43,7 +44,7 @@ import thumbnail6_2 from "./asset/News_Thumbnail/Category/Video/phuc-hoi-cua-gau
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import NotFound from "./components/NotFound";
-import LanguageProvider from "./context/language.provider";
+import Admin from "./pages/Admin";
 import Adopt from "./pages/Adopt";
 import AllPet from "./pages/Adopt/AllPet";
 import PetInfo from "./pages/Adopt/AllPet/PetInfo";
@@ -56,9 +57,14 @@ import NewsDetail from "./pages/News/NewsDetail";
 import Product from "./pages/Product";
 import Register from "./pages/Register";
 import Volunteer from "./pages/Volunteer";
-import Admin from "./pages/Admin";
-import { Provider } from "react-redux";
+import {
+  doGetAccountAction,
+  doLoginAction,
+} from "./redux/account/accountSlice";
 import { store } from "./redux/store";
+import { callFetchAccount } from "./services/api";
+import ProtectedRoute from "./components/ProtectedRoute";
+import HashLoader from "react-spinners/HashLoader";
 
 const news = [
   {
@@ -439,16 +445,35 @@ const news = [
 ];
 
 function App() {
-  const [isEnglish, setIsEnglish] = useState(false);
   const [category, setCategory] = useState("all");
+  const dispatch = useDispatch();
+  const isLoading = useSelector((state) => state.account.isLoading);
+
+  const getAccount = async () => {
+    if (
+      window.location.pathname === "/login" ||
+      window.location.pathname === "/register"
+    )
+      return;
+    const res = await callFetchAccount();
+    if (res && res.data) {
+      dispatch(doGetAccountAction(res.data));
+    }
+  };
+
+  useEffect(() => {
+    getAccount();
+  }, []);
 
   const Layout = () => {
     const [activated, setActivated] = useState("");
     const location = useLocation();
+
     useEffect(() => {
       setActivated(location.pathname);
       window.scrollTo(0, 0);
     });
+
     return (
       <div className="layout-app">
         <Header activated={activated} />
@@ -473,14 +498,14 @@ function App() {
           element: <Adopt news={news} />,
           children: [
             {
-              path: "tat-ca-cac-be",
-              element: <AllPet />,
-            },
-            {
               path: "tat-ca-cac-be/:id",
               element: <PetInfo />,
             },
           ],
+        },
+        {
+          path: "/nhan-nuoi/tat-ca-cac-be",
+          element: <AllPet />,
         },
         {
           path: "/contact",
@@ -521,14 +546,24 @@ function App() {
     // Trang admin
     {
       path: "/admin",
-      // element: <Layout />,  // Admin ko cần header và footer
-      errorElement: <NotFound />,
       children: [
         {
           index: true,
-          element: <Admin isEnglish={isEnglish} />,
+          element: (
+            <ProtectedRoute>
+              <Admin />
+            </ProtectedRoute>
+          ),
         },
       ],
+    },
+    {
+      path: "/profile",
+      element: (
+        <ProtectedRoute>
+          <div>profile</div>
+        </ProtectedRoute>
+      ),
     },
     {
       path: "/login",
@@ -541,9 +576,14 @@ function App() {
   ]);
   return (
     <div>
-      <Provider store={store}>
+      {isLoading === false ||
+      window.location.pathname === "/login" ||
+      window.location.pathname === "/register" ||
+      window.location.pathname === "/" ? (
         <RouterProvider router={router} />
-      </Provider>
+      ) : (
+        <HashLoader />
+      )}
     </div>
   );
 }

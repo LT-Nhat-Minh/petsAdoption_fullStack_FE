@@ -83,24 +83,6 @@ function Header(props) {
           },
         ]
       : []),
-    // {
-    //   label: "2nd menu item",
-    //   key: "2",
-    //   icon: <UserOutlined />,
-    // },
-    // {
-    //   label: "3rd menu item",
-    //   key: "3",
-    //   icon: <UserOutlined />,
-    //   danger: true,
-    // },
-    // {
-    //   label: "4rd menu item",
-    //   key: "4",
-    //   icon: <UserOutlined />,
-    //   danger: true,
-    //   disabled: true,
-    // },
   ];
 
   const menuProps = {
@@ -152,8 +134,12 @@ function Header(props) {
                   menu={menuProps}
                   placement="bottom"
                   icon={<UserOutlined />}
-                  onClick={() => {
-                    navigate("/login");
+                  onClick={(isAuthenticated) => {
+                    if (isAuthenticated) {
+                      navigate("/profile");
+                    } else {
+                      navigate("/login");
+                    }
                   }}
                 >
                   {isAuthenticated

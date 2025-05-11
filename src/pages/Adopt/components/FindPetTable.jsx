@@ -19,8 +19,8 @@ function FindPetTable(props) {
       const endIndex = startIndex + pageSize;
       const res = await callFetchPets(null, startIndex, endIndex);
       if (res && res.data) {
-        setTotal(res.data.total);
-        const paginatedList = res.data.data;
+        setTotal(res.total);
+        const paginatedList = res.data;
         setPaginatedList(paginatedList);
       }
     };

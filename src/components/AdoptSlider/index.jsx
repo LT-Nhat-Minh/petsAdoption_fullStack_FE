@@ -12,7 +12,6 @@ import "./style.scss";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
-
   return (
     <div className="next" onClick={onClick}>
       <KeyboardArrowRight fontSize="large" />
@@ -49,10 +48,16 @@ function AdoptSlider(props) {
   useEffect(() => {
     const fetchAndShuffle = async () => {
       const res = await callFetchPets();
+      console.log("res", res);
       if (res && res.data) {
         const rawList = res.data;
         setListPet(rawList);
-        setPaginatedList(shuffleArray(rawList.slice(), 8));
+        if (Array.isArray(rawList)) {
+          setPaginatedList(shuffleArray(rawList.slice(), 8));
+        } else {
+          console.error("rawList is not an array:", rawList);
+          setPaginatedList([]);
+        }
       }
     };
 
