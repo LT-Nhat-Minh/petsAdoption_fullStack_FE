@@ -8,10 +8,10 @@ import "./style.scss";
 function Contact(props) {
   return (
     <div>
-      <ContactBanner isEnglish={props.isEnglish} />
-      <Information isEnglish={props.isEnglish} />
-      <SupportOptions isEnglish={props.isEnglish} />
-      <Listsponsor isEnglish={props.isEnglish} />
+      <ContactBanner />
+      <Information />
+      <SupportOptions />
+      <Listsponsor />
     </div>
   );
 }

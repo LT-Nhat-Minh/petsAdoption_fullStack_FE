@@ -5,8 +5,10 @@ import icon2 from "../../../asset/Icon/pet-house.png";
 import icon3 from "../../../asset/Icon/interaction.png";
 import icon4 from "../../../asset/Icon/dog-resting-on-a-pet-hotel-bed.png";
 import { Value } from "sass";
+import { useLanguageContext } from "../../../context/language.provider";
 
 function Statistics(props) {
+  const { isEnglish, setIsEnglish } = useLanguageContext();
   const icons = [icon1, icon2, icon3, icon4];
   const numbers = [2536, 1069, 339, 150];
   const thumbnailViet = [
@@ -83,7 +85,7 @@ function Statistics(props) {
             </div>
           </div>
           <h1>{currentNumber[index]}</h1>
-          <h4>{(props.isEnglish ? thumbnailEng : thumbnailViet)[index]}</h4>
+          <h4>{(isEnglish ? thumbnailEng : thumbnailViet)[index]}</h4>
         </div>
       ))}
     </div>

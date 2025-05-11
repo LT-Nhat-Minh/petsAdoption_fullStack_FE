@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./style.scss";
 import { Modal, Table } from "antd";
+import { useLanguageContext } from "../../context/language.provider";
 
 function Listsponsor(props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isEnglish, setIsEnglish } = useLanguageContext();
 
   const handleCancel = () => {
     setIsModalOpen(false);
@@ -12,27 +14,27 @@ function Listsponsor(props) {
   // Cột và dữ liệu cho bảng
   const columns = [
     {
-      title: props.isEnglish ? "Date" : "Ngày",
+      title: isEnglish ? "Date" : "Ngày",
       dataIndex: "date",
       key: "date",
     },
     {
-      title: props.isEnglish ? "Description" : "Nội dung",
+      title: isEnglish ? "Description" : "Nội dung",
       dataIndex: "description",
       key: "description",
     },
     {
-      title: props.isEnglish ? "Currency" : "Đồng",
+      title: isEnglish ? "Currency" : "Đồng",
       dataIndex: "currency",
       key: "currency",
     },
     {
-      title: props.isEnglish ? "Received Amount" : "Số tiền đã nhận",
+      title: isEnglish ? "Received Amount" : "Số tiền đã nhận",
       dataIndex: "receivedAmount",
       key: "receivedAmount",
     },
     {
-      title: props.isEnglish ? "Transaction Fee" : "Số tiền phí đã bị trừ",
+      title: isEnglish ? "Transaction Fee" : "Số tiền phí đã bị trừ",
       dataIndex: "transactionFee",
       key: "transactionFee",
     },
@@ -85,21 +87,17 @@ function Listsponsor(props) {
   return (
     <div className="list-sponsor">
       <div className="content">
-        <h1>
-          {props.isEnglish ? "List of Donors" : "Danh sách mạnh thường quân"}
-        </h1>
+        <h1>{isEnglish ? "List of Donors" : "Danh sách mạnh thường quân"}</h1>
         <button
           onClick={() => {
             setIsModalOpen(true);
           }}
         >
-          {props.isEnglish ? "View Information" : "XEM THÔNG TIN"}
+          {isEnglish ? "View Information" : "XEM THÔNG TIN"}
         </button>
       </div>
       <Modal
-        title={
-          props.isEnglish ? "Donor Information" : "Thông Tin Mạnh Thường Quân"
-        }
+        title={isEnglish ? "Donor Information" : "Thông Tin Mạnh Thường Quân"}
         open={isModalOpen}
         onCancel={handleCancel}
         centered

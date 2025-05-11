@@ -1,23 +1,25 @@
 import React from "react";
 import "./style1.scss";
 import { useNavigate } from "react-router-dom";
+import { useLanguageContext } from "../../../context/language.provider";
 
 function VolunteerBanner(props) {
   const navigate = useNavigate();
+  const { isEnglish, setIsEnglish } = useLanguageContext();
   return (
     <div className="volunteer-banner">
       <div className="banner">
         <div className="container">
           <h1 className="title">
-            {props.isEnglish ? "Volunteers" : "Tình Nguyện Viên"}
+            {isEnglish ? "Volunteers" : "Tình Nguyện Viên"}
           </h1>
           <p className="breadcrumbs">
             <span className="root" onClick={() => navigate("/")}>
-              {props.isEnglish ? "Home" : "Trang Chủ"}
+              {isEnglish ? "Home" : "Trang Chủ"}
             </span>{" "}
             {">"}{" "}
             <span className="current">
-              {props.isEnglish ? "Volunteer" : "Tình Nguyện Viên"}
+              {isEnglish ? "Volunteer" : "Tình Nguyện Viên"}
             </span>
           </p>
         </div>

@@ -4,49 +4,49 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./style.scss";
 import ToSupport from "../../../../components/ToSupport";
 import { callFetchPets } from "../../../../services/api";
+import { useLanguageContext } from "../../../../context/language.provider";
 
 function PetInfo(props) {
   const { id } = useParams();
   const [petData, setPetData] = useState({});
   const navigate = useNavigate();
+  const { isEnglish, setIsEnglish } = useLanguageContext();
 
-  const item = useMemo(() => {
-    return props.list.find((pet) => pet.id === "M4560");
-  }, [id, props.list]);
-
-  useEffect(() => {
-    const fetchPetByID = async () => {
+  const fetchPetByID = async () => {
+    if (id) {
       const res = await callFetchPets(id);
       if (res && res.data) {
-        const rawList = res.data.data;
+        const rawList = res.data;
         setPetData(rawList);
       }
-    };
+    }
+  };
+
+  useEffect(() => {
     fetchPetByID();
-    console.log(petData);
-  }, [petData]);
+  }, []);
 
   return (
     <div className="pet_info">
       <div className="banner">
         <div className="container">
           <h1 className="title">
-            {props.isEnglish ? "Pet Information" : "Thông Tin Từng Boss"}
+            {isEnglish ? "Pet Information" : "Thông Tin Từng Boss"}
           </h1>
           <p className="breadcrumbs">
             <span className="root" onClick={() => navigate("/")}>
-              {props.isEnglish ? "Home" : "Trang Chủ"}
+              {isEnglish ? "Home" : "Trang Chủ"}
             </span>
             {">"}
             <span className="root" onClick={() => navigate("/nhan-nuoi")}>
-              {props.isEnglish ? "Adopt" : "Nhận Nuôi"}
+              {isEnglish ? "Adopt" : "Nhận Nuôi"}
             </span>
             {">"}
             <span
               className="root"
               onClick={() => navigate("/nhan-nuoi/tat-ca-cac-be")}
             >
-              {props.isEnglish ? "All Pets" : "Tất Cả Các Bé"}
+              {isEnglish ? "All Pets" : "Tất Cả Các Bé"}
             </span>
             {">"}
             <span className="current">{petData._id}</span>
@@ -68,47 +68,41 @@ function PetInfo(props) {
           <div className="descriptions">
             <h1>{petData.name}</h1>
             <p>
-              <strong>{props.isEnglish ? "Breed:" : "Giống:"}</strong>{" "}
-              {petData.breed}
+              <strong>{isEnglish ? "Breed:" : "Giống:"}</strong> {petData.breed}
             </p>
             <hr />
             <p>
-              <strong>{props.isEnglish ? "Color:" : "Màu sắc:"}</strong>{" "}
+              <strong>{isEnglish ? "Color:" : "Màu sắc:"}</strong>{" "}
               {petData.color}
             </p>
             <hr />
             <p>
-              <strong>{props.isEnglish ? "Age:" : "Tuổi:"}</strong>{" "}
-              {petData.age}
+              <strong>{isEnglish ? "Age:" : "Tuổi:"}</strong> {petData.age}
             </p>
             <hr />
             <p>
-              <strong>{props.isEnglish ? "Weight:" : "Cân nặng:"}</strong>{" "}
+              <strong>{isEnglish ? "Weight:" : "Cân nặng:"}</strong>{" "}
               {petData.weight}
             </p>
             <hr />
             <p>
-              <strong>{props.isEnglish ? "Gender:" : "Giới tính:"}</strong>{" "}
+              <strong>{isEnglish ? "Gender:" : "Giới tính:"}</strong>{" "}
               {petData.gender}
             </p>
             <hr />
             <p>
-              <strong>{props.isEnglish ? "ID:" : "Mã:"}</strong> {petData._id}
+              <strong>{isEnglish ? "ID:" : "Mã:"}</strong> {petData._id}
             </p>
             <div className="button">
+              <button>{isEnglish ? "VIRTUAL ADOPTION" : "NHẬN NUÔI ẢO"}</button>
               <button>
-                {props.isEnglish ? "VIRTUAL ADOPTION" : "NHẬN NUÔI ẢO"}
-              </button>
-              <button>
-                {props.isEnglish
-                  ? "DO YOU HAVE A QUESTION?"
-                  : "BẠN CÓ CÂU HỎI?"}
+                {isEnglish ? "DO YOU HAVE A QUESTION?" : "BẠN CÓ CÂU HỎI?"}
               </button>
             </div>
           </div>
         </div>
         <div className="more_info">
-          <h1>{props.isEnglish ? "Information" : "Thông Tin"}</h1>
+          <h1>{isEnglish ? "Information" : "Thông Tin"}</h1>
           <hr />
           <div>
             <div>
@@ -133,7 +127,7 @@ function PetInfo(props) {
                   }}
                 />
               )}
-              {props.isEnglish ? "Sterilized" : "Triệt sản"}
+              {isEnglish ? "Sterilized" : "Triệt sản"}
             </div>
             <div>
               {petData.friendly_with_human === true ? (
@@ -157,9 +151,7 @@ function PetInfo(props) {
                   }}
                 />
               )}
-              {props.isEnglish
-                ? "Friendly with people"
-                : "Thân thiện với người"}
+              {isEnglish ? "Friendly with people" : "Thân thiện với người"}
             </div>
             <div>
               {petData.special_diet === true ? (
@@ -183,7 +175,7 @@ function PetInfo(props) {
                   }}
                 />
               )}
-              {props.isEnglish ? "Special diet" : "Chế độ ăn riêng"}
+              {isEnglish ? "Special diet" : "Chế độ ăn riêng"}
             </div>
             <div>
               {petData.rabies_vaccine === true ? (
@@ -207,7 +199,7 @@ function PetInfo(props) {
                   }}
                 />
               )}
-              {props.isEnglish ? "Rabies vaccinated" : "Tiêm dại"}
+              {isEnglish ? "Rabies vaccinated" : "Tiêm dại"}
             </div>
             <div>
               {petData.friendly_with_dog === true ? (
@@ -231,7 +223,7 @@ function PetInfo(props) {
                   }}
                 />
               )}
-              {props.isEnglish ? "Friendly with dogs" : "Thân thiện với chó"}
+              {isEnglish ? "Friendly with dogs" : "Thân thiện với chó"}
             </div>
             <div>
               {petData.toilet_trained === petData ? (
@@ -255,7 +247,7 @@ function PetInfo(props) {
                   }}
                 />
               )}
-              {props.isEnglish ? "Housebroken" : "Đi vệ sinh đúng chỗ"}
+              {isEnglish ? "Housebroken" : "Đi vệ sinh đúng chỗ"}
             </div>
             <div>
               {petData.vaccinated === petData ? (
@@ -279,7 +271,7 @@ function PetInfo(props) {
                   }}
                 />
               )}
-              {props.isEnglish ? "Vaccinated" : "Tiêm phòng bệnh"}
+              {isEnglish ? "Vaccinated" : "Tiêm phòng bệnh"}
             </div>
             <div>
               {petData.friendly_with_cat === petData ? (
@@ -303,19 +295,17 @@ function PetInfo(props) {
                   }}
                 />
               )}
-              {props.isEnglish ? "Friendly with cats" : "Thân thiện với mèo"}
+              {isEnglish ? "Friendly with cats" : "Thân thiện với mèo"}
             </div>
           </div>
         </div>
         <div className="des">
-          <h1>
-            {props.isEnglish ? "Learn About Pets" : "Tìm Hiểu Về Thú Cưng"}
-          </h1>
+          <h1>{isEnglish ? "Learn About Pets" : "Tìm Hiểu Về Thú Cưng"}</h1>
           <hr />
           <p>{petData.des}</p>
         </div>
       </div>
-      <ToSupport isEnglish={props.isEnglish} />
+      <ToSupport isEnglish={isEnglish} />
     </div>
   );
 }

@@ -8,6 +8,7 @@ import img6 from "../../asset/Carousel/6.jpg";
 import img7 from "../../asset/Carousel/7.jpg";
 import "./style.scss";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+import { useLanguageContext } from "../../context/language.provider";
 
 function Carousel(props) {
   const listViet = [
@@ -99,6 +100,7 @@ function Carousel(props) {
     },
   ];
 
+  const { isEnglish, setIsEnglish } = useLanguageContext();
   const itemsRef = useRef([]);
 
   const handleClickPrev = () => {
@@ -140,13 +142,13 @@ function Carousel(props) {
     if (itemsRef.current.length > 0) {
       itemsRef.current[0].classList.add("active");
     }
-    console.log("english", props.isEnglish);
-  }, [props.isEnglish]);
+    console.log("english", isEnglish);
+  }, [isEnglish]);
 
   return (
     <div className="carousel">
       <div className="list">
-        {(props.isEnglish ? listEng : listViet).map((item, index) => (
+        {(isEnglish ? listEng : listViet).map((item, index) => (
           <div
             className="item"
             key={index}

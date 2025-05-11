@@ -8,6 +8,7 @@ import sticker from "../../asset/Icon/pets.png";
 import { Card } from "antd";
 import { useNavigate } from "react-router-dom";
 import { callFetchPets } from "../../services/api";
+import { useLanguageContext } from "../../context/language.provider";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -32,6 +33,7 @@ function AdoptSlider(props) {
   const [paginatedList, setPaginatedList] = useState([]);
   const [listPet, setListPet] = useState([]);
   const navigate = useNavigate();
+  const { isEnglish, setIsEnglish } = useLanguageContext();
 
   function shuffleArray(array, size) {
     let shuffled = array.slice();
@@ -48,7 +50,7 @@ function AdoptSlider(props) {
     const fetchAndShuffle = async () => {
       const res = await callFetchPets();
       if (res && res.data) {
-        const rawList = res.data.data;
+        const rawList = res.data;
         setListPet(rawList);
         setPaginatedList(shuffleArray(rawList.slice(), 8));
       }
@@ -132,9 +134,7 @@ function AdoptSlider(props) {
       <div className="container">
         <div>
           <h1>
-            {props.isEnglish
-              ? "WELL-BEHAVED PETS THIS WEEK"
-              : "BÉ NGOAN TRONG TUẦN"}
+            {isEnglish ? "WELL-BEHAVED PETS THIS WEEK" : "BÉ NGOAN TRONG TUẦN"}
           </h1>
           <span>
             <img src={sticker} alt="" />
@@ -167,22 +167,20 @@ function AdoptSlider(props) {
                     <hr />
                     <div className="information">
                       <p>
-                        <strong>
-                          {props.isEnglish ? "Gender:" : "Giới tính:"}
-                        </strong>{" "}
-                        {getGenderStatus(props.isEnglish, item.gender)}
+                        <strong>{isEnglish ? "Gender:" : "Giới tính:"}</strong>{" "}
+                        {getGenderStatus(isEnglish, item.gender)}
                         <hr />
                       </p>
                       <p>
-                        <strong>{props.isEnglish ? "Age:" : "Tuổi:"}</strong>{" "}
-                        {getAgeStatus(props.isEnglish, item.age)}
+                        <strong>{isEnglish ? "Age:" : "Tuổi:"}</strong>{" "}
+                        {getAgeStatus(isEnglish, item.age)}
                         <hr />
                       </p>
                       <p>
                         <strong>
-                          {props.isEnglish ? "Vaccinated:" : "Tiêm phòng:"}
+                          {isEnglish ? "Vaccinated:" : "Tiêm phòng:"}
                         </strong>{" "}
-                        {getVaccinationStatus(props.isEnglish, item.vaccinated)}
+                        {getVaccinationStatus(isEnglish, item.vaccinated)}
                         <hr />
                       </p>
                     </div>
@@ -198,7 +196,7 @@ function AdoptSlider(props) {
                 style={{ textTransform: "uppercase" }}
                 onClick={() => navigate("/nhan-nuoi/tat-ca-cac-be")}
               >
-                {props.isEnglish ? "Adopt" : "Nhận Nuôi"}
+                {isEnglish ? "Adopt" : "Nhận Nuôi"}
               </button>
             </div>
           </div>
