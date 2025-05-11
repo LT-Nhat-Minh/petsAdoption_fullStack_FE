@@ -67,6 +67,7 @@ import thumbnail7_1 from "./asset/News_Thumbnail/Category/Dễ thương/meo-gay-
 import thumbnail7_2 from "./asset/News_Thumbnail/Category/Dễ thương/meo-va-dem.png";
 import thumbnail7_3 from "./asset/News_Thumbnail/Category/Dễ thương/meo-hoang.png";
 import thumbnail7_4 from "./asset/News_Thumbnail/Category/Dễ thương/cho-demodex.png";
+import Admin from "./pages/Admin";
 
 const list = [
   {
@@ -706,6 +707,19 @@ function App() {
         },
       ],
     },
+    // Trang admin
+    {
+      path: "/admin",
+      // element: <Layout />,  // Admin ko cần header và footer
+      errorElement: <NotFound />,
+      children: [
+        {
+          index: true,
+          element: <Admin list={list} isEnglish={isEnglish} />,
+        },
+      ],
+    },
+    
   ]);
   return (
     <div>
