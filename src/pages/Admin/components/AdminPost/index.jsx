@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { callDeletePost, callFetchPost } from "../../../../services/api";
-import { Button, message, notification, Popconfirm, Table } from "antd";
-import { DeleteOutlined, PlusOutlined } from "@ant-design/icons";
+import { Button, message, notification, Popconfirm, Space, Table } from "antd";
+import { DeleteOutlined, EditOutlined, PlusOutlined } from "@ant-design/icons";
+import PostEditorjs from "./postEditorjs";
 
 function AdminPost(props) {
+  const [edittingPostData, setEdittingPostData] = useState(null); //store postData đã fecthData
   const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [postData, setPostData] = useState([]); //store postData đã fecthData
 
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [isSubmitting]);
 
   const fetchPosts = async () => {
     const res = await callFetchPost();
@@ -93,17 +96,26 @@ function AdminPost(props) {
       title: "Actions",
       key: "actions",
       render: (text, record) => (
-        <Popconfirm
-          title="Bạn có chắc chắn muốn xóa người dùng này không?"
-          description="Người dùng này sẽ không thể khôi phục lại"
-          okText="Xác nhận"
-          cancelText="Hủy"
-          onConfirm={async () => {
-            handleDeletePostByID(record._id);
-          }}
-        >
-          <Button danger icon={<DeleteOutlined />} />
-        </Popconfirm>
+        <Space size="middle">
+          <Button
+            type="primary"
+            icon={<EditOutlined />}
+            onClick={() => {
+              setEdittingPostData(record);
+            }}
+          />
+          <Popconfirm
+            title="Bạn có chắc chắn muốn xóa người dùng này không?"
+            description="Người dùng này sẽ không thể khôi phục lại"
+            okText="Xác nhận"
+            cancelText="Hủy"
+            onConfirm={async () => {
+              handleDeletePostByID(record._id);
+            }}
+          >
+            <Button danger icon={<DeleteOutlined />} />
+          </Popconfirm>
+        </Space>
       ),
     },
   ];
@@ -120,6 +132,10 @@ function AdminPost(props) {
         dataSource={postData}
         rowKey="id"
         loading={isLoading}
+      />
+      <PostEditorjs
+        setIsSubmitting={setIsSubmitting}
+        edittingPostData={edittingPostData}
       />
     </div>
   );

@@ -314,7 +314,7 @@ function FindPetTable(props) {
                     <img
                       src={
                         `${process.env.REACT_APP_BACKEND_PUBLIC_URL}` +
-                        "/images/" +
+                        "/images/petAvatar/" +
                         item.image
                       }
                       alt="image"

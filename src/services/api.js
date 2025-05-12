@@ -97,3 +97,11 @@ export const callUpdatePost = async (formData) => {
 export const callDeletePost = async (id) => {
   return await axios.delete(`/posts`, { params: { id } });
 };
+
+export const callUploadImage = async (formData) => {
+  return await axios.post("/upload", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+};
