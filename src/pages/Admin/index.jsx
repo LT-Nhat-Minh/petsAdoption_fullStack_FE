@@ -6,34 +6,39 @@ import {
   ReconciliationOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined,
+  FileTextOutlined,
 } from "@ant-design/icons";
 
 import "./style.scss";
 import { getItem } from "../../utils/admin-utils";
-import AdminPet from "./AdminPet/AdminPet";
-import AdminUser from "./AdminUser/AdminUser";
+import AdminPet from "./components/AdminPet";
+import AdminUser from "./components/AdminUser";
+import AdminPost from "./components/AdminPost"; // Added missing import for AdminPost
 
 const { Sider, Content } = Layout;
+
+function renderPage(keySelected) {
+  switch (keySelected) {
+    case "user":
+      return <AdminUser />;
+    case "pet":
+      return <AdminPet />;
+    case "post":
+      return <AdminPost />;
+    default:
+      return null;
+  }
+}
 
 function Admin() {
   const items = [
     getItem("Người dùng", "user", <UserOutlined />),
     getItem("Thú cưng", "pet", <ReconciliationOutlined />),
+    getItem("Bài viết", "post", <FileTextOutlined />),
   ];
 
   const [collapsed, setCollapsed] = useState(false);
   const [keySelected, setKeySelected] = useState("pet");
-
-  const renderPage = (key) => {
-    switch (key) {
-      case "user":
-        return <AdminUser />;
-      case "pet":
-        return <AdminPet />;
-      default:
-        return null;
-    }
-  };
 
   const handleOnClick = ({ key }) => {
     setKeySelected(key);

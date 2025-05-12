@@ -1,51 +1,35 @@
 import axios from "../utils/axios-customize";
 
 export const callFetchPets = async (id, start, limit) => {
-  const res = await axios.get(`/pets`, { params: { id, start, limit } });
-  return res;
+  return await axios.get(`/pets`, { params: { id, start, limit } });
 };
 
 export const callCreatePet = async (formData) => {
-  try {
-    const response = await axios.post("/pets", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
-    return response.data;
-  } catch (error) {
-    console.error("Error creating pet:", error);
-    throw error;
-  }
+  return await axios.post("/pets", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
 };
 export const callDeletePet = async (id) => {
-  const res = await axios.delete(`/pets`, { data: { id } });
-  return res;
+  return await axios.delete(`/pets`, { params: { id } });
 };
 
 export const callUpdatePet = async (formData) => {
-  try {
-    const response = await axios.put("/pets", formData, {
-      headers: {
-        // 'Content-Type': 'application/json',
-        "Content-Type": "multipart/form-data",
-      },
-    });
-    return response.data;
-  } catch (error) {
-    console.error("Error updating pet:", error);
-    throw error;
-  }
+  return await axios.put("/pets", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
 };
 
 export const callRegister = async (name, email, password, phoneNumber) => {
-  const res = await axios.post(`/auth/register`, {
+  return await axios.post("/auth/register", {
     name,
     email,
     password,
     phoneNumber,
   });
-  return res;
 };
 
 export const callLogin = (email, password) => {
@@ -53,37 +37,63 @@ export const callLogin = (email, password) => {
 };
 
 export const callFetchAccount = async () => {
-  const res = await axios.get(`/auth/account`);
-  return res;
+  return await axios.get("/auth/account");
 };
+
 export const callFetchUsers = async (id, start, limit) => {
-  const res = await axios.get(`/users`, { params: { id, start, limit } });
-  return res;
+  return await axios.get(`/users`, { params: { id, start, limit } });
+};
+
+export const callCreateUser = async (
+  name,
+  email,
+  password,
+  phoneNumber,
+  role
+) => {
+  return await axios.post("/users", {
+    name,
+    email,
+    password,
+    phoneNumber,
+    role,
+  });
 };
 
 export const callDeleteUser = async (id) => {
-  try {
-    const res = await axios.delete(`/users`, { params: { id } });
-    return res.data;
-  } catch (error) {
-    console.error("Error deleting user:", error);
-    throw error;
-  }
+  return await axios.delete(`/users`, { params: { id } });
 };
 
-export const callUpdateUser = async (userId, userData) => {
-  try {
-    const res = await axios.put(`/users`, {
-      id: userId,
-      name: userData.name,
-      email: userData.email,
-      phoneNumber: userData.phoneNumber,
-      password: userData.password,
-      role: userData.role,
-    });
-    return res.data;
-  } catch (error) {
-    console.error("Error updating user:", error);
-    throw error;
-  }
+export const callUpdateUser = async (id, name, email, phoneNumber, role) => {
+  return await axios.put(`/users`, {
+    id,
+    name,
+    email,
+    phoneNumber,
+    role,
+  });
+};
+
+export const callFetchPost = async (id) => {
+  return await axios.get(`/posts`, { params: { id } });
+};
+
+export const callCreatePost = async (formData) => {
+  return await axios.post("/posts", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+};
+
+export const callUpdatePost = async (formData) => {
+  return await axios.put("/posts", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+};
+
+export const callDeletePost = async (id) => {
+  return await axios.delete(`/posts`, { params: { id } });
 };
