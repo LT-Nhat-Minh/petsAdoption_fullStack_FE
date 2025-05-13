@@ -48,7 +48,7 @@ function UpdatePetModal(props) {
         // Set the form values with the fetched image
         form.setFieldsValue({
           ...updatingPetData,
-          image: fileList,
+          petAvatar: fileList,
         });
       }
     };

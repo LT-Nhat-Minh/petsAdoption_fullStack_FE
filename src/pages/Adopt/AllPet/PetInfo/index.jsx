@@ -59,7 +59,7 @@ function PetInfo(props) {
             <img
               src={
                 `${process.env.REACT_APP_BACKEND_PUBLIC_URL}` +
-                "/images/petAvatar" +
+                "/images/petAvatar/" +
                 petData.image
               }
               alt=""

@@ -5,10 +5,11 @@ import { DeleteOutlined, EditOutlined, PlusOutlined } from "@ant-design/icons";
 import PostEditorjs from "./postEditorjs";
 
 function AdminPost(props) {
-  const [edittingPostData, setEdittingPostData] = useState(null); //store postData đã fecthData
+  const [editingPostData, setEditingPostData] = useState({}); //store postData đã fecthData
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [postData, setPostData] = useState([]); //store postData đã fecthData
+  const [post, setPost] = useState({});
 
   useEffect(() => {
     fetchPosts();
@@ -18,7 +19,6 @@ function AdminPost(props) {
     const res = await callFetchPost();
     if (res && res.data) {
       setPostData(res.data);
-      console.log("Fetched posts:", res.data);
     } else {
       console.error("Failed to fetch posts");
     }
@@ -39,33 +39,46 @@ function AdminPost(props) {
 
   const columns = [
     {
+      title: "Nội dung",
+      dataIndex: "blocks",
+      key: "blocks",
+      render: (blocks = []) => {
+        // Only render up to 4 blocks and filter for supported types
+        return blocks
+          .filter(
+            (block) => block.type === "header" || block.type === "paragraph"
+          )
+          .slice(0, 4)
+          .map((block, index) => {
+            if (block.type === "header") {
+              return <h1 key={index}>{block.data.text}</h1>;
+            } else if (block.type === "paragraph") {
+              return <p key={index}>{block.data.text}</p>;
+            }
+            return null;
+          });
+      },
+    },
+    {
       title: "Thumbnail",
       dataIndex: "thumbnail",
       key: "thumbnail",
-      render: (thumbnail) =>
-        thumbnail ? (
-          <img
-            src={`${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/postThumbnail/${thumbnail}`}
-            alt="thumbnail"
-            style={{
-              width: 50,
-              height: 50,
-              objectFit: "cover",
-              onHover: { cursor: "pointer" },
-            }}
-          />
-        ) : (
-          <img
-            src={`${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/posts/default.png`}
-            alt="default thumbnail"
-            style={{
-              width: 50,
-              height: 50,
-              objectFit: "cover",
-              onHover: { cursor: "pointer" },
-            }}
-          />
-        ),
+      render: (thumbnail) => (
+        <img
+          src={
+            thumbnail
+              ? `${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/postThumbnail/${thumbnail}`
+              : `${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/default/postThumbnail.png`
+          }
+          alt="thumbnail"
+          style={{
+            width: 50,
+            height: 50,
+            objectFit: "cover",
+            onHover: { cursor: "pointer" },
+          }}
+        />
+      ),
     },
     {
       title: "Title",
@@ -101,7 +114,10 @@ function AdminPost(props) {
             type="primary"
             icon={<EditOutlined />}
             onClick={() => {
-              setEdittingPostData(record);
+              setPost(record);
+              message.info(
+                `Bạn đang chỉnh sửa bài viết có tiêu đề ${record.title}`
+              );
             }}
           />
           <Popconfirm
@@ -123,7 +139,14 @@ function AdminPost(props) {
   return (
     <div>
       <div style={{ marginBottom: 16 }}>
-        <Button type="primary" icon={<PlusOutlined />} onClick={() => {}}>
+        <Button
+          type="primary"
+          icon={<PlusOutlined />}
+          onClick={() => {
+            setPost({});
+            message.info("Bạn đang tạo bài viết mới");
+          }}
+        >
           Thêm Bài Viết
         </Button>
       </div>
@@ -135,7 +158,8 @@ function AdminPost(props) {
       />
       <PostEditorjs
         setIsSubmitting={setIsSubmitting}
-        edittingPostData={edittingPostData}
+        isSubmitting={isSubmitting}
+        post={post}
       />
     </div>
   );
