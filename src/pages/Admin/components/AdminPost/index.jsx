@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { callDeletePost, callFetchPost } from "../../../../services/api";
 import { Button, message, notification, Popconfirm, Space, Table } from "antd";
 import { DeleteOutlined, EditOutlined, PlusOutlined } from "@ant-design/icons";
@@ -10,6 +10,7 @@ function AdminPost(props) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [postData, setPostData] = useState([]); //store postData đã fecthData
   const [post, setPost] = useState({});
+  const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
     fetchPosts();
@@ -99,11 +100,14 @@ function AdminPost(props) {
       title: "Created At",
       dataIndex: "createdAt",
       key: "createdAt",
+      // Sort by createdAt date by default
     },
     {
       title: "Updated At",
       dataIndex: "updatedAt",
       key: "updatedAt",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => new Date(a.updatedAt) - new Date(b.updatedAt),
     },
     {
       title: "Actions",
@@ -114,6 +118,7 @@ function AdminPost(props) {
             type="primary"
             icon={<EditOutlined />}
             onClick={() => {
+              setToggle(true);
               setPost(record);
               message.info(
                 `Bạn đang chỉnh sửa bài viết có tiêu đề ${record.title}`
@@ -143,23 +148,29 @@ function AdminPost(props) {
           type="primary"
           icon={<PlusOutlined />}
           onClick={() => {
+            setToggle(true);
             setPost({});
+            console.log("Creating new post", post);
             message.info("Bạn đang tạo bài viết mới");
           }}
         >
           Thêm Bài Viết
         </Button>
       </div>
-      <Table
-        columns={columns}
-        dataSource={postData}
-        rowKey="id"
-        loading={isLoading}
-      />
       <PostEditorjs
         setIsSubmitting={setIsSubmitting}
         isSubmitting={isSubmitting}
         post={post}
+        setPost={setPost}
+      />
+
+      <Table
+        style={{ marginTop: 16 }}
+        columns={columns}
+        dataSource={postData}
+        rowKey="id"
+        loading={isLoading}
+        bordered={true}
       />
     </div>
   );

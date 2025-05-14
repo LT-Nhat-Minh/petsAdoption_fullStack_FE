@@ -11,7 +11,7 @@ import {
   Typography,
   Upload,
 } from "antd";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import EditorJS from "../../../../../components/EditorJS";
 import {
@@ -42,21 +42,24 @@ const INITIAL_DATA = {
 };
 
 function PostEditorJS(props) {
-  const [data, setData] = useState(INITIAL_DATA);
-  const [outPutData, setOutPutData] = useState(INITIAL_DATA);
+  const [data, setData] = useState(INITIAL_DATA); //for saving editorjs data, controlling when create or edit post, the data is set to re-render the editorjs by using useEffect
+  const [outPutData, setOutPutData] = useState(INITIAL_DATA); //for saving editorjs output data
 
   const [isLoading, setIsLoading] = useState(false);
   const [form] = Form.useForm();
   const user = useSelector((state) => state.account.user);
 
   const [previewOpen, setPreviewOpen] = useState(false);
-  const [uploadedThumbnail, setUploadedThumbnail] = useState("");
+  const [uploadedThumbnailURL, setUploadedThumbnailURL] = useState([]); //for init form upload image when edit post
   const [previewTitle, setPreviewTitle] = useState("");
 
-  const [initForm, setInitForm] = useState({});
-  const [tempImageFile, setTempImageFile] = useState({});
+  const [initForm, setInitForm] = useState({}); //for init form data whenever edit post or create post
+
+  const [hasRunOnce, setHasRunOnce] = useState(false); //for handle editorjs render twice
 
   useEffect(() => {
+    console.log("i fire once");
+    setHasRunOnce(true);
     if (props.post?._id) {
       const fetchAuthorName = async () => {
         const res = await callFetchUsers(props.post.authorID);
@@ -64,24 +67,33 @@ function PostEditorJS(props) {
         if (res && res.data) {
           authorName = res.data.name;
         }
-        const arrPostThumbnail = [
-          props.post?.thumbnail &&
-          props.post?.thumbnail !== "null" &&
-          props.post?.thumbnail !== undefined
-            ? {
-                uid: "-1",
-                name: props.post?.thumbnail,
-                status: "done",
-                url: `${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/postThumbnail/${props.post.thumbnail}`,
-              }
-            : {
-                uid: "-1",
-                name: "default.png",
-                status: "done",
-                url: `${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/default/postThumbnail.png`,
-              },
-        ];
 
+        console.log("props.post", props.post);
+
+        //fetch post thumbnail
+        const resFetchPostThumbnail = await fetch(
+          props.post?.thumbnail
+            ? `${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/postThumbnail/${props.post?.thumbnail}`
+            : `${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/default/postThumbnail.png`
+        );
+
+        console.log("resFetchPostThumbnail", resFetchPostThumbnail);
+
+        //create a new file from the blob
+        const blob = await resFetchPostThumbnail.blob();
+        const file = new File([blob], resFetchPostThumbnail.filename, {
+          type: resFetchPostThumbnail.headers.get("Content-Type"),
+        });
+        const fileList = {
+          uid: "-1",
+          name: props.post?.thumbnail ?? "default.png",
+          status: "done",
+          originFileObj: file,
+        };
+
+        console.log("fileList", fileList);
+
+        //parse blocks for upload to database
         let parsedBlocks = props.post.blocks;
         if (typeof parsedBlocks === "string") {
           try {
@@ -91,8 +103,6 @@ function PostEditorJS(props) {
           }
         }
 
-        console.log("parsedBlocks", parsedBlocks);
-
         const initForm = {
           time: "null",
           title: props.post?.title,
@@ -101,7 +111,8 @@ function PostEditorJS(props) {
           authorName: authorName,
           lastModifiedBy: user._id,
           editor: user.name,
-          postThumbnail: arrPostThumbnail[0],
+          thumbnail: fileList.name,
+          postThumbnail: fileList.originFileObj,
         };
 
         setInitForm(initForm);
@@ -116,6 +127,9 @@ function PostEditorJS(props) {
         editor: user.name,
       };
       setInitForm(initForm);
+      setData({
+        blocks: INITIAL_DATA.blocks,
+      });
     }
   }, [props.post]);
 
@@ -130,8 +144,18 @@ function PostEditorJS(props) {
         });
       }
 
+      setUploadedThumbnailURL([
+        {
+          url:
+            initForm.thumbnail && initForm.thumbnail !== "default.png"
+              ? `${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/postThumbnail/${initForm.thumbnail}`
+              : `${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/default/postThumbnail.png`,
+        },
+      ]);
+
+      console.log("initForm", initForm);
+
       form.setFieldsValue(initForm);
-      console.log("form.getFieldsValue()", form.getFieldsValue());
     }
     return () => {
       form.resetFields();
@@ -162,26 +186,10 @@ function PostEditorJS(props) {
     if (props.post && props.post._id) {
       const formData = new FormData();
 
-      const response = await fetch(
-        values.postThumbnail && values.postThumbnail.url
-          ? `${values.postThumbnail.url}`
-          : `${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/default/postThumbnail.png`
-      );
+      console.log("you are updating an existing post");
 
-      const blob = await response.blob();
-      const file = new File(
-        [blob],
-        values.postThumbnail?.name ?? "default.png",
-        {
-          type: response.headers.get("Content-Type"),
-        }
-      );
-      const fileList = {
-        uid: "-1",
-        name: values.postThumbnail?.name ?? "default.png",
-        status: "done",
-        originFileObj: file,
-      };
+      //check the values
+      console.log("values", values);
 
       formData.append("title", values.title);
       formData.append("blocks", JSON.stringify(outPutData.blocks));
@@ -189,8 +197,8 @@ function PostEditorJS(props) {
       formData.append("authorName", values.authorName);
       formData.append("lastModifiedBy", values.lastModifiedBy);
       formData.append("editor", values.editor);
-      formData.append("thumbnail", fileList.originFileObj.name);
-      formData.append("postThumbnail", fileList.originFileObj);
+      formData.append("thumbnail", values.thumbnail);
+      formData.append("postThumbnail", values.postThumbnail);
       formData.append("id", props.post._id);
 
       console.log("callUpdatePost, >>values");
@@ -198,17 +206,26 @@ function PostEditorJS(props) {
         console.log(pair[0] + ":", pair[1]);
       }
 
-      // const res = await callUpdatePost(formData);
-      // if (res && res.data) {
-      //   message.success("Post updated successfully");
-      //   props.setIsSubmitting(false);
-      // } else {
-      //   message.error("Failed to update post");
-      // }
+      const res = await callUpdatePost(formData);
+      if (res && res.data) {
+        message.success("Post updated successfully");
+        props.setIsSubmitting(false);
+
+        form.resetFields();
+        setInitForm({
+          title: "",
+          blocks: INITIAL_DATA.blocks,
+          authorID: user._id,
+          authorName: user.name,
+          lastModifiedBy: user._id,
+          editor: user.name,
+        });
+        props.setPost({});
+      } else {
+        message.error("Failed to update post");
+      }
     } else {
       const formData = new FormData();
-
-      console.log("outPutData", outPutData);
 
       formData.append("title", values.title);
       formData.append("blocks", JSON.stringify(outPutData.blocks));
@@ -219,13 +236,12 @@ function PostEditorJS(props) {
       formData.append("thumbnail", values.thumbnail);
       formData.append("postThumbnail", values.postThumbnail);
 
-      for (let pair of formData.entries()) {
-        console.log("createPost >>> formData", pair[0] + ":", pair[1]);
-      }
+      // for (let pair of formData.entries()) {
+      //   console.log("createPost >>> formData", pair[0] + ":", pair[1]);
+      // }
 
       const res = await callCreatePost(formData);
       if (res && res.data) {
-        console.log("res", res);
         props.setIsSubmitting(false);
         message.success("Post created successfully");
 
@@ -233,6 +249,7 @@ function PostEditorJS(props) {
         form.resetFields();
 
         setInitForm({
+          title: "",
           blocks: INITIAL_DATA.blocks,
           authorID: user._id,
           authorName: user.name,
@@ -240,7 +257,6 @@ function PostEditorJS(props) {
           editor: user.name,
         });
       } else {
-        console.log(res);
         message.error("Failed to create post");
       }
     }
@@ -253,14 +269,9 @@ function PostEditorJS(props) {
 
     formData.append("temp", file);
 
-    for (let pair of formData.entries()) {
-      console.log("createPost >>> formData", pair[0] + ":", pair[1]);
-    }
-
     const res = await callUploadImage(formData);
     if (res && res.data) {
       const file = res.data;
-      console.log("file", file);
 
       const response = await fetch(
         `${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/temp/${file.filename}`
@@ -276,20 +287,19 @@ function PostEditorJS(props) {
         originFileObj: newFile,
       };
 
-      console.log("fileList", fileList);
-
       // setTempImageFile(fileList.originFileObj);
       form.setFieldsValue({
         postThumbnail: fileList.originFileObj,
         thumbnail: fileList.name,
       });
 
-      //check form values
-      const formValues = form.getFieldsValue();
-      console.log("formValues", formValues);
-
       onSuccess("ok");
       setIsLoading(false);
+      setUploadedThumbnailURL([
+        {
+          url: `${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/temp/${file.filename}`,
+        },
+      ]);
     } else {
       onError("đã xảy ra lỗi");
       setIsLoading(false);
@@ -331,162 +341,168 @@ function PostEditorJS(props) {
 
   return (
     <>
-      <Splitter
-        style={{ height: "auto", boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)" }}
-      >
-        <Splitter.Panel defaultSize="60%" min="60%" max="80%">
-          <div
-            style={{
-              paddingLeft: "60px",
-              paddingRight: "60px",
-              //fitparent,
-              height: "100%",
-              width: "100%",
-            }}
-          >
-            <div>
+      {hasRunOnce && (
+        <Splitter
+          style={{ height: "auto", boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)" }}
+        >
+          <Splitter.Panel defaultSize="60%" min="60%" max="80%">
+            <div
+              style={{
+                paddingLeft: "60px",
+                paddingRight: "60px",
+                //fitparent,
+                height: "100%",
+                width: "100%",
+              }}
+            >
+              <div>
+                <Typography.Title
+                  level={3}
+                  style={{
+                    textAlign: "center",
+                    margin: 0,
+                    padding: "24px 0 12px 0",
+                  }}
+                >
+                  {props.post && props.post._id
+                    ? "Chỉnh sửa bài viết"
+                    : "Tạo bài viết mới"}
+                </Typography.Title>
+
+                <EditorJS
+                  data={data}
+                  setData={setData}
+                  setOutPutData={setOutPutData}
+                  setPreviewOpen={setPreviewOpen}
+                  setPreviewTitle={setPreviewTitle}
+                />
+              </div>
+            </div>
+          </Splitter.Panel>
+          <Splitter.Panel>
+            <Col span={20} offset={2} style={{ marginBottom: "24px" }}>
               <Typography.Title
                 level={3}
                 style={{
                   textAlign: "center",
-                  margin: 0,
-                  padding: "24px 0 12px 0",
                 }}
               >
-                {props.post && props.post._id
-                  ? "Chỉnh sửa bài viết"
-                  : "Tạo bài viết mới"}
+                Thông tin bài viết
               </Typography.Title>
-              <EditorJS
-                data={data}
-                setData={setData}
-                editorBlock="editorjs"
-                setOutPutData={setOutPutData}
-                isSubmitting={props.isSubmitting}
-              />
-            </div>
-          </div>
-        </Splitter.Panel>
-        <Splitter.Panel>
-          <Col span={20} offset={2} style={{ marginBottom: "24px" }}>
-            <Typography.Title
-              level={3}
-              style={{
-                textAlign: "center",
-              }}
-            >
-              Thông tin bài viết
-            </Typography.Title>
-            <Form form={form} onFinish={onFinish}>
-              <Row gutter={24}>
-                <Col span={24}>
-                  <Form.Item
-                    labelCol={{ span: 24 }}
-                    label="Tiêu đề"
-                    name="title"
-                    rules={[
-                      { required: true, message: "Vui lòng nhập tiêu đề" },
-                    ]}
-                  >
-                    <Input placeholder="Nhập tiêu đề bài viết" />
-                  </Form.Item>
-                </Col>
-                <Col span={24}>
-                  <Form.Item
-                    labelCol={{ span: 24 }}
-                    label="Upload Thumbnail"
-                    name="postThumbnail"
-                  >
-                    <Upload
-                      name="thumbnail"
-                      listType="picture-card"
-                      className="thumbnail-uploader"
-                      maxCount={1}
-                      multiple={false}
-                      customRequest={handleUploadFileThumbnail}
-                      beforeUpload={beforeUpload}
-                      onChange={() => {}}
-                      onRemove={() => {}}
-                      onPreview={() => {}}
+              <Form form={form} onFinish={onFinish}>
+                <Row gutter={24}>
+                  <Col span={24}>
+                    <Form.Item
+                      labelCol={{ span: 24 }}
+                      label="Tiêu đề"
+                      name="title"
+                      rules={[
+                        { required: true, message: "Vui lòng nhập tiêu đề" },
+                      ]}
                     >
-                      <div>{uploadButton}</div>
-                    </Upload>
-                    <Modal
-                      open={previewOpen}
-                      title={previewTitle}
-                      footer={null}
-                      onCancel={() => {
-                        setPreviewOpen(false);
-                      }}
+                      <Input placeholder="Nhập tiêu đề bài viết" />
+                    </Form.Item>
+                  </Col>
+                  <Col span={24}>
+                    <Form.Item
+                      labelCol={{ span: 24 }}
+                      label="Upload Thumbnail"
+                      name="postThumbnail"
                     >
-                      <img alt="example" style={{ width: "100%" }} src={""} />
-                    </Modal>
-                  </Form.Item>
-                </Col>
-                <Col span={12}>
-                  <Form.Item label="authorID" name="authorID">
-                    <Input disabled />
-                  </Form.Item>
-                  <Form.Item label="lastModifiedBy" name="lastModifiedBy">
-                    <Input disabled />
-                  </Form.Item>
-                  <Form.Item
-                    labelCol={{ span: 24 }}
-                    label="Tác giả"
-                    name="authorName"
+                      <Upload
+                        name="thumbnail"
+                        listType="picture-card"
+                        className="thumbnail-uploader"
+                        maxCount={1}
+                        multiple={false}
+                        customRequest={handleUploadFileThumbnail}
+                        beforeUpload={beforeUpload}
+                        onChange={() => {}}
+                        onRemove={(file) => {
+                          setUploadedThumbnailURL([]);
+                          //remove file from form
+                          form.setFieldsValue({
+                            postThumbnail: null,
+                            thumbnail: null,
+                          });
+                        }}
+                        onPreview={() => {}}
+                        fileList={uploadedThumbnailURL}
+                      >
+                        <div>{uploadButton}</div>
+                      </Upload>
+                      <Modal
+                        open={previewOpen}
+                        title={previewTitle}
+                        footer={null}
+                        onCancel={() => {
+                          setPreviewOpen(false);
+                        }}
+                      >
+                        <img alt="example" style={{ width: "100%" }} src={""} />
+                      </Modal>
+                    </Form.Item>
+                  </Col>
+                  <Col span={12}>
+                    <Form.Item label="authorID" name="authorID">
+                      <Input disabled />
+                    </Form.Item>
+                    <Form.Item label="lastModifiedBy" name="lastModifiedBy">
+                      <Input disabled />
+                    </Form.Item>
+                    <Form.Item
+                      labelCol={{ span: 24 }}
+                      label="Tác giả"
+                      name="authorName"
+                    >
+                      <Input disabled />
+                    </Form.Item>
+                  </Col>
+                  <Col span={12}>
+                    <Form.Item
+                      labelCol={{ span: 24 }}
+                      label="Đang được chỉnh sửa bởi"
+                      name="editor"
+                    >
+                      <Input disabled />
+                    </Form.Item>
+                  </Col>
+                  <Col
+                    span={24}
+                    style={{
+                      display: "flex",
+                      justifyContent: "flex-end",
+                    }}
                   >
-                    <Input disabled />
-                  </Form.Item>
-                </Col>
-                <Col span={12}>
-                  <Form.Item
-                    labelCol={{ span: 24 }}
-                    label="Đang được chỉnh sửa bởi"
-                    name="editor"
-                  >
-                    <Input disabled />
-                  </Form.Item>
-                </Col>
-                <Col
-                  span={24}
-                  style={{
-                    display: "flex",
-                    justifyContent: "flex-end",
-                  }}
-                >
-                  <Button
-                    type="primary"
-                    htmlType="submit"
-                    // loading={isSubmit}
-                  >
-                    Đăng bài
-                  </Button>
-                </Col>
-              </Row>
-              <Form.Item
-                name="blocks"
-                style={{
-                  display: "none",
-                }}
-                initialValue={data.blocks}
-                rules={[{ required: true, message: "Vui lòng nhập nội dung" }]}
-              >
-                <Input.TextArea
+                    <Button
+                      type="primary"
+                      htmlType="submit"
+                      // loading={isSubmit}
+                    >
+                      Đăng bài
+                    </Button>
+                  </Col>
+                </Row>
+                <Form.Item
+                  name="blocks"
                   style={{
                     display: "none",
                   }}
-                />
-              </Form.Item>
-              <Form.Item
-                name="thumbnail"
-                style={{
-                  display: "none",
-                }}
-              ></Form.Item>
-            </Form>
-          </Col>
-        </Splitter.Panel>
-      </Splitter>
+                  rules={[
+                    { required: true, message: "Vui lòng nhập nội dung" },
+                  ]}
+                ></Form.Item>
+                <Form.Item
+                  name="thumbnail"
+                  style={{
+                    display: "none",
+                  }}
+                ></Form.Item>
+              </Form>
+            </Col>
+          </Splitter.Panel>
+        </Splitter>
+      )}
     </>
   ); // cspell:ignore editorjs
 }
