@@ -7,6 +7,7 @@ import anh4 from "../../../../asset/News_Thumbnail/Bai1/4.jpg";
 import anh5 from "../../../../asset/News_Thumbnail/Bai1/5.jpg";
 import anh6 from "../../../../asset/News_Thumbnail/Bai1/6.jpg";
 import anh7 from "../../../../asset/News_Thumbnail/Category/Quá trình cứu hộ/cun_ghe_bi_bo_roi.jpg";
+import "./style.scss";
 
 function NewsDetailContent(props) {
   const isEnglish = props.isEnglish;
