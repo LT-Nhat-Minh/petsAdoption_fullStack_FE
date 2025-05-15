@@ -62,7 +62,7 @@ import {
   doLoginAction,
 } from "./redux/account/accountSlice";
 import { store } from "./redux/store";
-import { callFetchAccount } from "./services/api";
+import { callFetchAccount, callFetchPost } from "./services/api";
 import ProtectedRoute from "./components/ProtectedRoute";
 import HashLoader from "react-spinners/HashLoader";
 
@@ -463,7 +463,7 @@ function App() {
       dispatch(doGetAccountAction(res.data));
     }
   };
-
+  
   useEffect(() => {
     getAccount();
     // REACT_APP_BACKEND_URL = https://petsadoption-fullstack-be.onrender.com/v1/api
@@ -476,6 +476,26 @@ function App() {
       process.env.REACT_APP_BACKEND_PUBLIC_URL
     );
   }, []);
+
+  const [postData, setPostData] = useState([]);
+    useEffect(() => {
+      fetchAllPosts();
+      console.log(postData);
+    }, []);
+
+  const fetchAllPosts = async () => {
+      try {
+        const res = await callFetchPost();
+        if (res && res.data) {
+          setPostData(res.data);
+          
+        }
+      } catch (error) {
+        console.error("Error fetching post data:", error);
+        setPostData([]);
+        
+      }
+    };
 
   const Layout = () => {
     const [activated, setActivated] = useState("");
@@ -530,16 +550,16 @@ function App() {
         {
           path: "/news", // Route cha
           element: (
-            <News category={category} setCategory={setCategory} news={news} />
+            <News category={category} setCategory={setCategory} news={postData} />
           ),
           children: [
             {
-              path: ":title",
+              path: ":id",
               element: (
                 <NewsDetail
                   category={category}
                   setCategory={setCategory}
-                  news={news}
+                  news={postData}
                 />
               ),
             },
