@@ -11,50 +11,116 @@ import {
   Switch,
   Upload,
 } from "antd";
-import { callCreatePet, callUpdatePet } from "../../../../services/api";
-import { useEffect } from "react";
+import {
+  callCreatePet,
+  callUpdatePet,
+  callUploadImage,
+} from "../../../../services/api";
+import { useEffect, useState } from "react";
 const { Option } = Select;
 const { TextArea } = Input;
 
 function UpdatePetModal(props) {
   const [form] = Form.useForm();
-  const { updatingPetData, isUpdateModalVisible, setIsUpdateModalVisible } =
-    props;
+  const {
+    updatingPetData,
+    setUpdatingPetData,
+    isUpdateModalVisible,
+    setIsUpdateModalVisible,
+  } = props;
+  const [imageFile, setImageFile] = useState([]);
 
   useEffect(() => {
     const fetchImageAndSetForm = async () => {
       if (updatingPetData) {
-        let fileList = [];
-
         // Fetch the image from the backend if it exists
         if (updatingPetData.image) {
           const response = await fetch(
-            `${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/${updatingPetData.image}`
+            `${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/petAvatar/${updatingPetData.image}`
           );
           const blob = await response.blob();
           const file = new File([blob], updatingPetData.image, {
             type: response.headers.get("Content-Type"),
           });
-          fileList = [
-            {
-              uid: "-1",
-              name: updatingPetData.image,
-              status: "done",
-              originFileObj: file,
-            },
-          ];
-        }
+          const fileList = {
+            uid: "-1",
+            name: updatingPetData.image,
+            status: "done",
+            originFileObj: file,
+          };
 
-        // Set the form values with the fetched image
-        form.setFieldsValue({
-          ...updatingPetData,
-          petAvatar: fileList,
-        });
+          // Set the form values with the fetched image
+          form.setFieldsValue({
+            ...updatingPetData,
+            petAvatar: fileList.originFileObj,
+          });
+
+          // Set the image file for the "Upload" component to show the image
+          setImageFile([
+            {
+              url: `${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/petAvatar/${updatingPetData.image}`,
+            },
+          ]);
+        }
+      } else {
+        setImageFile(null);
+        form.resetFields();
       }
     };
 
     fetchImageAndSetForm();
   }, [updatingPetData]);
+
+  const handleUploadFile = async (options) => {
+    const { file, onSuccess, onError } = options;
+
+    const formData = new FormData();
+    formData.append("temp", file);
+
+    const res = await callUploadImage(formData);
+
+    if (res && res.data) {
+      const file = res.data;
+
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/temp/${file.filename}`
+      );
+      const blob = await response.blob();
+      const newFile = new File([blob], file.filename, {
+        type: response.headers.get("Content-Type"),
+      });
+      const fileList = {
+        uid: "-1",
+        name: file.filename,
+        status: "done",
+        originFileObj: newFile,
+      };
+
+      form.setFieldsValue({
+        petAvatar: fileList.originFileObj,
+      });
+
+      console.log("values", form.getFieldsValue());
+
+      //set ImageFile for "Upload" component to show the image
+      setImageFile([
+        {
+          url: `${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/temp/${res.data.filename}`,
+        },
+      ]);
+    } else {
+      notification.error({
+        message: "Failed to upload image",
+        description: res.error,
+      });
+    }
+  };
+
+  const handleRemoveFile = (file) => {
+    setImageFile(null);
+    form.setFieldsValue({ petAvatar: null, image: null });
+    return true;
+  };
 
   const handleUpdatePet = async () => {
     let values = form.getFieldsValue();
@@ -63,16 +129,47 @@ function UpdatePetModal(props) {
     const formData = new FormData();
 
     // Thêm các trường dữ liệu vào formData
-    Object.keys(values).forEach((key) => {
-      formData.append(key, values[key]);
-    });
+    formData.append("name", values.name);
+    formData.append("breed", values.breed || "");
+    formData.append("color", values.color || "");
+    formData.append("age", values.age || "");
+    formData.append("weight", values.weight || "");
+    formData.append("gender", values.gender || "");
+    formData.append("neutered", values.neutered || false);
+    formData.append("vaccinated", values.vaccinated || false);
+    formData.append("rabies_vaccine", values.rabies_vaccine || false);
+    formData.append("friendly_with_human", values.friendly_with_human || false);
+    formData.append("friendly_with_dog", values.friendly_with_dog || false);
+    formData.append("friendly_with_cat", values.friendly_with_cat || false);
+    formData.append("special_diet", values.special_diet || false);
+    formData.append("toilet_trained", values.toilet_trained || false);
+    formData.append("des", values.des || "");
+    formData.append("petType", values.petType || "");
 
     // Chú ý: id không nằm trong values
     formData.append("id", updatingPetData._id);
 
     // Xử lý trường ảnh
-    if (values.image && values.image[0]?.originFileObj) {
-      formData.append("petAvatar", values.image[0].originFileObj);
+    // Nếu không có ảnh nào được chọn, sử dụng ảnh mặc định
+    if (!values.petAvatar) {
+      console.log("values.petAvatar", values.petAvatar);
+      const res = await fetch(
+        `${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/default/petAvatar.png`
+      );
+      const blob = await res.blob();
+      const file = new File([blob], "default.png", {
+        type: res.headers.get("Content-Type"),
+      });
+      const fileList = {
+        uid: "-1",
+        name: file.name,
+        status: "done",
+        originFileObj: file,
+      };
+
+      formData.append("petAvatar", fileList.originFileObj);
+    } else {
+      formData.append("petAvatar", values.petAvatar);
     }
 
     const res = await callUpdatePet(formData);
@@ -86,6 +183,7 @@ function UpdatePetModal(props) {
         description: res.error,
       });
     }
+    setUpdatingPetData({});
   };
   return (
     <Modal
@@ -149,26 +247,18 @@ function UpdatePetModal(props) {
         </Form.Item>
 
         {/* Trường ảnh */}
-        <Form.Item
-          name="image"
-          label="Ảnh"
-          valuePropName="fileList"
-          getValueFromEvent={(e) => {
-            if (Array.isArray(e)) {
-              return e;
-            }
-            return e?.fileList;
-          }}
-        >
+        <Form.Item name="image" label="Ảnh">
           <Upload
             listType="picture"
-            beforeUpload={() => false}
             maxCount={1}
-            accept="image/*"
+            customRequest={handleUploadFile}
+            onRemove={handleRemoveFile}
+            fileList={imageFile}
           >
             <Button icon={<UploadOutlined />}>Tải ảnh lên</Button>
           </Upload>
         </Form.Item>
+        <Form.Item name="petAvatar" label="Ảnh thú cưng" hidden={true} />
 
         {/* Các trường boolean */}
         <Form.Item

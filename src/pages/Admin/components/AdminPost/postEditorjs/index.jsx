@@ -171,15 +171,25 @@ function PostEditorJS(props) {
       message.error("Vui lòng không để trống nội dung bài viết");
     }
 
-    // check if the thumbnail is empty and tempImageFile is not empty
+    // check if the thumbnail is empty
     if (!values.postThumbnail && !values.postThumbnail?.name) {
-      values.postThumbnail = {
+      const filePath = `${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/default/postThumbnail.png`;
+
+      const res = await fetch(filePath);
+      const blob = await res.blob();
+      const file = new File([blob], "default.png", {
+        type: res.headers.get("Content-Type"),
+      });
+      const fileList = {
         uid: "-1",
         name: "default.png",
         status: "done",
-        url: `${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/default/postThumbnail.png`,
+        originFileObj: file,
       };
-      values.thumbnail = values.postThumbnail.name;
+      form.setFieldsValue({
+        postThumbnail: fileList.originFileObj,
+        thumbnail: fileList.name,
+      });
     }
 
     // Check if the you are editing an existing post
@@ -266,7 +276,6 @@ function PostEditorJS(props) {
     setIsLoading(true);
 
     const formData = new FormData();
-
     formData.append("temp", file);
 
     const res = await callUploadImage(formData);
@@ -293,18 +302,15 @@ function PostEditorJS(props) {
         thumbnail: fileList.name,
       });
 
-      onSuccess("ok");
-      setIsLoading(false);
       setUploadedThumbnailURL([
         {
           url: `${process.env.REACT_APP_BACKEND_PUBLIC_URL}/images/temp/${file.filename}`,
         },
       ]);
     } else {
-      onError("đã xảy ra lỗi");
-      setIsLoading(false);
       message.error("Upload file thất bại");
     }
+    setIsLoading(false);
   };
 
   const beforeUpload = (file) => {

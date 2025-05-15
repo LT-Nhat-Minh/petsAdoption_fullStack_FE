@@ -36,6 +36,7 @@ function AdminPet() {
     setIsLoading(true);
     try {
       const res = await callFetchPets();
+      console.log("res", res);
       if (res && res.data) {
         setPetsData(res.data);
       }
@@ -168,6 +169,7 @@ function AdminPet() {
             type="primary"
             icon={<EditOutlined />}
             onClick={() => {
+              console.log("record", record);
               setUpdatingPetData(record);
               setIsUpdateModalVisible(true);
             }}
@@ -250,6 +252,7 @@ function AdminPet() {
       />
       <UpdatePetModal
         updatingPetData={updatingPetData}
+        setUpdatingPetData={setUpdatingPetData}
         isUpdateModalVisible={isUpdateModalVisible}
         setIsUpdateModalVisible={setIsUpdateModalVisible}
       />
