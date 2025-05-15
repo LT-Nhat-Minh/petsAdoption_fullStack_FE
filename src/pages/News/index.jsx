@@ -13,25 +13,49 @@ function News(props) {
   const location = useLocation();
   const [current, setCurrent] = useState(1);
   const [paginatedList, setPaginatedList] = useState([]);
-  let [filteredList, setFilteredList] = useState(props.news.slice());
+  const [filteredList, setFilteredList] = useState([]);
   const pageSize = 4;
 
   useEffect(() => {
-    let startIndex = (current - 1) * pageSize;
-    let endIndex = startIndex + pageSize;
-    let filtered = props.news.filter((item) => {
-      return props.category === "all" || item.category.includes(props.category);
-    });
-    setFilteredList(filtered);
-    setPaginatedList(filtered.slice(startIndex, endIndex));
-  }, [current]);
+    // Initialize filteredList with props.news when component mounts or props.news changes
+    setFilteredList(props.news || []);
+  }, [props.news]);
 
-  const handleNavigate = (title) => {
-    navigate(`/news/${title}`);
+  useEffect(() => {
+    // Apply filtering and pagination
+    let filtered = props.news.filter((item) => {
+      return props.category === "all" || 
+             (item.category && item.category.includes(props.category));
+    });
+    
+    setFilteredList(filtered);
+    
+    const startIndex = (current - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    setPaginatedList(filtered.slice(startIndex, endIndex));
+  }, [current, props.news, props.category]);
+
+  const handleNavigate = (id) => {
+    navigate(`/news/${id}`);
   };
 
   function truncateText(text, maxLength) {
+    if (!text) return "";
     return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
+  }
+
+  function formatDate(dateString) {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    return `${day}/${month}/${date.getFullYear()}`;
+  }
+
+  function getFirstParagraphText(blocks) {
+    if (!blocks) return "";
+    const paragraph = blocks.find(block => block.type === "paragraph");
+    return paragraph ? paragraph.data.text : "";
   }
 
   return (
@@ -55,19 +79,27 @@ function News(props) {
           <div className="container">
             <div className="content">
               <Row gutter={24}>
-                {paginatedList.map((item, index) => {
-                  const [day, month, year] = item.date.split("/");
+                {paginatedList.map((item) => {
+                  const formattedDate = formatDate(item.createdAt);
+                  const [day, month, year] = formattedDate.split("/");
+                  const description = getFirstParagraphText(item.blocks);
+                  
                   return (
-                    <Col span={12} key={index}>
+                    <Col span={12} key={item._id}>
                       <div
                         className="card"
                         onClick={() => {
-                          handleNavigate(item.title);
+                          handleNavigate(item._id);
                         }}
                       >
-                        <div className="thumbnail">
-                          <img src={item.url} alt="" />
-                        </div>
+                        {item.thumbnail && (
+                          <div className="thumbnail">
+                            <img 
+                              src={`${process.env.REACT_APP_BACKEND_URL}/images/${item.thumbnail}`} 
+                              alt={item.title} 
+                            />
+                          </div>
+                        )}
                         <div className="info">
                           <div className="date">
                             <div className="month">
@@ -76,21 +108,17 @@ function News(props) {
                             <div className="day">{day}</div>
                           </div>
                           <p className="title">
-                            {isEnglish
-                              ? truncateText(item.title_english, 40)
-                              : truncateText(item.title, 40)}
+                            {truncateText(item.title, 40)}
                           </p>
                           <p className="des">
-                            {isEnglish
-                              ? truncateText(item.des_english, 150)
-                              : truncateText(item.des, 150)}
+                            {truncateText(description, 150)}
                           </p>
                           <div className="author">
                             <span>
                               {isEnglish ? "Posted by " : "Đăng bởi "}
                             </span>
                             <span>
-                              <UserOutlined /> {item.author}
+                              <UserOutlined /> Admin
                             </span>
                           </div>
                           <div className="button">
@@ -109,8 +137,8 @@ function News(props) {
                 current={current}
                 pageSize={pageSize}
                 responsive={true}
-                onChange={(Page) => {
-                  setCurrent(Page);
+                onChange={(page) => {
+                  setCurrent(page);
                 }}
               />
             </div>

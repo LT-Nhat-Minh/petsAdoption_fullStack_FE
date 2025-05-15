@@ -8,7 +8,7 @@ import sticker from "../../asset/Icon/pets.png";
 import { useSelector } from "react-redux";
 
 function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
+  const { onClick } = props;
   return (
     <div className="next" onClick={onClick}>
       <KeyboardArrowRight fontSize="large" />
@@ -17,7 +17,7 @@ function SampleNextArrow(props) {
 }
 
 function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
+  const { onClick } = props;
   return (
     <div className="prev" onClick={onClick}>
       <KeyboardArrowLeft fontSize="large" />
@@ -41,21 +41,35 @@ function AnotherNews(props) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const shuffled = shuffleArray(props.news.slice(), 6);
-    setRandomList(shuffled);
-  }, []);
+    if (props.news && props.news.length > 0) {
+      const shuffled = shuffleArray(props.news.slice(), 6);
+      setRandomList(shuffled);
+    }
+  }, [props.news]);
 
   function shuffleArray(array, size) {
-    for (let i = array.length - 1; i >= 0; i--) {
-      const randomIndex = Math.floor(Math.random() * (array.length - 1));
-      [array[i], array[randomIndex]] = [array[randomIndex], array[i]];
+    const newArray = [...array];
+    for (let i = newArray.length - 1; i >= 0; i--) {
+      const randomIndex = Math.floor(Math.random() * (newArray.length - 1));
+      [newArray[i], newArray[randomIndex]] = [newArray[randomIndex], newArray[i]];
     }
-    return array.slice(0, size);
+    return newArray.slice(0, size);
   }
 
-  function truncateText(item, size) {
-    return item.length > size ? item.slice(0, size) + "..." : item;
+  function truncateText(text, size) {
+    if (!text) return "";
+    return text.length > size ? text.slice(0, size) + "..." : text;
   }
+
+  function formatDate(dateString) {
+    if (!dateString) return ["", "", ""];
+    const date = new Date(dateString);
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear();
+    return [day, month, year];
+  }
+
   return (
     <div className="another_news">
       <div className="title">
@@ -65,53 +79,65 @@ function AnotherNews(props) {
         </span>
       </div>
       <div className="container">
-        <Slider {...settings}>
-          {randomList.map((item, index) => {
-            const [day, month, year] = item.date.split("/");
-            return (
-              <div
-                className="card"
-                onClick={() => {
-                  navigate(`/news/${item.title}`);
-                }}
-              >
-                <div className="thumbnail">
-                  <img src={item.url} alt="" />
-                </div>
-                <div className="info">
-                  <div className="date">
-                    <div className="month">
-                      {isEnglish ? `M ${month}` : `T ${month}`}
+        {randomList.length > 0 ? (
+          <Slider {...settings}>
+            {randomList.map((item) => {
+              const [day, month, year] = formatDate(item.createdAt || item.date);
+              return (
+                <div
+                  className="card"
+                  key={item._id}
+                  onClick={() => {
+                    navigate(`/news/${item._id}`);
+                  }}
+                >
+                  {item.thumbnail && (
+                    <div className="thumbnail">
+                      <img 
+                        src={`${process.env.REACT_APP_BACKEND_URL}/images/${item.thumbnail}`} 
+                        alt={item.title} 
+                      />
                     </div>
-                    <div className="day">{day}</div>
-                  </div>
-                  <p className="title">
-                    {isEnglish
-                      ? truncateText(item.title_english, 40)
-                      : truncateText(item.title, 40)}
-                  </p>
-                  <p className="des">
-                    {isEnglish
-                      ? truncateText(item.des_english, 150)
-                      : truncateText(item.des, 150)}
-                  </p>
-                  <div className="author">
-                    <span>{isEnglish ? "Posted by " : "Đăng bởi "}</span>
-                    <span>
-                      <UserOutlined /> {item.author}
-                    </span>
-                  </div>
-                  <div className="button">
-                    <button>{isEnglish ? "READ MORE" : "CHI TIẾT"}</button>
+                  )}
+                  <div className="info">
+                    <div className="date">
+                      <div className="month">
+                        {isEnglish ? `M ${month}` : `T ${month}`}
+                      </div>
+                      <div className="day">{day}</div>
+                    </div>
+                    <p className="title">
+                      {truncateText(item.title, 40)}
+                    </p>
+                    <p className="des">
+                      {truncateText(item.description || getFirstParagraphText(item.blocks), 150)}
+                    </p>
+                    <div className="author">
+                      <span>{isEnglish ? "Posted by " : "Đăng bởi "}</span>
+                      <span>
+                        <UserOutlined /> {item.author || "Admin"}
+                      </span>
+                    </div>
+                    <div className="button">
+                      <button>{isEnglish ? "READ MORE" : "CHI TIẾT"}</button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
-        </Slider>
+              );
+            })}
+          </Slider>
+        ) : (
+          <p>{isEnglish ? "No related news" : "Không có tin liên quan"}</p>
+        )}
       </div>
     </div>
   );
+}
+
+function getFirstParagraphText(blocks) {
+  if (!blocks) return "";
+  const paragraph = blocks.find(block => block.type === "paragraph");
+  return paragraph ? paragraph.data.text : "";
 }
 
 export default AnotherNews;
